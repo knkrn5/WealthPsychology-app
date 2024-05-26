@@ -169,10 +169,11 @@ footer p {
 footer p {
     order: 1; /* Ensure the text is in the middle on larger screens */
     flex: 1 100%; /* Allow the paragraph to take the full width on small screens */
-    margin-top: 1em; /* Add some margin at the top on smaller screens */
     margin-bottom: 0; /* Remove bottom margin */
     font-size: 1.1em; /* Increase font size slightly */
     color: #ccc; /* Lighter color for the text */
+    margin-top: 10px;
+
 }
 
 @media (max-width: 768px) {
@@ -184,9 +185,5 @@ footer p {
     .social-links,
     .trading-broker {
         margin: 10px 0; /* Add margin for better spacing on small screens */
-    }
-
-    footer p {
-        margin-top: 10px;
     }
 }
