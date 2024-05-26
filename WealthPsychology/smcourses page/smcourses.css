@@ -1,0 +1,282 @@
+
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1em;
+    position: relative; /* Fixed position to keep it at the top */
+    top: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    z-index: 998; /* Ensures it stays on top of other content */
+}
+
+nav {
+    background-color: #555;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999; 
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li {
+    float: left;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.active {
+    font-weight: bold;
+    color: black;
+    background-color: #ddd;
+}
+
+/* Cart icon and container styles */
+#cart-icon {
+    cursor: pointer;
+    font-size: 1.5em;
+    position: fixed; 
+    top: 0px; 
+    right: 10px; 
+    z-index: 1000; 
+    transition: transform 0.3s, background-color 0.3s; 
+    padding: 5px; 
+    border-radius: 50%; 
+}
+
+#cart-icon:hover {
+    transform: scale(1.2); /* Zoom in effect */
+    background-color: #555; 
+}
+
+.close-cart:hover {
+    color: #ff0000; 
+}
+/* Cart container styles */
+.cart-container {
+    display: none;
+    position: fixed; 
+    top: 0;
+    right: 0;
+    width: 300px;
+    background-color: #f9f9f9;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.cart-container h2 {
+    margin-bottom: 10px;
+}
+
+.close-cart {
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5em;
+    transition: color 0.3s; /* Transition for color */
+}
+
+h1{
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    padding-top: 60px; 
+    margin: 0;
+    padding: 0;
+}
+
+
+#smcourses {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px; 
+    margin-top: 0px;
+}
+
+.smcourse-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    background-size: cover; /*added to size the img*/
+    background-position: center; /*added to center the img*/
+}
+
+.smcourse-card:hover {
+    transform: scale(1.05);
+}
+
+.smcourse-card img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.smcourse-card h3 {
+    font-size: 1.2em;
+    margin: 50px auto; /* Center horizontally */
+    text-align: center; /* Center text */
+    width: 80%;
+    text-decoration: underline; /* Remove underline */
+    margin-bottom: 10px;
+    color: white;
+    background-color: black;
+    padding: 10px;
+}
+
+.smcourse-card h3:hover {
+    background-color: #555;
+    text-decoration: none; /* Remove underline */
+}
+
+.smcourse-card p {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.smcourse-card span.price {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.smcourse-card .buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Add some space between the buttons */
+    margin-top: 10px;
+}
+
+/* .button-container {
+    position: relative;
+    display: inline-block;
+    width: 100%; 
+} */
+
+.smcourse-card button {
+    cursor: pointer;
+    border: none;
+    background-color: #555;
+    color: white;
+    padding: 10px;
+    width: 100%; 
+    position: relative; /* Needed for the hover text to position correctly */
+}
+
+/* Styles for the hover text */
+.hover-text {
+    position: absolute;
+    background-color: #555;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    top: -30px; /* Adjust this value to position the text above the button */
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap; 
+}
+
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 1em 2em; /* Add more padding for better spacing */
+    width: 100%;
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    align-items: center; 
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    box-sizing: border-box; /* Ensure padding is included in width calculations */
+}
+
+footer p {
+    margin: 0;
+    text-align: center; /* Center the text */
+    font-weight: bold;
+    flex-grow: 1; /* Allow the paragraph to take available space */
+}
+
+.social-links, .trading-broker {
+    display: flex; /* Use Flexbox for the links */
+    align-items: center; /* Center items vertically */
+}
+
+.social-links {
+    margin-right: auto; /* Push social links to the left */
+    gap: 15px; /* Space between icons */
+}
+
+.trading-broker {
+    margin-left: auto; /* Push trading broker links to the right */
+    gap: 15px; /* Space between icons */
+}
+
+.social-links a img,
+.trading-broker a img {
+    width: 24px; 
+    height: 24px; /* Maintain aspect ratio */
+    transition: transform 0.3s, opacity 0.3s; /* Smooth transition for hover effect */
+}
+
+.social-links a img:hover,
+.trading-broker a img:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+    opacity: 0.8; /* Slightly reduce opacity on hover */
+}
+
+footer p {
+    order: 1; /* Ensure the text is in the middle on larger screens */
+    flex: 1 100%; /* Allow the paragraph to take the full width on small screens */
+    margin-top: 1em; /* Add some margin at the top on smaller screens */
+    margin-bottom: 0; /* Remove bottom margin */
+    font-size: 1.1em; /* Increase font size slightly */
+    color: #ccc; /* Lighter color for the text */
+}
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: center; /* Center items on small screens */
+    }
+
+    .social-links,
+    .trading-broker {
+        margin: 10px 0; /* Add margin for better spacing on small screens */
+    }
+
+    footer p {
+        margin-top: 10px;
+    }
+}

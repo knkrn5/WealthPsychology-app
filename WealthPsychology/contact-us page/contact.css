@@ -1,0 +1,204 @@
+/* Header styles */
+header {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 0;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 998; 
+}
+
+/* Navigation Menu Styles */
+nav {
+    background-color: #555;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 999; /* Ensures it stays on top of other content */
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav li {
+    float: left;
+}
+
+nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: rgb(11, 10, 10);
+}
+
+.active {
+    font-weight: bold;
+    color: black;
+    background-color: #ddd;
+}
+
+h1 {
+    top: 0;
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    margin-top: 50px;
+    font-weight: bold;
+}
+
+/* Body styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+#contact-section {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+#contact-info {
+    width: 80%; /* adjust the width to your liking */
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#contact-form {
+    width: 80%; /* adjust the width to your liking */
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    margin-bottom: 16px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+button {
+    background-color: #555;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    width: 50%;
+    margin: 0 auto;
+    display: block;
+}
+
+button:hover {
+    background-color: #110101;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 1em 2em; /* Add more padding for better spacing */
+    width: 100%;
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    align-items: center; 
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    box-sizing: border-box; /* Ensure padding is included in width calculations */
+}
+
+footer p {
+    margin: 0;
+    text-align: center; /* Center the text */
+    font-weight: bold;
+    flex-grow: 1; /* Allow the paragraph to take available space */
+}
+
+.social-links, .trading-broker {
+    display: flex; /* Use Flexbox for the links */
+    align-items: center; /* Center items vertically */
+}
+
+.social-links {
+    margin-right: auto; /* Push social links to the left */
+    gap: 15px; /* Space between icons */
+}
+
+.trading-broker {
+    margin-left: auto; /* Push trading broker links to the right */
+    gap: 15px; /* Space between icons */
+}
+
+.social-links a img,
+.trading-broker a img {
+    width: 24px; 
+    height: 24px; /* Maintain aspect ratio */
+    transition: transform 0.3s; 
+    opacity: 0.3s; /* Smooth transition for hover effect */
+}
+
+.social-links a img:hover,
+.trading-broker a img:hover {
+    transform: scale(1.2); /* Slightly enlarge on hover */
+    opacity: 0.8; /* Slightly reduce opacity on hover */
+}
+
+footer p {
+    order: 1; /* Ensure the text is in the middle on larger screens */
+    flex: 1 100%; /* Allow the paragraph to take the full width on small screens */
+    margin-top: 1em; /* Add some margin at the top on smaller screens */
+    margin-bottom: 0; /* Remove bottom margin */
+    font-size: 1.1em; /* Increase font size slightly */
+    color: #ccc; /* Lighter color for the text */
+}
+
+@media (max-width: 768px) {
+    footer {
+        flex-direction: column; /* Stack items vertically on small screens */
+        align-items: center; /* Center items on small screens */
+    }
+
+    .social-links,
+    .trading-broker {
+        margin: 10px 0; /* Add margin for better spacing on small screens */
+    }
+
+    footer p {
+        margin-top: 10px;
+    }
+}
