@@ -58,6 +58,7 @@ h1 {
     color: #fff;
     font-weight: bold;
     margin-top: 60px;
+    text-align: center;
 }
 
 /* Body styles */
@@ -70,8 +71,19 @@ body {
     color: #333;
 }
 
+#about-us {
+    display: flex;
+    flex: wrap;
+    align-items: center;
+   /* height: 100vh; /* Adjust based on your needs */
+}
+
 .journey-container {
-    max-width: 800px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px; /* Adjust based on your needs */
+    width: 90%; /* Adjust based on your needs */
     margin: 50px auto;
     padding: 20px;
     background: #fff;
@@ -79,13 +91,32 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    text-align: center;
+.text-section:first-child {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
 }
 
-p {
-    margin: 20px 0;
+.image1 {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
 }
+
+.image2 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+}
+
+.text-section:last-child {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+
 
 em {
     font-style: italic;
