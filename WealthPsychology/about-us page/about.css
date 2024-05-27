@@ -83,7 +83,7 @@ body {
     grid-template-columns: auto auto;
     grid-template-rows: auto 2fr;
     gap: 20px; 
-    width: 90%; 
+    width: 95%; 
     margin: 50px auto;
     padding: 20px;
     border-radius: 8px;
