@@ -77,7 +77,9 @@ h1 {
 
 .blog-post {
     width: 95%;
-    margin: auto;
+    margin-top: 0;
+  /*  margin: auto; */
+    padding-top: 0;
     padding: 20px;
     background-color: #fff;
    /* border-radius: 8px; */
@@ -89,14 +91,10 @@ h1 {
     margin-bottom: 20px;
 }
 
-.blog-post h1, h2, h3 {
-    color: #333;
-    margin-bottom: 10px;
-}
 .blog-post h1 {
     color: white;
     font-size: 2.4em;
-    margin-bottom: 20px;
+    margin-top: 0;
 }
 .blog-post h2 {
     font-size: 1.8em;
