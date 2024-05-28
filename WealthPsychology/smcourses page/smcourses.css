@@ -227,12 +227,50 @@ footer {
     box-sizing: border-box; /* Ensure padding is included in width calculations */
 }
 
+.footer-left,
+.footer-right {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+}
+
+.footer-left p, .footer-right p {
+    font-weight: bold;
+    margin: 0 0 10px 0; /* Margin to separate from the links */
+    font-size: 1.1em;
+}
+
+.footer-center {
+    flex: 1 100%; /* Ensure it takes full width on smaller screens */
+    text-align: center;
+    order: 1; /* Ensure it stays in the middle on larger screens */
+}
+
+.social-links, .trading-broker {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links {
+    margin-right: auto; /* Push social links to the left */
+}
+
+.trading-broker {
+    margin-left: auto; /* Push trading broker links to the right */
+}
+
 footer p {
     margin: 0;
-    text-align: center; /* Center the text */
+    text-align: center; 
     font-weight: bold;
-    flex-grow: 1; /* Allow the paragraph to take available space */
-}
+   flex-grow: 1; /* Allow the paragraph to take available space */
+   order: 1; /* Ensure the text is in the middle on larger screens */
+   flex: 1 100%; /* Allow the paragraph to take the full width on small screens */
+    margin-top: 10px; /* Add some margin at the top on smaller screens */
+    margin-bottom: 0; 
+    font-size: 1.1em; 
+    color: #fff; 
+} 
 
 .social-links, .trading-broker {
     display: flex; /* Use Flexbox for the links */
@@ -241,12 +279,12 @@ footer p {
 
 .social-links {
     margin-right: auto; /* Push social links to the left */
-    gap: 15px; /* Space between icons */
+    gap: 15px; 
 }
 
 .trading-broker {
     margin-left: auto; /* Push trading broker links to the right */
-    gap: 15px; /* Space between icons */
+    gap: 15px; 
 }
 
 .social-links a img,
@@ -260,15 +298,6 @@ footer p {
 .trading-broker a img:hover {
     transform: scale(1.2); /* Slightly enlarge on hover */
     opacity: 0.8; /* Slightly reduce opacity on hover */
-}
-
-footer p {
-    order: 1; /* Ensure the text is in the middle on larger screens */
-    flex: 1 100%; /* Allow the paragraph to take the full width on small screens */
-    margin-top: 10px; /* Add some margin at the top on smaller screens */
-    margin-bottom: 0; /* Remove bottom margin */
-    font-size: 1.1em; /* Increase font size slightly */
-    color: #ccc; /* Lighter color for the text */
 }
 
 @media (max-width: 768px) {
