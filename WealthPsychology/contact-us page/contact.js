@@ -21,3 +21,13 @@ document.addEventListener('DOMContentLoaded', function () {
         alert('Form submitted successfully!');
     });
 });
+
+const validation = document.getElementById('contact-form');
+validation.addEventListener('submit', function(event) {
+    const name = document.getElementById('name').value;
+    if (name === 'karan') {
+        alert("Enter the correct name");
+        event.preventDefault(); // Prevent form submission
+    }
+});
+
