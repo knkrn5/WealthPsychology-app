@@ -156,6 +156,7 @@ body {
     color: white;
     background-color: black;
     padding: 10px;
+    position: relative; /* Ensure the hover text is positioned relative to the heading */
 }
 
 /*.smcourse-card h3:hover {
@@ -201,16 +202,21 @@ body {
 /* Styles for the hover text */
 .hover-text {
     position: absolute;
-    background-color: #555;
-    color: white;
-    padding: 5px;
-    border-radius: 5px;
-    top: -30px; /* Adjust this value to position the text above the button */
-    left: 50%;
-    transform: translateX(-50%);
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    padding: 7px;
+    width: 100%;
+    font-size: 15px;
+    border: 1px solid black;
+    border-radius: 1px;
+    bottom: 120%; /* Adjust this value to position the text above the button */
+    right: -55%;
+    transform: translateX(-50%); 
     white-space: nowrap; 
-}
+    z-index: 1000; /* Ensure it appears above other elements */
 
+}
 
 /* Footer styles */
 footer {

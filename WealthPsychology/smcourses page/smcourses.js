@@ -46,17 +46,24 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function buyNowclick(event) {
-        alert("opps!!! payment option is under development until then click the image/title to know what all concepts you wil get to learn in this course!")
+        alert("Oops!!! payment option is under development until then click the image/title to know what all concepts you wil get to learn in this course!")
     }
 
-       // Function to handle mouse enter event for headings
+       // Function to handle mouse enter event for headings    
     function handleHeadingMouseEnter(event) {
-        event.target.style.backgroundColor = "#444"; // Change text color on hover
-        event.target.style.textDecoration = 'underline'; // Add underline
+        let hoverTextHeading = document.createElement('span');
+        hoverTextHeading.innerText = 'Click to know more about this course';
+        hoverTextHeading.className = 'hover-text'; // Assigning class name to be used for CSS styling
+        event.target.appendChild(hoverTextHeading);
+        event.target.style.backgroundColor = "#444"; 
+        event.target.style.textDecoration = 'underline'; 
+        event.target.hoverTextHeading = hoverTextHeading; // Save reference to the created span
     }
 
-    // Function to handle mouse leave event for headings
     function handleHeadingMouseLeave(event) {
+        if (event.target.hoverTextHeading) {
+            event.target.hoverTextHeading.remove(); // Remove the hover text
+        }
         event.target.style.backgroundColor = ''; // Reset to original color
         event.target.style.textDecoration = 'none'; // Remove underline
     }
@@ -76,13 +83,13 @@ document.addEventListener("DOMContentLoaded", function() {
         buyNowButton.addEventListener('click', buyNowclick);
     });
 
-    headings.forEach(heading => {
+     // Add event listeners for all headings
+     headings.forEach(heading => {
         heading.addEventListener('mouseenter', handleHeadingMouseEnter);
         heading.addEventListener('mouseleave', handleHeadingMouseLeave);
     });
+
 });
-
-
 
 
 
