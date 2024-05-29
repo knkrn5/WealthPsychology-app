@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
             event.target.hoverTextHeading.remove(); // Remove the hover text
         }
         event.target.style.backgroundColor = ''; // Reset to original color
-        event.target.style.textDecoration = 'none'; // Remove underline
+        event.target.style.textDecoration = 'none'; 
     }
 
     // Add event listeners for all Add to Cart buttons
