@@ -51,14 +51,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
        // Function to handle mouse enter event for headings
     function handleHeadingMouseEnter(event) {
-        event.target.style.color = 'blue'; // Change text color on hover
+        event.target.style.backgroundColor = "#333"; // Change text color on hover
         event.target.style.textDecoration = 'underline'; // Add underline
     }
 
     // Function to handle mouse leave event for headings
     function handleHeadingMouseLeave(event) {
-        event.target.style.color = ''; // Reset to original color
-        event.target.style.textDecoration = ''; // Remove underline
+        event.target.style.backgroundColor = ''; // Reset to original color
+        event.target.style.textDecoration = 'none'; // Remove underline
     }
 
     // Add event listeners for all Add to Cart buttons
