@@ -15,52 +15,53 @@ function closeCart() {
 
 //javascript to handle button hovering....
 document.addEventListener("DOMContentLoaded", function() {
-    let addToCartButton = document.getElementById('add-to-cart');
-    let buyNowButton = document.getElementById('buy-now');
+    let addToCartButtons = document.querySelectorAll('.add-to-cart');
+    let buyNowButtons = document.querySelectorAll('.buy-now');
 
-    // Create hover text element for Add to Cart button
-    let hoverTextAddToCart = document.createElement('span');
-    hoverTextAddToCart.innerText = 'Add this item to cart';
-    hoverTextAddToCart.className = 'hover-text'; // Assigning class name to be used for CSS styling
-    addToCartButton.appendChild(hoverTextAddToCart);
-    hoverTextAddToCart.style.opacity = 0; // Initially hide the hover text
+    // Function to handle mouse enter event
+    function handleMouseEnter(event) {
+        event.target.style.backgroundColor = 'black'; // Change to desired hover color
+        event.target.style.color = 'white'; // Change text color if needed
+        event.target.style.textDecoration = "underline";
+    }
 
-    // Add mouse enter event listener to Add to Cart button
-    addToCartButton.addEventListener('mouseenter', function () {
-        // Display hover text
-        hoverTextAddToCart.style.opacity = 1;
-        this.style.backgroundColor = "black";
+    // Function to handle mouse leave event
+    function handleMouseLeave(event) {
+        event.target.style.backgroundColor = ''; // Reset to original background color
+        event.target.style.color = ''; // Reset text color if changed
+        event.target.style.textDecoration = '';
+    }
+
+    // Function to handle click event
+    function addToCartClick(event) {
+        let button = event.target;
+        if (button.innerText === "Add to Cart") {
+            button.innerText = "Item added to Cart";
+            button.style.color = "white";
+        } else {
+            button.innerText = "Add to Cart";
+            button.style.color = ""; // Reset to original color
+        }
+    }
+
+    function buyNowclick(event) {
+        alert("opps!!! payment option is under development until then click the image/title to know what all concepts you wil get to learn in this course!")
+    }
+
+    // Add event listeners for all Add to Cart buttons
+    addToCartButtons.forEach(button => {
+        button.addEventListener('mouseenter', handleMouseEnter);
+        button.addEventListener('mouseleave', handleMouseLeave);
+        button.addEventListener('click', addToCartClick);
     });
 
-    // Add mouse leave event listener to Add to Cart button
-    addToCartButton.addEventListener('mouseleave', function() {
-        // Hide hover text
-        hoverTextAddToCart.style.opacity = 0;
-        this.style.backgroundColor = "#555";
-    });
-
-    // Create hover text element for Buy Now button
-    let hoverTextBuyNow = document.createElement('span');
-    hoverTextBuyNow.innerText = 'Click to buy now';
-    hoverTextBuyNow.className = 'hover-text'; // Assigning class name to be used for CSS styling
-    buyNowButton.appendChild(hoverTextBuyNow);
-    hoverTextBuyNow.style.display = 'none'; // Initially hide the hover text
-
-    // Add mouse enter event listener to Buy Now button
-    buyNowButton.addEventListener('mouseenter', function () {
-        // Display hover text
-        hoverTextBuyNow.style.display = 'block';
-        this.style.backgroundColor = "black";
-    });
-
-    // Add mouse leave event listener to Buy Now button
-    buyNowButton.addEventListener('mouseleave', function() {
-        // Hide hover text
-        hoverTextBuyNow.style.display = 'none';
-        this.style.backgroundColor = "#555";
+    // Add event listeners for all Buy Now buttons
+    buyNowButtons.forEach(button => {
+        button.addEventListener('mouseenter', handleMouseEnter);
+        button.addEventListener('mouseleave', handleMouseLeave);
+        button.addEventListener('click', buyNowclick);
     });
 });
-
 
 
 
@@ -86,16 +87,6 @@ addToCartButtonClicked.innerText = "Item added to Cart";
         hoverTextAddToCart.style.opacity = 1;
         this.style.backgroundColor = "black";
     });
-
-    // Add mouse leave event listener to Add to Cart button
-    addToCartButtonClicked.addEventListener('mouseleave', function() {
-        // Hide hover text
-        hoverTextAddToCart.style.opacity = 0;
-        this.style.backgroundColor = "#555";
-    });
-   }
-
-}
 }); */
 
 
@@ -134,7 +125,7 @@ atc.addEventListener('click', function() {
 
 
 
-document.getElementById('buy-now').addEventListener('click', function() {
+document.getElementsByClassName('buy-now').addEventListener('click', function() {
     alert('opps!!! payment option is under development until then click the image/title to know what all concepts you wil get to learn in this course!');
     // You can redirect the user to the checkout page or perform other actions here
     //window.open('https://1drv.ms/w/s!At5WivVSSLb9i3N_1RMb_KbxXeRS?e=foUacx', '_blank'); // Change this to the actual checkout page, it open the provided URL on new tab
