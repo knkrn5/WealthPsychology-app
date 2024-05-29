@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
        // Function to handle mouse enter event for headings
     function handleHeadingMouseEnter(event) {
-        event.target.style.backgroundColor = "#333"; // Change text color on hover
+        event.target.style.backgroundColor = "#444"; // Change text color on hover
         event.target.style.textDecoration = 'underline'; // Add underline
     }
 
