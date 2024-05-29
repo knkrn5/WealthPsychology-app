@@ -17,6 +17,7 @@ function closeCart() {
 document.addEventListener("DOMContentLoaded", function() {
     let addToCartButtons = document.querySelectorAll('.add-to-cart');
     let buyNowButtons = document.querySelectorAll('.buy-now');
+    let headings = document.querySelectorAll('.smcourse-card h3');
 
     // Function to handle mouse enter event
     function handleMouseEnter(event) {
@@ -48,18 +49,36 @@ document.addEventListener("DOMContentLoaded", function() {
         alert("opps!!! payment option is under development until then click the image/title to know what all concepts you wil get to learn in this course!")
     }
 
+       // Function to handle mouse enter event for headings
+    function handleHeadingMouseEnter(event) {
+        event.target.style.color = 'blue'; // Change text color on hover
+        event.target.style.textDecoration = 'underline'; // Add underline
+    }
+
+    // Function to handle mouse leave event for headings
+    function handleHeadingMouseLeave(event) {
+        event.target.style.color = ''; // Reset to original color
+        event.target.style.textDecoration = ''; // Remove underline
+    }
+
     // Add event listeners for all Add to Cart buttons
-    addToCartButtons.forEach(button => {
-        button.addEventListener('mouseenter', handleMouseEnter);
-        button.addEventListener('mouseleave', handleMouseLeave);
-        button.addEventListener('click', addToCartClick);
+    addToCartButtons.forEach(addToCartButton => {
+        addToCartButton.addEventListener('mouseenter', handleMouseEnter);
+        addToCartButton.addEventListener('mouseleave', handleMouseLeave);
+        addToCartButton.addEventListener('click', addToCartClick);
+
     });
 
     // Add event listeners for all Buy Now buttons
-    buyNowButtons.forEach(button => {
-        button.addEventListener('mouseenter', handleMouseEnter);
-        button.addEventListener('mouseleave', handleMouseLeave);
-        button.addEventListener('click', buyNowclick);
+    buyNowButtons.forEach(buyNowButton => {
+        buyNowButton.addEventListener('mouseenter', handleMouseEnter);
+        buyNowButton.addEventListener('mouseleave', handleMouseLeave);
+        buyNowButton.addEventListener('click', buyNowclick);
+    });
+
+    headings.forEach(heading => {
+        heading.addEventListener('mouseenter', handleHeadingMouseEnter);
+        heading.addEventListener('mouseleave', handleHeadingMouseLeave);
     });
 });
 

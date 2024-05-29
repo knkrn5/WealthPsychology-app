@@ -159,10 +159,10 @@ body {
     padding: 10px;
 }
 
-.smcourse-card h3:hover {
+/*.smcourse-card h3:hover {
     background-color: #555;
-    text-decoration: none; /* Remove underline */
-}
+    text-decoration: none;
+}*/
 
 .smcourse-card p {
     color: #555;
