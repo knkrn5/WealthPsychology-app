@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
        // Function to handle mouse enter event for headings    
     function handleHeadingMouseEnter(event) {
         let hoverTextHeading = document.createElement('span');
-        hoverTextHeading.innerText = 'Click to know more about this course';
+        hoverTextHeading.innerText = 'Learn more about this course';
         hoverTextHeading.className = 'hover-text'; // Assigning class name to be used for CSS styling
         event.target.appendChild(hoverTextHeading);
         event.target.style.backgroundColor = "#444"; 
