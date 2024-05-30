@@ -101,6 +101,7 @@ body {
 .image2 img {
     width: 300px; /* Set image width */
     height: auto; /* Maintain aspect ratio */
+    border-radius: 50%;
 } 
 
 .image2 {
