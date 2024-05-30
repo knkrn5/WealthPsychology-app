@@ -7,7 +7,7 @@ header {
     position: relative;
     top: 0;
     left: 0;
-    width: 100%; 
+    width: auto; 
     z-index: 998; 
 }
 
@@ -51,20 +51,39 @@ nav a:hover {
     background-color: #ddd;
 }
 
-h1 {
+/* h1 {
     font-size: 2rem;
     padding: 0px;
     background-color: #333;
     color: #fff;
     font-weight: bold;
-    margin-top: 60px;
+    margin-top: 0px;
     text-align: center;
+} */
+
+.title1 {
+    max-width: 940px;
+    margin-left: auto; /* Push the element to the right */
+    font-size: 2rem;
+    padding: 0px;
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    padding-left: 10px;
+    text-align: center;
+    margin-top: 0;
 }
 
-@media (max-width: 768px) {
-    h1 {
-        margin-top: 110px;
-    }
+
+.title2 {
+    font-size: 2rem;
+    padding: 0px;
+    background-color: #333;
+    color: #fff;
+    font-weight: bold;
+    padding-left: 10px;
+    text-align: left;
+    max-width: 850px;
 }
 
 /* Body styles */
@@ -78,14 +97,21 @@ body {
 }
 
 .journey-container {
-   /* max-width: 800px;*/
     max-width: 90%; 
     margin: 0 auto;
     margin: 50px auto;
+    margin-top: 5%;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+@media (max-width: 768px) {
+    .journey-container {
+        margin-top: 30%;
+    }
+}
+
 
 .image1 {
     float: left;
@@ -93,13 +119,19 @@ body {
     margin-bottom: 10px;  
 }
 
+@media (max-width: 768px) {
+    .image1 {
+        float: none; /* Override float property to remove it */
+    }
+}
+
 .image1 img {
-    width: 300px; /* Set image width */
+    width: 350px; /* Set image width */
     height: auto; /* Maintain aspect ratio */
 } 
 
 .image2 img {
-    width: 300px; /* Set image width */
+    width: 350px; /* Set image width */
     height: auto; /* Maintain aspect ratio */
     border-radius: 50%;
 } 
@@ -108,6 +140,12 @@ body {
     float: right;
     margin-left: 20px;
     margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .image2 {
+        float: none;
+    }
 }
 
 .text-content {
