@@ -1,4 +1,5 @@
 # Custom Dictionary Words
-karan 
+karan
 smcourse
 smcourses
+myname
