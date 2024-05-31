@@ -1,35 +1,35 @@
 {
-    "workbench.colorCustomizations": {
-        "activityBar.activeBackground": "#00b300",
-        "activityBar.background": "#00b300",
-        "activityBar.foreground": "#e7e7e7",
-        "activityBar.inactiveForeground": "#e7e7e799",
-        "activityBarBadge.background": "#dfdfff",
-        "activityBarBadge.foreground": "#15202b",
-        "commandCenter.border": "#e7e7e799",
-        "sash.hoverBorder": "#00b300",
-        "statusBar.background": "#008000",
-        "statusBar.foreground": "#e7e7e7",
-        "statusBarItem.hoverBackground": "#00b300",
-        "statusBarItem.remoteBackground": "#008000",
-        "statusBarItem.remoteForeground": "#e7e7e7",
-        "titleBar.activeBackground": "#008000",
-        "titleBar.activeForeground": "#e7e7e7",
-        "titleBar.inactiveBackground": "#00800099",
-        "titleBar.inactiveForeground": "#e7e7e799"
-    },
-    "peacock.color": "green",
-    "liveServer.settings.port": 5501,
-    "cSpell.words": [
-        "karan",
-        "Nowclick"
-    ],
-    "cSpell.customDictionaries": {
-        "custom-dictionary-workspace": {
-            "name": "custom-dictionary-workspace",
-            "path": "${workspaceFolder:Wealth Psychology}/.cspell/custom-dictionary-workspace.txt",
-            "addWords": true,
-            "scope": "workspace"
-        }
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#00b300",
+    "activityBar.background": "#00b300",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#dfdfff",
+    "activityBarBadge.foreground": "#15202b",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#00b300",
+    "statusBar.background": "#008000",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#00b300",
+    "statusBarItem.remoteBackground": "#008000",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#008000",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#00800099",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "green",
+  "liveServer.settings.port": 5501,
+  "cSpell.words": ["karan", "Nowclick"],
+  "cSpell.customDictionaries": {
+    "custom-dictionary-workspace": {
+      "name": "custom-dictionary-workspace",
+      "path": "${workspaceFolder:Wealth Psychology}/.cspell/custom-dictionary-workspace.txt",
+      "addWords": true,
+      "scope": "workspace"
     }
+  },
+  "editor.defaultFormatter": null,
+  "editor.formatOnSave": false,
+  "editor.formatOnPaste": false
 }
