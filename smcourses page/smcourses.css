@@ -183,13 +183,6 @@ body {
     margin-bottom: 10px;
 }
 
-.smcourse-card span.price {
-    display: block;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-}
-
 .smcourse-card .buttons {
     display: flex;
     justify-content: center;
