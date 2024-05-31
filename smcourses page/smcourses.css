@@ -183,6 +183,28 @@ body {
     margin-bottom: 10px;
 }
 
+
+.price-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.discounted-price {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: darkblue;
+    margin-right: 10px;
+}
+
+.original-price {
+    font-size: 1em;
+    color: darkred;
+    text-decoration: line-through;
+}
+
+
 .smcourse-card .buttons {
     display: flex;
     justify-content: center;
