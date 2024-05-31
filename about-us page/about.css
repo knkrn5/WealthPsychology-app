@@ -62,7 +62,7 @@ nav a:hover {
 } */
 
 .title1 {
-    max-width: 960px;
+    max-width: 940px;
     margin-left: auto; /* Push the element to the right */
     font-size: 2rem;
     padding: 0px;
@@ -125,7 +125,7 @@ body {
 }
 
 .image1 img {
-    width: 320px; /* Set image width */
+    width: 350px; /* Set image width */
     height: auto; /* Maintain aspect ratio */
 } 
 
