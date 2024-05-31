@@ -211,24 +211,41 @@ footer p {
 .social-links a img,
 .trading-broker a img {
     width: 24px; 
-    height: 24px; /* Maintain aspect ratio */
-    transition: transform 0.3s, opacity 0.3s; /* Smooth transition for hover effect */
+    height: 24px; 
+    transition: transform 0.3s, opacity 0.3s; 
 }
 
 .social-links a img:hover,
 .trading-broker a img:hover {
-    transform: scale(1.2); /* Slightly enlarge on hover */
-    opacity: 0.8; /* Slightly reduce opacity on hover */
+    transform: scale(1.2); 
+    opacity: 0.8; 
 }
 
-@media (max-width: 768px) {
+@media (min-width: 769px) {
     footer {
-        flex-direction: column; /* Stack items vertically on small screens */
-        align-items: center; /* Center items on small screens */
+        flex-direction: column; /* Align items in a row for larger screens */
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* .footer-left, .footer-right {
+        width: auto;
+        align-items: flex-start;
+    } */
+
+    .footer-center {
+        margin: 10px 0;
+    }
+}
+
+/* @media (max-width: 768px) {
+    footer {
+        flex-direction: column; 
+        align-items: center; 
     }
 
     .social-links,
     .trading-broker {
-        margin: 10px 0; /* Add margin for better spacing on small screens */
+        margin: 10px 0; 
     }
-}
+} */
