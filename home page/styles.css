@@ -1,59 +1,4 @@
-/* Header styles */
-header {
-  background-image: url("../global/imgs/bl21.png");
-  background-size: cover; /* Cover the entire header area*/
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Prevent image from repeating */
-  padding: 5% 15%; /* Adjusted padding */
-  position: relative;
-  z-index: 998;
-  margin-top: 50px;
-  min-height: 700px; /* Ensure the header has sufficient height */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
-header h1 {
-  font-size: 3rem;
-  color: black;
-  text-align: center;
-  position: absolute;
-  top: 80%;
-  /*left: 50%;
-   /* transform: translate(-50%, -50%); /* Center the element */
-  margin: 0; /* Reset margin to avoid affecting layout */
-}
-
-header .slogan {
-  font-size: 1.5em;
-  color: black;
-  text-align: center;
-  position: absolute;
-  top: 90%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the element */
-  margin: 0;
-}
-
-@media (max-width: 768px) {
-  header {
-    margin-top: 120px;
-    padding: 10%; /* Adjust padding for smaller screens */
-    min-height: 200px; /* Adjust minimum height for smaller screens */
-  }
-
-  header h1 {
-    text-align: center;
-    /* margin-top: 30px;  */
-    font-size: 1em;
-  }
-  header .slogan {
-    font-size: 10px;
-  }
-}
 
 /* Navigation styles */
 nav {
@@ -83,6 +28,11 @@ nav a {
   padding: 14px 16px;
   text-decoration: none;
   margin-right: 10px;
+}
+
+.brand-logo {
+  height: 40px;
+  width: auto;
 }
 
 nav a:hover {
@@ -142,6 +92,21 @@ nav a:hover {
   font-size: 1.5em;
   transition: color 0.3s; /* Transition for color */
 }
+
+/* home images styling */
+.home-image1 {
+  width: 100%;
+  height: auto;
+  margin-top: 70px;
+}
+
+@media (max-width: 768px){
+  .home-image1{
+    margin-top: 120px;
+           
+  }
+}
+
 
 /* body styling */
 body {
