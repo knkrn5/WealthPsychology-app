@@ -1,7 +1,6 @@
 /* Header styles */
 header {
     background-color: #333;
-    color: white;
     text-align: center;
     padding: 0;
     position: relative;
@@ -9,6 +8,22 @@ header {
     left: 0;
     width: 100%;
     z-index: 998; 
+}
+
+header h1 {
+    top: 0;
+    font-size: 2rem;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+    margin-top: 45px;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        margin-top: 85px;
+    }
 }
 
 /* Navigation styles */
@@ -61,22 +76,6 @@ nav {
     padding: 0px;
   }
 
-
-h1 {
-    top: 0;
-    font-size: 2rem;
-    padding: 1rem;
-    background-color: #333;
-    color: #fff;
-    margin-top: 45px;
-    font-weight: bold;
-}
-
-@media (max-width: 768px) {
-    h1 {
-        margin-top: 80px;
-    }
-}
 
 /* Body styles */
 body {
