@@ -110,13 +110,13 @@ nav {
     transition: color 0.3s; /* Transition for color */
 }
 
-h1{
+header h1{
     font-weight: bold;
     margin-top: 50px;
 }
 
 @media (max-width: 768px) {
-    h1 {
+    header h1 {
         margin-top: 85px;
     }
 }
