@@ -54,6 +54,7 @@ nav {
     padding: 12px 14px;
     text-decoration: none;
     margin-right: 5px;
+    font-weight: bold;
   }
   
   nav ul li a:hover {
