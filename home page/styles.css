@@ -17,20 +17,20 @@ nav ul {
   overflow: hidden;
 }
 
-nav li {
+nav ul li {
   float: left;
 }
 
-nav a {
+nav ul li a {
   display: block;
-  color: white;
+  color: #fff;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   margin-right: 10px;
 }
 
-.brand-logo {
+nav ul li a .brand-logo {
   height: 40px;
   width: auto;
 }
