@@ -36,7 +36,7 @@ nav {
     display: block;
     color: #fff;
     text-align: center;
-    padding: 14px 16px;
+    padding: 12px 14px;
     text-decoration: none;
     margin-right: 5px;
   }
@@ -44,6 +44,7 @@ nav {
   nav ul li a .brand-logo {
     height: 40px;
     width: auto;
+    /* padding: 0 !important; */
   }
   
   nav ul li a:hover {
@@ -56,6 +57,11 @@ nav {
     color: black;
     background-color: #ddd;
   }
+
+  nav ul li .home-nav {
+    padding: 0px;
+  }
+
 
 /* Cart icon and container styles */
 #cart-icon {
@@ -115,11 +121,14 @@ h1{
     }
 }
 
+/* body styling */
 body {
     font-family: 'Arial', sans-serif;
-    padding-top: 60px; 
+    /* padding-top: 60px;  */
     margin: 0;
     padding: 0;
+    background-color: #f9f9f9;
+    color: #444;
 }
 
 

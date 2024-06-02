@@ -44,6 +44,7 @@ nav ul li .active {
   font-weight: bold;
   color: black;
   background-color: #ddd;
+  padding: 0px 7px 1px 1px;
 }
 
 /* Cart icon and container styles */
@@ -93,6 +94,16 @@ nav ul li .active {
   transition: color 0.3s; /* Transition for color */
 }
 
+
+/* body styling */
+body {
+  font-family: Arial, sans-serif;
+  margin-top: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+    color: #444;
+}
+
 /* home images styling */
 .home-image1 {
   width: 100%;
@@ -105,16 +116,6 @@ nav ul li .active {
     margin-top: 120px;
            
   }
-}
-
-
-/* body styling */
-body {
-  font-family: Arial, sans-serif;
-  margin-top: 0;
-  padding: 0;
-  background-color: #f4f4f9;
-  color: #333;
 }
 
 .home-page {

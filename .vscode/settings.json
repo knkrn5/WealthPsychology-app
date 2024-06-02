@@ -19,7 +19,7 @@
     "titleBar.inactiveForeground": "#e7e7e799"
   },
   "peacock.color": "green",
-  "liveServer.settings.port": 5501,
+  "liveServer.settings.port": 5502,
   "cSpell.words": ["karan", "Nowclick"],
   "cSpell.customDictionaries": {
     "custom-dictionary-workspace": {
