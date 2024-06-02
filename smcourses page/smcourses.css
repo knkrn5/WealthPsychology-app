@@ -40,12 +40,6 @@ nav {
     text-decoration: none;
     margin-right: 5px;
   }
-
-  nav ul li a .brand-logo {
-    height: 40px;
-    width: auto;
-    /* padding: 0 !important; */
-  }
   
   nav ul li a:hover {
     background-color: #ddd;
@@ -56,6 +50,11 @@ nav {
     font-weight: bold;
     color: black;
     background-color: #ddd;
+  }
+
+  nav ul li a .brand-logo {
+    height: 42px;
+    width: 80px;
   }
 
   nav ul li .home-nav {
