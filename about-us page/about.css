@@ -232,6 +232,8 @@ footer p {
 .footer-mid a {
     color: white;
     font-weight: normal;
+    margin: 0 10px; 
+    font-size: 15px;
   }
   
   .footer-mid a:hover {
