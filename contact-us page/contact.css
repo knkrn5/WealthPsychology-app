@@ -205,6 +205,15 @@ footer p {
     color: #fff; 
 } 
 
+.footer-mid a {
+    color: white;
+    font-weight: normal;
+  }
+  
+  .footer-mid a:hover {
+    color: blue;
+  }
+
 .social-links, .trading-broker {
     display: flex; /* Use Flexbox for the links */
     align-items: center; /* Center items vertically */
