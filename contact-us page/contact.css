@@ -16,7 +16,7 @@ header h1 {
     padding: 1rem;
     background-color: #333;
     color: #fff;
-    margin-top: 45px;
+    margin-top: 40px;
     font-weight: bold;
 }
 
@@ -55,6 +55,7 @@ nav {
     text-decoration: none;
     margin-right: 5px;
     font-weight: bold;
+    height: 20px;
   }
   
   nav ul li a:hover {

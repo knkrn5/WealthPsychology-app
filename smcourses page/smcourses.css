@@ -40,6 +40,7 @@ nav {
     text-decoration: none;
     margin-right: 5px;
     font-weight: bold;
+    height: 20px;
   }
   
   nav ul li a:hover {
