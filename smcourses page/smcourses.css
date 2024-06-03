@@ -304,6 +304,13 @@ footer p {
     margin: 0 10px; 
     font-size: 15px;
   }
+
+  @media (max-width: 768px) { /* only applies to media with screen size max or less than 768px */
+    .footer-mid a {
+        margin: 0 0;
+        font-size: 12px;
+    }
+}
   
   .footer-mid a:hover {
     color: blue;
