@@ -149,116 +149,101 @@ button:hover {
 /* Footer styles */
 footer {
     background-color: #333;
-    color: white;
-    padding: 1em 2em; /* Add more padding for better spacing */
-    width: 100%;
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: space-between; 
-    align-items: center; 
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    padding: 20px; /* Adjust padding as needed */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Ensure items wrap on smaller screens */
     box-sizing: border-box; /* Ensure padding is included in width calculations */
-}
-
-.footer-left,
-.footer-right {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: flex-start;
-}
-
-.footer-left p, .footer-right p {
-    font-weight: bold;
-    margin: 0 0 10px 0; /* Margin to separate from the links */
+    position: relative;
+    min-width: 100%;
+    /* min-height: 200px;  */
+  }
+  
+  .footer-left {
+    text-align: left; /* Ensure text is aligned left */
+    color: #ddd;
     font-size: 1.1em;
-}
-
-.footer-center {
-    flex: 1 100%; /* Ensure it takes full width on smaller screens */
-    text-align: center;
-    order: 1; /* Ensure it stays in the middle on larger screens */
-}
-
-.social-links, .trading-broker {
-    display: flex;
-    gap: 15px;
-}
-
-.social-links {
-    margin-right: auto; /* Push social links to the left */
-}
-
-.trading-broker {
-    margin-left: auto; /* Push trading broker links to the right */
-}
-
-footer p {
-    margin: 0;
-    text-align: center; 
     font-weight: bold;
-   flex-grow: 1; /* Allow the paragraph to take available space */
-   order: 1; /* Ensure the text is in the middle on larger screens */
-   flex: 1 100%; /* Allow the paragraph to take the full width on small screens */
-    margin-top: 10px; /* Add some margin at the top on smaller screens */
-    margin-bottom: 0; 
-    font-size: 1.1em; 
-    color: #fff; 
-} 
-
-.footer-mid a {
+    flex: 1;
+    margin-bottom: 50px;
+  }
+  
+  .footer-right { 
+    text-align: right; /* Ensure text is aligned right */
+    color: #ddd;
+    font-size: 1.1em;
+    font-weight: bold;
+    flex: 1;
+    margin-bottom: 50px;
+  }
+  
+  .social-links,
+  .trading-broker {
+    display: inline-flex;
+    gap: 15px;
+  }
+  
+  
+  .footer-mid {
+    position: absolute; 
+    bottom: 10px; /* Adjust as needed */
+   /* left: 50%;
+    transform: translateX(-50%); /* Center it horizontally */
+    width: 100% !important; 
+    text-align: center; 
+  }
+  
+  .footer-mid p {
+    font-weight: bold; 
+    color: #ddd;
+  }
+  
+  .footer-mid a {
     color: white;
     font-weight: normal;
-    margin: 0 10px; 
     font-size: 15px;
+    margin: 0 10px;
   }
-
-  @media (max-width: 768px) { /* only applies to media with screen size max or less than 768px */
-    .footer-mid a {
-        margin: 0 0;
-        font-size: 12px;
-    }
-}
   
   .footer-mid a:hover {
     color: blue;
   }
-
-.social-links, .trading-broker {
-    display: flex; /* Use Flexbox for the links */
-    align-items: center; /* Center items vertically */
-}
-
-.social-links {
-    margin-right: auto; /* Push social links to the left */
-    gap: 15px; 
-}
-
-.trading-broker {
-    margin-left: auto; /* Push trading broker links to the right */
-    gap: 15px; 
-}
-
-.social-links a img,
-.trading-broker a img {
-    width: 24px; 
-    height: 24px; 
-    transition: transform 0.3s, opacity 0.3s; 
-}
-
-.social-links a img:hover,
-.trading-broker a img:hover {
-    transform: scale(1.2); 
-    opacity: 0.8; 
-}
-
-@media (max-width: 768px) {
+  
+  
+  .social-links a img,
+  .trading-broker a img {
+    width: 24px;
+    height: auto;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+  
+  .social-links a img:hover,
+  .trading-broker a img:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+  
+  @media (max-width: 768px) {
     footer {
-        flex-direction: column; 
-        align-items: center; 
+      flex-direction: column;
+      align-items: center;
     }
-
-    .social-links,
-    .trading-broker {
-        margin: 10px 0; 
+  
+    .footer-left,
+    .footer-right,
+    .footer-mid {
+      align-items: center;
+      text-align: center;
     }
-}
+  
+    .footer-left {
+      margin-bottom: 5px;
+    }
+    .footer-right {
+      margin-bottom: 70px;
+    }
+    .footer-mid a {
+      font-size: 10px;
+    }
+  }

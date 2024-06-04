@@ -212,7 +212,7 @@ footer {
   flex-wrap: wrap; /* Ensure items wrap on smaller screens */
   box-sizing: border-box; /* Ensure padding is included in width calculations */
   position: relative;
-  /* min-height: 200px; */
+  /* min-height: 200px;  */
 }
 
 .footer-left {
@@ -221,7 +221,7 @@ footer {
   font-size: 1.1em;
   font-weight: bold;
   flex: 1;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .footer-right { 
@@ -230,7 +230,7 @@ footer {
   font-size: 1.1em;
   font-weight: bold;
   flex: 1;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 .social-links,
@@ -241,12 +241,12 @@ footer {
 
 
 .footer-mid {
-  position: absolute; /* Position the middle footer absolutely */
+  position: absolute; 
   bottom: 10px; /* Adjust as needed */
  /* left: 50%;
   transform: translateX(-50%); /* Center it horizontally */
   width: 100% !important; 
-  text-align: center; /* Center text and links */
+  text-align: center; 
 }
 
 .footer-mid p {
@@ -301,6 +301,4 @@ footer {
   .footer-mid a {
     font-size: 10px;
   }
-
-  
 }
