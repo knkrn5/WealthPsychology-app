@@ -211,34 +211,42 @@ footer {
   align-items: center;
   flex-wrap: wrap; /* Ensure items wrap on smaller screens */
   box-sizing: border-box; /* Ensure padding is included in width calculations */
+  position: relative;
+  /* min-height: 200px; */
 }
 
 .footer-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Align items to the start */
   text-align: left; /* Ensure text is aligned left */
   color: #ddd;
   font-size: 1.1em;
   font-weight: bold;
+  flex: 1;
+  margin-bottom: 100px;
 }
 
-.footer-right { display: flex;
-  flex-direction: column;
-  align-items: flex-end; /* Align items to the end */
+.footer-right { 
   text-align: right; /* Ensure text is aligned right */
   color: #ddd;
   font-size: 1.1em;
   font-weight: bold;
+  flex: 1;
+  margin-bottom: 100px;
+}
+
+.social-links,
+.trading-broker {
+  display: inline-flex;
+  gap: 15px;
 }
 
 
 .footer-mid {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center items horizontally */
-  text-align: center; /* Ensure text is centered */
-  flex: 1; /* Allow it to grow to fill available space */
+  position: absolute; /* Position the middle footer absolutely */
+  bottom: 10px; /* Adjust as needed */
+ /* left: 50%;
+  transform: translateX(-50%); /* Center it horizontally */
+  width: 100% !important; 
+  text-align: center; /* Center text and links */
 }
 
 .footer-mid p {
@@ -257,11 +265,6 @@ footer {
   color: blue;
 }
 
-.social-links,
-.trading-broker {
-  display: flex;
-  gap: 15px;
-}
 
 .social-links a img,
 .trading-broker a img {
@@ -289,8 +292,15 @@ footer {
     text-align: center;
   }
 
-  .social-links,
-  .trading-broker {
-    margin: 0;
+  .footer-left {
+    margin-bottom: 5px;
   }
+  .footer-right {
+    margin-bottom: 70px;
+  }
+  .footer-mid a {
+    font-size: 10px;
+  }
+
+  
 }
