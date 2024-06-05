@@ -147,6 +147,15 @@ body {
   padding: 8px;
 }
 
+.course-category hr {
+  border: none; /* Remove default border */
+  height: 5px; /* Increase height */
+  background-color: #333; /* Change color */
+  margin-bottom: 20px; /* Add spacing below */
+  width: 100%; /* Adjust width */
+  margin: 10px auto; /* Center it */
+}
+
 /* Style for the course grid */
 .course-grid {
   display: flex;
