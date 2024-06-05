@@ -133,110 +133,139 @@ body {
 }
 
 
-#smcourses {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    padding: 20px; 
-    margin-top: 0;
+/* Style for the course categories */
+.course-category {
+  margin-bottom: 40px;
 }
 
+/* Style for the headings */
+.course-category h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2em;
+  color: #fff;
+  background-color: #333;
+  padding: 8px;
+}
+
+/* Style for the course grid */
+.course-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* Style for each course card */
 .smcourse-card {
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin: 10px;
-    width: 300px;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    background-size: cover; /*added to size the img*/
-    background-position: center; /*added to center the img*/
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  width: 23%;
+  margin: 10px;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  background-size: cover; /*added to size the img*/
+  background-position: center; /*added to center the img*/
+  
 }
 
 .smcourse-card:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
+
 .smcourse-card img {
-    width: 100%;
-    height: auto;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 10px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  /* margin-bottom: 0px; */
 }
 
 .smcourse-card h3 {
-    font-size: 1.2em;
-    margin: 50px auto; /* Center horizontally */
-    text-align: center; /* Center text */
-    width: 80%;
-    margin-bottom: 10px;
-    color: white;
-    background-color: black;
-    padding: 10px;
-    position: relative; /* Ensure the hover text is positioned relative to the heading */
-}
-
-/* Styles for the hover text */
-.hover-text {
-    position: absolute;
-    background-color: #fff;
-    color: #000;
-    text-align: center;
-    padding: 7px;
-    width: 100%;
-    font-size: 15px;
-    border: 1px solid black;
-    border-radius: 5px;
-    bottom: 120%; /* Adjust this value to position the text above the button */
-    right: -55%;
-    transform: translateX(-50%); 
-    white-space: nowrap; 
-    z-index: 1000; /* Ensure it appears above other elements */
-
+  font-size: 1.3em;
+  /* margin: 10px 0; */
+  background-color: #000;
+  color: #ddd;
+  padding: 8px;
+  text-decoration: none;
 }
 
 .smcourse-card p {
-    color: #555;
-    margin-bottom: 10px;
+  font-size: 1em;
+  margin: 10px;
+  color: #666;
 }
 
-
 .price-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 10px;
+  margin: 10px 0;
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px; */
 }
 
 .discounted-price {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: darkblue;
-    margin-right: 10px;
+  color: #4018c2;
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-right: 10px;
 }
 
 .original-price {
-    font-size: 1em;
-    color: darkred;
-    text-decoration: line-through;
-}
-
-
-.smcourse-card .buttons {
-    display: flex;
-    justify-content: center;
-    gap: 10px; /* Add some space between the buttons */
-    margin-top: 10px;
+  text-decoration: line-through;
+  color: #ea1313;
 }
 
 .smcourse-card button {
-    cursor: pointer;
-    border: none;
-    background-color: #555;
-    color: white;
-    padding: 10px;
-    width: 100%; 
-    position: relative; /* Needed for the hover text to position correctly */
+  cursor: pointer;
+  border: none;
+  background-color: #555;
+  color: white;
+  padding: 10px;
+  width: 100%; 
+  position: relative; /* Needed for the hover text to position correctly */
+}
+
+.smcourse-card .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px; /* Add some space between the buttons */
+  margin-top: 10px;
+}
+
+
+/* Styles for the hover text */
+.hover-text {
+  position: absolute;
+  background-color: #fff;
+  color: #000;
+  text-align: center;
+  padding: 7px;
+  width: 80%;
+  font-size: 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  bottom: 42%; /* Adjust this value to position the text above the button */
+  right: -35%;
+  transform: translateX(-50%); 
+  white-space: nowrap; 
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .smcourse-card {
+      width: calc(50% - 40px); /* Adjust the width to fit 2 cards in a row */
+  }
+}
+
+@media (max-width: 480px) {
+  .smcourse-card {
+      width: 80%; /* Full width for small screens */
+  }
 }
 
 /* Footer styles */
