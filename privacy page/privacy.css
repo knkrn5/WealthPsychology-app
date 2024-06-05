@@ -63,12 +63,6 @@ nav {
     background-color: #ddd;
     color: black;
   }
-  
-  nav ul li .active {
-    font-weight: bold;
-    color: black;
-    background-color: #ddd;
-  }
 
   nav ul li a .brand-logo {
     height: 42px;
@@ -166,7 +160,10 @@ footer {
   .footer-mid a:hover {
     color: blue;
   }
-  
+
+  a.active {
+    color: blue;
+  }
   
   .social-links a img,
   .trading-broker a img {
@@ -180,7 +177,7 @@ footer {
     transform: scale(1.2);
     opacity: 0.8;
   }
-  
+
   @media (max-width: 768px) {
     footer {
       flex-direction: column;

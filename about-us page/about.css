@@ -233,6 +233,9 @@ footer {
     color: blue;
   }
   
+  a.active {
+    color: blue;
+  }
   
   .social-links a img,
   .trading-broker a img {
