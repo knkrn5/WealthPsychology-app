@@ -258,7 +258,8 @@ body {
 /* Responsive design */
 @media (max-width: 768px) {
   .smcourse-card {
-      width: calc(50% - 40px); /* Adjust the width to fit 2 cards in a row */
+      /* width: calc(50% - 40px); Adjust the width to fit 2 cards in a row */
+      width: 100%;
   }
 }
 
