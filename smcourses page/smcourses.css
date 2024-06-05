@@ -15,7 +15,7 @@ header {
 nav {
     background-color: #555;
     position: fixed;
-    max-width: 100%;
+    width: 100%;
     top: 0;
     left: 0;
     z-index: 999; /* Ensures it stays on top of other content */
@@ -125,6 +125,8 @@ header h1{
 /* body styling */
 body {
     font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 #smcourses {
@@ -140,7 +142,7 @@ body {
 /* Style for the headings */
 .course-category h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 0;
   font-size: 2em;
   color: #fff;
   background-color: #333;
@@ -149,11 +151,11 @@ body {
 
 .course-category hr {
   border: none; /* Remove default border */
-  height: 5px; /* Increase height */
-  background-color: #333; /* Change color */
-  margin-bottom: 20px; /* Add spacing below */
-  width: 100%; /* Adjust width */
-  margin: 10px auto; /* Center it */
+  height: 5px; 
+  background-color: #333;
+  margin-bottom: 20px; 
+  width: 100%;/
+
 }
 
 /* Style for the course grid */
