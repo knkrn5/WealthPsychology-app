@@ -125,12 +125,6 @@ header h1{
 /* body styling */
 body {
     font-family: 'Arial', sans-serif;
-    /* padding-top: 60px;  */
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #444;
-    max-width: 100%;
 }
 
 #smcourses {
