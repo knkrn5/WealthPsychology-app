@@ -15,7 +15,7 @@ header {
 nav {
     background-color: #555;
     position: fixed;
-    width: 100%;
+    max-width: 100%;
     top: 0;
     left: 0;
     z-index: 999; /* Ensures it stays on top of other content */
@@ -130,6 +130,11 @@ body {
     padding: 0;
     background-color: #f9f9f9;
     color: #444;
+    max-width: 100%;
+}
+
+#smcourses {
+  max-width: 100%;
 }
 
 
