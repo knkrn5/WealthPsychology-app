@@ -10,7 +10,7 @@ header {
     z-index: 998;
 }
 
-header h1 {
+/* header h1 {
     font-size: 2rem;
     padding: 1rem;
     color: #fff;
@@ -22,7 +22,7 @@ header h1 {
     header h1 {
         margin-top: 80px;
     }
-}
+} */
 
 
 /* Navigation styles global nav css */
@@ -96,12 +96,18 @@ margin-bottom: 40px;
 /* Style for the headings */
 .course-category h1 {
 text-align: center;
-margin-bottom: 0;
+margin-top: 40px;
 font-size: 2em;
 color: #fff;
 background-color: #333;
 padding: 8px;
 margin-bottom: 10px;
+}
+
+@media (max-width: 768px){
+  .course-category{
+    margin-top: 80px;
+  }
 }
 
 .course-category hr {
