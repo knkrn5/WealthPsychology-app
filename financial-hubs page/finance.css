@@ -36,59 +36,51 @@ body {
     padding: 0;
 }
 
-
-.financial-insights {
-    max-width: 90%; 
-    margin: 0 auto; /* Centering the container */
-    padding: 20px;
-    background-color: #f9f9f9; /* Light background color for better contrast */
-    border-radius: 8px; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    display: flex;
-    flex-wrap: wrap;
+iframe{
+    width: 50%;
 }
 
-.financial-insights h1 {
-    font-size: 2em;
-    color: #333;
-    text-align: center; 
+@media (max-width: 768px){
+    iframe{
+        min-width: 100%;
+    }
+}
+
+.blog-post {
+    max-width: 95%;
+    margin: 40px auto; /* Center the element horizontally */
+    padding: 40px;
+    background-color: #f9f9f9;
+}
+
+
+.blog-post h1 {
+    color: #000;
+    font-size: 2.4em;
+    margin-top: 0;
+}
+.blog-post h2 {
+    font-size: 1.8em;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;  /*create the horizontal line at the bottom */
+    padding-bottom: 5px;
+}
+.blog-post h3 {
+    font-size: 1.4em;
+    margin-top: 15px;
+}
+.blog-post p {
+    margin-bottom: 15px;
+}
+.blog-post ul {
+    list-style-type: disc;
+    padding-left: 20px;
     margin-bottom: 20px;
 }
 
-.financial-insights p {
-    font-size: 1.1em;
-    color: #555;
-    line-height: 1.6; /* Better readability */
-    margin-bottom: 20px;
-    text-align: justify; /* Justify text for a cleaner look */
-}
-
-.financial-insights iframe {
-    display: block; /* Ensure block display */
-    margin: 20px auto; /* Center the iframes */
-    border: none; /* Remove default border */
-    max-width: 100%; /* Ensure responsiveness */
-    height: 400px; /* Maintain aspect ratio */
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .financial-insights {
-        padding: 10px;
-    }
-
-    .financial-insights h1 {
-        font-size: 1.5em;
-    }
-
-    .financial-insights p {
-        font-size: 1em;
-    }
-
-    .financial-insights iframe {
-        width: 100%; /* Full width on smaller screens */
-        height: 400px;
-    }
+.blog-post ul li {
+    margin-bottom: 10px;
 }
 
 

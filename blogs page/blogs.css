@@ -37,6 +37,10 @@ body {
     padding: 0;
 }
 
+iframe{
+    width: 100%;
+}
+
 
 .blog-post {
     max-width: 100%;
@@ -45,11 +49,7 @@ body {
     padding: 40px;
     background-color: #f9f9f9;
 }
-.date-time {
-    color: gray;
-    font-size: 0.9em;
-    margin-bottom: 20px;
-}
+
 
 .blog-post h1 {
     color: #000;

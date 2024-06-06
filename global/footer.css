@@ -71,14 +71,15 @@ footer {
   .trading-broker a img {
     width: 24px;
     height: auto;
-    transition: transform 0.3s, opacity 0.3s;
+    transition: transform 0.0s, opacity 0.3s;
   }
   
-  .social-links a img:hover,
-  .trading-broker a img:hover {
-    transform: scale(1.2);
-    opacity: 0.8;
-  }
+.social-links a img:hover,
+.trading-broker a img:hover {
+  transform: scale(2);
+  opacity: 0.8;
+  transition: transform 0.3s, opacity 0.3s; /* Smooth transition */
+}
   
   @media (max-width: 768px) {
     footer {

@@ -1,163 +1,57 @@
-footer {
-  background-color: #333;
+
+
+
+/* kept incase if needed */
+.financial-insights {
+  max-width: 90%; 
+  margin: 0 auto; /* Centering the container */
   padding: 20px;
+  background-color: #f9f9f9; /* Light background color for better contrast */
+  border-radius: 8px; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start; /* Align items at the top */
-  box-sizing: border-box; 
-  position: relative; /* Ensure absolute positioning works */
-  min-height: 200px; /* Adjust as needed */
 }
 
-.footer-left,
-.footer-right {
-  flex: 1;
+.financial-insights h1 {
+  font-size: 2em;
+  color: #333;
+  text-align: center; 
+  margin-bottom: 20px;
 }
 
-.footer-left {
-  text-align: left;
+.financial-insights p {
   font-size: 1.1em;
-  color: #ddd;
-  font-weight: bold;
+  color: #555;
+  line-height: 1.6; /* Better readability */
+  margin-bottom: 20px;
+  text-align: justify; /* Justify text for a cleaner look */
 }
 
-.social-links {
-  gap: 15px;
+.financial-insights iframe {
+  display: block; /* Ensure block display */
+  margin: 20px auto; /* Center the iframes */
+  border: none; /* Remove default border */
+  max-width: 100%; /* Ensure responsiveness */
+  height: 450px; /* Maintain aspect ratio */
 }
 
-.footer-right {
-  text-align: right;
-  font-size: 1.1em;
-  color: #ddd;
-  font-weight: bold;
-}
-
-.trading-broker {
-  gap: 15px;
-}
-
-.footer-mid {
-  position: absolute; /* Position the middle footer absolutely */
-  bottom: 10px; /* Adjust as needed */
-  left: 50%;
-  transform: translateX(-50%); /* Center it horizontally */
-  width: 100%;
-  text-align: center; /* Center text and links */
-}
-
-.footer-mid p {
-  font-weight: bold; 
-  color: #ddd;
-}
-
-.footer-mid a {
-  color: white;
-  font-weight: normal;
-  font-size: 15px;
-  margin: 0 10px;
-}
-
-
-
-
-
-
-
-
-
-
-/* Footer styles */
-footer {
-  background-color: #333;
-  padding: 20px; /* Adjust padding as needed */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap; /* Ensure items wrap on smaller screens */
-  box-sizing: border-box; /* Ensure padding is included in width calculations */
-  position: relative;
-  min-height: 200px;
-}
-
-.footer-left {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* Align items to the start */
-  text-align: left; /* Ensure text is aligned left */
-  color: #ddd;
-  font-size: 1.1em;
-  font-weight: bold;
-}
-
-.footer-right { display: flex;
-  flex-direction: column;
-  align-items: flex-end; /* Align items to the end */
-  text-align: right; /* Ensure text is aligned right */
-  color: #ddd;
-  font-size: 1.1em;
-  font-weight: bold;
-}
-
-
-.footer-mid {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Center items horizontally */
-  text-align: center; /* Ensure text is centered */
-  flex: 1; /* Allow it to grow to fill available space */
-}
-
-.footer-mid p {
-  font-weight: bold; 
-  color: #ddd;
-}
-
-.footer-mid a {
-  color: white;
-  font-weight: normal;
-  font-size: 15px;
-  margin: 0 10px;
-}
-
-.footer-mid a:hover {
-  color: blue;
-}
-
-.social-links,
-.trading-broker {
-  display: flex;
-  gap: 15px;
-}
-
-.social-links a img,
-.trading-broker a img {
-  width: 24px;
-  height: auto;
-  transition: transform 0.3s, opacity 0.3s;
-}
-
-.social-links a img:hover,
-.trading-broker a img:hover {
-  transform: scale(1.2);
-  opacity: 0.8;
-}
-
+/* Responsive design */
 @media (max-width: 768px) {
-  footer {
-    flex-direction: column;
-    align-items: center;
+  .financial-insights {
+      padding: 10px;
   }
 
-  .footer-left,
-  .footer-right,
-  .footer-mid {
-    align-items: center;
-    text-align: center;
+  .financial-insights h1 {
+      font-size: 1.5em;
   }
 
-  .social-links,
-  .trading-broker {
-    margin: 0;
+  .financial-insights p {
+      font-size: 1em;
+  }
+
+  .financial-insights iframe {
+      width: 100%; /* Full width on smaller screens */
+      height: 400px;
   }
 }
