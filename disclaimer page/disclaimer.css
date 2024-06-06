@@ -27,65 +27,20 @@ header h1 {
     }
 }
 
-/* Navigation styles */
-nav {
-    background-color: #555;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 999; /* Ensures it stays on top of other content */
-  }
-  
-  nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-  
-  nav ul li {
-    float: left;
-  }
-  
-  nav ul li a {
-    display: block;
-    color: #fff;
-    text-align: center;
-    padding: 12px 14px;
-    text-decoration: none;
-    margin-right: 5px;
-    font-weight: bold;
-    height: 20px;
-  }
-  
-  nav ul li a:hover {
-    background-color: #ddd;
-    color: black;
-  }
-
-  nav ul li a .brand-logo {
-    height: 42px;
-    width: 80px;
-  }
-
-  nav ul li .home-nav {
-    padding: 0px;
-  }
+/* Navigation styles via global nav css */
 
 
 /* Body styles */
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f9f9f9;
-    /* margin: 0;
-    padding: 0; */
+    margin: 0;
+    padding: 0;
 }
 
 
 .disclaimer {
     width: 95%; 
-    /* max-width: 0px;  */
     margin: 0 auto; 
     padding: 20px;
     background-color: #f9f9f9;
@@ -98,106 +53,4 @@ body {
 }
 
 
-/* Footer styles */
-footer {
-    background-color: #333;
-    padding: 20px; /* Adjust padding as needed */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; /* Ensure items wrap on smaller screens */
-    box-sizing: border-box; /* Ensure padding is included in width calculations */
-    position: relative;
-    /* min-height: 200px;  */
-  }
-  
-  .footer-left {
-    text-align: left; /* Ensure text is aligned left */
-    color: #ddd;
-    font-size: 1.1em;
-    font-weight: bold;
-    flex: 1;
-    margin-bottom: 50px;
-  }
-  
-  .footer-right { 
-    text-align: right; /* Ensure text is aligned right */
-    color: #ddd;
-    font-size: 1.1em;
-    font-weight: bold;
-    flex: 1;
-    margin-bottom: 50px;
-  }
-  
-  .social-links,
-  .trading-broker {
-    display: inline-flex;
-    gap: 15px;
-  }
-  
-  
-  .footer-mid {
-    position: absolute; 
-    bottom: 10px; /* Adjust as needed */
-   /* left: 50%;
-    transform: translateX(-50%); /* Center it horizontally */
-    width: 100% !important; 
-    text-align: center; 
-  }
-  
-  .footer-mid p {
-    font-weight: bold; 
-    color: #ddd;
-  }
-  
-  .footer-mid a {
-    color: white;
-    font-weight: normal;
-    font-size: 15px;
-    margin: 0 10px;
-  }
-  
-  .footer-mid a:hover {
-    color: blue;
-  }
-
-  a.active{
-    color: blue;
-  }
-  
-  .social-links a img,
-  .trading-broker a img {
-    width: 24px;
-    height: auto;
-    transition: transform 0.3s, opacity 0.3s;
-  }
-  
-  .social-links a img:hover,
-  .trading-broker a img:hover {
-    transform: scale(1.2);
-    opacity: 0.8;
-  }
-  
-  @media (max-width: 768px) {
-    footer {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .footer-left,
-    .footer-right,
-    .footer-mid {
-      align-items: center;
-      text-align: center;
-    }
-  
-    .footer-left {
-      margin-bottom: 5px;
-    }
-    .footer-right {
-      margin-bottom: 70px;
-    }
-    .footer-mid a {
-      font-size: 10px;
-    }
-  }
+/* Footer styles via global footer css*/
