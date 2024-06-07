@@ -90,7 +90,7 @@ max-width: 100%;
 
 /* Style for the course categories */
 .course-category {
-margin-bottom: 40px;
+margin-bottom: 30px;
 }
 
 /* Style for the headings */
@@ -124,6 +124,8 @@ width: 100%;/
 display: flex;
 flex-wrap: wrap;
 justify-content: space-around;
+border-bottom: 3px solid #ddd;  /*create the horizontal line at the bottom */
+padding-bottom: 5px;
 }
 
 /* Style for each course card */

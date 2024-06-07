@@ -46,7 +46,7 @@ iframe{
     }
 }
 
-.blog-post {
+.finance {
     max-width: 95%;
     margin: 40px auto; /* Center the element horizontally */
     padding: 40px;
@@ -54,33 +54,27 @@ iframe{
 }
 
 
-.blog-post h1 {
+.finance h1 {
     color: #000;
     font-size: 2.4em;
     margin-top: 0;
 }
-.blog-post h2 {
+
+.finance h2 {
     font-size: 1.8em;
-    margin-top: 20px;
+    margin-top: 0;
     margin-bottom: 15px;
-    border-bottom: 2px solid #ddd;  /*create the horizontal line at the bottom */
-    padding-bottom: 5px;
-}
-.blog-post h3 {
-    font-size: 1.4em;
-    margin-top: 15px;
-}
-.blog-post p {
-    margin-bottom: 15px;
-}
-.blog-post ul {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin-bottom: 20px;
 }
 
-.blog-post ul li {
-    margin-bottom: 10px;
+.finance h3 {
+    font-size: 1.4em;
+    margin-top: 15px;
+    border-top: 2px solid #ddd;  /*create the horizontal line at the bottom */
+    padding-top: 20px;
+}
+
+.finance p {
+    margin-bottom: 15px;
 }
 
 
