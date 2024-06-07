@@ -48,6 +48,10 @@ header .slogan{
   .index-page nav ul{
     height: auto;
   }
+  nav ul li a {
+    /* font-size: 15px; */
+    padding: 14px 14px;
+  }
 }
 
 
