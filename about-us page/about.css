@@ -39,7 +39,7 @@ body {
 }
 
 .title1 {
-    max-width: 930px;
+    max-width: 960px;
     margin-left: auto; /* Push the element to the right */
     font-size: 2rem;
     padding: 10px 0 10px 0;
@@ -60,7 +60,7 @@ body {
     font-weight: bold;
     padding-left: 10px;
     text-align: left;
-    max-width: 850px;
+    max-width: 930px;
     margin-top: 50px;
 }
 
