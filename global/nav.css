@@ -56,6 +56,6 @@ nav {
  @media (max-width: 768px){
   nav ul li a {
     font-size: 13px;
-    padding: 12px 14px;
+    padding: 13px 15px;
   }
  }
