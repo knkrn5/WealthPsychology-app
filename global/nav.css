@@ -23,7 +23,7 @@ nav {
     display: block;
     color: #fff;
     text-align: center;
-    padding: 12px 14px;
+    padding: 14px 14px;
     text-decoration: none;
     margin-right: 5px;
     height: 10px;
@@ -56,6 +56,6 @@ nav {
  @media (max-width: 768px){
   nav ul li a {
     font-size: 13px;
-    padding: 13px 15px;
+    padding: 14px 16px;
   }
  }

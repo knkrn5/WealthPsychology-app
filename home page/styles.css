@@ -43,11 +43,17 @@ header .slogan{
   height: 43px;
 }
 
+
 @media (max-width: 768px) {
   .index-page nav ul{
     height: auto;
   }
+  .nav-home{
+    padding: 0;
+  }
 }
+
+
 /* ----------------------------------------- */
 
 
