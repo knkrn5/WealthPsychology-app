@@ -55,7 +55,7 @@ nav {
   /* nav styling for smaller screen */
  @media (max-width: 768px){
   nav ul li a {
-    font-size: 14px;
+    font-size: 15px;
     padding: 14px 14px;
   }
  }
