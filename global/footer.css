@@ -97,12 +97,12 @@ footer {
 
   .footer-left {
       order: 1; /* Place it first */
-      margin-bottom: 10px; /* Add some spacing */
+      margin-bottom: 0; /* Add some spacing */
   }
   
   .footer-right {
       order: 2; /* Place it second */
-      margin-bottom: 10px; /* Add some spacing */
+      margin-bottom: 0; /* Add some spacing */
   }
 
   .footer-mid {
