@@ -9,13 +9,13 @@ header {
   z-index: 998; 
 }
 
-header h1 {
+/* header h1 {
   font-size: 4rem;
   background-color: #fff;
   color: #000;
   margin-top: 0px;
   font-weight: bold;
-}
+} */
 
 header .slogan{
   top: 0;
@@ -106,12 +106,12 @@ header .slogan{
 .home-image1 {
   max-width: 100%;
   height: auto;
-  margin-top: 50px;
+  margin-top: 40px;
 }
 
 @media (max-width: 768px){
   .home-image1{
-    margin-top: 120px;
+    margin-top: 100px;
            
   }
 }
