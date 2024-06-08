@@ -19,7 +19,8 @@ header {
 
 header .slogan{
   top: 0;
-  font-size: 3rem;
+  font-weight: bolder;
+  font-size: 50px;
   color: #000;
   margin-top: 0;
   margin-bottom: 5px;

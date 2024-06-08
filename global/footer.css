@@ -1,106 +1,116 @@
 /* Footer styles */
 footer {
-    background-color: #333;
-    padding: 20px; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap; 
-    box-sizing: border-box; 
-    position: relative;
-    min-width: 100%;
-    /* min-height: 200px;  */
-  }
-  
-  .footer-left {
-    text-align: left; 
-    color: #ddd;
-    font-size: 1.1em;
-    font-weight: bold;
-    flex: 1;
-    margin-bottom: 50px;
-  }
-  
-  .footer-right { 
-    text-align: right; 
-    color: #ddd;
-    font-size: 1.1em;
-    font-weight: bold;
-    flex: 1;
-    margin-bottom: 50px;
-  }
-  
-  .social-links,
-  .trading-broker {
-    display: inline-flex;
-    gap: 15px;
-  }
-  
-  
-  .footer-mid {
-    position: absolute; 
-    bottom: 10px; 
-   /* left: 50%;
-    transform: translateX(-50%); /* Center it horizontally */
-    width: 100% !important; 
-    text-align: center; 
-  }
-  
-  .footer-mid p {
-    font-weight: bold; 
-    color: #ddd;
-  }
-  
-  .footer-mid a {
-    color: white;
-    font-weight: normal;
-    font-size: 15px;
-    margin: 0 10px;
-  }
-  
-  .footer-mid a:hover {
-    color: blue;
-  }
+  background-color: #333;
+  padding: 20px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap; /* Ensure items do not wrap */
+  box-sizing: border-box; 
+  position: relative;
+  width: 100%;
+}
 
-  .footer-mid .active {
-    color: blue;
-  }
-  
-  
-  .social-links a img,
-  .trading-broker a img {
-    width: 24px;
-    height: auto;
-    transition: transform 0.0s, opacity 0.3s;
-  }
-  
+.footer-left {
+  text-align: left; 
+  color: #ddd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  flex: 1;
+}
+
+.footer-right {
+  text-align: right; 
+  color: #ddd;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 20px;
+  flex-shrink: 0;
+}
+
+.footer-mid {
+  width: 100%;
+  text-align: center;
+  flex-grow: 2;
+}
+
+.footer-mid p {
+  font-weight: bold; 
+  color: #ddd;
+}
+
+.footer-mid a {
+  color: white;
+  font-weight: normal;
+  font-size: 15px;
+  margin: 0 10px;
+}
+
+.footer-mid a:hover {
+  color: blue;
+}
+
+.footer-mid .active {
+  color: blue;
+}
+
+.social-links,
+.trading-broker {
+  display: inline-flex;
+  gap: 10px;
+}
+
+.social-links a,
+.trading-broker a {
+  display: block;
+}
+
+.social-links a img,
+.trading-broker a img {
+  width: 24px;
+  height: auto;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
 .social-links a img:hover,
 .trading-broker a img:hover {
   transform: scale(1.5);
   opacity: 0.8;
-  transition: transform 0.3s, opacity 0.3s; /* Smooth transition */
 }
+
+
   
-  @media (max-width: 768px) {
-    footer {
+/* Mobile view adjustments */
+@media (max-width: 768px) {
+  footer {
       flex-direction: column;
       align-items: center;
-    }
-  
-    .footer-left,
-    .footer-right,
-    .footer-mid {
-      align-items: center;
-      text-align: center;
-    }
-  
-    .footer-left {
-      margin-bottom: 5px;
-    }
-    .footer-right {
-      margin-bottom: 70px;
-    }
-    .footer-mid a {
-      font-size: 10px;
-    }
   }
+
+  .footer-left,
+  .footer-right,
+  .footer-mid {
+      text-align: center;
+      width: 100%; /* Ensure full width */
+  }
+
+  .footer-left {
+      order: 1; /* Place it first */
+      margin-bottom: 10px; /* Add some spacing */
+  }
+  
+  .footer-right {
+      order: 2; /* Place it second */
+      margin-bottom: 10px; /* Add some spacing */
+  }
+
+  .footer-mid {
+      order: 3; /* Place it third (at the bottom) */
+      margin-bottom: 0; /* No margin needed at the bottom */
+  }
+
+  .footer-mid a {
+      font-size: 10px;
+  }
+}
