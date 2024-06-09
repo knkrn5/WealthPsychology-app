@@ -71,7 +71,7 @@ footer {
 .social-links a img,
 .trading-broker a img {
   width: 24px;
-  height: auto;
+  height: 24px;
   transition: transform 0.3s, opacity 0.3s;
 }
 
