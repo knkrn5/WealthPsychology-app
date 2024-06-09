@@ -48,7 +48,7 @@ iframe{
 
 .finance {
     max-width: 95%;
-    margin: 40px auto; /* Center the element horizontally */
+    margin: 20px auto; /* Center the element horizontally */
     padding: 40px;
     background-color: #f9f9f9;
 }
@@ -60,11 +60,11 @@ iframe{
     margin-top: 0;
 }
 
-.finance h2 {
+/* .finance h2 {
     font-size: 1.8em;
     margin-top: 0;
     margin-bottom: 15px;
-}
+} */
 
 .finance h3 {
     font-size: 1.4em;
