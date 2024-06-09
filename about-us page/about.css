@@ -95,6 +95,8 @@ body {
 
 .image2 {
     float: right;
+    margin-right: 10px;
+    margin-left: 30px;
 }
 
 .personal {
