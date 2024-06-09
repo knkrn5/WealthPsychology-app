@@ -105,14 +105,17 @@ header .slogan{
 
 /* home header images styling */
 .home-image1 {
-  max-width: 100%;
-  height: auto;
+  max-width: 80%;
+  height: 500px;
+  width: auto;
   margin-top: 40px;
 }
 
 @media (max-width: 768px){
   .home-image1{
     margin-top: 100px;
+    height: auto;
+    width: auto;
            
   }
 }
