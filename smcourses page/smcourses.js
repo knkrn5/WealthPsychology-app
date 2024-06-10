@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function buyNowclick(event) {
-        alert("Oops!!! payment options are under development until then click the image/title to know what all concepts you wil get to learn in this course!")
+        alert("Oops! Payment options aren't available yet because the course videos are still being prepared. In the meantime, click the image or title to see the concepts you'll learn in this course")
     }
 
        // Function to handle mouse enter event for headings    
