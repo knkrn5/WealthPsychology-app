@@ -133,7 +133,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto;
-  gap: 10px;
+  gap: 30px;
 
   /* border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
@@ -227,6 +227,7 @@ body {
 .othercourses p a {
   color: #5759d9;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .othercourses p a:hover{
