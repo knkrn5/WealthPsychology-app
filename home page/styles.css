@@ -198,10 +198,11 @@ em {
   font-size: 20px;
 }
 
-.othercourses a {
+.othercourses p a {
   color: #5759d9;
   text-decoration: none;
 }
+
 
 @media (max-width: 768px){
   .typesofcourses{
