@@ -52,11 +52,6 @@ header .slogan{
   }
 }
 
-
-/* ----------------------------------------- */
-
-
-
 /* Cart icon and container styles */
 #cart-icon {
   cursor: pointer;
@@ -122,7 +117,7 @@ header .slogan{
 }
 
 
-/* body styling */
+/* body styling ------------------------*/
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
@@ -173,6 +168,48 @@ strong {
 em {
   font-style: italic;
   color: #555;
+}
+
+.typesofcourses {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 150px;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.typesofcourses p a {
+  padding: 20px 40px;
+  border: 2px solid black;
+  color: #000;
+  text-decoration: none;
+}
+
+.typesofcourses :hover{
+  background-color: #333;
+  color: #fff;
+}
+
+.othercourses {
+  /* font-weight: bold; */
+  text-align: center;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.othercourses a {
+  color: #5759d9;
+  text-decoration: none;
+}
+
+@media (max-width: 768px){
+  .typesofcourses{
+    gap: 20px;
+  }
+  .othercourses{
+    font-size: 15px;
+  }
 }
 
 /* Footer styles via global footer css */

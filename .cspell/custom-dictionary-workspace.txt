@@ -4,3 +4,5 @@ smcourse
 smcourses
 myname
 demat
+othercourses
+typesofcourses
