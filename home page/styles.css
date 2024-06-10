@@ -9,15 +9,16 @@ header {
   z-index: 998; 
 }
 
-/* header h1 {
-  font-size: 4rem;
+header h1 {
+  font-size: 40px;
   background-color: #fff;
   color: #000;
   margin-top: 0px;
   font-weight: bold;
-} */
+  font-style: italic;
+}
 
-header .slogan{
+/* header .slogan{
   top: 0;
   font-weight: bolder;
   font-size: 40px;
@@ -26,16 +27,16 @@ header .slogan{
   margin-top: 0;
   margin-bottom: 5px;
   padding-bottom: 10px;
-}
+} */
 
 @media (max-width: 768px) {
   header h1 {
       margin-top: 0px;
-      font-size: 2rem;
+      font-size: 1rem;
   }
-  header .slogan{
+  /* header .slogan{
     font-size: 15px;
-  }
+  } */
 }
 
 
@@ -102,7 +103,7 @@ header .slogan{
 /* home header images styling */
 .home-image1 {
   max-width: 80%;
-  height: 500px;
+  height: 400px;
   width: auto;
   margin-top: 40px;
 }
@@ -128,51 +129,74 @@ body {
   max-width: 80%;
   margin: 0 auto; /* This centers the container horizontally */
   margin-top: 0;
-  padding: 30px;
   background: #f9f9f9;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 10px;
+
   /* border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+ /* padding: 30px; */
 }
 
-.home-page h1,
-h2 {
-  color: #010802;
+.content {
+  /* border: 1px solid black; */
+  padding: 10px;  
 }
 
-.home-page h1 {
-  margin-top: 0;
-  text-align: center;
+.content img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* Ensure the image covers the entire container */
+  object-position: center; /* Center the image within the container */
 }
 
-.home-page h2 {
-  margin-top: 30px;
+.item1 {
+ grid-column: 1/2;
+ grid-row: 1/2;
 }
 
-.home-page p {
-  margin: 20px 0;
+.item2 {
+ grid-column: 2/3;
+ grid-row: 1/2;
 }
 
-ul {
-  margin: 20px 0;
-  padding-left: 20px;
+.item3 {
+ grid-column: 3/5;
+ grid-row: 1/2;
 }
 
-li {
-  margin-bottom: 10px;
+.item4 {
+ grid-column: 1/2;
+ grid-row: 4/5;
 }
 
-strong {
-  color: #333;
+.item5 {
+ grid-column: 2/3;
+ grid-row: 4/5;
 }
 
-em {
-  font-style: italic;
-  color: #555;
+.item6 {
+  grid-column: 3/4;
+  grid-row: 4/5;
 }
+
+@media (max-width: 768px) {
+  .home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+/* home pages last past styling--------------- */
 
 .typesofcourses {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 50px;
   gap: 150px;
   justify-content: center;
   text-align: center;
@@ -184,6 +208,7 @@ em {
   border: 2px solid black;
   color: #000;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .typesofcourses :hover{
@@ -201,6 +226,11 @@ em {
 .othercourses p a {
   color: #5759d9;
   text-decoration: none;
+}
+
+.othercourses p a:hover{
+  color: blue;
+  text-decoration: underline;
 }
 
 
