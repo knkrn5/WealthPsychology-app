@@ -9,6 +9,18 @@ header {
   z-index: 998; 
 }
 
+@keyframes textGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes bgGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
 header h1 {
   font-size: 40px;
   background-color: #fff;
@@ -112,8 +124,7 @@ header h1 {
   .home-image1{
     margin-top: 100px;
     height: auto;
-    width: auto;
-           
+    width: auto;   
   }
 }
 
@@ -122,7 +133,6 @@ header h1 {
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
-  
 }
 
 .home-page {
@@ -227,12 +237,12 @@ body {
 .othercourses p a {
   color: #5759d9;
   text-decoration: none;
-  font-weight: bold;
 }
 
 .othercourses p a:hover{
   color: blue;
   text-decoration: underline;
+  font-weight: bold;
 }
 
 
