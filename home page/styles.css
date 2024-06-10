@@ -20,7 +20,8 @@ header {
 header .slogan{
   top: 0;
   font-weight: bolder;
-  font-size: 50px;
+  font-size: 40px;
+  font-style: italic;
   color: #000;
   margin-top: 0;
   margin-bottom: 5px;
@@ -33,7 +34,7 @@ header .slogan{
       font-size: 2rem;
   }
   header .slogan{
-    font-size: 20px;
+    font-size: 15px;
   }
 }
 

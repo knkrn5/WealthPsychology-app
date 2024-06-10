@@ -71,8 +71,8 @@ body {
 
 .image1 {
     float: left;
-    margin-right: 20px;
-    margin-bottom: 10px;  
+    margin-right: 25px;
+    margin-bottom: 20px;  
 }
 
 @media (max-width: 768px) {
@@ -82,7 +82,7 @@ body {
 }
 
 .image1 img {
-    width: 350px; /* Set image width */
+    width: 360px; /* Set image width */
     height: auto; /* Maintain aspect ratio */
     border-radius: 10px;
 } 
