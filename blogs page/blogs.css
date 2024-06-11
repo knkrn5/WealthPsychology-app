@@ -42,13 +42,61 @@ iframe{
 }
 
 
+/* .blog-post {
+    max-width: 80%;
+    margin: 0 auto;
+    padding-top: 0;
+    padding: 40px;
+    background-color: #f9f9f9;
+} */
+
 .blog-post {
     max-width: 80%;
     margin: 0 auto;
     padding-top: 0;
     padding: 40px;
     background-color: #f9f9f9;
-}
+    display: grid;
+    grid-template-columns: 4fr 1.5fr; /* 80% and 20% split */
+    grid-gap: 20px; /* Adjust gap between columns if needed */
+  }
+  
+  .left-column {
+    grid-column: 1;
+  }
+  
+  .right-column {
+    grid-column: 2;
+    background-color: #e9e9e9; /* Optional: Add a different background color for the right column */
+    padding: 20px; /* Optional: Adjust padding as needed */
+  }
+  
+  .content-wrapper {
+    display: contents; /* This makes sure the content-wrapper does not interfere with the grid layout */
+  }
+  
+  .ratio {
+    margin-bottom: 20px; /* Adjust spacing between sections */
+  }
+  
+  .date-time {
+    margin-top: 20px;
+  }
+
+/* Media Query for Mobile Devices */
+@media (max-width: 768px) {
+    .blog-post {
+      grid-template-columns: 1fr; /* Single column layout */
+      grid-template-rows: auto auto; /* Stack rows */
+    }
+  
+    .left-column,
+    .right-column {
+      grid-column: 1 / -1; /* Make both columns span full width */
+      margin-bottom: 20px; /* Add some space between sections */
+    }
+  }
+  
 
 
 .blog-post h1 {
