@@ -70,7 +70,7 @@ iframe{
 .blog-post p {
     margin-bottom: 15px;
 }
-.blog-post ul {
+/* .blog-post ul {
     list-style-type: disc;
     padding-left: 20px;
     margin-bottom: 20px;
@@ -78,7 +78,24 @@ iframe{
 
 .blog-post ul li {
     margin-bottom: 10px;
+} */
+
+.blog-post img {
+    height: 250px;
+    width: auto;
 }
 
+@media (max-width: 768px) {
+    .blog-post{
+        max-width: 100%;
+    }
+    .blog-post img {
+        height: 180px; 
+        width: auto;
+
+        /* object-fit: cover;
+        object-position: center; */
+    }
+}
 
 /* Footer styles via global footer css */
