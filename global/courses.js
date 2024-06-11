@@ -1,18 +1,3 @@
-// adding item in cart
-setTimeout(function() {
-    document.getElementById('heroMessage').innerText = 'Explore Our Latest Collection';
-}, 3000); // Change the message after 3 seconds (3000 milliseconds)
-// Add these functions to your existing script.js file
-
-function openCart() {
-    document.getElementById('cart').style.display = 'block';
-}
-
-function closeCart() {
-    document.getElementById('cart').style.display = 'none';
-}
-
-
 //javascript to handle couses card buttons hovering....
 document.addEventListener("DOMContentLoaded", function() {
     let addToCartButtons = document.querySelectorAll('.add-to-cart');
@@ -90,43 +75,3 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
-
-
-
-
-
-// JavaScript to handle button clicks
-/* document.addEventListener("DOMContentLoaded", function() {
-let addToCartButtonClicked = document.getElementById('add-to-cart');
-addToCartButtonClicked.addEventListener('click', function () {
-addToCartButtonClicked.innerText = "Item added to Cart";
-   if(addToCartButtonClicked === "Item added to Cart"){
-    let hoverTextAddToCart = document.createElement('span');
-    hoverTextAddToCart.innerText = 'Remove this item from cart';
-    hoverTextAddToCart.className = 'hover-text'; // Assigning class name to be used for CSS styling
-    addToCartButton.appendChild(hoverTextAddToCart);
-    hoverTextAddToCart.style.opacity = 0; // Initially hide the hover text
-
-    // Add mouse enter event listener to Add to Cart button
-    addToCartButtonClicked.addEventListener('mouseenter', function () {
-        // Display hover text
-        hoverTextAddToCart.style.opacity = 1;
-        this.style.backgroundColor = "black";
-    });
-}); */
-
-
-
-
-// JavaScript to handle button clicks
-/* let atc = document.querySelector("#add-to-cart");
-atc.addEventListener('click', function() {
-    if (atc.innerText === "Add to Cart") {
-        atc.innerText = "Item added to cart😆";
-       // atc.style.backgroundColor = "#778899";
-    } else {
-        atc.innerText = "Add to Cart";
-        atc.style.backgroundColor = "#333";
-        atc.style.color = "#fff";
-    }
-}); */
