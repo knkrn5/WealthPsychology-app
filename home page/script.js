@@ -13,3 +13,5 @@ function openCart() {
 function closeCart() {
     document.getElementById('cart').style.display = 'none';
 }
+
+

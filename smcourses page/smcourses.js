@@ -118,15 +118,48 @@ addToCartButtonClicked.innerText = "Item added to Cart";
 
 
 
-// JavaScript to handle button clicks
-/* let atc = document.querySelector("#add-to-cart");
-atc.addEventListener('click', function() {
-    if (atc.innerText === "Add to Cart") {
-        atc.innerText = "Item added to cart😆";
-       // atc.style.backgroundColor = "#778899";
-    } else {
-        atc.innerText = "Add to Cart";
-        atc.style.backgroundColor = "#333";
-        atc.style.color = "#fff";
-    }
-}); */
+// added courses in cart
+// Initialize an empty cart array
+let cart = [];
+
+// Function to add a course to the cart
+function addToCart(courseId, courseTitle, coursePrice) {
+  // Check if the course is already in the cart
+  const existingCourse = cart.find(course => course.id === courseId);
+
+  if (existingCourse) {
+    alert("Course already in the cart");
+    return;
+  }
+
+  // Add the course to the cart
+  cart.push({ id: courseId, title: courseTitle, price: coursePrice });
+
+  // Update the cart UI
+  updateCartUI();
+}
+
+// Function to update the cart UI
+function updateCartUI() {
+  const cartItemsContainer = document.getElementById("cart-items");
+  cartItemsContainer.innerHTML = ""; // Clear previous items
+
+  // Create list items for each cart item
+  cart.forEach(course => {
+    const listItem = document.createElement("li");
+    listItem.textContent = `${course.title} - ₹${course.price}`;
+    cartItemsContainer.appendChild(listItem);
+  });
+}
+
+// Event listener for "Add to Cart" buttons
+document.querySelectorAll(".add-to-cart").forEach(button => {
+  button.addEventListener("click", (event) => {
+    const courseCard = event.target.closest(".smcourse-card");
+    const courseId = parseInt(courseCard.getAttribute("data-course-id"));
+    const courseTitle = courseCard.querySelector("h3").textContent;
+    const coursePrice = courseCard.querySelector(".discounted-price").textContent.replace("₹", "");
+    addToCart(courseId, courseTitle, coursePrice);
+  });
+});
+

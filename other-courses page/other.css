@@ -43,7 +43,7 @@ header h1 {
 
 #cart-icon:hover {
   transform: scale(1.2); /* Zoom in effect */
-  background-color: #555; 
+  background-color: #f3d8d8; 
 }
 
 .close-cart:hover {
