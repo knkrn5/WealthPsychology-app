@@ -46,9 +46,7 @@ header h1 {
   background-color: #f3d8d8; 
 }
 
-.close-cart:hover {
-  color: #ff0000; 
-}
+
 /* Cart container styles */
 .cart-container {
   display: none;
@@ -56,14 +54,22 @@ header h1 {
   top: 0;
   right: 0;
   width: 300px;
-  background-color: #f9f9f9;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 80%;
+  margin: 40px 20px 0 0;
+  background-color: transparent;
+  border-radius: 10px;
+  /* background-color: #fff;
+  opacity: 0.9; */
+  backdrop-filter: blur(80px);
   z-index: 1000;
 }
 
 .cart-container h2 {
   margin-bottom: 10px;
+  text-align: center;
+  margin-top: 0;
+  font-weight: bold;
 }
 
 .close-cart {
@@ -71,7 +77,7 @@ header h1 {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 1.5em;
+  font-size: 3em;
   transition: color 0.3s; /* Transition for color */
 }
 
@@ -119,7 +125,47 @@ width: 100%;/
 
 }
 
-/* Style for the course grid */
+.cart-item {
+  border-bottom: 1px solid #eee;
+  display: flex;
+  padding: 5px 0;
+  margin-top: 10px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  max-width: 100%;
+  position: relative; /* Ensure positioning context */
+}
+
+.cart-item:last-child {
+  border-bottom: none;
+}
+
+.cart-item h4 {
+  position: absolute; /* Position the h4 absolutely */
+  top: 0; /* Align to the top of the cart-item */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Adjust for centering */
+  font-size: 15px;
+  margin: 0; /* Remove any default margin */
+}
+
+.cart-item img {
+  height: 50px;
+  width: auto;
+}
+
+.cart-item p {
+  margin-bottom: 5px;
+  color: #000;
+}
+
+
+
+
+
+
+/* Style for the course grid-------------------------- */
 .course-grid {
 display: flex;
 flex-wrap: wrap;

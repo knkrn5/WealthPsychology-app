@@ -75,3 +75,64 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
+
+
+// -----------------------------------------------------------------------
+// Array to store cart items
+let cartItems = [];
+
+function toggleCart() {
+    var cart = document.getElementById('cart');
+    var cartIcon = document.getElementById('cart-icon');
+
+    if (cart.style.display === 'none' || cart.style.display === '') {
+        cart.style.display = 'block';
+        cartIcon.style.backgroundColor = "white";
+    } else {
+        cart.style.display = 'none';
+        cartIcon.style.backgroundColor = "";
+    }
+}
+
+// Function to add item to cart
+function addToCart(courseTitle, courseImage, originalPrice, discountedPrice) {
+    const item = { 
+        title: courseTitle, 
+        image: courseImage, 
+        originalPrice: originalPrice, 
+        discountedPrice: discountedPrice 
+    };
+    cartItems.push(item);
+    updateCart();
+}
+
+// Function to update cart content
+function updateCart() {
+    const cartItemsContainer = document.getElementById('cart-items');
+    cartItemsContainer.innerHTML = '';
+
+    cartItems.forEach(item => {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('cart-item');
+        cartItem.innerHTML = `
+            <img src="${item.image}" alt="${item.title} Image">
+            <h4>${item.title}</h4>
+            <p>Original Price: ${item.originalPrice}</p>
+            <p>Discounted Price: ${item.discountedPrice}</p>
+        `;
+        cartItemsContainer.appendChild(cartItem);
+    });
+}
+
+// Example usage: Adding event listeners to "Add to Cart" buttons
+document.querySelectorAll('.add-to-cart').forEach(button => {
+    button.addEventListener('click', () => {
+        const courseCard = button.closest('.smcourse-card, .other-course');
+        const courseTitle = courseCard.querySelector('h3').innerText;
+        const courseImage = courseCard.querySelector('img').src; // Assuming the image is directly within the course card
+        const originalPrice = courseCard.querySelector('.original-price').innerText;
+        const discountedPrice = courseCard.querySelector('.discounted-price').innerText;
+        addToCart(courseTitle, courseImage, originalPrice, discountedPrice);
+    });
+});
+
