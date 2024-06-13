@@ -83,7 +83,7 @@ body {
   padding: 0;
 }
 
-#smcourses {
+#othercourses {
 max-width: 100%;
 }
 
@@ -129,7 +129,7 @@ padding-bottom: 5px;
 }
 
 /* Style for each course card */
-.smcourse-card {
+.other-course {
 background-color: #f9f9f9;
 border: 1px solid #ddd;
 border-radius: 5px;
@@ -145,19 +145,19 @@ background-position: center; /*added to center the img*/
 
 }
 
-.smcourse-card:hover {
+.other-course:hover {
 transform: scale(1.05);
 }
 
 
-.smcourse-card img {
+.other-course img {
 max-width: 100%;
 height: auto;
 border-radius: 5px;
 /* margin-bottom: 0px; */
 }
 
-.smcourse-card h3 {
+.other-course h3 {
 font-size: 1.3em;
 /* margin: 10px 0; */
 background-color: #000;
@@ -166,7 +166,11 @@ padding: 8px;
 text-decoration: none;
 }
 
-.smcourse-card p {
+#othercourses a {
+  text-decoration: none;
+}
+
+.other-course p {
 font-size: 1em;
 margin: 10px;
 color: #666;
@@ -194,7 +198,7 @@ margin-right: 10px;
 padding-left: 10px;
 }
 
-.smcourse-card button {
+.other-course button {
 cursor: pointer;
 border: none;
 background-color: #555;
@@ -204,7 +208,7 @@ width: 100%;
 position: relative; /* Needed for the hover text to position correctly */
 }
 
-.smcourse-card .buttons {
+.other-course .buttons {
 display: flex;
 justify-content: center;
 gap: 10px; /* Add some space between the buttons */
@@ -232,14 +236,14 @@ z-index: 1000; /* Ensure it appears above other elements */
 
 /* Responsive design */
 @media (max-width: 768px) {
-.smcourse-card {
+.other-course {
     /* width: calc(50% - 40px); Adjust the width to fit 2 cards in a row */
     width: 40%;
 }
 }
 
 @media (max-width: 480px) {
-.smcourse-card {
+.other-course {
     width: 80%; /* Full width for small screens */
 }
 }

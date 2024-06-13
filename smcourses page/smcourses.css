@@ -160,6 +160,10 @@ body {
   text-decoration: none;
 }
 
+#smcourses a {
+  text-decoration: none;
+}
+
 .smcourse-card p {
   font-size: 1em;
   margin: 10px;
