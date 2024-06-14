@@ -133,18 +133,19 @@ function updateCart() {
     });
 
     // Add event listeners to "delete" buttons
-    document.querySelectorAll('.delete-item').forEach((button, index) => {
-        button.addEventListener('click', () => {
+    document.querySelectorAll('.delete-item').forEach((deleteButton, index) => {
+        deleteButton.addEventListener('click', () => {
             // Remove the item from the cartItems array
             cartItems.splice(index, 1);
             updateCart();
-           
-            const addToCartButtons = document.querySelectorAll('.add-to-cart');
-            addToCartButtons.forEach(addButton => {
-                addButton.innerText = 'Add to Cart';
-            });
+    
+            // Find the corresponding "Add to Cart" button in the same course item
+            const addToCartButton = deleteButton.closest('.smcourse-card').querySelector('.add-to-cart');
+            addToCartButton.innerText = 'Add to Cart';
         });
     });
+    
+    
 
        // Add "Proceed to Buy All" button
        const buyAllButton = document.createElement('button');

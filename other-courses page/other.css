@@ -110,13 +110,13 @@ header h1 {
 
 /* cart items styling */
 .cart-item {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1.5px solid #eee;
   display: flex;
   padding: 5px 0;
   margin-top: 10px;
-  align-items: center;
+  align-items: baseline;
   text-align: center;
-  justify-content: center;
+  justify-content: space-around;
   max-width: 100%;
   position: relative; /* Ensure positioning context */
 }
@@ -124,6 +124,8 @@ header h1 {
 .cart-item button {
   color: #000;
   background: transparent;
+  font-size: 20px;
+  align-self: center;
 }
 
 
@@ -132,22 +134,25 @@ header h1 {
 }
 
 .cart-item h4 {
-  position: absolute; /* Position the h4 absolutely */
-  top: 0; /* Align to the top of the cart-item */
-  left: 50%; /* Center horizontally */
-  transform: translateX(-50%); /* Adjust for centering */
+  position: absolute; 
+  top: 0; 
+  align-self: center;
+  padding: 7px 6px;
+  left: 50%; 
+  transform: translateX(-50%); 
   font-size: 15px;
-  margin: 0; /* Remove any default margin */
+  margin: 0; 
 }
 
 .cart-item img {
-  height: 50px;
+  height: 70px;
   width: auto;
 }
 
 .cart-item p {
-  margin-bottom: 5px;
+  margin-bottom: 0;
   color: #000;
+  align-self: center;
 }
 
 
