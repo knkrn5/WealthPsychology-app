@@ -122,7 +122,8 @@ header h1 {
 }
 
 .cart-item button {
-  color: red;
+  color: #000;
+  background: transparent;
 }
 
 

@@ -127,16 +127,22 @@ function updateCart() {
             <img src="${item.image}" alt="${item.title} Image">
             <h4>${item.title}</h4>
             <p>Original Price: ${item.originalPrice}</p>
-            <button class="buy-now">Buy Now</button>
+            <button class="delete-item"><i class="fa-solid fa-trash" alt="Trash Icon"></i></button>
         `;
         cartItemsContainer.appendChild(cartItem);
     });
 
-    // Add event listeners to "Buy Now" buttons
-    document.querySelectorAll('.buy-now').forEach(button => {
+    // Add event listeners to "delete" buttons
+    document.querySelectorAll('.delete-item').forEach((button, index) => {
         button.addEventListener('click', () => {
-            // Add your Buy Now functionality here
-            alert('Buy Now clicked for ' + button.closest('.cart-item').querySelector('h4').innerText);
+            // Remove the item from the cartItems array
+            cartItems.splice(index, 1);
+            updateCart();
+           
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+            addToCartButtons.forEach(addButton => {
+                addButton.innerText = 'Add to Cart';
+            });
         });
     });
 
@@ -146,7 +152,7 @@ function updateCart() {
        buyAllButton.textContent = 'Proceed to Buy All';
        buyAllButton.addEventListener('click', () => {
            // Add your "Proceed to Buy All" functionality here
-           alert('Proceed to Buy All clicked');
+           alert('Purchase Successful');
        });
        cartItemsContainer.appendChild(buyAllButton);
 
