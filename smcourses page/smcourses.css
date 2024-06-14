@@ -123,8 +123,8 @@ body {
 
 /* Style for each course card */
 .smcourse-card {
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
+   background-color: #eeeee6;
+  border-radius: 10px;
   border-radius: 5px;
   padding: 20px;
   text-align: center;
