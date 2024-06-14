@@ -1,4 +1,7 @@
-//javascript to handle couses card buttons hovering....
+
+// global course js----------------------------------
+
+//javascript to handle courses card buttons hovering....
 document.addEventListener("DOMContentLoaded", function() {
     let addToCartButtons = document.querySelectorAll('.add-to-cart');
     let buyNowButtons = document.querySelectorAll('.buy-now');
@@ -18,17 +21,6 @@ document.addEventListener("DOMContentLoaded", function() {
         event.target.style.textDecoration = '';
     }
 
-    // Function to handle course card button click event
-    function addToCartClick(event) {
-        let button = event.target;
-        if (button.innerText === "Add to Cart") {
-            button.innerText = "Item added to Cart";
-            button.style.color = "white";
-        } else {
-            button.innerText = "Add to Cart";
-            button.style.color = ""; // Reset to original color
-        }
-    }
 
     function buyNowclick(event) {
         alert("Oops! Payment options aren't available yet because the course videos are still being prepared. In the meantime, click the image or title to see the concepts you'll learn in this course")
@@ -57,8 +49,6 @@ document.addEventListener("DOMContentLoaded", function() {
     addToCartButtons.forEach(addToCartButton => {
         addToCartButton.addEventListener('mouseenter', handleMouseEnter);
         addToCartButton.addEventListener('mouseleave', handleMouseLeave);
-        addToCartButton.addEventListener('click', addToCartClick);
-
     });
 
     // Add event listeners for all Buy Now buttons
@@ -75,3 +65,5 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
 });
+
+

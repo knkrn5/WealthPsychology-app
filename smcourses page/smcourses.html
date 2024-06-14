@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../smcourses page/smcourses.css">
     <link rel="stylesheet" href="/global/footer.css">
     <link rel="stylesheet" href="/global/nav.css">
+    <link rel="stylesheet" href="/global/cart.css">
     <title>Stock Market Courses</title>
     <link rel="icon" href="../global/icons/favicon.ico" type="image/x-icon"> 
 </head>
@@ -21,14 +23,16 @@
             </ul>
         </nav>
         <h1>Navigate towards the World of Finance...</h1>
-        <div id="cart-icon" onclick="openCart()">🛒</div>
+        <div id="cart-icon" onclick="toggleCart()">🛒</div>
     </header>
-
+    
     <div id="cart" class="cart-container">
-    <span class="close-cart" onclick="closeCart()">×</span>
+    <span class="close-cart" onclick="toggleCart()"></span>
     <h2>Your Cart</h2>
-    <div id="cart-items"></div> <!-- Cart content goes here -->
-</div>
+    <div id="cart-items"></div> 
+    <!-- Cart content goes here -->
+    
+    </div>  
 
 
 <section id="smcourses">
@@ -36,7 +40,7 @@
     <div class="course-category" id="beginner-courses">
     <h1>Beginner Courses:</h1> 
         <div class="course-grid">
-            <div class="smcourse-card">
+            <div class="smcourse-card" data-course-id="1">
                 <a href="https://1drv.ms/w/s!At5WivVSSLb9i3N_1RMb_KbxXeRS?e=foUacx" target="_blank">
                     <img src="../smcourses page/imgs/bosm.webp" alt="Basics of Stock Market">
                     <h3>Basics of Stock Market</h3> </a>
@@ -46,12 +50,12 @@
                     <span class="discounted-price">₹499</span>
                 </div>
                 <div class="buttons">
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-course-id="1">Add to Cart</button>
                     <button class="buy-now">Buy Now</button>
                 </div>
             </div>
 
-            <div class="smcourse-card">
+            <div class="smcourse-card" data-course-id="2">
                 <a href="https://1drv.ms/w/s!At5WivVSSLb9iAloZpXLuyNA4ZkV?e=EqOdu2" target="_blank">
                     <img src="../smcourses page/imgs/ipoa.webp" alt="IPO Analysis"><br>
                     <h3>IPO Analysis</h3>
@@ -62,12 +66,12 @@
                     <span class="discounted-price">₹499</span>
                 </div>
                 <div class="buttons">
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-course-id="2">Add to Cart</button>
                     <button class="buy-now">Buy Now</button>
                 </div>
             </div>
 
-            <div class="smcourse-card">
+            <div class="smcourse-card" data-course-id="3">
                 <a href="https://1drv.ms/w/s!At5WivVSSLb9h1btrNcEqQy5WyBO?e=lMxprB" target="_blank">
                     <img src="../smcourses page/imgs/mfa.webp" alt="Mutual Fund Analysis"><br>
                     <h3>Mutual Fund Analysis</h3>
@@ -78,7 +82,7 @@
                     <span class="discounted-price">₹499</span>
                 </div>
                 <div class="buttons">
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-course-id="3">Add to Cart</button>
                     <button class="buy-now">Buy Now</button>
                 </div>
             </div>
@@ -88,7 +92,7 @@
     <div class="course-category" id="intermediate-courses">
     <h1>Intermediate Courses:</h1>
         <div class="course-grid">
-            <div class="smcourse-card">
+            <div class="smcourse-card" data-course-id="4">
                 <a href="https://1drv.ms/w/s!At5WivVSSLb9iApDPSosn4NkPxpP?e=8ZBHs9" target="_blank">
                     <img src="../smcourses page/imgs/fa.webp" alt="Fundamental Analysis">
                     <h3>Fundamental Analysis</h3>
@@ -99,12 +103,12 @@
                     <span class="discounted-price">₹999</span>
                 </div>
                 <div class="buttons">
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-course-id="4">Add to Cart</button>
                     <button class="buy-now">Buy Now</button>
                 </div>
             </div>
   
-            <div class="smcourse-card">
+            <div class="smcourse-card" data-course-id="5">
                 <a href="https://1drv.ms/w/s!At5WivVSSLb9iXJD2wX26ZPZ5Q5l?e=EkJNOr" target="_blank">
                     <img src="../smcourses page/imgs/bsa.webp" alt="Banking Stock Analysis">
                     <h3>Banking Stock Analysis</h3>
@@ -115,12 +119,12 @@
                     <span class="discounted-price">₹999</span>
                 </div>
                 <div class="buttons">
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-course-id="5">Add to Cart</button>
                     <button class="buy-now">Buy Now</button>
                 </div>
             </div>
 
-            <div class="smcourse-card">
+            <div class="smcourse-card" data-course-id="6">
                 <a href="https://1drv.ms/w/s!At5WivVSSLb9iXR0fs71JpU7cU6x?e=ZjX7Qn" target="_blank">
                     <img src="../smcourses page/imgs/psa.webp" alt="Pharmaceutical Stock Analysis">
                     <h3>Pharmaceutical Stock Analysis</h3>
@@ -131,7 +135,7 @@
                     <span class="discounted-price">₹999</span>
                 </div>
                 <div class="buttons">
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-course-id="6">Add to Cart</button>
                     <button class="buy-now">Buy Now</button>
                 </div>
             </div>
@@ -141,7 +145,7 @@
     <div class="course-category" id= "advanced-courses">
     <h1>Advanced Courses:</h1>
         <div class="course-grid">
-            <div class="smcourse-card">
+            <div class="smcourse-card" data-course-id="7">
                 <a href="https://1drv.ms/w/s!At5WivVSSLb9iBxRiqGXFKE4yaDj?e=GWeSzm" target="_blank">
                     <img src="../smcourses page/imgs/fno.webp" alt="Futures and Options"><br>
                     <h3>Futures and Options</h3>
@@ -152,12 +156,12 @@
                     <span class="discounted-price">₹1499</span>
                 </div>
                 <div class="buttons">
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-course-id="7">Add to Cart</button>
                     <button class="buy-now">Buy Now</button>
                 </div>
             </div>
 
-            <div class="smcourse-card">
+            <div class="smcourse-card" data-course-id="8">
                 <a href="https://1drv.ms/w/s!At5WivVSSLb9iAOUQ365K5ioTNME?e=rC8nl5" target="_blank">
                     <img src="../smcourses page/imgs/ta.webp" alt="Technical Analysis">
                     <h3>Technical Analysis</h3>
@@ -168,12 +172,12 @@
                     <span class="discounted-price">₹1499</span>
                 </div>
                 <div class="buttons">
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-course-id="8">Add to Cart</button>
                     <button class="buy-now">Buy Now</button>
                 </div>
             </div>
 
-            <div class="smcourse-card">
+            <div class="smcourse-card" data-course-id="9">
                 <a href="https://1drv.ms/w/s!At5WivVSSLb9ii_tR38vZM1hqgmY?e=UtDSCK" target="_blank">
                     <img src="../smcourses page/imgs/ci.webp" alt="Concentration Investing">
                     <h3>Concentration Investing</h3>
@@ -184,7 +188,7 @@
                     <span class="discounted-price">₹1999</span>
                 </div>
                 <div class="buttons">
-                    <button class="add-to-cart">Add to Cart</button>
+                    <button class="add-to-cart" data-course-id="9">Add to Cart</button>
                     <button class="buy-now">Buy Now</button>
                 </div>
             </div>
@@ -228,5 +232,7 @@
       </footer>
    
     <script src="../smcourses page/smcourses.js"></script>
+    <script src="/global/courses.js"></script>
+    <script src="/global/cart.js"></script>
 </body>
 </html>

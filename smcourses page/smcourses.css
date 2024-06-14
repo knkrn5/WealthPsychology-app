@@ -27,52 +27,9 @@ header h1{
 /* Navigation styles via global nav css */
 
 
-/* Cart icon and container styles */
-#cart-icon {
-    cursor: pointer;
-    font-size: 1.5em;
-    position: fixed; 
-    top: 0px; 
-    right: 10px; 
-    z-index: 1000; 
-    transition: transform 0.3s, background-color 0.3s; 
-    padding: 5px; 
-    border-radius: 50%; 
-}
+/* Cart icon and container styles via global cart css */
 
-#cart-icon:hover {
-    transform: scale(1.2); /* Zoom in effect */
-    background-color: #f3d8d8; 
-}
 
-.close-cart:hover {
-    color: #ff0000; 
-}
-/* Cart container styles */
-.cart-container {
-    display: none;
-    position: fixed; 
-    top: 0;
-    right: 0;
-    width: 300px;
-    background-color: #f9f9f9;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-}
-
-.cart-container h2 {
-    margin-bottom: 10px;
-}
-
-.close-cart {
-    cursor: pointer;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 1.5em;
-    transition: color 0.3s; /* Transition for color */
-}
 
 /* body styling */
 body {
