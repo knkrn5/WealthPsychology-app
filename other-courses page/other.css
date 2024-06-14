@@ -121,7 +121,7 @@ header h1 {
   position: relative; /* Ensure positioning context */
 }
 
-.cart-item button {
+.cart-item .delete-item {
   color: #000;
   background: transparent;
   font-size: 20px;

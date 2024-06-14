@@ -96,20 +96,21 @@ function toggleCart() {
     }
 }
 
+// --------------------------------------------------------------------------
 // Function to add item to cart
-function addToCart(courseTitle, courseImage, originalPrice ) {
+function addToCart(courseTitle, courseImage, originalPrice, courseId) {
+    // Check if the item already exists in the cart
+    const existingItem = cartItems.find(item => item.id === courseId);
+    if (existingItem) {
+        alert(`"${courseTitle}" is already in your cart.`);
+        return;
+    }
 
-  // Check if the item already exists in cart
-  const existingItem = cartItems.find(item => item.title === courseTitle);
-  if (existingItem) {
-      alert(`"${courseTitle}" is already in your cart.`);
-      return;
-  }
-
-    const item = { 
-        title: courseTitle, 
-        image: courseImage, 
-        originalPrice: originalPrice,   
+    const item = {
+        id: courseId,
+        title: courseTitle,
+        image: courseImage,
+        originalPrice: originalPrice
     };
     cartItems.push(item);
     updateCart();
@@ -127,47 +128,49 @@ function updateCart() {
             <img src="${item.image}" alt="${item.title} Image">
             <h4>${item.title}</h4>
             <p>Original Price: ${item.originalPrice}</p>
-            <button class="delete-item"><i class="fa-solid fa-trash" alt="Trash Icon"></i></button>
+            <button class="delete-item" data-course-id="${item.id}"><i class="fa-solid fa-trash" alt="Trash Icon"></i></button>
         `;
         cartItemsContainer.appendChild(cartItem);
     });
 
     // Add event listeners to "delete" buttons
-    document.querySelectorAll('.delete-item').forEach((deleteButton, index) => {
+    document.querySelectorAll('.delete-item').forEach(deleteButton => {
         deleteButton.addEventListener('click', () => {
-            // Remove the item from the cartItems array
-            cartItems.splice(index, 1);
-            updateCart();
-    
-            // Find the corresponding "Add to Cart" button in the same course item
-            const addToCartButton = deleteButton.closest('.smcourse-card').querySelector('.add-to-cart');
-            addToCartButton.innerText = 'Add to Cart';
+            const courseId = deleteButton.getAttribute('data-course-id');
+            const itemIndex = cartItems.findIndex(item => item.id == courseId);
+            if (itemIndex !== -1) {
+                cartItems.splice(itemIndex, 1);
+                updateCart();
+                const addToCartButton = document.querySelector(`.add-to-cart[data-course-id="${courseId}"]`);
+                if (addToCartButton) {
+                    addToCartButton.innerText = 'Add to Cart';
+                }
+            }
         });
     });
-    
-    
 
-       // Add "Proceed to Buy All" button
-       const buyAllButton = document.createElement('button');
-       buyAllButton.classList.add('buyall');
-       buyAllButton.textContent = 'Proceed to Buy All';
-       buyAllButton.addEventListener('click', () => {
-           // Add your "Proceed to Buy All" functionality here
-           alert('Purchase Successful');
-       });
-       cartItemsContainer.appendChild(buyAllButton);
-
+    // Add "Proceed to Buy All" button if there are items in the cart
+    if (cartItems.length > 0) {
+        const buyAllButton = document.createElement('button');
+        buyAllButton.classList.add('buyall');
+        buyAllButton.textContent = 'Proceed to Buy All';
+        buyAllButton.addEventListener('click', () => {
+            // Add your "Proceed to Buy All" functionality here
+            alert('Purchase Successful');
+        });
+        cartItemsContainer.appendChild(buyAllButton);
+    }
 }
 
-// Example usage: Adding event listeners to "Add to Cart" buttons
+// Add event listeners to "Add to Cart" buttons
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', () => {
-        const courseCard = button.closest('.smcourse-card, .other-course');
+        const courseCard = button.closest('.other-course');
         const courseTitle = courseCard.querySelector('h3').innerText;
-        const courseImage = courseCard.querySelector('img').src; // Assuming the image is directly within the course card
+        const courseImage = courseCard.querySelector('img').src;
         const originalPrice = courseCard.querySelector('.original-price').innerText;
-        button.innerText = "Item Added to Cart"; 
-        addToCart(courseTitle, courseImage, originalPrice);
+        const courseId = button.getAttribute('data-course-id');
+        addToCart(courseTitle, courseImage, originalPrice, courseId);
+        button.innerText = "Item Added to Cart";
     });
 });
-
