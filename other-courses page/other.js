@@ -136,6 +136,8 @@ function updateCart() {
     const cartItemsContainer = document.getElementById('cart-items');
     cartItemsContainer.innerHTML = '';
 
+    let totalAmount = 0;
+
     cartItems.forEach(item => {
         const cartItem = document.createElement('div');
         cartItem.classList.add('cart-item');
@@ -146,7 +148,16 @@ function updateCart() {
             <button class="delete-item" data-course-id="${item.id}"><i class="fa-solid fa-trash" alt="Trash Icon"></i></button>
         `;
         cartItemsContainer.appendChild(cartItem);
+
+        // Calculate total amount
+        totalAmount += parseFloat(item.discountedPrice.replace('₹', ''));
+
     });
+
+    // Update total amount in the cart
+    document.getElementById('cart-total-amount').innerText = `₹${totalAmount.toFixed(2)}`;
+        
+
 
     // Add event listeners to "delete" buttons
     document.querySelectorAll('.delete-item').forEach(deleteButton => {
@@ -181,8 +192,6 @@ function updateCart() {
     
 }
 
-// Load cart items when the page is loaded
-document.addEventListener('DOMContentLoaded', loadCartItems);
 
 // Example usage: Adding event listeners to "Add to Cart" buttons
 document.querySelectorAll('.add-to-cart').forEach(button => {
@@ -204,3 +213,6 @@ buyAllButton.addEventListener('click', () => {
     // Add your "Proceed to Buy All" functionality here
     alert("Oops! Payment options aren't available yet because the course videos are still being prepared. In the meantime, click the image or title to see the concepts you'll learn in this course");
 });
+
+// Load cart items when the page is loaded
+document.addEventListener('DOMContentLoaded', loadCartItems);
