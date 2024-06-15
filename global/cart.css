@@ -61,7 +61,7 @@
     transform: translate(-50%);
     background-color: rgb(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
-    margin-top: 30px;
+    margin-top: 10px;
     padding: 7px;
     color: #000;
     z-index: 1; /* Ensure text is above the pseudo-element */
@@ -77,6 +77,27 @@
   #cart .buyall:hover {
     background-color: rgb(255, 255, 255, 0.5);
   }
+
+  #cart-total {
+    cursor: pointer;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: rgb(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    margin-top: 30px;
+    padding: 7px;
+    color: #000;
+    z-index: 1; /* Ensure text is above the pseudo-element */
+    font-weight: bold;
+    /* border-radius: 20px; */
+    width: 220px;
+    position: relative;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+  
   
   
   /* cart items styling */

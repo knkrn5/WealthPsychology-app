@@ -28,12 +28,17 @@
 </header>
 
 <div id="cart" class="cart-container">
-<span class="close-cart" onclick="toggleCart()"></span>
-<h2>Your Cart</h2>
-<div id="cart-items"></div> 
-<!-- Cart content goes here -->
+  <span class="close-cart" onclick="toggleCart()"></span>
+  <h2>Your Cart</h2>
+  <div id="cart-items">
+      <!-- Cart items will be dynamically added here -->
+  </div>
+  <div id="cart-total">
+     Sub-Total: <span id="cart-total-amount" style="padding: 10px;">₹0</span>
+  </div>
+  <button class="buyall">Proceed to Buy All</button>
+</div>
 
-</div>   
 
 <section id="othercourses">
   <div class="course-category">

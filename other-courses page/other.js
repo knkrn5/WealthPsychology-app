@@ -165,17 +165,14 @@ function updateCart() {
         });
     });
 
-    // Add "Proceed to Buy All" button if there are items in the cart
-    if (cartItems.length > 0) {
-        const buyAllButton = document.createElement('button');
-        buyAllButton.classList.add('buyall');
-        buyAllButton.textContent = 'Proceed to Buy All';
-        buyAllButton.addEventListener('click', () => {
-            // Add your "Proceed to Buy All" functionality here
-            alert("Oops! Payment options aren't available yet because the course videos are still being prepared. In the meantime, click the image or title to see the concepts you'll learn in this course");
-        });
-        cartItemsContainer.appendChild(buyAllButton);
-    }
+  // Show or hide "Proceed to Buy All" button
+  const buyAllButton = document.querySelector('.buyall');
+  if (cartItems.length > 0) {
+      buyAllButton.style.display = "block";
+  } else {
+      buyAllButton.style.display = "none";
+  }
+    
 }
 
 // Load cart items when the page is loaded
@@ -192,4 +189,12 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
         addToCart(courseTitle, courseImage, originalPrice, courseId);
         button.innerText = "Item Added to Cart";
     });
+});
+
+  
+// Add "Proceed to Buy All" button if there are items in the cart
+const buyAllButton = document.querySelector('.buyall'); // Select the button using querySelector
+buyAllButton.addEventListener('click', () => {
+    // Add your "Proceed to Buy All" functionality here
+    alert("Oops! Payment options aren't available yet because the course videos are still being prepared. In the meantime, click the image or title to see the concepts you'll learn in this course");
 });
