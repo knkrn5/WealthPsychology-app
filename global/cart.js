@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', loadCartItems);
 // Add event listeners to "Add to Cart" buttons
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', () => {
-        const courseCard = button.closest('.smcourse-card, .other-course');
+        const courseCard = button.closest('.course-card');
         const courseTitle = courseCard.querySelector('h3').innerText;
         const courseImage = courseCard.querySelector('img').src;
         const originalPrice = courseCard.querySelector('.original-price').innerText;

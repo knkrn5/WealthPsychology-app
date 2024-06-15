@@ -5,7 +5,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     let addToCartButtons = document.querySelectorAll('.add-to-cart');
     let buyNowButtons = document.querySelectorAll('.buy-now');
-    let headings = document.querySelectorAll('.smcourse-card h3');
+    let headings = document.querySelectorAll('.course-card h3');
 
     // Function to handle mouse enter event
     function handleMouseEnter(event) {

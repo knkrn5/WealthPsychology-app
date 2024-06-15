@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     let addToCartButtons = document.querySelectorAll('.add-to-cart');
     let buyNowButtons = document.querySelectorAll('.buy-now');
-    let headings = document.querySelectorAll('.other-course h3');
+    let headings = document.querySelectorAll('.course-card h3');
 
     // Function to handle mouse enter event
     function handleMouseEnter(event) {
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', loadCartItems);
 // Example usage: Adding event listeners to "Add to Cart" buttons
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', () => {
-        const courseCard = button.closest('.other-course');
+        const courseCard = button.closest('.course-card');
         const courseTitle = courseCard.querySelector('h3').innerText;
         const courseImage = courseCard.querySelector('img').src;
         const originalPrice = courseCard.querySelector('.original-price').innerText;
