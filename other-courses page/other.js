@@ -172,7 +172,7 @@ function updateCart() {
         buyAllButton.textContent = 'Proceed to Buy All';
         buyAllButton.addEventListener('click', () => {
             // Add your "Proceed to Buy All" functionality here
-            alert('Purchase Successful');
+            alert("Oops! Payment options aren't available yet because the course videos are still being prepared. In the meantime, click the image or title to see the concepts you'll learn in this course");
         });
         cartItemsContainer.appendChild(buyAllButton);
     }
