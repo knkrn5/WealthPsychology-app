@@ -35,6 +35,9 @@
    -webkit-backdrop-filter: blur(80px); 
     overflow-y: auto; /* Enable vertical scrolling */
     z-index: 1000;
+    border-top: 1.5px solid #eee; /* Top border for the cart container */
+    border-bottom: 1.5px solid #eee; /* Top border for the cart container */
+    padding-top: 10px; /* Padding to separate the top border from the content */
   }
   
   
@@ -79,7 +82,6 @@
   }
 
   #cart-total {
-    cursor: pointer;
     bottom: 0px;
     left: 50%;
     transform: translate(-50%);

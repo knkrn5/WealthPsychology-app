@@ -112,7 +112,7 @@ function saveCartItems() {
 }
 
 // Function to add item to cart
-function addToCart(courseTitle, courseImage, originalPrice, courseId) {
+function addToCart(courseTitle, courseImage, discountedPrice, courseId) {
     // Check if the item already exists in the cart
     const existingItem = cartItems.find(item => item.id === courseId);
     if (existingItem) {
@@ -124,7 +124,7 @@ function addToCart(courseTitle, courseImage, originalPrice, courseId) {
         id: courseId,
         title: courseTitle,
         image: courseImage,
-        originalPrice: originalPrice
+        discountedPrice: discountedPrice
     };
     cartItems.push(item);
     saveCartItems();
@@ -142,7 +142,7 @@ function updateCart() {
         cartItem.innerHTML = `
             <img src="${item.image}" alt="${item.title} Image">
             <h4>${item.title}</h4>
-            <p>Original Price: ${item.originalPrice}</p>
+            <p>Discount Price: ${item.discountedPrice}</p>
             <button class="delete-item" data-course-id="${item.id}"><i class="fa-solid fa-trash" alt="Trash Icon"></i></button>
         `;
         cartItemsContainer.appendChild(cartItem);
@@ -190,9 +190,9 @@ document.querySelectorAll('.add-to-cart').forEach(button => {
         const courseCard = button.closest('.course-card');
         const courseTitle = courseCard.querySelector('h3').innerText;
         const courseImage = courseCard.querySelector('img').src;
-        const originalPrice = courseCard.querySelector('.original-price').innerText;
+        const discountedPrice = courseCard.querySelector('.discounted-price').innerText;
         const courseId = button.getAttribute('data-course-id');
-        addToCart(courseTitle, courseImage, originalPrice, courseId);
+        addToCart(courseTitle, courseImage, discountedPrice, courseId);
         button.innerText = "Item Added to Cart";
     });
 });
