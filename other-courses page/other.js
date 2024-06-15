@@ -167,10 +167,16 @@ function updateCart() {
 
   // Show or hide "Proceed to Buy All" button
   const buyAllButton = document.querySelector('.buyall');
+  const cartTotal = document.querySelector('#cart-total');
+  const cartHeading = document.querySelector('.cart-heading');
   if (cartItems.length > 0) {
       buyAllButton.style.display = "block";
+      cartTotal.style.display = "block";
+      cartHeading.innerHTML ="Your Cart";
   } else {
       buyAllButton.style.display = "none";
+      cartTotal.style.display = "none";
+      cartHeading.innerHTML ="Your Cart is Empty";
   }
     
 }
