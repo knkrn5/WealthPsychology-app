@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="home page/styles.css" />
     <link rel="stylesheet" href="/global/footer.css">
     <link rel="stylesheet" href="/global/nav.css">
+    <link rel="stylesheet" href="/global/cart.css">
     <title>WealthPsychology - Empower Your Financial Future</title>
     <link rel="icon" href="global/icons/favicon.ico" type="image/x-icon"
     />
@@ -28,13 +30,19 @@
       
       <h1>Let your money work for you!!!</h1>
       
-      <div id="cart-icon" onclick="openCart()">🛒</div>
+      <div id="cart-icon" onclick="toggleCart()">🛒</div>
     </header>
 
     <div id="cart" class="cart-container">
-      <span class="close-cart" onclick="closeCart()">×</span>
-      <h2>Your Cart</h2>
-      <!-- Cart content goes here -->
+      <span class="close-cart" onclick="toggleCart()"></span>
+      <h2 class="cart-heading">Your Cart</h2>
+      <div id="cart-items">
+          <!-- Cart items will be dynamically added here -->
+      </div>
+      <div id="cart-total">
+         Sub-Total: <span id="cart-total-amount" style="padding: 10px;">₹0</span>
+      </div>
+      <button class="buyall">Proceed to Buy All</button>
     </div>
 
   <div class="home-page">
@@ -119,5 +127,6 @@
   </footer>
 
     <script src= "/home page/script.js"></script>
+    <script src= "/global/cart.js"></script>
   </body>
 </html>
