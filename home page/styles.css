@@ -21,14 +21,39 @@ header {
   100% { background-position: 0% 50%; }
 } */
 
-header h1 {
-  font-size: 40px;
-  background-color: #fff;
-  color: #000;
-  margin-top: 0px;
-  font-weight: bold;
-  font-style: italic;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
+
+h1 {
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 50px;
+  background: linear-gradient(135deg, #ff7e5f, #feb47b, #86a8e7, #7f7fd5);
+  background-size: 800% 800%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: gradient 5s ease infinite;
+  margin: 0;
+  font-weight: 700;
+  text-align: center;
+  padding: 20px 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 
+               2px 2px 4px rgba(0, 0, 0, 0.1), 
+               3px 3px 6px rgba(0, 0, 0, 0.1), 
+               4px 4px 8px rgba(0, 0, 0, 0.1), 
+               5px 5px 10px rgba(0, 0, 0, 0.1); /* 3D effect */
+}
+
+
 
 /* header .slogan{
   top: 0;
@@ -91,6 +116,7 @@ header h1 {
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
+  
 }
 
 .home-page {
