@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // }
 
     function buyNowclick(event) {
-        alert("Oops! Payment options aren't available yet because the course videos are still being prepared. In the meantime, click the image or title to see the concepts you'll learn in this course")
+        alert("Oops! Payment options aren't available yet because the course videos are still being prepared. In the meantime,explore other pages and click on the title to see the concepts you'll learn in this course")
     }
 
        // Function to handle mouse enter event for headings    
