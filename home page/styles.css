@@ -55,16 +55,7 @@ h1 {
 
 
 
-/* header .slogan{
-  top: 0;
-  font-weight: bolder;
-  font-size: 40px;
-  font-style: italic;
-  color: #000;
-  margin-top: 0;
-  margin-bottom: 5px;
-  padding-bottom: 10px;
-} */
+
 
 @media (max-width: 768px) {
   header h1 {
@@ -78,17 +69,81 @@ h1 {
 
 
 /* Navigation styles via global nav css */
-/*home-page nav styling */
-.index-page nav ul {
-  height: 43px;
+
+
+
+/* Hamburger menu styles */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
 }
 
+.menu-toggle .bar {
+  height: 3px;
+  width: 25px;
+  background-color: white;
+  margin: 6px 10px;
+  transition: 0.4s;
+}
 
+/* Mobile view */
 @media (max-width: 768px) {
-  .index-page nav ul{
-    height: auto;
+  .menu-toggle {
+    display: flex;
   }
+  
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+    top: 60px;
+    left: 0;
+    background-color: #333;
+    z-index: 1;
+  }
+  
+  .nav-menu.active {
+    display: flex;
+  }
+
+  nav ul li .active {
+    font-weight: bold; 
+    color: black;
+     background-color: #ddd ; 
 }
+  
+  nav ul li .home-nav {
+    background-color: #333 !important;
+}
+
+  nav ul li a {
+  background-color: #333;
+  display: block;
+  /* color: #fff; */
+  text-align: center;
+  /* padding: 14px 16px; */
+  text-decoration: none;
+  margin-right: 5px;
+  height: 10px;
+  /* font-weight: bold; */
+  height: 45px;
+}
+
+nav .home-nav{
+  height: 43px;
+  width: auto;
+}
+
+}
+
+
+
+
+/*home-page nav styling */
+
+
 
 /* Cart icon and container styling via global cart CSS------------------------------------*/
 
