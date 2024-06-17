@@ -31,12 +31,12 @@
     transition: transform 0.3s, background-color 0.3s; 
     padding: 5px; 
     border-radius: 50%; 
-    background-color: #eeeee6;
+    background-color: #ffffff;
   }
   
   #cart-icon:hover {
     transform: scale(1.2); /* Zoom in effect */
-    background-color: #f3d8d8; 
+    background-color: #eeeee6; 
   }
   
   

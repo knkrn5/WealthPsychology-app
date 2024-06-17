@@ -19,7 +19,7 @@ function toggleCart() {
 
     if (cart.style.display === 'none' || cart.style.display === '') {
         cart.style.display = 'block';
-        cartIcon.style.backgroundColor = "white";
+        cartIcon.style.backgroundColor = "lightyellow";
     } else {
         cart.style.display = 'none';
         cartIcon.style.backgroundColor = "";
