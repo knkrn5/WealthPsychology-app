@@ -31,7 +31,7 @@
     transition: transform 0.3s, background-color 0.3s; 
     padding: 5px; 
     border-radius: 50%; 
-    background-color: #ffffff;
+    background-color: #eeeee6;
   }
   
   #cart-icon:hover {
