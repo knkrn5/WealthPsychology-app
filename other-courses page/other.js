@@ -137,6 +137,7 @@ function updateCart() {
     cartItemsContainer.innerHTML = '';
 
     let totalAmount = 0;
+    let cartItemCount = 0;
 
     cartItems.forEach(item => {
         const cartItem = document.createElement('div');
@@ -151,10 +152,12 @@ function updateCart() {
 
         // Calculate total amount
         totalAmount += parseFloat(item.discountedPrice.replace('₹', ''));
+        cartItemCount += 1;
     });
 
     // Update total amount in the cart
     document.getElementById('cart-total-amount').innerText = `₹${totalAmount.toFixed(2)}`;
+    document.getElementById('cart-item-count').innerText = `${cartItemCount}`;
 
     // Add event listeners to "delete" buttons
     document.querySelectorAll('.delete-item').forEach(deleteButton => {

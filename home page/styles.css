@@ -38,7 +38,7 @@ h1 {
   color: transparent;
   background-clip: text;
   -webkit-background-clip: text;
-  animation: gradient 5s ease infinite;
+  animation: gradient 2s ease infinite;
   margin: 0;
   font-weight: 700;
   text-align: center;
@@ -91,7 +91,6 @@ h1 {
 }
 
 /* Cart icon and container styling via global cart CSS------------------------------------*/
-
 
 
 
