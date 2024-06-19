@@ -40,10 +40,17 @@ body {
 
 
 .termsofuse {
-    width: 80%; 
+    width: 70%; 
     margin: 0 auto; 
     padding-bottom: 30px;
     background-color: #f9f9f9;
+}
+
+
+@media (max-width: 768px) {
+    .termsofuse {
+        width: 80%;
+    }
 }
 
 /* Footer styles via global footer css*/
