@@ -2,6 +2,7 @@
 
 // global footer javascript------------------------
 
+
 document.addEventListener("DOMContentLoaded", () => {
     loadHTML('/footer/footer.html', '#footer', highlightActiveLink);
 });
@@ -11,31 +12,67 @@ function loadHTML(url, selector, callback) {
         .then(response => response.text())
         .then(data => {
             document.querySelector(selector).innerHTML = data;
-            if (callback) {
-                console.log("HTML loaded, invoking callback");
-                callback(); // Call the callback function if it exists
-            }
+            if (callback) callback(); // Call the callback function if it exists
         })
         .catch(error => console.error('Error loading HTML:', error));
 }
 
 function highlightActiveLink() {
-    const currentPath = window.location.pathname;
+    const currentPath = decodeURIComponent(window.location.pathname); // Decode the current path
     console.log("Current Path: ", currentPath); // Debug log
 
     const navLinks = document.querySelectorAll('.nav-link');
     console.log("Nav Links: ", navLinks); // Debug log
 
     navLinks.forEach(link => {
-        const href = link.getAttribute('href');
-        console.log("Checking Link: ", href); // Debug log
+        const linkPath = decodeURIComponent(link.getAttribute('href')); // Decode the link href
+        console.log("Checking Link: ", linkPath); // Debug log
 
-        if (href.includes(currentPath)) {
+        if (linkPath.includes(currentPath)) {
             console.log("Match Found: ", link); // Debug log
             link.classList.add('active');
         }
     });
 }
+
+
+
+
+
+// document.addEventListener("DOMContentLoaded", () => {
+//     loadHTML('/footer/footer.html', '#footer', highlightActiveLink);
+// });
+
+// function loadHTML(url, selector, callback) {
+//     fetch(url)
+//         .then(response => response.text())
+//         .then(data => {
+//             document.querySelector(selector).innerHTML = data;
+//             if (callback) {
+//                 console.log("HTML loaded, invoking callback");
+//                 callback(); // Call the callback function if it exists
+//             }
+//         })
+//         .catch(error => console.error('Error loading HTML:', error));
+// }
+
+// function highlightActiveLink() {
+//     const currentPath = window.location.pathname;
+//     console.log("Current Path: ", currentPath); // Debug log
+
+//     const navLinks = document.querySelectorAll('.nav-link');
+//     console.log("Nav Links: ", navLinks); // Debug log
+
+//     navLinks.forEach(link => {
+//         const href = link.getAttribute('href');
+//         console.log("Checking Link: ", href); // Debug log
+
+//         if (href.includes(currentPath)) {
+//             console.log("Match Found: ", link); // Debug log
+//             link.classList.add('active');
+//         }
+//     });
+// }
 
 
 
