@@ -44,6 +44,7 @@ footer {
 
 .footer-mid a {
   color: white;
+  text-decoration: none;
   font-weight: normal;
   font-size: 15px;
   margin: 0 10px;
@@ -54,8 +55,9 @@ footer {
 }
 
 .footer-mid .active {
-  color: lightblue;
+  color: lightblue !important;
 }
+
 
 .social-links,
 .trading-broker {

@@ -1,28 +1,32 @@
-function loadHTML(filename, elementId) {
-    fetch(filename)
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById(elementId).innerHTML = data;
-        });
-}
 
+// ---------------------------------------------------------------------
 document.addEventListener("DOMContentLoaded", () => {
-    loadHTML('header.html', 'header');
-    loadHTML('footer.html', 'footer');
+    loadHTML('/footer/footer.html', '#footer', highlightActiveLink); // Pass the highlight function as a callback
 });
 
-// -----------------------------------------------------
-
-document.addEventListener("DOMContentLoaded", () => {
-    loadHTML('header.html', '#header');
-    loadHTML('footer.html', '#footer');
-});
-
-function loadHTML(url, selector) {
+function loadHTML(url, selector, callback) {
     fetch(url)
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
         .then(data => {
             document.querySelector(selector).innerHTML = data;
+            if (callback) callback(); // Call the callback function if it exists
         })
         .catch(error => console.error('Error loading HTML:', error));
 }
+
+function highlightActiveLink() {
+    const currentPath = window.location.pathname; // Get the current path
+    const footerMidlinks = document.querySelectorAll('.footer-mid-links'); // Select all navigation links
+
+    footerMidlinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+            link.classList.add('.footer-mid .active'); // Add the active class to the current page link
+        }
+    });
+}
+
