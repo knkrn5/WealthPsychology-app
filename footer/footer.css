@@ -76,6 +76,9 @@ footer {
   width: 30px;
   height: 30px;
   transition: transform 0.3s, opacity 0.3s;
+  border-radius: 15px; /* Slightly rounded corners */
+  box-shadow: 0 4px #fff; /* Creates the 3D effect */
+  transition: box-shadow 0.1s ease, transform 0.1s ease;
 }
 
 .social-links a img:hover,
