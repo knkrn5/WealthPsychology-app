@@ -62,7 +62,7 @@ nav {
   }
  }
 
- 
+
 
  /* Hamburger menu styles-------------------------------------------------- */
 .menu-toggle {
@@ -90,7 +90,7 @@ nav {
       flex-direction: column;
       width: 100%;
       text-align: left;
-      top: 60px;
+      top: 0;
       left: 0;
       background-color: #333;
       z-index: 1;
@@ -118,9 +118,8 @@ nav {
     /* padding: 14px 16px; */
     text-decoration: none;
     margin-right: 5px;
-    height: 10px;
     /* font-weight: bold; */
-    height: 45px;
+    height: 15px;
   }
   
   nav .home-nav{
