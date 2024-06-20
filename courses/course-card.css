@@ -81,7 +81,7 @@
         width: 100%;
         position: relative; 
         border-radius: 5px; /* Slightly rounded corners */
-        box-shadow: 0 4px #444; /* Creates the 3D effect */
+        box-shadow: 0 4px #666; /* Creates the 3D effect */
         transition: box-shadow 0.1s ease, transform 0.1s ease; /* Smooth transition for the effect */
     }
     

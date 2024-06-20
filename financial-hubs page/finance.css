@@ -39,7 +39,7 @@ body {
 
 
 .finance {
-    max-width: 80%;
+    max-width: 75%;
     margin: 0 auto;
     padding-top: 0;
     padding: 40px;
@@ -72,6 +72,7 @@ iframe{
     .finance {
         grid-template-columns: 1fr; /* Single column layout */
         justify-content: center;
+        max-width: 100%;
     }
     
     .finance .left-column,

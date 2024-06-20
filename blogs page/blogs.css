@@ -51,7 +51,7 @@ iframe{
 } */
 
 .blog-post {
-    max-width: 80%;
+    max-width: 75%;
     margin: 0 auto;
     padding-top: 0;
     padding: 40px;
@@ -90,6 +90,7 @@ iframe{
       grid-template-columns: 1fr; /* Single column layout */
       grid-template-rows: auto auto; /* Stack rows */
       justify-content: center;
+      max-width: 100%;
     }
   
     .blog-post .left-column,
@@ -138,9 +139,6 @@ iframe{
 }
 
 @media (max-width: 768px) {
-    .blog-post{
-        max-width: 100%;
-    }
     .blog-post img {
         height: 180px; 
         width: auto;

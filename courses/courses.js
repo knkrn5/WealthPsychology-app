@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
         event.target.style.textDecoration = "underline";
     }
 
+
     // Function to handle mouse leave event
     function handleMouseLeave(event) {
         event.target.style.backgroundColor = ''; 
