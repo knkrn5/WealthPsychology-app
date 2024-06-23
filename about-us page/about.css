@@ -153,4 +153,12 @@ input[type="submit"]:hover {
     background-color: #45a049;
 }
 
+@media (max-width: 768px) {
+    select{
+       width: 70%;
+       /* font-size: 10px; */
+   }
+}
+
+
 /* Footer styles  via global footer css*/
