@@ -23,7 +23,7 @@ body {
 }
 
 .journey-container {
-    max-width: 80%; 
+    max-width: 70%; 
     margin: 0 auto;
     margin: 50px auto;
     margin-top: 50px;
@@ -44,7 +44,7 @@ body {
 }
 
 .title1 {
-    max-width: 780px;
+    max-width: 630px;
     margin-left: auto; /* Push the element to the right */
     font-size: 2rem;
     padding: 10px 0 10px 0;
@@ -65,7 +65,7 @@ body {
     font-weight: bold;
     padding-left: 10px;
     text-align: left;
-    max-width: 800px;
+    max-width: 650px;
     margin-top: 30px;
 }
 
@@ -102,12 +102,55 @@ body {
     margin-left: 30px;
 }
 
-.personal {
-    padding: 0;
+/* Label Styling */
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
     font-weight: bold;
-    font-size: 15px;
 }
 
+/* Select Dropdown Styling */
+select {
+    width: 30%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0px;
+    background-color: #f9f9f9;
+}
 
+#personal {
+    margin-bottom: 0px;
+}
+
+/* Option Group Styling */
+optgroup {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Option Styling */
+option {
+    padding: 10px;
+}
+
+/* Submit Button Styling */
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
 
 /* Footer styles  via global footer css*/
