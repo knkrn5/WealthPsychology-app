@@ -158,6 +158,9 @@ input[type="submit"]:hover {
        width: 70%;
        /* font-size: 10px; */
    }
+   option {
+    font-size: 10px;
+   }
 }
 
 
