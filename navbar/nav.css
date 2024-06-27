@@ -2,7 +2,7 @@
 
 /*Global Navigation styles--------------------------------------------- */
 nav {
-  background-color: #000;
+  background-color: #000000;
   position: fixed;
   width: 100%;
   top: 0;
@@ -22,6 +22,7 @@ nav {
 .brand-logo {
   height: 70px;
   width: auto;
+  position: absolute;
 }
 
 nav ul {
@@ -32,7 +33,7 @@ nav ul {
   display: flex;
   align-items: flex-end; /* Align items at the bottom */
   justify-content: center; /* Center items horizontally */
-  height: 30px; 
+  height: 70px; 
 }
 
 
@@ -46,14 +47,18 @@ nav ul li a {
   text-decoration: none;
   margin-right: 5px;
   font-weight: bold;
-  
+  transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out, transform 0.3s ease-in-out; 
 }
 
 nav ul li a:hover {
   color: lightyellow;
-  text-decoration: underline;
+  transform: scale(1.05); 
 }
 
+nav ul li .active{
+  color: lightyellow;
+  text-decoration: underline;
+}
 
 
 /* Hamburger menu styles-------------------------------------------------- */
@@ -88,7 +93,6 @@ opacity: 0;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 50px;
   }
 
   .menu-toggle .bar {
@@ -100,7 +104,7 @@ opacity: 0;
   }
 
   nav ul{
-    height: auto; 
+    height: auto;
   }
 
   .nav-menu {
