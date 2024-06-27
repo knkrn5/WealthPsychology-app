@@ -51,6 +51,7 @@ h3 {
   transform: scale(1.5);
 }
 
+
 @media (max-width: 768px) {
   footer {
     grid-template-columns: repeat(2, 1fr);
