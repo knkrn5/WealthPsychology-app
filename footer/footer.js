@@ -4,7 +4,7 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    loadHTML('/footer/footer.html', 'footer', highlightActiveLink);
+    loadHTML('/footer/footer.html', '#footer', highlightActiveLink);
 });
 
 function loadHTML(url, selector, callback) {
