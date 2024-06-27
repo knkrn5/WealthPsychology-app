@@ -21,10 +21,10 @@ function highlightActiveLink() {
     const currentPath = decodeURIComponent(window.location.pathname); // Decode the current path
     console.log("Current Path: ", currentPath); // Debug log
 
-    const navLinks = document.querySelectorAll('.nav-link');
-    console.log("Nav Links: ", navLinks); // Debug log
+    const navLinks = document.querySelectorAll('.footer-link');
+    console.log("Footer Links: ", footerLinks); // Debug log
 
-    navLinks.forEach(link => {
+    footerLinks.forEach(link => {
         const linkPath = decodeURIComponent(link.getAttribute('href')); // Decode the link href
         console.log("Checking Link: ", linkPath); // Debug log
 
