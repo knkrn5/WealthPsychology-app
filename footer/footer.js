@@ -4,7 +4,7 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    loadHTML('/footer/footer.html', '#footer', highlightActiveLink);
+    loadHTML('/footer/footer.html', 'footer', highlightActiveLink);
 });
 
 function loadHTML(url, selector, callback) {
@@ -22,9 +22,9 @@ function highlightActiveLink() {
     console.log("Current Path: ", currentPath); // Debug log
 
     const navLinks = document.querySelectorAll('.footer-link');
-    console.log("Footer Links: ", footerLinks); // Debug log
+    console.log("Footer Links: ", navLinks); // Debug log
 
-    footerLinks.forEach(link => {
+    navLinks.forEach(link => {
         const linkPath = decodeURIComponent(link.getAttribute('href')); // Decode the link href
         console.log("Checking Link: ", linkPath); // Debug log
 
@@ -34,6 +34,7 @@ function highlightActiveLink() {
         }
     });
 }
+
 
 
 
