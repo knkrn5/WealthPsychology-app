@@ -3,7 +3,7 @@
 
 /* Header styles */
 header {
-  background-color: #fff;
+  background-color: #000000;
   text-align: center;
   position: relative;
   top: 0;
@@ -76,24 +76,17 @@ h1 {
 
 /*css moving animations and styling */
 
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes scrollLeft {
-  to {
-    left: -200px;
-  }
-}
-
 .wrapper {
   /* border: 2px solid black; */
-  background-color: lightyellow;
-  width: 90%;
+  margin-top: 20px;
+  background-color: #ccc;
+  /* background-image: url('/home-page/imgs/bosmhp.webp'); */
+  background-size: cover;
+  background-position: center;
+  width: 100%;
   margin-inline: auto;
-  height: 100px;
+  margin-top: 95px;
+  height: 50px;
   position: relative;
   overflow: hidden;
   align-items: center;
@@ -106,44 +99,65 @@ h1 {
    rgba(0,0,0,1)80%,
    rgba(0,0,0,0)
   );
-  
- 
 }
 
-.item{
-  width: 200px;
-  height: 100px;
+.item {
+  width: auto;
+  min-width: 250px;
+  padding: 0 30px;
+  height: 50px;
   display: inline-flex;
-  white-space: nowrap; /* Prevent text wrapping */
-  font-size: 30px;
+  white-space: nowrap;
+  font-size: 24px; 
   align-items: center;
   text-align: center;
   justify-content: center;
-  /* border: 1px solid red; */
+  font-weight: bold;
   border-radius: 10px;
   position: absolute;
-  /* background-color: red; */
-  left: max(calc(200px*5), 100%); /* very important for making responsive and no overlapping */
+  left: 100%;
   animation-name: scrollLeft;
-  animation-duration: 10s;
+  animation-duration: 15s; /* Increased duration */
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
-.item1{
-  animation-delay: 1s;
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-150vw); /* Increased to ensure full passage */
+  }
 }
-.item2{
-  animation-delay: 3s;
-}
-.item3{
-  animation-delay: 5s;
-}
-.item4{
-  animation-delay: 7s;
-}
-.item5{
-  animation-delay: 9s;
+
+.item1 { animation-delay: 0s; }
+.item2 { animation-delay: 1.875s; }
+.item3 { animation-delay: 3.75s; }
+.item4 { animation-delay: 5.625s; }
+.item5 { animation-delay: 7.5s; }
+.item6 { animation-delay: 9.375s; }
+.item7 { animation-delay: 11.25s; }
+.item8 { animation-delay: 13.125s; }
+
+@media(max-width: 768px){
+  @keyframes scrollLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-500vw); /* Increased to ensure full passage */
+    }
+  }
+  .wrapper {
+    width: 100%;
+    margin-top: 47px;
+  }
+
+  .item {
+    height: 50px;
+  }
+
 }
 
 
@@ -160,13 +174,13 @@ h1 {
   width: 100%; 
   height: 550px; 
   display: block; 
-  margin-top: 95px; 
+  margin-top: 3px; 
   padding: 0; 
 }
 
 @media (max-width: 768px){
   .home-image1{
-    margin-top: 50px;
+    margin-top: 3px;
     height: 230px;
     width: 100%;   
   }
