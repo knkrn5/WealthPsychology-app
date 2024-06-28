@@ -339,14 +339,13 @@ body {
 }
 
 .othercourses p a {
-  color: #5759d9;
+  color: blue;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .othercourses p a:hover{
-  color: blue;
   text-decoration: underline;
-  font-weight: bold;
 }
 
 
