@@ -136,7 +136,7 @@ opacity: 0;
 
   nav ul li a {
       width: 100%;
-      padding: 15px 16px;
+      padding: 12px 16px;
       align-items: center;
       text-align: left;
       transition: color 0.3s ease; /* Add transition for hover effect */
