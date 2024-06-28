@@ -13,17 +13,6 @@ header {
 }
 
 
-@media (max-width: 768px) {
-  header h1 {
-      margin-top: 0px;
-      font-size: 1rem;
-  }
-  /* header .slogan{
-    font-size: 15px;
-  } */
-}
-
-
 /* Navigation styles via global nav css */
 
 
@@ -32,6 +21,7 @@ header {
 
 .wrapper {
   /* border: 2px solid black; */
+  /* z-index: 1000; */
   margin-top: 20px;
   background-color: #ccc;
   /* background-image: url('/home-page/imgs/bosmhp.webp'); */
@@ -62,7 +52,7 @@ header {
   height: 50px;
   display: inline-flex;
   white-space: nowrap;
-  font-size: 24px; 
+  font-size: 25px; 
   align-items: center;
   text-align: center;
   justify-content: center;
@@ -90,7 +80,7 @@ header {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-150vw); /* Increased to ensure full passage */
+    transform: translateX(-150vw); 
   }
 }
 
@@ -161,6 +151,7 @@ header {
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
+  /* background: linear-gradient(135deg, #ddd8d0 0%, #b8b5ac 100% ); */
   
 }
 
@@ -182,7 +173,10 @@ body {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
 }
+
 
 .content {
   display: flex;
@@ -230,9 +224,9 @@ body {
   width: 86px; /* 100px / 1.05 */
 }
 
-.content:nth-child(odd) {
-  flex-direction: row-reverse;
-}
+/* .content:nth-child(odd) {
+  flex-direction: row-reverse; 
+}  it is important if we want to reverse the text and image position */
 
 .content:nth-child(odd)::before {
   right: 100%;
@@ -268,7 +262,6 @@ body {
   margin-right: -700px;
 } */
 
-
 .content:nth-child(odd) {
   width: 500px;
   margin-left: 700px;
@@ -279,45 +272,48 @@ body {
 }
 
 
-
 /* Mobile styles */
 @media (max-width: 768px) {
-.home-page {
-  padding: 30px 10px;
+  .home-page {
+    padding: 30px 10px;
+    max-width: 100%;
+  }
+
+  .central-line {
+    display: none;
+  }
+
+  .content {
+    flex-direction: column;
+    max-width: 90%;
+  }
+
+  .content img {
+    width: auto;
+    height: 270px;
+    margin: 15px 0;
+  }
+
+  .content p {
+    margin: 0 15px 15px;
+    text-align: center;
+  }
+
+  .content::before {
+    display: none;
+  }
+
+  .content:nth-child(odd), .content:nth-child(even) {
+    flex-direction: column;
+    margin: 15px 0;
+  }
 }
 
-.central-line {
-  display: none;
-}
-
-.content {
-  flex-direction: column;
-  width: 90%;
-  margin: 15px 0;
-}
-
-.content img {
-  height: 280px;
-  width: auto;
-  margin: 15px 0;
-}
-
-.content p {
-  margin: 0 15px 15px;
-  text-align: center;
-}
-
-.content::before {
-  display: none;
-}
-
-.content:nth-child(odd) {
-  flex-direction: column;
-}
-}
 
 
-/* home pages last past styling--------------- */
+
+
+/* course selection last part styling--------------- */
 
 .typesofcourses {
   display: flex;
@@ -357,6 +353,7 @@ body {
 
 .othercourses p a:hover{
   text-decoration: underline;
+  
 }
 
 
