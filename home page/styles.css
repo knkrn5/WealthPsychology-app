@@ -243,7 +243,7 @@ body {
 }
 
 
-.content1{
+/* .content1{
   width: 500px;
   margin-left: -700px;
 }
@@ -266,7 +266,18 @@ body {
 .content6{
   width: 500px;
   margin-right: -700px;
+} */
+
+
+.content:nth-child(odd) {
+  width: 500px;
+  margin-left: 700px;
 }
+.content:nth-child(even) {
+  width: 500px;
+  margin-right: 700px;
+}
+
 
 
 /* Mobile styles */
