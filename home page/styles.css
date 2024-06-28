@@ -81,6 +81,10 @@ header {
   color: black;
 }
 
+.item a:hover{
+  color: blue;
+}
+
 @keyframes scrollLeft {
   0% {
     transform: translateX(0);
