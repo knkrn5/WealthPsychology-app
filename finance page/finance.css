@@ -12,19 +12,24 @@ header {
 }
 
 header h1 {
-    font-size: 2rem;
+    display: none;
+    /* font-size: 2rem;
     padding: 1rem;
     color: #fff;
     margin-top: 39px;
-    font-weight: bold;
+    font-weight: bold; */
 }
 
 @media (max-width: 768px) {
     header h1 {
-        margin-top: 45px;
+        display: block;
+        margin-top: 40px;
+        font-size: 2rem;
+        padding: 1rem;
+        color: #fff;
+        font-weight: bold;
     }
 }
-
 
 /* navigation style via global nav css */
 
@@ -41,6 +46,7 @@ body {
 .finance {
     max-width: 75%;
     margin: 0 auto;
+    margin-top: 100px;
     padding-top: 0;
     padding: 40px;
     background-color: #f9f9f9;
@@ -73,6 +79,7 @@ iframe{
         grid-template-columns: 1fr; /* Single column layout */
         justify-content: center;
         max-width: 100%;
+        margin-top: 10px;
     }
     
     .finance .left-column,
