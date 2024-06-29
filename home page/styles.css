@@ -168,7 +168,8 @@ body {
 
 .central-line {
   width: 5px;
-  height: 1102px;
+  height: 1253px;
+  top: -100px; /* Move the line 100px higher */
   background-color: black;
   position: absolute;
   left: 50%;
