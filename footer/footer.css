@@ -45,9 +45,13 @@ h3 {
   margin-right: 5px; /* Adjust the value as needed */
 }
 
+.social-links img,
+.broker-links img {
+  transition: transform 0.3s ease-in-out;
+}
+
 .social-links img:hover,
 .broker-links img:hover {
-  transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out, transform 0.3s ease-in-out; 
   transform: scale(1.5);
 }
 
