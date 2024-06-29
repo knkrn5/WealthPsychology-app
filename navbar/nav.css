@@ -13,15 +13,17 @@ nav {
 }
 
 
-.brand-logo-container {
+/* .brand-logo-container {
   display: flex;
   align-items: center;
   padding: 10px 0;
-}
+} */
 
 .brand-logo {
   height: 70px;
   width: auto;
+  top: 10px;
+  left: 0px;
   position: absolute;
 }
 
@@ -33,7 +35,7 @@ nav ul {
   display: flex;
   align-items: flex-end; /* Align items at the bottom */
   justify-content: center; /* Center items horizontally */
-  height: 70px; 
+  height: 100px; 
 }
 
 
