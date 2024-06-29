@@ -125,7 +125,7 @@ header {
 /* home header images styling */
 .home-image1 {
   width: 100%; 
-  height: 550px; 
+  height: 480px; 
   display: block; 
   margin-top: 3px; 
   padding: 0; 
@@ -134,7 +134,7 @@ header {
 @media (max-width: 768px){
   .home-image1{
     margin-top: 3px;
-    height: 230px;
+    height: 145px;
     width: 100%;   
   }
 }
