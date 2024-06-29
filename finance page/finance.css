@@ -49,7 +49,7 @@ body {
     margin-top: 100px;
     padding-top: 0;
     padding: 40px;
-    background-color: #f9f9f9;
+    background-color: #e9e9e9;
     display: grid;
     grid-template-columns: 4fr 1.5fr; /* 80% and 20% split */
     grid-gap: 20px; 
@@ -61,7 +61,7 @@ body {
 
 .finance .right-column{
     grid-column: 2;
-    background-color: #e9e9e9;
+    background-color: #cccccc;
     padding: 20px; 
     height: 700px;
 }
