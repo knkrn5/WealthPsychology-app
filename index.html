@@ -15,6 +15,14 @@
     <title>WealthPsychology - Empower Your Financial Future</title>
     <link rel="icon" href="global/icons/favicon.ico" type="image/x-icon"/>
   </head>
+
+
+  <!-- new feature prompt--------------- -->
+  <div id="featurePrompt">
+    <p>We are launching a Chatbot soon for your asistance!</p>
+    <button onclick="dismissPrompt()">Dismiss</button>
+  </div>
+
   <body class="index-page">
     <header>
       <nav>
@@ -23,28 +31,48 @@
           <span class="bar"></span>
           <span class="bar"></span>
         </div>
+           
+        <div class="brand-logo-container">
+          <a href="/index.html">
+            <img src="/navbar/imgs/nav-home-black.webp" alt="Brand Logo" class="brand-logo">
+          </a>
+        </div>
 
         <ul class="nav-menu">
-          <li><a href="/index.html" class="active home-nav"><img src="/navbar/imgs/nav-home-white.webp" alt="Brand Logo" class="brand-logo"></a></li>
+          <li><a href="/index.html" class="active">Home</a></li>
           <li><a href="/smcourses page/smcourses.html">Stock market courses</a></li>
-          <li><a href="/financial-hubs page/finance.html">Financial Insights</a></li>
+          <li><a href="/finance page/finance.html">Financial Insights</a></li>
           <li><a href="/blogs page/blogs.html">Blogs</a></li>
           <li><a href="/other-courses page/other.html">Other Courses</a></li>
+          <!-- <li class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button type="submit">🔎</button>
+          </li> -->
         </ul>
       </nav>
 
-      <div>
-        <img src="../home page/imgs/home-blfn-white.webp" alt="home-image1" class="home-image1">
-      </div>
+     <!-- <h1>Let your money work for you!</h1> -->
       
-      <h1>Let your money work for you!</h1>
-      
-      <div id="cart-icon-container" onclick="toggleCart()" style="cursor: pointer;">
-        <div id="cart-icon">🛒</div>
-        <span id="cart-item-count">0</span>
-      </div> 
+     <div id="cart-icon-container" onclick="toggleCart()" style="cursor: pointer;">
+      <div id="cart-icon">🛒</div>
+      <span id="cart-item-count">0</span>
+    </div> 
+
+    <div class="wrapper">
+      <div class="item item1"><a href="https://1drv.ms/w/s!At5WivVSSLb9i3N_1RMb_KbxXeRS?e=zWqLdH" target="_blank" rel="noopener noreferrer">Stock Market</a></div>
+      <div class="item item2"><a href="https://1drv.ms/w/s!At5WivVSSLb9h1btrNcEqQy5WyBO?e=YAGu5q" target="_blank" rel="noopener noreferrer">Mutual Funds</a></div>
+      <div class="item item3"><a href="https://1drv.ms/w/s!At5WivVSSLb9iAloZpXLuyNA4ZkV?e=KbPzUb" target="_blank" rel="noopener noreferrer">IPO analysis</a></div>
+      <div class="item item4"><a href="https://1drv.ms/w/s!At5WivVSSLb9iApDPSosn4NkPxpP?e=AJxdW3" target="_blank" rel="noopener noreferrer">Fundamental Analysis</a></div>
+      <div class="item item5"><a href="https://1drv.ms/w/s!At5WivVSSLb9iAOUQ365K5ioTNME?e=sfAXkf" target="_blank" rel="noopener noreferrer">Technical Analysis</a></div>
+      <div class="item item6"><a href="/economic-analysis" target="_blank" rel="noopener noreferrer">Economic Analysis</a></div>
+      <div class="item item7"><a href="https://1drv.ms/w/s!At5WivVSSLb9h2E0HNzkh4w4IYKW?e=BEPexc" target="_blank" rel="noopener noreferrer">Cryptocurrency</a></div>
+      <div class="item item8"><a href="https://1drv.ms/w/s!At5WivVSSLb9jCEsaWy48esSEf_u?e=fDIk3Z" target="_blank" rel="noopener noreferrer">OSINT Mindset</a></div>
+    </div>
+  </header>
   
-    </header>
+  <div class="hometopimg">
+    <img src="../home page/imgs/hometopimg.webp" alt="home-image1" class="home-image1">
+  </div>
 
 <main>
 
@@ -55,44 +83,38 @@
           <!-- Cart items will be dynamically added here -->
       </div>
       <div id="cart-total">
-         Sub-Total: <span id="cart-total-amount" style="padding: 10px;">₹0</span>
+         Sub-Total: <span id="cart-total-amount" >₹0</span>
       </div>
       <button class="buyall">Proceed to Buy All</button>
     </div>
 
-  <div class="home-page">
-
-    <div class="content item1">
-      <img src="/home page/imgs/bosmhp.webp" alt="stock market">
-      <p></p><strong>Stock Market:</strong> where people buy and sell shares of companies, hoping to make a profit as the company grows or declines</p>
-     </div>
-
-     <div class="content item2">
-      <img src="/home page/imgs/fahp.webp" alt="fundamental analysis">
-      <p><strong>Fundamental Analysis:</strong> Understanding a company's value by looking at its financial health (like earnings, debts) and its business (like products, competition etc).</p>
-     </div>
-
-     <div class="content item3">
-      <img src="/home page/imgs/tahp.webp" alt="technical analysis">
-      <p><strong>Technical Analysis:</strong> Studying stock price movements by analyzing price action and price behavior to predict future trends, often using charts and indicators.</p>
-     </div>
-
-     <div class="content item4">
-      <img src="/home page/imgs/eahp.webp" alt="economic analysis">
-      <p><strong>Economic analysis:</strong> Examining how economic factors such as interest rates, inflation, and GDP influence the stock market's behavior</p>
-     </div>
-
-     <div class="content item5">
-      <img src="/home page/imgs/cchp.webp" alt="cryptocurrency">
-      <p><strong>Cryptocurrency:</strong> Digital currency: like Bitcoin, used for online transactions, stored in digital wallets, and secured by cryptography</p>
-     </div>
-
-     <div class="content item6">
-      <img src="/home page/imgs/osinthp.webp" alt="osint">
-      <p><strong>OSINT Mindset:</strong> Know steps to protect personal data from unauthorized access or disclosure online</p>
-     </div>
-    
-  </div>
+    <div class="home-page">
+      <div class="central-line"></div>
+      <div class="content content1">
+        <img src="/home page/imgs/bosmhp.webp" alt="stock market">
+        <p><strong>Stock Market:</strong> where people buy and sell shares of companies, hoping to make a profit as the company grows or declines</p>
+      </div>
+      <div class="content content2">
+        <img src="/home page/imgs/fahp.webp" alt="fundamental analysis">
+        <p><strong>Fundamental Analysis:</strong> Understanding a company's value by looking at its financial health (like earnings, debts) and its business (like products, competition etc).</p>
+      </div>
+      <div class="content content3 ">
+        <img src="/home page/imgs/tahp.webp" alt="technical analysis">
+        <p><strong>Technical Analysis:</strong> Studying stock price movements by analyzing price action and price behavior to predict future trends, often using charts and indicators.</p>
+      </div>
+      <div class="content content4">
+        <img src="/home page/imgs/eahp.webp" alt="economic analysis">
+        <p><strong>Economic analysis:</strong> Examining how economic factors such as interest rates, inflation, and GDP influence the stock market's behavior</p>
+      </div>
+      <div class="content content5">
+        <img src="/home page/imgs/cchp.webp" alt="cryptocurrency">
+        <p><strong>Cryptocurrency:</strong> Digital currency: like Bitcoin, used for online transactions, stored in digital wallets, and secured by cryptography</p>
+      </div>
+      <div class="content content6">
+        <img src="/home page/imgs/osinthp.webp" alt="osint">
+        <p><strong>OSINT Mindset:</strong> Know steps to protect personal data from unauthorized access or disclosure online</p>
+      </div>
+    </div>
 
 
    <div class="typesofcourses">     
