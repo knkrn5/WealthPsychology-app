@@ -14,9 +14,9 @@ header {
 header h1 {
     font-size: 2rem;
     padding: 1rem;
-    background-color: #fff;
+    background-color: #ccc;
     color: #000;
-    margin-top: 59px;
+    margin-top: 120px;
     font-weight: bold;
 }
 

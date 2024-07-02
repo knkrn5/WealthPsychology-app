@@ -3,7 +3,7 @@
 
 /* Header styles */
 header {
-  background-color: #fff;
+  background-color: #000000;
   text-align: center;
   position: relative;
   top: 0;
@@ -12,135 +12,106 @@ header {
   z-index: 998; 
 }
 
-/* @keyframes textGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes bgGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-} */
-
-
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-h1 {
-  text-transform: uppercase;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 50px;
-  background: linear-gradient(135deg, #ff7e5f, #feb47b, #86a8e7, #7f7fd5);
-  background-size: 800% 800%;
-  color: transparent;
-  background-clip: text;
-  -webkit-background-clip: text;
-  animation: gradient 2s ease infinite;
-  margin: 0;
-  font-weight: 700;
-  text-align: center;
-  padding: 20px 40px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1), 
-               2px 2px 4px rgba(0, 0, 0, 0.1), 
-               3px 3px 6px rgba(0, 0, 0, 0.1), 
-               4px 4px 8px rgba(0, 0, 0, 0.1), 
-               5px 5px 10px rgba(0, 0, 0, 0.1); /* 3D effect */
-}
-
-
-
-
-
-@media (max-width: 768px) {
-  header h1 {
-      margin-top: 0px;
-      font-size: 1rem;
-  }
-  /* header .slogan{
-    font-size: 15px;
-  } */
-}
-
 
 /* Navigation styles via global nav css */
 
 
 
-/* Hamburger menu styles */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
+/*css moving animations and styling */
 
-.menu-toggle .bar {
-  height: 3px;
-  width: 25px;
-  background-color: white;
-  margin: 6px 10px;
-  transition: 0.4s;
-}
-
-/* Mobile view */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: flex;
-  }
-  
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    text-align: left;
-    top: 60px;
-    left: 0;
-    background-color: #333;
-    z-index: 1;
-  }
-  
-  .nav-menu.active {
-    display: flex;
-  }
-
-  nav ul li .active {
-    font-weight: bold; 
-    color: black;
-     background-color: #ddd ; 
-}
-  
-  nav ul li .home-nav {
-    background-color: #333 !important;
-}
-
-  nav ul li a {
-  background-color: #333;
-  display: block;
-  /* color: #fff; */
+.wrapper {
+  /* border: 2px solid black; */
+  /* z-index: 1000; */
+  margin-top: 20px;
+  background-color: #ccc;
+  /* background-image: url('/home-page/imgs/bosmhp.webp'); */
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-inline: auto;
+  margin-top: 103px;
+  height: 50px;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
   text-align: center;
-  /* padding: 14px 16px; */
-  text-decoration: none;
-  margin-right: 5px;
-  height: 10px;
-  /* font-weight: bold; */
-  height: 45px;
+  justify-content: center;
+  mask-image: linear-gradient(
+    to right,
+   rgba(0,0,0,0),
+   rgba(0,0,0,1)20%,
+   rgba(0,0,0,1)80%,
+   rgba(0,0,0,0)
+  );
 }
 
-nav .home-nav{
-  height: 43px;
+.item {
   width: auto;
+  min-width: 250px;
+  padding: 0 30px;
+  height: 50px;
+  display: inline-flex;
+  white-space: nowrap;
+  font-size: 25px; 
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  font-weight: bold;
+  border-radius: 10px;
+  position: absolute;
+  left: 100%;
+  animation-name: scrollLeft;
+  animation-duration: 15s; /* Increased duration */
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
 }
 
+.item a{
+  text-decoration: none;
+  color: black;
 }
 
+.item a:hover{
+  color: blue;
+}
 
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-150vw); 
+  }
+}
+
+.item1 { animation-delay: 0s; }
+.item2 { animation-delay: 1.875s; }
+.item3 { animation-delay: 3.75s; }
+.item4 { animation-delay: 5.625s; }
+.item5 { animation-delay: 7.5s; }
+.item6 { animation-delay: 9.375s; }
+.item7 { animation-delay: 11.25s; }
+.item8 { animation-delay: 13.125s; }
+
+@media(max-width: 768px){
+  @keyframes scrollLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-500vw); /* Increased to ensure full passage */
+    }
+  }
+  .wrapper {
+    width: 100%;
+    margin-top: 47px;
+  }
+
+  .item {
+    height: 50px;
+  }
+
+}
 
 
 /*home-page nav styling */
@@ -150,99 +121,239 @@ nav .home-nav{
 /* Cart icon and container styling via global cart CSS------------------------------------*/
 
 
+/* new feature prompt styling------------------- */
+#featurePrompt {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+   /* margin: 0 40%; it can also be used to center but it wrap the text specifically adjust for different screen */
+  background-color: #f0f0f0;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  width: 20;
+  z-index: 1000; /* Ensure it appears above other content */
+}
+
+#featurePrompt button {
+  background-color: #007bff;
+  float: right; 
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 468px) {
+  #featurePrompt {
+    width: 60%;
+  }
+}
+
+
 
 /* home header images styling */
 .home-image1 {
-  max-width: 80%;
-  height: 400px;
-  width: auto;
-  margin-top: 40px;
+  width: 100%; 
+  height: auto; 
+  display: block; 
+  margin-top: 3px; 
+  padding: 0; 
+  position: relative;
+  /* overflow: hidden; */
+  z-index: 2;
 }
+
 
 @media (max-width: 768px){
   .home-image1{
-    margin-top: 45px;
+    margin-top: 3px;
     height: auto;
-    width: auto;   
+    width: 100%;   
   }
 }
+
+/* .hometopimg{
+  background-color: #ffffff;
+  border: 1px solid #ccc; 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden; 
+} */
 
 
 /* body styling ------------------------*/
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
+  /* background: linear-gradient(135deg, #ddd8d0 0%, #b8b5ac 100% ); */
   
 }
 
-.home-page {
-  max-width: 80%;
-  margin: 0 auto; /* This centers the container horizontally */
-  margin-top: 0;
-  background: #f9f9f9;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto;
-  gap: 30px;
 
-  /* border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
- /* padding: 30px; */
+.home-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 50px 0;
+  background: linear-gradient(135deg, #d4d3cf 0%, #a4a3a0 50%,#787775 100%);
+  /* background-color: #eeeee6; */
 }
 
+.central-line {
+  width: 5px;
+  height: 1253px;
+  top: -100px; /* Move the line 100px higher */
+  background-color: black;
+  position: absolute;
+  left: 50% ;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  /* z-index: 1; */
+}
+
+
+
 .content {
-  /* border: 1px solid black; */
-  padding: 10px;  
+  display: flex;
+  align-items: center;
+  width: 80%;
+  position: relative;
+  border-radius: 20px;
+  background-color: #ccc;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .content img {
-  max-width: 100%;
-  /* height: 300px;
-  width: auto; */
-  object-fit: cover; /* Ensure the image covers the entire container */
-  object-position: center; /* Center the image within the container */
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10%;
 }
 
-.item1 {
- grid-column: 1/2;
- grid-row: 1/2;
+
+
+.content p {
+  max-width: 600px;
+  margin: 0 20px;
+  text-align: left;
 }
 
-.item2 {
- grid-column: 2/3;
- grid-row: 1/2;
+.content::before {
+  content: '';
+  width: 100px;
+  height: 5px;
+  background-color: black;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: width 0.3s ease;
 }
 
-.item3 {
- grid-column: 3/5;
- grid-row: 1/2;
+.content:hover {
+  transform: scale(1.05);
+  box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.3), -6px -6px 12px rgba(255, 255, 255, 0.5);
 }
 
-.item4 {
- grid-column: 1/2;
- grid-row: 4/5;
+.content:hover::before {
+  width: 86px; /* 100px / 1.05 */
 }
 
-.item5 {
- grid-column: 2/3;
- grid-row: 4/5;
+/* .content:nth-child(odd) {
+  flex-direction: row-reverse; 
+}  it is important if we want to reverse the text and image position */
+
+.content:nth-child(odd)::before {
+  right: 100%;
 }
 
-.item6 {
-  grid-column: 3/4;
-  grid-row: 4/5;
+.content:nth-child(even)::before {
+  left: 100%;
 }
 
+
+/* .content1{
+  width: 500px;
+  margin-left: -700px;
+}
+.content2{
+  width: 500px;
+  margin-right: -700px;
+}
+.content3{
+  width: 500px;
+  margin-left: -700px;
+}
+.content4{
+  width: 500px;
+  margin-right: -700px;
+}
+.content5{
+  width: 500px;
+  margin-left: -700px;
+}
+.content6{
+  width: 500px;
+  margin-right: -700px;
+} */
+
+.content:nth-child(odd) {
+  width: 500px;
+  margin-left: 700px;
+}
+.content:nth-child(even) {
+  width: 500px;
+  margin-right: 700px;
+}
+
+
+/* Mobile styles */
 @media (max-width: 768px) {
   .home-page {
-    display: flex;
+    padding: 30px 10px;
+    max-width: 100%;
+  }
+
+  .central-line {
+    display: none;
+  }
+
+  .content {
     flex-direction: column;
-    align-items: center;
+    max-width: 90%;
+  }
+
+  .content img {
+    width: auto;
+    height: 270px;
+    margin: 15px 0;
+  }
+
+  .content p {
+    margin: 0 15px 15px;
+    text-align: center;
+  }
+
+  .content::before {
+    display: none;
+  }
+
+  .content:nth-child(odd), .content:nth-child(even) {
+    flex-direction: column;
+    margin: 15px 0;
   }
 }
 
 
-/* home pages last past styling--------------- */
+
+
+
+/* course selection last part styling--------------- */
 
 .typesofcourses {
   display: flex;
@@ -275,14 +386,14 @@ body {
 }
 
 .othercourses p a {
-  color: #5759d9;
+  color: blue;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .othercourses p a:hover{
-  color: blue;
   text-decoration: underline;
-  font-weight: bold;
+  
 }
 
 

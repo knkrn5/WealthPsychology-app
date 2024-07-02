@@ -3,22 +3,19 @@
 
 function handleFormSubmit(event) {
     event.preventDefault(); // Prevent the form from submitting the traditional way
-    var selectedFruit = document.getElementById('fruit').value;
+    var selectedPersonal = document.getElementById('personal').value;
     var redirectUrl;
 
     // Define URLs for each option
-    switch(selectedFruit) {
-        case 'apple':
-            redirectUrl = 'https://example.com/apple';
+    switch(selectedPersonal) {
+        case 'value1':
+            redirectUrl = 'https://docs.google.com/spreadsheets/d/1sy5YNpgrk0VcZdWFdWS7KFHzsDOuDFKbOZnUyOzAf6I/edit?usp=sharing';
             break;
-        case 'banana':
-            redirectUrl = 'https://example.com/banana';
+        case 'value2':
+            redirectUrl = 'https://docs.google.com/spreadsheets/d/1sy5YNpgrk0VcZdWFdWS7KFHzsDOuDFKbOZnUyOzAf6I/edit?usp=sharing';
             break;
-        case 'cherry':
-            redirectUrl = 'https://example.com/cherry';
-            break;
-        case 'date':
-            redirectUrl = 'https://example.com/date';
+        case 'value3':
+            redirectUrl = 'https://docs.google.com/spreadsheets/d/1sy5YNpgrk0VcZdWFdWS7KFHzsDOuDFKbOZnUyOzAf6I/edit?usp=sharing';
             break;
         default:
             redirectUrl = 'https://example.com';
@@ -26,5 +23,5 @@ function handleFormSubmit(event) {
     }
 
     // Redirect to the specified URL
-    window.location.href = redirectUrl;
+    window.open(redirectUrl, '_blank');  // Open the specified URL in a new tab
 }

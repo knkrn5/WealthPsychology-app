@@ -32,7 +32,8 @@
     <meta name="googlebot" content="index, follow">
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';"> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="../about-us page/about.css">
     <link rel="stylesheet" href="/footer/footer.css">
     <link rel="stylesheet" href="/navbar/nav.css">
@@ -44,21 +45,31 @@
 </head>
 <body class="about-page">
 <header>
-    <nav>
-        <div class="menu-toggle" id="mobile-menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
+  <nav>
+    <div class="menu-toggle" id="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+       
+    <div class="brand-logo-container">
+      <a href="/index.html" class="home-nav">
+        <img src="/navbar/imgs/nav-home-black.webp" alt="Brand Logo" class="brand-logo">
+      </a>
+    </div>
 
-        <ul class="nav-menu">
-          <li><a href="/index.html" class="home-nav"><img src="/navbar/imgs/nav-home-white.webp" alt="Brand Logo" class="brand-logo"></a></li>
-          <li><a href="/smcourses page/smcourses.html">Stock market courses</a></li>
-          <li><a href="/financial-hubs page/finance.html">Financial Insights</a></li>
-          <li><a href="/blogs page/blogs.html">Blogs</a></li>
-          <li><a href="/other-courses page/other.html">Other Courses</a></li>
-        </ul>
-      </nav>
+    <ul class="nav-menu">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/smcourses page/smcourses.html">Stock market courses</a></li>
+      <li><a href="/finance page/finance.html">Financial Insights</a></li>
+      <li><a href="/blogs page/blogs.html">Blogs</a></li>
+      <li><a href="/other-courses page/other.html">Other Courses</a></li>
+      <!-- <li class="search-bar">
+        <input type="text" placeholder="Search...">
+        <button type="submit">🔎</button>
+      </li> -->
+    </ul>
+  </nav>
 
 </header>    
 
@@ -92,20 +103,20 @@
         Despite my academic background in computer applications (BCA), my passion has always been rooted in finance. This dual interest in finance and technology has driven me to combine my skills in both fields. As part of my ongoing learning process, I am currently building this website from scratch, utilizing my coding skills to create a platform that reflects my understanding of finance and stock market analysis. This project allows me to merge my interests in computer science and engineering with my dedication to financial analysis, providing a comprehensive learning experience that keeps me engaged and motivated.
         </p>
        
-        <!-- <a href="https://docs.google.com/spreadsheets/d/1sy5YNpgrk0VcZdWFdWS7KFHzsDOuDFKbOZnUyOzAf6I/edit?usp=sharing" target="_blank" -->
 
-        <form>
-          <label for="personal"></label>
-          <select id="personal" name="journal" >
-            <optgroup label="year 2022-23">
-             <option value="" disabled selected>Select My PnL and trading journal: -</option>
-              <option value="value1" >My 2022-2023 Equity Trading Journal.</option>
-              <option value="value2">My 2022-2023 FnO Trading Journal.</option>
-              <option value="value3">My 2022-2023 total PnL.</option>
-            </optgroup>  
-          </select>
-          <input type="submit" value="Submit">
-        </form>
+      <form onsubmit="handleFormSubmit(event)">
+        <label for="personal"></label>
+        <select id="personal" name="journal" >
+          <optgroup label="year 2023-24">
+            <option value="" disabled selected>Select My PnL and trading journal: -</option>
+            <option value="value1" >My 2023-24 Equity Trading Journal.</option>
+            <option value="value2">My 2023-24 FnO Trading Journal.</option>
+            <option value="value3">My Overall total PnL.</option>
+          </optgroup>  
+        </select>
+        <input type="submit" value="Submit">
+      </form>
+      
     </div>  
     <p style="font-size: 25px; text-decoration: none;"><b><i><strong> About karan.</strong> </i></b></p>
 </div>
@@ -117,7 +128,7 @@
 <!-- footer html via global footer html--------------------------------------------- --->
 <div id="footer"></div> 
 
-<script src="about.js"></script>
+<script src="/about-us page/about.js"></script>
 <script src="/navbar/nav.js"></script>
 
 </body>

@@ -30,3 +30,6 @@ function highlightActiveLink() {
     });
 }
 
+// -------------------------------------------------------
+window.location.href = (redirectUrl, '_blank');
+    window.open(redirectUrl, '_blank');  // Open the specified URL in a new tab
