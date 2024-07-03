@@ -89,7 +89,7 @@ iframe{
       grid-template-columns: 1fr; /* Single column layout */
       grid-template-rows: auto auto; /* Stack rows */
       justify-content: center;
-      max-width: 100%;
+      max-width: 75%;
       margin-top: -15px;
     }
   
