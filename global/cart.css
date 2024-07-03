@@ -4,7 +4,7 @@
 
 /* Cart icon and container styles/ cart */
 #cart-icon-container{
-  position: fixed;
+  position: absolute;
   top: 5px ;
   right: 5px;
   width: 40px;
