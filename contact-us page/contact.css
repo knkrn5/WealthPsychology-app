@@ -8,14 +8,14 @@ header {
     left: 0;
     width: 100%;
     z-index: 998; 
-}
+}a
 
 header h1 {
     top: 0;
     font-size: 2rem;
     padding: 1rem;
     color: #000;
-    margin-top: 90px;
+    margin-top: 100px;
     font-weight: bold;
 }
 
