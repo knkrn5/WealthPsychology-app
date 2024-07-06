@@ -46,7 +46,8 @@ body {
 .finance {
     max-width: 75%;
     margin: 0 auto;
-    margin-top: 110px;
+    margin-top: 115px;
+    margin-bottom: 30px;
     padding-top: 0;
     padding: 40px;
     background-color: #e9e9e9;
