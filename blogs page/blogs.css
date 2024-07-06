@@ -104,7 +104,7 @@ body {
    }
  
    .right-column ul{
-     list-style-ftype: none;
+     list-style-type: none;
      padding-left: 0; 
      margin-left: 10px; 
    }
@@ -150,8 +150,6 @@ body {
         /* object-fit: cover;
         object-position: center; */
     }
- 
-
   }
   
 
