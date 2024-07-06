@@ -42,7 +42,6 @@ body {
 }
 
 
-
 .finance {
     max-width: 75%;
     margin: 0 auto;
@@ -56,11 +55,44 @@ body {
     grid-gap: 20px; 
   }
 
+  .finance-content-wrapper {
+    display: contents; /* This makes sure the content-wrapper does not interfere with the grid layout */
+  }
+
+
+  /* left column styling------------- */
 .finance .left-column {
     grid-column: 1;
     padding-right: 50px;
 }
+  
 
+iframe{
+    width: 80%;
+}
+
+
+.finance h1 {
+    color: #000;
+    font-size: 2.4em;
+    margin-top: 0;
+}
+
+.finance h2 {
+    font-size: 1.8em;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;  /*create the horizontal line at the bottom */
+    padding-bottom: 5px;
+}
+
+
+.finance p {
+    margin-bottom: 15px;
+}
+
+
+/* right column styling--------- */
 .finance .right-column{
     grid-column: 2;
     background-color: #cccccc;
@@ -68,15 +100,33 @@ body {
     height: 700px;
 }
 
-.content-wrapper {
-    display: contents; /* This makes sure the content-wrapper does not interfere with the grid layout */
-  }
-  
+.right-column h3{
+    padding-bottom: 10px;
+    border-bottom: 2px solid #fff;
+    font-size: 1.6em;
+    margin-top: 15px; 
+   }
+ 
+   .right-column ul{
+     list-style-type: none;
+     padding-left: 0; 
+     margin-left: 10px; 
+   }
+ 
+  .right-column li{
+     padding: 5px;
+     /* font-size: 1em; */
+   }
+ 
+  .right-column li:hover{
+    background-color: #555;
+    color: #fff;
+    cursor: pointer;
+   }
 
-iframe{
-    width: 80%;
-}
-@media (max-width: 768px) {
+
+/* mobile responsive styling-------- */
+   @media (max-width: 768px) {
     .finance {
         grid-template-columns: 1fr; /* Single column layout */
         justify-content: center;
@@ -101,34 +151,6 @@ iframe{
         min-width: 100%;
     }
 }
-
-
-
-.finance h1 {
-    color: #000;
-    font-size: 2.4em;
-    margin-top: 0;
-}
-
-.finance h2 {
-    font-size: 1.8em;
-    margin-top: 20px;
-    margin-bottom: 15px;
-    border-bottom: 2px solid #ddd;  /*create the horizontal line at the bottom */
-    padding-bottom: 5px;
-}
-
-.finance h3 {
-    font-size: 1.4em;
-    margin-top: 15px;
-    border-top: 2px solid #ddd;  /*create the horizontal line at the bottom */
-    padding-top: 20px;
-}
-
-.finance p {
-    margin-bottom: 15px;
-}
-
 
 
 
