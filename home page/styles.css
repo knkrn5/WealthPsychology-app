@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
+html {
+  scroll-behavior: smooth; /*this will let us get to the target in smooth scrolling way instead of directly showing*/
+  scroll-padding-top: 130px; 
+}
+
 
 /* Header styles */
 header {
@@ -192,7 +197,6 @@ body {
   
 }
 
-
 .home-page {
   display: flex;
   flex-direction: column;
@@ -345,7 +349,7 @@ body {
   color: white;
 }
 
-.kmbtn {
+.lmbtn {
   background-color: #007BFF; /* Example color */
   color: white;
 }
@@ -354,7 +358,7 @@ body {
 
 
 
-/* Mobile styles */
+/* Mobile responsive styling */
 @media (max-width: 768px) {
   .home-page {
     padding: 30px 10px;
@@ -411,7 +415,6 @@ body {
     padding: 10px 10px;
   }
 }
-
 
 
 
