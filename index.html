@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="home page/styles.css"/>
     <link rel="stylesheet" href="/footer/footer.css">
     <link rel="stylesheet" href="/navbar/nav.css">
-    <link rel="stylesheet" href="/global/cart.css">
+    <link rel="stylesheet" href="/global/bookmark.css">
      <script src="/footer/footer.js" defer></script> <!-- JavaScript file -->
 
     <title>WealthPsychology</title>
@@ -50,9 +50,9 @@
           </li> -->
         </ul>
 
-        <div id="cart-icon-container" onclick="toggleCart()" style="cursor: pointer;">
-          <div id="cart-icon">🛒</div>
-          <span id="cart-item-count">0</span>
+        <div id="bookmark-icon-container" onclick="toggleBookmark()" style="cursor: pointer;">
+          <div id="bookmark-icon"><i class="fa-regular fa-bookmark"></i></div>
+          <span id="total-bookmark">0</span>
         </div> 
       </nav>
 
@@ -77,112 +77,108 @@
 
 <main>
 
-    <div id="cart" class="cart-container">
-      <span class="close-cart" onclick="toggleCart()"></span>
-      <h2 class="cart-heading">Your Cart</h2>
-      <div id="cart-items">
-          <!-- Cart items will be dynamically added here -->
+    <div id="bookmark" class="bookmark-container">
+      <h2 class="bookmark-heading"s>Bookmarks: -</h2>
+      <div id="bookmark-items">
+          <!-- bookmark items will be dynamically added here -->
       </div>
-      <div id="cart-total">
-         Sub-Total: <span id="cart-total-amount" >₹0</span>
-      </div>
-      <button class="buyall">Proceed to Buy All</button>
+      <button class="deleteall">Delete all Bookmarks</button>
     </div>
 
     <div class="home-page">
       <div class="central-line"></div>
 
-      <div class="content content1" id="bosm">
+      <div class="content content1" id="bosm" concept-id = "1">
         <img src="/home page/imgs/bosmhp.webp" alt="stock market">
         <div class="content-wrapper">
         <h2><strong>Stock Market: -</strong></h2> 
         <p>Begin with the basics of how the stock market works, types of stocks, stock exchanges, and basic investing concepts.</p>
             <div class="buttons">
-              <button class="contentbtn rlbtn">Read Later</button>
+              <button class="contentbtn rlbtn" concept-id = "1">Read Later</button>
               <button class="contentbtn lmbtn" onclick="window.open('https://1drv.ms/w/s!At5WivVSSLb9i3N_1RMb_KbxXeRS?e=zWqLdH', '_blank')">Learn More...</button>
             </div>
         </div>
       </div>
 
-      <div class="content content2" id="mf">
+      <div class="content content2" id="mf" concept-id = "2">
         <img src="/home page/imgs/mfahp.webp" alt="mutual Funds">
         <div class="content-wrapper">
         <h2><strong>Mutual Funds: -</strong></h2> 
         <p>Understand pooled investments, types of mutual funds, and how they operate, professional management, and how to evaluate mutual fund performance</p>
             <div class="buttons">
-              <button class="contentbtn rlbtn">Read Later</button>
+              <button class="contentbtn rlbtn" concept-id = "2">Read Later</button>
               <button class="contentbtn lmbtn" onclick="window.open('https://1drv.ms/w/s!At5WivVSSLb9h1btrNcEqQy5WyBO?e=YAGu5q', '_blank')">Learn More...</button>
             </div>
         </div>
       </div>
 
-      <div class="content content3" id="fa">
+      <div class="content content3" id="fa" concept-id = "3">
         <img src="/home page/imgs/fahp.webp" alt="fundamental analysis">
         <div class="content-wrapper">
         <h2><strong>Fundamental Analysis: -</strong></h2> 
         <p>Learn to evaluate a company's financial health through financial statements, ratios, and other fundamental metrics.</p>
             <div class="buttons">
-              <button class="contentbtn rlbtn">Read Later</button>
+              <button class="contentbtn rlbtn" concept-id = "3">Read Later</button>
               <button class="contentbtn lmbtn" onclick="window.open('https://1drv.ms/w/s!At5WivVSSLb9iApDPSosn4NkPxpP?e=AJxdW3', '_blank')">Learn More...</button>
             </div>
         </div>
       </div>
 
-      <div class="content content4" id="ta">
+      <div class="content content4" id="ta" concept-id = "4">
         <img src="/home page/imgs/tahp.webp" alt="technical analysis">
         <div class="content-wrapper">
         <h2><strong>Technical Analysis: -</strong></h2> 
         <p>Study price charts, trading volume, chart patterns, key support and resistance levels and other technical indicators to predict future stock movements.</p>
             <div class="buttons">
-              <button class="contentbtn rlbtn">Read Later</button>
+              <button class="contentbtn rlbtn" concept-id = "4">Read Later</button>
               <button class="contentbtn lmbtn" onclick="window.open('https://1drv.ms/w/s!At5WivVSSLb9iAOUQ365K5ioTNME?e=sfAXkf', '_blank')">Learn More...</button>
             </div>
         </div>
       </div>
 
-      <div class="content content5" id="ipo">
+      <div class="content content5" id="ipo" concept-id = "5">
         <img src="/home page/imgs/ipoahp.webp" alt="ipo analysis">
         <div class="content-wrapper">
         <h2><strong>IPO Analysis: -</strong></h2> 
         <p>Understand the process of Initial Public Offerings and how to evaluate new stocks entering the market.</p>
             <div class="buttons">
-              <button class="contentbtn rlbtn">Read Later</button>
+              <button class="contentbtn rlbtn" concept-id = "5">Read Later</button>
               <button class="contentbtn lmbtn" onclick="window.open('https://1drv.ms/w/s!At5WivVSSLb9iAloZpXLuyNA4ZkV?e=KbPzUb', '_blank')">Learn More...</button>
             </div>
         </div>
       </div>
 
-      <div class="content content6" id="ea">
+      <div class="content content6" id="ea" concept-id = "6">
         <img src="/home page/imgs/eahp.webp" alt="economic analysis">
         <div class="content-wrapper">
         <h2><strong>Economic Analysis: -</strong></h2> 
         <p>Gain insights into how macroeconomic factors like inflation, interest rates, and GDP impact the financial markets.</p>
             <div class="buttons">
-              <button class="contentbtn rlbtn">Read Later</button>
+              <button class="contentbtn rlbtn" concept-id = "6">Read Later</button>
               <button class="contentbtn lmbtn" onclick="window.open('#path', '_blank')">Learn More...</button>
             </div>
         </div>
       </div>
 
-      <div class="content content7" id="mm">
+      <div class="content content7" id="mm" concept-id = "7">
         <img src="/home page/imgs/mmhp.webp" alt="money market">
         <div class="content-wrapper">  
         <h2><strong>Money Market: -</strong></h2> 
         <p>Explore short-term debt instruments, money market funds, and the functioning of the money market.</p>
             <div class="buttons">
-              <button class="contentbtn rlbtn">Read Later</button>
+              <button class="contentbtn rlbtn" concept-id = "7">Read Later</button>
               <button class="contentbtn lmbtn" onclick="window.open('https://1drv.ms/w/s!At5WivVSSLb9h1i8HLsTgFpQ3R5E?e=nXfuZ0', '_blank')">Learn More...</button>
             </div>
         </div>
       </div>
 
-      <div class="content content8" id="cc">
+      <div class="content content8" id="cc" concept-id = "8">
         <img src="/home page/imgs/cchp.webp" alt="cryptocurrency">
         <div class="content-wrapper">
         <h2><strong>Cryptocurrency: -</strong></h2> 
         <p>Dive into digital currencies, blockchain technology, and the unique characteristics of cryptocurrency markets.</p>
             <div class="buttons">
-              <button class="contentbtn rlbtn">Read Later</button>
+              <button class="contentbtn rlbtn" concept-id = "8">Read Later</button>
               <button class="contentbtn lmbtn" onclick="window.open('#path', '_blank')">Learn More...</button>
             </div>
         </div>
@@ -207,6 +203,6 @@
 <div id="footer"></div> 
 
     <script src= "/home page/script.js"></script>
-    <script src= "/global/cart.js"></script>
+    <script src= "/global/bookmark.js"></script>
   </body>
 </html>
