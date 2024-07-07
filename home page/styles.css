@@ -345,13 +345,47 @@ body {
 }
 
 .rlbtn {
-  background-color: #28A745; /* Example color */
   color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #28A745; /* Base color */
+  background-image: linear-gradient(to bottom, #28A745, #1e7e34);
+  box-shadow: 0 4px #1e7e34; 
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Slight text shadow for depth */
+  transition: all 0.2s ease; 
+}
+
+.rlbtn:active {
+  box-shadow: 0 2px #1e7e34; /* Move shadow up to create pressed effect */
+  transform: translateY(2px); /* Move the button down slightly */
+}
+
+.rlbtn:hover{
+  text-decoration: underline;
 }
 
 .lmbtn {
-  background-color: #007BFF; /* Example color */
   color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #007BFF; 
+  background-image: linear-gradient(to bottom, #007BFF, #09396d);
+  box-shadow: 0 4px #09396d; 
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2); /* Slight text shadow for depth */
+  transition: all 0.2s ease; 
+}
+
+.lmbtn:active {
+  box-shadow: 0 2px #09396d; 
+  transform: translateY(2px); 
+}
+
+.lmbtn:hover{
+  text-decoration: underline;
 }
 
 
