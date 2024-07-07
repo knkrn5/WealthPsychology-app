@@ -389,6 +389,27 @@ body {
     flex-direction: column;
     margin: 15px 0;
   }
+  .content h2{
+    text-align: center;
+    margin-top: 0px;
+    padding-bottom: 0;
+  }
+  
+  .content p{
+    padding: 0 20px;
+    margin-top: -10px;
+  }
+  
+  /* .content .buttons {
+    margin-bottom: 15px;
+    gap: 5px;
+  } */
+
+  .content .contentbtn{
+    width: 110px;
+    margin: 0px 10px;
+    padding: 10px 10px;
+  }
 }
 
 
