@@ -205,7 +205,7 @@ body {
 
 .central-line {
   width: 5px;
-  height: 1253px;
+  height: 1706px;
   top: -100px; /* Move the line 100px higher */
   background-color: black;
   position: absolute;
@@ -214,34 +214,6 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(255, 255, 255, 0.2);
   border-radius: 2px;
   /* z-index: 1; */
-}
-
-
-
-.content {
-  display: flex;
-  align-items: center;
-  width: 80%;
-  position: relative;
-  border-radius: 20px;
-  background-color: #ccc;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.content img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10%;
-}
-
-
-
-.content p {
-  max-width: 600px;
-  margin: 0 20px;
-  text-align: left;
 }
 
 .content::before {
@@ -310,6 +282,76 @@ body {
   width: 500px;
   margin-right: 700px;
 }
+
+/* inside content styling */
+.content {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  position: relative;
+  border-radius: 20px;
+  background-color: #ccc;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.content-wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.content h2{
+  text-align: center;
+  margin-top: 15px;
+  padding-bottom: 0;
+}
+
+.content p{
+  color: #000000;
+  padding: 0 20px;
+  margin-top: -10px;
+  padding-bottom: 0;
+  /* display: flex;
+  gap: 5px;  */
+  justify-content: center;
+}
+
+.content .buttons {
+  display: flex;
+  gap: 0px; 
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.content .contentbtn{
+  font-weight: bold;
+  width: 100px;
+  margin: 5px 18px;
+  padding: 10px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+.rlbtn {
+  background-color: #28A745; /* Example color */
+  color: white;
+}
+
+.kmbtn {
+  background-color: #007BFF; /* Example color */
+  color: white;
+}
+
+
+
 
 
 /* Mobile styles */
