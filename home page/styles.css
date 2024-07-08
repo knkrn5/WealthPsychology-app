@@ -203,13 +203,14 @@ body {
   align-items: center;
   position: relative;
   padding: 50px 0;
-  background: linear-gradient(135deg, #d4d3cf 0%, #bab8b3 50%,#a2a19e 100%);
-  /* background-color: #eeeee6; */
+  background: linear-gradient(135deg, #ccc 0%, #bbb 50%,#aaa 100%);
+  /* background: linear-gradient(135deg, #d4d3cf 0%, #bab8b3 50%,#a2a19e 100%); */
+  border-radius: 0 0 20px 20px;
 }
 
 .central-line {
   width: 5px;
-  height: 1753px;
+  height: 1716px;
   top: -100px; /* Move the line 100px higher */
   background-color: black;
   position: absolute;
