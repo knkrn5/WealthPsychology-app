@@ -336,7 +336,7 @@ body {
 
 .content p{
   color: #000000;
-  font-weight: bold;
+  /* font-weight: bold; */
   padding: 0 20px;
   margin-top: -10px;
   padding-bottom: 0;
