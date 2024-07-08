@@ -90,10 +90,13 @@ function updateBookmarks() {
 
     // Show or hide "Delete all Bookmarks" button
     const deleteAllButton = document.querySelector('.deleteall');
+    const bookmarkHeading = document.querySelector('.bookmark-heading');
     if (bookmarkItems.length > 0) {
         deleteAllButton.style.display = "block";
+        bookmarkHeading.innerHTML = "Bookmarks: -";
     } else {
         deleteAllButton.style.display = "none";
+        bookmarkHeading.innerHTML = "Empty Bookmarks";
     }
 }
 
