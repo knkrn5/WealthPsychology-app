@@ -380,7 +380,7 @@ body {
 }
 
 .rlbtn:hover{
-  text-decoration: underline;
+  text-decoration: underline 1.5px #fff;
 }
 
 
@@ -401,7 +401,7 @@ body {
 }
 
 .lmbtn:hover{
-  text-decoration: underline;
+  text-decoration: underline 1.5px #fff;
 }
 
 
