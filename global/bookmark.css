@@ -159,7 +159,7 @@
   @media (max-width: 768px){
     #bookmark-icon-container{
       top: 2px;
-      right: 5px;
+      right: 10px;
     }
     .bookmark-container {
       top: 1px;
