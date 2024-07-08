@@ -209,7 +209,7 @@ body {
 
 .central-line {
   width: 5px;
-  height: 1753px;
+  height: 1729px;
   top: -100px; /* Move the line 100px higher */
   background-color: black;
   position: absolute;
@@ -278,41 +278,11 @@ body {
   width: 80%;
   position: relative;
   border-radius: 20px;
-  /* background-color: #ccc; */
+  background-color: #eeeee6;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.content1{
-  background-color: rgb(223, 139, 49);
-}
-.content2{
-  background-color: rgb(212, 210, 56);
-}
-.content3{
-  background-color: rgb(186, 215, 70);
-}
-.content4{
-  background-color: rgb(81, 206, 81);
-}
-.content5{
-  background-color: rgb(65, 193, 200);
-}
-
-.content6{
-  background-color: rgb(48, 171, 118);
-}
-/* .content6 h2,
-.content6 p {
-  color: #fff !important;
-} */
-
-.content7{
-  background-color: rgb(194, 81, 171);
-}
-.content8{
-  background-color: rgb(194, 73, 73);
-}
 
 .content img {
   width: 200px;
@@ -327,7 +297,7 @@ body {
 }
 
 .content h2{
-  border-bottom: 1.5px solid #fff;
+  border-bottom: 1.5px solid #000;
   text-align: center;
   margin-top: 15px;
   padding-bottom: 2.5px;
@@ -335,7 +305,7 @@ body {
 
 .content p{
   color: #000000;
-  font-weight: bold;
+  /* font-weight: bold; */
   padding: 0 20px;
   margin-top: -10px;
   padding-bottom: 0;
@@ -369,7 +339,7 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #117a29; 
+  background-color: #117d2a; 
   box-shadow: 0 3px  #28A745;
   transition: all 0.2s ease; 
 }
@@ -405,6 +375,8 @@ body {
   text-decoration: underline 1.5px #fff;
   text-underline-offset: 1px;
 }
+
+
 
 
 
@@ -447,7 +419,7 @@ body {
     text-align: center;
     margin-top: 0px;
     padding-bottom: 0px;
-    text-decoration: underline 1px #fff;
+    text-decoration: underline 1px #000;
     text-underline-offset: 5px;
     border-bottom: none;
   }
