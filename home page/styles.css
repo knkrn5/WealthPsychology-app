@@ -209,7 +209,7 @@ body {
 
 .central-line {
   width: 5px;
-  height: 1706px;
+  height: 1753px;
   top: -100px; /* Move the line 100px higher */
   background-color: black;
   position: absolute;
@@ -327,14 +327,15 @@ body {
 }
 
 .content h2{
+  border-bottom: 1.5px solid #fff;
   text-align: center;
   margin-top: 15px;
-  padding-bottom: 0;
+  padding-bottom: 2.5px;
 }
 
 .content p{
   color: #000000;
-  /* font-weight: bold; */
+  font-weight: bold;
   padding: 0 20px;
   margin-top: -10px;
   padding-bottom: 0;
@@ -445,7 +446,10 @@ body {
   .content h2{
     text-align: center;
     margin-top: 0px;
-    padding-bottom: 0;
+    padding-bottom: 0px;
+    text-decoration: underline 1px #fff;
+    text-underline-offset: 5px;
+    border-bottom: none;
   }
   
   .content p{
