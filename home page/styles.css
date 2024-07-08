@@ -210,7 +210,7 @@ body {
 
 .central-line {
   width: 5px;
-  height: 1716px;
+  height: 1685px;
   top: -100px; /* Move the line 100px higher */
   background-color: black;
   position: absolute;
