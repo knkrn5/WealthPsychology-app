@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="home page/styles.css"/>
     <link rel="stylesheet" href="/footer/footer.css">
     <link rel="stylesheet" href="/navbar/nav.css">
-    <link rel="stylesheet" href="/global/cart.css">
+    <link rel="stylesheet" href="/global/bookmark.css">
      <script src="/footer/footer.js" defer></script> <!-- JavaScript file -->
 
     <title>WealthPsychology</title>
@@ -50,9 +50,9 @@
           </li> -->
         </ul>
 
-        <div id="cart-icon-container" onclick="toggleCart()" style="cursor: pointer;">
-          <div id="cart-icon">🛒</div>
-          <span id="cart-item-count">0</span>
+        <div id="bookmark-icon-container" onclick="toggleBookmark()" style="cursor: pointer;">
+          <div id="bookmark-icon"><i class="fa-regular fa-bookmark"></i></div>
+          <span id="total-bookmark">0</span>
         </div> 
       </nav>
 
@@ -60,14 +60,14 @@
       
 
     <div class="wrapper">
-      <div class="item item1"><a href="https://1drv.ms/w/s!At5WivVSSLb9i3N_1RMb_KbxXeRS?e=zWqLdH" target="_blank" rel="noopener noreferrer">Stock Market</a></div>
-      <div class="item item2"><a href="https://1drv.ms/w/s!At5WivVSSLb9h1btrNcEqQy5WyBO?e=YAGu5q" target="_blank" rel="noopener noreferrer">Mutual Funds</a></div>
-      <div class="item item3"><a href="https://1drv.ms/w/s!At5WivVSSLb9iAloZpXLuyNA4ZkV?e=KbPzUb" target="_blank" rel="noopener noreferrer">IPO analysis</a></div>
-      <div class="item item4"><a href="https://1drv.ms/w/s!At5WivVSSLb9iApDPSosn4NkPxpP?e=AJxdW3" target="_blank" rel="noopener noreferrer">Fundamental Analysis</a></div>
-      <div class="item item5"><a href="https://1drv.ms/w/s!At5WivVSSLb9iAOUQ365K5ioTNME?e=sfAXkf" target="_blank" rel="noopener noreferrer">Technical Analysis</a></div>
-      <div class="item item6"><a href="/economic-analysis" target="_blank" rel="noopener noreferrer">Economic Analysis</a></div>
-      <div class="item item7"><a href="https://1drv.ms/w/s!At5WivVSSLb9h2E0HNzkh4w4IYKW?e=BEPexc" target="_blank" rel="noopener noreferrer">Cryptocurrency</a></div>
-      <div class="item item8"><a href="https://1drv.ms/w/s!At5WivVSSLb9h1i8HLsTgFpQ3R5E?e=nXfuZ0" target="_blank" rel="noopener noreferrer">Money Market</a></div>
+      <div class="item item1"><a href="#bosm" rel="noopener noreferrer">Stock Market</a></div>
+      <div class="item item2"><a href="#mf" rel="noopener noreferrer">Mutual Funds</a></div>
+      <div class="item item3"><a href="#ipo" rel="noopener noreferrer">IPO analysis</a></div>
+      <div class="item item4"><a href="#fa" rel="noopener noreferrer">Fundamental Analysis</a></div>
+      <div class="item item5"><a href="#ta" rel="noopener noreferrer">Technical Analysis</a></div>
+      <div class="item item6"><a href="#ea" rel="noopener noreferrer">Economic Analysis</a></div>
+      <div class="item item7"><a href="#cc" rel="noopener noreferrer">Cryptocurrency</a></div>
+      <div class="item item8"><a href="#mm" rel="noopener noreferrer">Money Market</a></div>
     </div>
   </header>
   
@@ -77,43 +77,111 @@
 
 <main>
 
-    <div id="cart" class="cart-container">
-      <span class="close-cart" onclick="toggleCart()"></span>
-      <h2 class="cart-heading">Your Cart</h2>
-      <div id="cart-items">
-          <!-- Cart items will be dynamically added here -->
+    <div id="bookmark" class="bookmark-container">
+      <h2 class="bookmark-heading"s>Bookmarks: -</h2>
+      <div id="bookmark-items">
+          <!-- bookmark items will be dynamically added here -->
       </div>
-      <div id="cart-total">
-         Sub-Total: <span id="cart-total-amount" >₹0</span>
-      </div>
-      <button class="buyall">Proceed to Buy All</button>
+      <button class="deleteall">Delete all Bookmarks</button>
     </div>
 
     <div class="home-page">
       <div class="central-line"></div>
-      <div class="content content1">
+
+      <div class="content content1" id="bosm" concept-id = "1">
         <img src="/home page/imgs/bosmhp.webp" alt="stock market">
-        <p><strong>Stock Market:</strong> where people buy and sell shares of companies, hoping to make a profit as the company grows or declines</p>
+        <div class="content-wrapper">
+        <h2><strong>Stock Market: -</strong></h2> 
+        <p>Begin with the basics of how the stock market works, types of stocks, stock exchanges, and basic investing concepts.</p>
+            <div class="buttons">
+              <button class="contentbtn rlbtn" concept-id = "1">Read Later</button>
+              <button class="contentbtn lmbtn" onclick="window.open('https://1drv.ms/w/s!At5WivVSSLb9i3N_1RMb_KbxXeRS?e=zWqLdH', '_blank')">Learn More...</button>
+            </div>
+        </div>
       </div>
-      <div class="content content2">
+
+      <div class="content content2" id="mf" concept-id = "2">
+        <img src="/home page/imgs/mfahp.webp" alt="mutual Funds">
+        <div class="content-wrapper">
+        <h2><strong>Mutual Funds: -</strong></h2> 
+        <p>Understand pooled investments, types of mutual funds, and how to evaluate mutual fund performance</p>
+            <div class="buttons">
+              <button class="contentbtn rlbtn" concept-id = "2">Read Later</button>
+              <button class="contentbtn lmbtn" onclick="window.open('https://1drv.ms/w/s!At5WivVSSLb9h1btrNcEqQy5WyBO?e=YAGu5q', '_blank')">Learn More...</button>
+            </div>
+        </div>
+      </div>
+
+      <div class="content content3" id="fa" concept-id = "3">
         <img src="/home page/imgs/fahp.webp" alt="fundamental analysis">
-        <p><strong>Fundamental Analysis:</strong> Understanding a company's value by looking at its financial health (like earnings, debts) and its business (like products, competition etc).</p>
+        <div class="content-wrapper">
+        <h2><strong>Fundamental Analysis: -</strong></h2> 
+        <p>Learn to evaluate a company's financial health through financial statements, ratios, and other fundamental metrics.</p>
+            <div class="buttons">
+              <button class="contentbtn rlbtn" concept-id = "3">Read Later</button>
+              <button class="contentbtn lmbtn" onclick="window.open('https://1drv.ms/w/s!At5WivVSSLb9iApDPSosn4NkPxpP?e=AJxdW3', '_blank')">Learn More...</button>
+            </div>
+        </div>
       </div>
-      <div class="content content3 ">
+
+      <div class="content content4" id="ta" concept-id = "4">
         <img src="/home page/imgs/tahp.webp" alt="technical analysis">
-        <p><strong>Technical Analysis:</strong> Studying stock price movements by analyzing price action and price behavior to predict future trends, often using charts and indicators.</p>
+        <div class="content-wrapper">
+        <h2><strong>Technical Analysis: -</strong></h2> 
+        <p>Learn to analyze price, chart patterns, key support and resistance levels and other technical indicators to predict future stock movements.</p>
+            <div class="buttons">
+              <button class="contentbtn rlbtn" concept-id = "4">Read Later</button>
+              <button class="contentbtn lmbtn" onclick="window.open('https://1drv.ms/w/s!At5WivVSSLb9iAOUQ365K5ioTNME?e=sfAXkf', '_blank')">Learn More...</button>
+            </div>
+        </div>
       </div>
-      <div class="content content4">
+
+      <div class="content content5" id="ipo" concept-id = "5">
+        <img src="/home page/imgs/ipoahp.webp" alt="ipo analysis">
+        <div class="content-wrapper">
+        <h2><strong>IPO Analysis: -</strong></h2> 
+        <p>Understand the process of Initial Public Offerings and how to evaluate new stocks entering the market.</p>
+            <div class="buttons">
+              <button class="contentbtn rlbtn" concept-id = "5">Read Later</button>
+              <button class="contentbtn lmbtn" onclick="window.open('https://1drv.ms/w/s!At5WivVSSLb9iAloZpXLuyNA4ZkV?e=KbPzUb', '_blank')">Learn More...</button>
+            </div>
+        </div>
+      </div>
+
+      <div class="content content6" id="ea" concept-id = "6">
         <img src="/home page/imgs/eahp.webp" alt="economic analysis">
-        <p><strong>Economic analysis:</strong> Examining how economic factors such as interest rates, inflation, and GDP influence the stock market's behavior</p>
+        <div class="content-wrapper">
+        <h2><strong>Economic Analysis: -</strong></h2> 
+        <p>Gain insights into how macroeconomic factors like inflation, interest rates, and GDP impact the financial markets.</p>
+            <div class="buttons">
+              <button class="contentbtn rlbtn" concept-id = "6">Read Later</button>
+              <button class="contentbtn lmbtn" onclick="window.open('#path', '_blank')">Learn More...</button>
+            </div>
+        </div>
       </div>
-      <div class="content content5">
-        <img src="/home page/imgs/mm.webp" alt="money market">
-        <p><strong>Money Market:</strong>  Deal with short-term debt securities like Treasury bills and commercial paper.Know how to use it as a low-risk short-term investments.</p>
+
+      <div class="content content7" id="mm" concept-id = "7">
+        <img src="/home page/imgs/mmhp.webp" alt="money market">
+        <div class="content-wrapper">  
+        <h2><strong>Money Market: -</strong></h2> 
+        <p>Explore short-term debt instruments, money market funds, and the functioning of the money market.</p>
+            <div class="buttons">
+              <button class="contentbtn rlbtn" concept-id = "7">Read Later</button>
+              <button class="contentbtn lmbtn" onclick="window.open('https://1drv.ms/w/s!At5WivVSSLb9h1i8HLsTgFpQ3R5E?e=nXfuZ0', '_blank')">Learn More...</button>
+            </div>
+        </div>
       </div>
-      <div class="content content6">
+
+      <div class="content content8" id="cc" concept-id = "8">
         <img src="/home page/imgs/cchp.webp" alt="cryptocurrency">
-        <p><strong>Cryptocurrency:</strong> Digital currency: like Bitcoin, used for online transactions, stored in digital wallets, and secured by cryptography</p>
+        <div class="content-wrapper">
+        <h2><strong>Cryptocurrency: -</strong></h2> 
+        <p>Dive into digital currencies, blockchain technology, and the unique characteristics of cryptocurrency markets.</p>
+            <div class="buttons">
+              <button class="contentbtn rlbtn" concept-id = "8">Read Later</button>
+              <button class="contentbtn lmbtn" onclick="window.open('#path', '_blank')">Learn More...</button>
+            </div>
+        </div>
       </div>
     </div>
 
@@ -135,6 +203,6 @@
 <div id="footer"></div> 
 
     <script src= "/home page/script.js"></script>
-    <script src= "/global/cart.js"></script>
+    <script src= "/global/bookmark.js"></script>
   </body>
 </html>

@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
+html {
+  scroll-behavior: smooth; /*this will let us get to the target in smooth scrolling way instead of directly showing*/
+  scroll-padding-top: 130px; 
+}
+
 
 /* Header styles */
 header {
@@ -192,20 +197,20 @@ body {
   
 }
 
-
 .home-page {
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
   padding: 50px 0;
-  background: linear-gradient(135deg, #d4d3cf 0%, #a4a3a0 50%,#787775 100%);
-  /* background-color: #eeeee6; */
+  background: linear-gradient(135deg, #ccc 0%, #bbb 50%,#aaa 100%);
+  /* background: linear-gradient(135deg, #d4d3cf 0%, #bab8b3 50%,#a2a19e 100%); */
+  border-radius: 0 0 20px 20px;
 }
 
 .central-line {
   width: 5px;
-  height: 1253px;
+  height: 1685px;
   top: -100px; /* Move the line 100px higher */
   background-color: black;
   position: absolute;
@@ -214,34 +219,6 @@ body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(255, 255, 255, 0.2);
   border-radius: 2px;
   /* z-index: 1; */
-}
-
-
-
-.content {
-  display: flex;
-  align-items: center;
-  width: 80%;
-  position: relative;
-  border-radius: 20px;
-  background-color: #ccc;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.content img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10%;
-}
-
-
-
-.content p {
-  max-width: 600px;
-  margin: 0 20px;
-  text-align: left;
 }
 
 .content::before {
@@ -284,22 +261,6 @@ body {
 .content2{
   width: 500px;
   margin-right: -700px;
-}
-.content3{
-  width: 500px;
-  margin-left: -700px;
-}
-.content4{
-  width: 500px;
-  margin-right: -700px;
-}
-.content5{
-  width: 500px;
-  margin-left: -700px;
-}
-.content6{
-  width: 500px;
-  margin-right: -700px;
 } */
 
 .content:nth-child(odd) {
@@ -311,8 +272,144 @@ body {
   margin-right: 700px;
 }
 
+/* inside content styling */
+.content {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  position: relative;
+  border-radius: 20px;
+  /* background-color: #ccc; */
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-/* Mobile styles */
+.content1{
+  background-color: rgb(223, 139, 49);
+}
+.content2{
+  background-color: rgb(212, 210, 56);
+}
+.content3{
+  background-color: rgb(186, 215, 70);
+}
+.content4{
+  background-color: rgb(81, 206, 81);
+}
+.content5{
+  background-color: rgb(65, 193, 200);
+}
+
+.content6{
+  background-color: rgb(48, 171, 118);
+}
+/* .content6 h2,
+.content6 p {
+  color: #fff !important;
+} */
+
+.content7{
+  background-color: rgb(194, 81, 171);
+}
+.content8{
+  background-color: rgb(194, 73, 73);
+}
+
+.content img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10%;
+}
+
+.content-wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+.content h2{
+  border-bottom: 1.5px solid #fff;
+  text-align: center;
+  margin-top: 15px;
+  padding-bottom: 2.5px;
+}
+
+.content p{
+  color: #000000;
+  /* font-weight: bold; */
+  padding: 0 20px;
+  margin-top: -10px;
+  padding-bottom: 0;
+  /* display: flex;
+  gap: 5px;  */
+  justify-content: center;
+}
+
+.content .buttons {
+  display: flex;
+  gap: 0px; 
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+
+.content .contentbtn{
+  font-weight: bold;
+  width: 110px;
+  margin: 5px 10px;
+  padding: 10px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+
+.rlbtn {
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #117a29; 
+  box-shadow: 0 3px  #28A745;
+  transition: all 0.2s ease; 
+}
+
+.rlbtn:active {
+  box-shadow: 0 0px; /* Move shadow up to create pressed effect */
+  transform: translateY(2px); /* Move the button down slightly */
+}
+
+.rlbtn:hover{
+  text-decoration: underline 1.5px #fff;
+  text-underline-offset: 1px;
+}
+
+
+.lmbtn {
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #09396d;
+  box-shadow: 0 2px #225e9f; 
+  transition: all 0.2s ease; 
+}
+
+.lmbtn:active {
+  box-shadow: 0 0px; /* Move shadow up to create pressed effect */
+  transform: translateY(2px); /* Move the button down slightly */
+}
+
+.lmbtn:hover{
+  text-decoration: underline 1.5px #fff;
+  text-underline-offset: 1px;
+}
+
+
+
+/* Mobile responsive styling */
 @media (max-width: 768px) {
   .home-page {
     padding: 30px 10px;
@@ -347,8 +444,31 @@ body {
     flex-direction: column;
     margin: 15px 0;
   }
-}
+  .content h2{
+    text-align: center;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    text-decoration: underline 1px #fff;
+    text-underline-offset: 5px;
+    border-bottom: none;
+  }
+  
+  .content p{
+    padding: 0 20px;
+    margin-top: -10px;
+  }
+  
+  /* .content .buttons {
+    margin-bottom: 15px;
+    gap: 5px;
+  } */
 
+  .content .contentbtn{
+    width: 110px;
+    margin: 0px 10px;
+    padding: 10px 10px;
+  }
+}
 
 
 
