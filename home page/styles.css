@@ -260,22 +260,6 @@ body {
 .content2{
   width: 500px;
   margin-right: -700px;
-}
-.content3{
-  width: 500px;
-  margin-left: -700px;
-}
-.content4{
-  width: 500px;
-  margin-right: -700px;
-}
-.content5{
-  width: 500px;
-  margin-left: -700px;
-}
-.content6{
-  width: 500px;
-  margin-right: -700px;
 } */
 
 .content:nth-child(odd) {
@@ -294,9 +278,40 @@ body {
   width: 80%;
   position: relative;
   border-radius: 20px;
-  background-color: #ccc;
+  /* background-color: #ccc; */
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content1{
+  background-color: rgb(223, 139, 49);
+}
+.content2{
+  background-color: rgb(212, 210, 56);
+}
+.content3{
+  background-color: rgb(186, 215, 70);
+}
+.content4{
+  background-color: rgb(81, 206, 81);
+}
+.content5{
+  background-color: rgb(65, 193, 200);
+}
+
+.content6{
+  background-color: rgb(48, 171, 118);
+}
+/* .content6 h2,
+.content6 p {
+  color: #fff !important;
+} */
+
+.content7{
+  background-color: rgb(194, 81, 171);
+}
+.content8{
+  background-color: rgb(194, 73, 73);
 }
 
 .content img {
@@ -319,6 +334,7 @@ body {
 
 .content p{
   color: #000000;
+  /* font-weight: bold; */
   padding: 0 20px;
   margin-top: -10px;
   padding-bottom: 0;
