@@ -74,6 +74,9 @@ footer p{
   transform: scale(0.9);
 }
 
+.footer-link i.fa-solid {
+  font-size: 14px;
+}
 
 .legal {
   grid-column: 1 / -1; /* Span all columns */
