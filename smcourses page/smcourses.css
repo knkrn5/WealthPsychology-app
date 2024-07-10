@@ -1,6 +1,6 @@
 html {
   scroll-behavior: smooth; 
-  scroll-padding-top: 100px; 
+  scroll-padding-top: 110px; 
 }
 
 
@@ -50,6 +50,15 @@ body {
   margin-bottom: 40px;
 }
 
+/* Style for the course grid */
+.course-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-bottom: 3px solid #ddd;  /*create the horizontal line at the bottom */
+  padding-bottom: 30px;
+}
+
 /* Style for the headings */
 .course-category h1 {
   text-align: center;
@@ -70,21 +79,40 @@ body {
 
 }
 
-/* Style for the course grid */
-.course-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  border-bottom: 3px solid #ddd;  /*create the horizontal line at the bottom */
-  padding-bottom: 30px;
-}
-
-
-
 #smcourses a {
   text-decoration: none;
 }
 
+
+/* other courses last part styling--------------- */
+.othercourses {
+  /* font-weight: bold; */
+  text-align: center;
+  padding: 15px;
+  font-size: 20px;
+  margin-top: -50px;
+}
+
+.othercourses p a {
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.othercourses p a:hover{
+  text-decoration: underline;
+  
+}
+
+
+@media (max-width: 768px){
+  .typesofcourses{
+    gap: 20px;
+  }
+  .othercourses{
+    font-size: 15px;
+  }
+}
 
 
 /* Footer styles via footer global css */

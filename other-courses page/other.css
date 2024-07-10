@@ -41,7 +41,6 @@ body {
 
 
 /* course-card sytling via global course-card css-------------------------- */
-
 #othercourses {
 max-width: 100%;
 }
@@ -51,6 +50,15 @@ max-width: 100%;
 .course-category {
 margin-bottom: 30px;
 }
+
+/* Style for the course grid-------------------------- */
+.course-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-bottom: 3px solid #ddd;  
+  padding-bottom: 5px;
+  }
 
 /* Style for the headings */
 .course-category h1 {
@@ -63,39 +71,74 @@ padding: 8px;
 margin-bottom: 10px;
 }
 
+#othercourses a {
+  text-decoration: none;
+}
+
 @media (max-width: 768px){
   .course-category{
     margin-top: 80px;
   }
 }
 
-/* .course-category hr {
-border: none; 
-height: 5px; 
-background-color: #333;
-margin-bottom: 20px; 
-width: 100%;/
 
-} */
-
-
-/* Style for the course grid-------------------------- */
-.course-grid {
-display: flex;
-flex-wrap: wrap;
-justify-content: space-around;
-border-bottom: 3px solid #ddd;  /*create the horizontal line at the bottom */
-padding-bottom: 5px;
+/* course selection last part styling--------------- */
+.typesofcourses {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 0px;
+  gap: 150px;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
 }
 
-
-
-#othercourses a {
+.typesofcourses p a {
+  padding: 20px 40px;
+  border: 2px solid black;
+  color: #000;
   text-decoration: none;
+  font-weight: bold;
+}
+
+.typesofcourses :hover{
+  background-color: #333;
+  color: #fff;
+}
+
+.othercourses {
+  /* font-weight: bold; */
+  text-align: center;
+  padding: 15px;
+  font-size: 20px;
+}
+
+.othercourses p a {
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.othercourses p a:hover{
+  text-decoration: underline;
+  
+}
+
+.newletter {
+  text-align: center;
+  padding: 15px;
+  font-size: 20px;
 }
 
 
-
+@media (max-width: 768px){
+  .typesofcourses{
+    gap: 20px;
+  }
+  .othercourses{
+    font-size: 15px;
+  }
+}
 
 
 
