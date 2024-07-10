@@ -172,21 +172,27 @@ header {
   z-index: 2;
 }
 
-
-@media (max-width: 768px){
-  .home-image1{
-    margin-top: 3px;
-    height: auto;
-    width: 100%;   
-  }
+.home-image2{
+  display: none;
 }
 
-/* .hometopimg{
-  background-color: #ffffff;
-  border: 1px solid #ccc; 
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  overflow: hidden; 
-} */
+
+@media (max-width: 476px){
+  .hometopimg2{
+    background-color: #000;
+    margin-top: 3px;
+  }
+
+  .home-image1{
+   display: none;  
+  }
+
+  .home-image2{
+    display: block;
+    height: auto;
+    width: 100%;  
+  }
+}
 
 
 /* body styling ------------------------*/
