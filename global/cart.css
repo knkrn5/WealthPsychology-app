@@ -184,8 +184,8 @@
 /* cart css for smaller screen */
 @media (max-width: 768px){
   #cart-icon-container{
-    top: 0 ;
-    right: 10px;
+    top: 2px ;
+    right: 60px;
   }
   /* #cart-item-count{
     top: 0;

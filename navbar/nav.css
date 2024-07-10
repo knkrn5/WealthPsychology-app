@@ -85,17 +85,34 @@ opacity: 0;
 }
 
 
-/* nav styling for smaller screen */
-
-/* Mobile view */
+/* Mobile view nav styling for smaller screen */
 @media (max-width: 768px) {
+  .brand-logo-container {
+    /* display: none; */
+  }
+
+  .brand-logo{
+    height: 50px;
+    width: auto;
+    top: 0px;
+    left: 2px;
+    position: absolute;
+  }
+
   .menu-toggle {
       display: flex;
+      float: right;
+      margin-right: 10px;
       width: 40px;
       flex-direction: column;
       align-items: center;
       justify-content: center;
   }
+
+  #mobile-menu{
+    right: 5px;
+   
+   }
 
   .menu-toggle .bar {
       height: 3px;
@@ -105,17 +122,13 @@ opacity: 0;
       transition: 0.4s;
   }
 
-  nav ul{
-    height: auto;
-  }
-
   .nav-menu {
       display: none;
       flex-direction: column;
       width: 100%;
       text-align: left;
       position: absolute;
-      top: 40px; 
+      top: 50px; 
       left: 0;
       background-color: #333;
       z-index: 1;
@@ -125,9 +138,14 @@ opacity: 0;
       display: flex;
   }
 
+  nav{
+    height: 50px;
+  }
+
   nav ul {
       flex-direction: column;
       align-items: flex-start;
+      height: auto;
       padding: 0;
   }
 
@@ -142,10 +160,6 @@ opacity: 0;
       align-items: center;
       text-align: left;
       transition: color 0.3s ease; /* Add transition for hover effect */
-  }
-
-  .brand-logo-container {
-      display: none;
   }
 }
 
