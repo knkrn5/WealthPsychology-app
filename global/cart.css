@@ -58,7 +58,7 @@
     height: 80%;
     margin: 40px 20px 0 0;
     border-radius: 10px;
-    background-color: #aaa;
+    background-color: #999;
     /* opacity: 0.9;  */
     backdrop-filter: blur(10px);
    -webkit-backdrop-filter: blur(10px); 
@@ -187,10 +187,8 @@
     top: 2px ;
     right: 60px;
   }
-  /* #cart-item-count{
-    top: 0;
+  .cart-container {
+    top: 1px;
+    right: 40px;
   }
-  #cart-icon {
-    top: 0;
-  } */
 }
