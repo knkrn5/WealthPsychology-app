@@ -3,7 +3,7 @@
 // Function to toggle bookmark cart visibility
 
 // Array to store cart items
-let bookmarkItems = []; // Changed from cartItems to bookmarkItems
+let bookmarkItems = []; 
 
 // Function to toggle the bookmark display
 function toggleBookmark() {
