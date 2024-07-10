@@ -84,6 +84,10 @@ function updateBookmarks() {
                 bookmarkItems.splice(itemIndex, 1);
                 saveBookmarkItems();
                 updateBookmarks();
+                const readLaterButton = document.querySelector(`.rlbtn[concept-id="${conceptId}"]`);
+                if ( readLaterButton) {
+                    readLaterButton.innerText = 'Read Later';
+                }
             }
         });
     });
