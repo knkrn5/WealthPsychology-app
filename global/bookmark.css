@@ -57,7 +57,7 @@
     height: 80%;
     margin: 40px 20px 0 0;
     border-radius: 10px;
-    background-color: #aaa;
+    background-color: #999;
     /* opacity: 0.9;  */
     backdrop-filter: blur(10px);
    -webkit-backdrop-filter: blur(10px); 
@@ -163,6 +163,6 @@
   }
   .bookmark-container {
     top: 1px;
-    right: 6px;
+    right: 40px;
   }
 }
