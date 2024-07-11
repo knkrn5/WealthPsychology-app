@@ -53,6 +53,11 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+#contact-info a{
+    /* color: #000; */
+    text-decoration: none;
+}
+
 #contact-form {
     width: 80%; /* adjust the width to your liking */
     max-width: 600px;
