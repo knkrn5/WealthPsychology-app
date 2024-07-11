@@ -1,9 +1,5 @@
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+
 
 /* Header styles */
 header {
@@ -46,16 +42,16 @@ header h1 {
 
 /* Body styles */
 body {
-    font-family: 'Roboto', sans-serif;
-    background-color: #f9f9f9;
-    /* margin: 0;
-    padding: 0; */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 
 .privacy-policy {
     width: 70%; 
     margin: 0 auto; 
+    padding: 0 20px;
     padding-bottom: 30px;
     background-color: #f9f9f9;
 }
