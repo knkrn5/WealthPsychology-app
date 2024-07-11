@@ -1,16 +1,40 @@
+
+
 /* Header styles */
 header {
-    background-color: #333;
-    color: white;
+    background-color: #000;
+    color: #ffffff;
     text-align: center;
-    padding: 1px;
-    position: relative;
-    top: 0;
-    left: 0;
-    width: auto; 
-    z-index: 998; 
 }
 
+header h1 {
+    font-size: 2rem;
+    padding: 16px;
+    color: #fff;
+    margin-top: 0;
+    font-weight: bold;
+}
+
+.brand-logo {
+    height: 60px;
+    width: auto;
+    top: 2px;
+    left: 5px;
+    position: absolute;
+  }
+
+@media (max-width: 768px) {
+    header h1 {
+        margin-top: 0px;
+        font-size: 25px;
+    }
+    .brand-logo {
+        height: 50px;
+        width: auto;
+        top: 5px;
+        left: 0px;
+      }
+}
 /* Navigation styles via global nav css*/
 
 
@@ -25,8 +49,7 @@ body {
 .journey-container {
     max-width: 70%; 
     margin: 0 auto;
-    margin: 50px auto;
-    margin-top: 100px;
+    margin-top: 10px;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -79,7 +102,7 @@ body {
 @media (max-width: 768px) {
     .image1 {
         float: none; 
-        margin-top: 10px;
+        margin-top: -50px;
     }
     .journey-container{
         max-width: 90%;
