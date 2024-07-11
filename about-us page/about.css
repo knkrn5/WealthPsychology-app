@@ -72,12 +72,14 @@ body {
 .image1 {
     float: left;
     margin-right: 25px;
-    margin-bottom: 20px;  
+    margin-bottom: 20px; 
+    margin-top: 40px; 
 }
 
 @media (max-width: 768px) {
     .image1 {
         float: none; 
+        margin-top: 10px;
     }
     .journey-container{
         max-width: 90%;
