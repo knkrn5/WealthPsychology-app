@@ -1,29 +1,44 @@
 
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
 /* Header styles */
 header {
-    background-color: #333;
-    color: white;
+    background-color: #000;
+    color: #ffffff;
     text-align: center;
-    position: relative; /* Fixed position to keep it at the top */
-    top: 0;
-    left: 0;
-    width: 100%; 
-    z-index: 998;
 }
 
 header h1 {
     font-size: 2rem;
     padding: 1rem;
-    background-color: #ccc;
-    color: #000;
-    margin-top: 120px;
+    color: #fff;
+    margin-top: -5px;
     font-weight: bold;
 }
 
+.brand-logo {
+    height: 60px;
+    width: auto;
+    top: 2px;
+    left: 5px;
+    position: absolute;
+  }
+
 @media (max-width: 768px) {
     header h1 {
-        margin-top: 45px;
+        margin-top: 0px;
+        font-size: 25px;
     }
+    .brand-logo {
+        height: 50px;
+        width: auto;
+        top: 5px;
+        left: 0px;
+      }
 }
 
 /* Navigation styles via global nav css */
