@@ -2,17 +2,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
-}
-
-header, main, footer {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
 }
 
 header {
@@ -22,39 +13,73 @@ header {
     text-align: center;
 }
 
+header p{
+    padding: 0px 150px;
+}
+
 header h1 {
     margin: 0;
 }
 
-main h2 {
+.our-mission {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+.our-mission h2 {
     color: #4CAF50;
     border-bottom: 2px solid #4CAF50;
     padding-bottom: 5px;
 }
 
-main ul {
+.our-mission ul {
     list-style-type: none;
     padding-left: 0;
 }
 
-main ul li {
+.our-mission ul li {
     margin: 10px 0;
 }
 
-main ul ul {
+.our-mission ul ul {
     margin-left: 20px;
     list-style-type: disc;
 }
 
-footer {
+.mission-lastpara p{
     text-align: center;
     padding: 10px 0;
     background-color: #4CAF50;
     color: white;
     margin-top: 20px;
+    padding: 20px 150px;
+    /* max-width: 100% ; */
+    margin: 0 auto;
 }
 
-footer a {
+.mission-lastpara a {
     color: white;
     text-decoration: underline;
+}
+
+
+
+@media (max-width: 476px) {
+    .mission-lastpara p{
+        /* max-width: 100%; */
+        padding: 20px 25px;
+    }
+    .our-mission{
+        padding: 20px;
+        max-width: 85%;
+        margin: 0 auto;
+    }
+    header p{
+    padding: 0px 20px;
+    }
 }
