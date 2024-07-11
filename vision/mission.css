@@ -7,19 +7,27 @@ body {
 }
 
 header {
-    background-color: #4CAF50;
+    background-color: #000;
     color: white;
     padding: 20px 0;
     text-align: center;
 }
 
 header p{
-    padding: 0px 150px;
+    padding: 0px 250px;
 }
 
 header h1 {
     margin: 0;
 }
+
+.brand-logo {
+    height: 70px;
+    width: auto;
+    top: 10px;
+    left: 0px;
+    position: absolute;
+  }
 
 .our-mission {
     padding: 20px;
@@ -57,8 +65,7 @@ header h1 {
     background-color: #4CAF50;
     color: white;
     margin-top: 20px;
-    padding: 20px 150px;
-    /* max-width: 100% ; */
+    padding: 20px 250px;
     margin: 0 auto;
 }
 
@@ -68,18 +75,22 @@ header h1 {
 }
 
 
-
-@media (max-width: 476px) {
-    .mission-lastpara p{
-        /* max-width: 100%; */
-        padding: 20px 25px;
-    }
+@media (max-width: 1200px) {
+    .brand-logo {
+        height: 50px;
+        width: auto;
+        top: 5px;
+        left: 0px;
+      }
     .our-mission{
         padding: 20px;
         max-width: 85%;
         margin: 0 auto;
     }
     header p{
-    padding: 0px 20px;
+    padding: 0px 30px;
+    }
+    .mission-lastpara p{
+    padding: 20px 25px;
     }
 }
