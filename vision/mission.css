@@ -32,7 +32,7 @@ header h1 {
 .our-vission-container {
     padding: 20px;
     width: 800px;
-    margin: 0 auto;
+    margin: 10px auto;
     background-color: #f9f9f9;
     color: #333;
     line-height: 1.6;
@@ -62,7 +62,7 @@ header h1 {
 .cta-section{
     margin: 0;
     margin-bottom: -17px;
-    min-width: 100% !important;
+    margin-top: 50px;
 }
 
 .cta-section p{
