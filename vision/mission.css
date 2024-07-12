@@ -14,7 +14,7 @@ header {
 }
 
 header p{
-    padding: 0px 250px;
+    padding: 0px 350px;
 }
 
 header h1 {
@@ -31,7 +31,7 @@ header h1 {
 
 .our-mission {
     padding: 20px;
-    max-width: 800px;
+    width: 800px;
     margin: 0 auto;
     background-color: #f9f9f9;
     color: #333;
@@ -46,8 +46,8 @@ header h1 {
 }
 
 .our-mission ul {
-    list-style-type: none;
-    padding-left: 0;
+    /* list-style-type: none; */
+    padding-left: 50px;
 }
 
 .our-mission ul li {
@@ -59,14 +59,21 @@ header h1 {
     list-style-type: disc;
 }
 
+.mission-lastpara{
+    margin: 0;
+    margin-bottom: -17px;
+    min-width: 100% !important;
+}
+
 .mission-lastpara p{
     text-align: center;
     padding: 10px 0;
     background-color: #4CAF50;
     color: white;
-    margin-top: 20px;
-    padding: 20px 250px;
+    padding: 20px 100px;
     margin: 0 auto;
+    margin-top: 20px;
+    /* margin-bottom: 0; */
 }
 
 .mission-lastpara a {
