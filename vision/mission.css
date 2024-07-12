@@ -31,7 +31,7 @@ header h1 {
 
 .our-vission-container {
     padding: 20px;
-    width: 800px;
+    width: 50%;
     margin: 10px auto;
     background-color: #f9f9f9;
     color: #333;
@@ -91,7 +91,7 @@ header h1 {
       }
     .our-vission-container{
         padding: 20px;
-        max-width: 85%;
+        width: 90%;
         margin: 0 auto;
     }
     header p{
