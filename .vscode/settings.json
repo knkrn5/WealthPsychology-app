@@ -1,7 +1,7 @@
 {
   "workbench.colorCustomizations": {
-    "activityBar.activeBackground": "#3333ff",
-    "activityBar.background": "#3333ff",
+    "activityBar.activeBackground": "#00b300",
+    "activityBar.background": "#00b300",
     "activityBar.foreground": "#e7e7e7",
     "activityBar.inactiveForeground": "#e7e7e799",
     "activityBarBadge.background": "#dfdfff",
@@ -18,7 +18,7 @@
     "titleBar.inactiveBackground": "#00800099",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "blue",
+  "peacock.color": "green",
   "liveServer.settings.port": 5503,
   "cSpell.words": ["karan", "Nowclick"],
   "cSpell.customDictionaries": {
