@@ -29,7 +29,7 @@ header h1 {
     position: absolute;
   }
 
-.our-mission {
+.our-vission-container {
     padding: 20px;
     width: 800px;
     margin: 0 auto;
@@ -39,33 +39,33 @@ header h1 {
 }
 
 
-.our-mission h2 {
+.our-vission-container h2 {
     color: #4CAF50;
     border-bottom: 2px solid #4CAF50;
     padding-bottom: 5px;
 }
 
-.our-mission ul {
+.our-vission-container ul {
     /* list-style-type: none; */
     padding-left: 50px;
 }
 
-.our-mission ul li {
+.our-vission-container ul li {
     margin: 10px 0;
 }
 
-.our-mission ul ul {
+.our-vission-container ul ul {
     margin-left: 20px;
     list-style-type: disc;
 }
 
-.mission-lastpara{
+.cta-section{
     margin: 0;
     margin-bottom: -17px;
     min-width: 100% !important;
 }
 
-.mission-lastpara p{
+.cta-section p{
     text-align: center;
     padding: 10px 0;
     background-color: #4CAF50;
@@ -76,7 +76,7 @@ header h1 {
     /* margin-bottom: 0; */
 }
 
-.mission-lastpara a {
+.cta-section a {
     color: white;
     text-decoration: underline;
 }
@@ -86,10 +86,10 @@ header h1 {
     .brand-logo {
         height: 50px;
         width: auto;
-        top: 5px;
+        top: 6px;
         left: 0px;
       }
-    .our-mission{
+    .our-vission-container{
         padding: 20px;
         max-width: 85%;
         margin: 0 auto;
@@ -97,7 +97,7 @@ header h1 {
     header p{
     padding: 0px 30px;
     }
-    .mission-lastpara p{
+    .cta-section p{
     padding: 20px 25px;
     }
 }
