@@ -291,8 +291,13 @@ body {
 }
 
 .content1{
-  background-color: rgb(223, 139, 49);
+  background-color: rgb(71, 35, 201);
 }
+.content1 h2,
+.content1 p {
+  color: #fff !important;
+}
+
 .content2{
   background-color: rgb(212, 210, 56);
 }
@@ -300,26 +305,33 @@ body {
   background-color: rgb(186, 215, 70);
 }
 .content4{
-  background-color: rgb(81, 206, 81);
+  background-color: rgb(180, 25, 172);
 }
+.content4 h2,
+.content4 p {
+  color: #fff !important;
+}
+
 .content5{
   background-color: rgb(65, 193, 200);
 }
 
 .content6{
-  background-color: rgb(48, 171, 118);
+  background-color: rgb(219, 165, 40);
 }
-/* .content6 h2,
-.content6 p {
-  color: #fff !important;
-} */
 
 .content7{
-  background-color: rgb(194, 81, 171);
+  background-color: rgb(165, 42, 42);
 }
+.content7 h2,
+.content7 p {
+  color: #fff !important;
+}
+
 .content8{
-  background-color: rgb(194, 73, 73);
+  background-color:rgb(81, 206, 81);
 }
+
 
 .content img {
   width: 200px;
