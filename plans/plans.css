@@ -54,14 +54,19 @@ header h1 {
     margin: 10px 0;
 }
 
-.our-vission-container ul ul {
-    margin-left: 20px;
-    list-style-type: disc;
+
+.our-vission-container ul li a {
+    color: #000;
+    text-decoration: none;
+}
+.our-vission-container ul li a:hover {
+    text-decoration: underline;
+    text-underline-offset: 1px;
 }
 
 .cta-section{
     margin: 0;
-    margin-bottom: -17px;
+    margin-bottom: -27px;
     margin-top: 50px;
 }
 
