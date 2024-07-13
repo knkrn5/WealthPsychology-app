@@ -29,7 +29,7 @@ header h1 {
     position: absolute;
   }
 
-.our-vission-container {
+.our-Plans-container {
     padding: 20px;
     width: 50%;
     margin: 10px auto;
@@ -39,27 +39,27 @@ header h1 {
 }
 
 
-.our-vission-container h2 {
+.our-Plans-container h2 {
     color: #4CAF50;
     border-bottom: 2px solid #4CAF50;
     padding-bottom: 5px;
 }
 
-.our-vission-container ul {
+.our-Plans-container ul {
     /* list-style-type: none; */
     padding-left: 50px;
 }
 
-.our-vission-container ul li {
+.our-Plans-container ul li {
     margin: 10px 0;
 }
 
 
-.our-vission-container ul li a {
+.our-Plans-container ul li a {
     color: #000;
     text-decoration: none;
 }
-.our-vission-container ul li a:hover {
+.our-Plans-container ul li a:hover {
     text-decoration: underline;
     text-underline-offset: 1px;
 }
@@ -94,7 +94,7 @@ header h1 {
         top: 6px;
         left: 0px;
       }
-    .our-vission-container{
+    .our-Plans-container{
         padding: 20px;
         width: 90%;
         margin: 0 auto;
