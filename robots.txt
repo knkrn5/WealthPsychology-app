@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
+Disallow: /stock-market-course/
+Disallow: /other-courses/
+Disallow: /tests/
