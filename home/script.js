@@ -18,11 +18,11 @@ document.addEventListener('DOMContentLoaded', function() {
 // new feature prompt javascript------------------
 document.addEventListener('DOMContentLoaded', function() {
   if (!localStorage.getItem('dismissedFeaturePrompt')) {
-      document.getElementById('featurePrompt').style.display = 'block';
+    document.getElementById('newFeaturePrompt').style.display = 'block';
   }
 });
 
 function dismissPrompt() {
   localStorage.setItem('dismissedFeaturePrompt', true);
-  document.getElementById('featurePrompt').style.display = 'none';
+  document.getElementById('newFeaturePrompt').style.display = 'none';
 }
