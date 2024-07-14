@@ -102,6 +102,10 @@ header h1 {
     header p{
     padding: 0px 30px;
     }
+
+    .cta-section{
+        margin-bottom: -16px;
+    }
     .cta-section p{
     padding: 20px 25px;
     }
