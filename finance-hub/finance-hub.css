@@ -12,26 +12,27 @@ header {
 }
 
 header h1 {
-    display: none;
-    /* font-size: 2rem;
-    padding: 1rem;
+    font-size: 35px;
+    /* padding: 1rem; */
     color: #fff;
-    margin-top: 39px;
-    font-weight: bold; */
+    font-weight: bold;
 }
 
 @media (max-width: 768px) {
     header h1 {
-        display: block;
-        margin-top: 40px;
+        margin-top: 7px;
+        margin-left: 45px;
         font-size: 2rem;
-        padding: 1rem;
+        /* padding: 1rem; */
         color: #fff;
         font-weight: bold;
     }
 }
 
-/* navigation style via global nav css */
+
+/* finace-hub-nav css */
+
+
 
 
 /* Body styles */
@@ -45,30 +46,18 @@ body {
 .finance {
     max-width: 75%;
     margin: 0 auto;
-    margin-top: 115px;
+    margin-top: 145px;
     margin-bottom: 30px;
     padding-top: 0;
     padding: 40px;
     background-color: #e9e9e9;
-    display: grid;
-    grid-template-columns: 70% 27%; /* 4fr 1.5fr =  80% and 20% split */
-    grid-gap: 20px; 
   }
 
-  .finance-content-wrapper {
-    display: contents; /* This makes sure the content-wrapper does not interfere with the grid layout */
-  }
-
-
-  /* left column styling------------- */
-.finance .left-column {
-    grid-column: 1;
-    padding-right: 50px;
-}
   
 
-iframe{
-    width: 80%;
+iframe{  /* added for my embedded website */
+    width: 100%;
+   height: 1000px;
 }
 
 
@@ -82,7 +71,7 @@ iframe{
     font-size: 1.8em;
     margin-top: 20px;
     margin-bottom: 15px;
-    border-bottom: 2px solid #ddd;  /*create the horizontal line at the bottom */
+    border-bottom: 2px solid #ddd; 
     padding-bottom: 5px;
 }
 
@@ -92,62 +81,13 @@ iframe{
 }
 
 
-/* right column styling--------- */
-.finance .right-column{
-    grid-column: 2;
-    background-color: #cccccc;
-    padding: 20px; 
-    height: 700px;
-}
-
-.right-column h3{
-    padding-bottom: 10px;
-    border-bottom: 2px solid #fff;
-    font-size: 1.6em;
-    margin-top: 15px; 
-   }
- 
-   .right-column ul{
-     list-style-type: none;
-     padding-left: 0; 
-     margin-left: 10px; 
-   }
- 
-  .right-column li{
-    color: #000000;
-     padding: 10px;
-     /* font-size: 1em; */
-     border-bottom: 1px solid #eee;
-   }
- 
-  .right-column li:hover{
-    background-color: #555;
-    color: #fff;
-    cursor: pointer;
-    text-decoration: underline;
-   }
-
-
 /* mobile responsive styling-------- */
    @media (max-width: 768px) {
     .finance {
-        grid-template-columns: 1fr; /* Single column layout */
         justify-content: center;
         max-width: 75%;
-        margin-top: -15px;
+        margin-top: 60px;
 
-    }
-    
-    .finance .left-column {
-        grid-column: 1 / -1; /* Make both columns span full width */
-        margin-bottom: 20px; /* Add some space between sections */
-        padding: 0;
-    }
-
-    .finance .right-column {
-        grid-column: 1 / -1; /* Make both columns span full width */
-        margin-bottom: 20px; /* Add some space between sections */
-        padding: 15px;
     }
 
     iframe {
