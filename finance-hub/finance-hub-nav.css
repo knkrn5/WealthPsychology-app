@@ -36,7 +36,7 @@ nav ul {
   display: flex;
   align-items: flex-end; 
   justify-content: center; 
-  margin-top: -10px;
+  margin-top: -15px;
 }
 
 
@@ -130,7 +130,7 @@ opacity: 0;
       width: 100%;
       text-align: left;
       position: absolute;
-      top: 60px; 
+      top: 65px; 
       left: 0;
       background-color: #333;
       z-index: 1;
