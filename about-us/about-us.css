@@ -7,7 +7,7 @@ header {
     text-align: center;
 }
 
-header h1 {
+header h1{
     font-size: 2rem;
     padding: 16px;
     color: #fff;
@@ -68,7 +68,7 @@ body {
 
 .title1 {
     max-width: 630px;
-    margin-left: auto; /* Push the element to the right */
+    margin-left: auto;
     font-size: 2rem;
     padding: 10px 0 10px 0;
     background-color: #333;
@@ -89,7 +89,8 @@ body {
     padding-left: 10px;
     text-align: left;
     max-width: 650px;
-    margin-top: 0px;
+    margin-top: 30px;
+    text-align: center;
 }
 
 .image1 {
