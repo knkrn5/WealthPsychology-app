@@ -1,6 +1,4 @@
-
-
-//mobile nav-menu js
+// Mobile nav-menu JS
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenu = document.getElementById('mobile-menu');
     const navMenu = document.querySelector('.nav-menu');
@@ -16,20 +14,31 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.remove('active'); // Hide the menu
             mobileMenu.classList.remove('active'); // Remove active class from mobileMenu
         });
-    });
+    });f
 });
 
-
-
-//finance content loading js
+// Finance content loading JS
 document.addEventListener('DOMContentLoaded', function() {
     const links = document.querySelectorAll('.nav-menu a');
     const contentElement = document.getElementById('content');
-    const defaultContent = contentElement.innerHTML;  // Store the initial content
+    const defaultContent = contentElement.innerHTML; // Store the initial content
 
-    
+    function loadCSS(filename) {
+        const existingLink = document.querySelector('link[data-dynamic-css]');
+        if (existingLink) {
+            existingLink.remove();
+        }
 
-    function loadContent(url) {
+        const head = document.head;
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = filename;
+        link.setAttribute('data-dynamic-css', 'true'); // Mark as dynamically loaded
+        head.appendChild(link);
+    }
+
+    function loadContent(url, cssFile) {
         if (url.startsWith('http') || url.startsWith('https')) {
             // If it's an external URL, use an iframe
             contentElement.innerHTML = `<iframe src="${url}"></iframe>`;
@@ -39,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 .then(response => response.text())
                 .then(data => {
                     contentElement.innerHTML = data;
+                    if (cssFile) {
+                        loadCSS(cssFile);
+                    }
                 })
                 .catch(error => console.error('Error loading content:', error));
         }
@@ -52,9 +64,9 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             console.log("No matching link found for URL:", url);
         }
- 
-        //removing default content on that page when selecting other content
-        const defaultContentElement = document.querySelector('.default-content')
+
+        // Remove default content on that page when selecting other content
+        const defaultContentElement = document.querySelector('.default-content');
         if (defaultContentElement) {
             defaultContentElement.style.display = 'none';
         }
@@ -65,16 +77,16 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(event) {
             event.preventDefault();
             const url = link.getAttribute('data-url');
-            history.pushState({ url: url }, link.href);
-            // history.pushState({ url: url }, document.title, link.href); //understanding this
-            loadContent(url);
+            const cssFile = link.getAttribute('data-css'); // Get the CSS file from a data attribute
+            history.pushState({ url: url, cssFile: cssFile }, document.title);
+            loadContent(url, cssFile);
         });
     });
 
-     // Handle back button functionality
-     window.addEventListener('popstate', function(event) {
+    // Handle back button functionality
+    window.addEventListener('popstate', function(event) {
         if (event.state && event.state.url) {
-            loadContent(event.state.url);
+            loadContent(event.state.url, event.state.cssFile);
         } else {
             contentElement.innerHTML = defaultContent;
             // Show the default content section if it exists
@@ -88,6 +100,3 @@ document.addEventListener('DOMContentLoaded', function() {
     // Push the initial state
     history.replaceState({ url: null }, document.title);
 });
-
-
- 

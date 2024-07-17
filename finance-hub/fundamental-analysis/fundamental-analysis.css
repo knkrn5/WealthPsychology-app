@@ -1,0 +1,28 @@
+
+
+#fundamental-analysis-content {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+#fundamental-analysis-content h2 {
+    color: #333;
+}
+
+#fundamental-analysis-content article {
+    line-height: 1.6;
+}
+
+#fundamental-analysis-content article h3 {
+    color: #444;
+}
+
+#fundamental-analysis-content ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+#fundamental-analysis-content li {
+    margin-bottom: 10px;
+}
