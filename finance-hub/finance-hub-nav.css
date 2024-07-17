@@ -48,8 +48,14 @@ nav ul li a {
   text-align: center;
   padding: 12px 14px;
   text-decoration: none;
-  margin-right: 5px;
+  margin-right: 3px;
   font-weight: bold;
+  border-right: 1px solid #ffffff; 
+}
+
+/* Remove the right border from the last link */
+nav ul li:last-child a {
+  border-right: none;
 }
 
 nav ul li a:hover{
