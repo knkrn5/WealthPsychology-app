@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
             navMenu.classList.remove('active'); // Hide the menu
             mobileMenu.classList.remove('active'); // Remove active class from mobileMenu
         });
-    });f
+    });
 });
 
 // Finance content loading JS
