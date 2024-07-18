@@ -79,6 +79,29 @@ body {
     margin-top: 0;
 }
 
+/* p::first-letter{
+    font-size: 20px;
+    font-weight: bolder;
+} */
+
+.title1 + p::first-letter {
+    font-size: 30px;
+}
+
+
+.image1 img {
+    width: 360px; 
+    height: auto; 
+    border-radius: 10px;
+} 
+.image1 {
+    float: left;
+    margin-right: 25px;
+    margin-bottom: 20px; 
+    margin-top: 40px; 
+}
+
+
 
 .title2 {
     font-size: 2rem;
@@ -93,12 +116,17 @@ body {
     text-align: center;
 }
 
-.image1 {
-    float: left;
-    margin-right: 25px;
-    margin-bottom: 20px; 
-    margin-top: 40px; 
+.image2 img {
+    width: 350px; 
+    height: auto; 
+    border-radius: 50%;
+} 
+.image2 {
+    float: right;
+    margin-right: 10px;
+    margin-left: 30px;
 }
+
 
 @media (max-width: 768px) {
     .image1 {
@@ -110,23 +138,7 @@ body {
     }
 }
 
-.image1 img {
-    width: 360px; 
-    height: auto; 
-    border-radius: 10px;
-} 
 
-.image2 img {
-    width: 350px; 
-    height: auto; 
-    border-radius: 50%;
-} 
-
-.image2 {
-    float: right;
-    margin-right: 10px;
-    margin-left: 30px;
-}
 
 /* Label Styling */
 label {
