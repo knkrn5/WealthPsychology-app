@@ -86,6 +86,10 @@ header h1 {
     text-decoration: underline;
 }
 
+.fa-arrow-up-right-from-square{
+    font-size: 13.5px;
+    color: blue;
+  }
 
 @media (max-width: 1200px) {
     .brand-logo {
