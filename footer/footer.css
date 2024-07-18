@@ -66,6 +66,11 @@ footer p{
   margin-top: 10px;
 }
 
+.broker-account .broker-links a:nth-child(2) img {
+  height: 35px;
+  width: 180px; 
+}
+
 .broker-links img {
   transition: transform 0.3s ease-in-out;
 }
