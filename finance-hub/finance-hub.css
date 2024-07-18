@@ -1,4 +1,9 @@
 
+html {
+    scroll-behavior: smooth;
+}
+
+
 /* Header styles */
 header {
     background-color: #333;
