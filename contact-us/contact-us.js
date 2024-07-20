@@ -21,16 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
         // Here, we are simulating a successful submission
-        alert('Form submitted successfully!');
+        alert("We're sorry, our contact form is currently not working. Please email us directly at contact@wealthpsychology.in for assistance. Thank you for your understanding!");
     });
-});
-
-const validation = document.getElementById('contact-form');
-validation.addEventListener('submit', function(event) {
-    const name = document.getElementById('name').value;
-    if (name === 'karan') {
-        alert("Enter the correct name");
-        event.preventDefault(); // Prevent form submission
-    }
 });
 
