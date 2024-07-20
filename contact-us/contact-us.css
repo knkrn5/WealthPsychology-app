@@ -49,6 +49,7 @@ body {
 #contact-section {
     display: flex;
     flex-wrap: wrap;
+    gap: 0px !important;
   }
 
 #contact-info {
@@ -100,15 +101,20 @@ textarea {
     border-radius: 3px;
 }
 
+textarea {
+    max-width: 96%;
+}
+
 button {
-    background-color: #555;
-    color: white;
+    background-color: #444;
+    color: #ffffffff;
     padding: 10px;
     cursor: pointer;
     border: none;
     width: 50%;
     margin: 0 auto;
-    display: block;
+    font-weight: bolder;
+    /* display: block; */
 }
 
 input:focus, 
@@ -119,19 +125,20 @@ textarea:focus {
 }
 
 button:hover {
-    background-color: #110101;
+    background-color: #000;
 }
 
-/*for mobile and smaller screen stylingv*/
-@media (max-width: 1200px) {
+
+/*for mobile and smaller screen styling*/
+@media (max-width: 768px) {
     #contact-info {
      margin: 30px auto;
      margin-top: 0;
     }
-    
-  /*   #contact-form {
-        margin: 0 auto;
-    } */
+    textarea {
+        max-width: 92%;
+    }
 }
+
 
 /* Footer styles via global footer css*/
