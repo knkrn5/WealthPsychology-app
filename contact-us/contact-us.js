@@ -1,7 +1,7 @@
 // contact-script.js
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Add event listener for the form submission
+   
     document.querySelector('form').addEventListener('submit', function (event) {
         event.preventDefault(); // Prevent the default form submission
 
@@ -11,12 +11,15 @@ document.addEventListener('DOMContentLoaded', function () {
         const message = document.getElementById('message').value;
 
         // You can perform additional validation or processing here before submitting the form
-        // For simplicity, let's just log the values to the console in this example
+
+        // just see in debugging
         console.log('Name:', name);
         console.log('Email:', email);
         console.log('Message:', message);
 
-        // You may want to send the form data to a server using AJAX or another method
+        // here we have to send the form data to a server using AJAX or another method
+
+
         // Here, we are simulating a successful submission
         alert('Form submitted successfully!');
     });

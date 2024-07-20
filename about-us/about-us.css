@@ -81,7 +81,7 @@ body {
 
 /* p::first-letter{
     font-size: 20px;
-    font-weight: bolder;
+    font-weight: bolder;a
 } */
 
 .title1 + p::first-letter {

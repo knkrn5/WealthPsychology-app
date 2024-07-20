@@ -56,6 +56,8 @@ body {
     max-width: 600px;
     margin: 30px auto;
     margin-top: 0;
+    margin-right: -10px;
+    /* margin-right: clamp(10px, calc(-10px + 10vw), 20px); */
     padding: 20px;
     background-color: #f9f9f9;
     border: 2px solid #ddd;
@@ -118,6 +120,18 @@ textarea:focus {
 
 button:hover {
     background-color: #110101;
+}
+
+/*for mobile and smaller screen stylingv*/
+@media (max-width: 1200px) {
+    #contact-info {
+     margin: 30px auto;
+     margin-top: 0;
+    }
+    
+  /*   #contact-form {
+        margin: 0 auto;
+    } */
 }
 
 /* Footer styles via global footer css*/
