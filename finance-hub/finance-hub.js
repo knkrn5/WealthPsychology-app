@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Update the active category styling
         links.forEach(link => link.classList.remove('active'));
-        const activeLink = document.querySelector(`.nav-menu a[data-url="${url}"]`);
+        const activeLink = document.querySelector(`.nav-menu a[data-html="${url}"]`);
         if (activeLink) {
             activeLink.classList.add('active');
             console.log("Active class added to:", activeLink);
@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
     links.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
-            const url = link.getAttribute('data-url');
+            const url = link.getAttribute('data-html');
             const cssFile = link.getAttribute('data-css'); // Get the CSS file from a data attribute
             history.pushState({ url: url, cssFile: cssFile }, document.title);
             loadContent(url, cssFile);
