@@ -56,7 +56,12 @@ body {
   .blog-content-wrapper {
     display: contents; /* This makes sure the content-wrapper does not interfere with the grid layout */
   }
-  
+
+  #blog-posts article + article {
+    margin-top: 80px;
+}
+
+
   .blog-container .left-column {
     grid-column: 1;
     padding-right: 50px;
@@ -72,8 +77,13 @@ body {
     font-size: 1.8em;
     margin-top: 0px;
     margin-bottom: 15px;
-    border-bottom: 2px solid #ddd;  /*create the horizontal line at the bottom */
+    border-top: 2px solid #aaa; 
+    padding-top: 15px; 
     padding-bottom: 5px;
+}
+
+.blog-container .left-column > *:first-child h2 {
+  border-top: none;
 }
 
 .blog-container .left-column p {
@@ -93,6 +103,22 @@ body {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 } */
 
+/* Image styling */
+.full-article img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+  border-radius: 6px;
+}
+
+/* Control maximum height for very tall images */
+.full-article img {
+  max-height: 400px;
+  object-fit: contain;
+  object-position: center; 
+}
+
 .back{
   display: inline-block;
   margin-top: 20px;
@@ -111,7 +137,7 @@ body {
   font-size: 16px;
   float: right;
   border-radius: 5px;
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 .read-more:hover {
@@ -177,11 +203,6 @@ body {
       padding: 0 10px;
       width: 100%;
     }
-    
-
-    .full-article {
-      max-width: 100%;
-    }
 
    .blog-container .left-column img {
         height: 180px; 
@@ -197,22 +218,6 @@ body {
       padding-right: 20px;
     }
 
-    .read-more {
-      margin-right: 30px;
-    }
-
-    .blog-container .right-column {
-      grid-column: 1 / -1; /* Make both columns span full width */
-      margin-bottom: 20px; /* Add some space between sections */
-      /* padding: 0 0px; */
-      width: 100%;
-    }
-
-  }
-
-
-/*full article mobile styling */
-  @media screen and (max-width: 768px) {
     .full-article {
       padding: 15px 10px;
       margin: 10px 0;
@@ -240,27 +245,20 @@ body {
       margin: 10px 0;
       border-radius: 6px;
     }
-  
-/*     .full-article .back {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 15px;
-      background-color: #f0f0f0;
-      color: #333;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 16px;
-      transition: background-color 0.3s ease;
+
+    .read-more {
+      margin-right: 30px;
     }
-  
-    .full-article .back:hover {
-      background-color: #e0e0e0;
+
+    .blog-container .right-column {
+      grid-column: 1 / -1; /* Make both columns span full width */
+      margin-bottom: 20px; /* Add some space between sections */
+      /* padding: 0 0px; */
+      width: 100%;
     }
-  
-    .full-article .back i {
-      margin-right: 5px;
-    } */
+
   }
+
   
 
 
