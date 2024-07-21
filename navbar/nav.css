@@ -163,3 +163,9 @@ opacity: 0;
 .blogs-page nav ul {
   margin-top: -80px; 
 }
+
+@media (max-width: 768px) {
+  .nav-menu {
+    top: 130px; 
+}
+}
