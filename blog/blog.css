@@ -57,10 +57,6 @@ body {
     display: contents; /* This makes sure the content-wrapper does not interfere with the grid layout */
   }
 
-  #blog-posts article + article {
-    margin-top: 80px;
-}
-
 
   .blog-container .left-column {
     grid-column: 1;
@@ -82,10 +78,6 @@ body {
     padding-bottom: 5px;
 }
 
-.blog-container .left-column > *:first-child h2 {
-  border-top: none;
-}
-
 .blog-container .left-column p {
     margin-bottom: 15px;
 }
@@ -95,6 +87,15 @@ body {
     height: 290px;
     width: auto;
 }
+
+#blog-posts article + article {
+  margin-top: 80px;
+}
+
+.blog-container .left-column > *:first-child h2 {
+  border-top: none;
+}
+
 
 /* .full-article {
   background-color: #fff;
