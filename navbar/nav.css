@@ -159,4 +159,7 @@ opacity: 0;
 }
 
 
-
+/*only for blog page nav css */
+.blogs-page nav ul {
+  margin-top: -80px; 
+}
