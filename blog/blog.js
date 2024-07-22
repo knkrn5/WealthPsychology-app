@@ -3,8 +3,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const apiUrl = 'https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts';
 
     fetch(apiUrl)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
         .then(posts => {
+            blogPosts.innerHTML = ''; // Clear existing content
+            if (posts.length === 0) {
+                blogPosts.innerHTML = '<p>No posts available.</p>';
+                return;
+            }
             posts.forEach(post => {
                 const article = document.createElement('article');
                 article.className = 'article';
@@ -35,7 +45,12 @@ function loadFullPost(postId) {
     const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts/${postId}`;
 
     fetch(apiUrl)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
+            }
+            return response.json();
+        })
         .then(post => {
             blogPosts.innerHTML = `
                 <article class="full-article">
