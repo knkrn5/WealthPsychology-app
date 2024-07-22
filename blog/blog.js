@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(posts => {
-            blogPosts.innerHTML = ''; // Clear existing content
+          //  blogPosts.innerHTML = ''; // Clear existing content
             if (posts.length === 0) {
                 blogPosts.innerHTML = '<p>No posts available.</p>';
                 return;
