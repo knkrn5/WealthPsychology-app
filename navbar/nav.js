@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-navLinks.forEach(function(link) {
+/* navLinks.forEach(function(link) {
   link.addEventListener('click', function() {
       navMenu.classList.remove('active'); // Hide the menu
       menuBars.classList.remove('active'); // Remove active class from mobileMenu
   });
-});
+}); */
