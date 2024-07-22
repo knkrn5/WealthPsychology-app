@@ -97,38 +97,6 @@ body {
 }
 
 
-/* .full-article {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-} */
-
-/* Image styling */
-.full-article img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 10px auto;
-  border-radius: 6px;
-}
-
-/* Control maximum height for very tall images */
-.full-article img {
-  max-height: 400px;
-  object-fit: contain;
-  object-position: center; 
-}
-
-.back{
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 15px;
-  background-color: #005f73;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 5px;
-}
 
 .read-more {
   background-color: darkblue;

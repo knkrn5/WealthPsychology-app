@@ -1,0 +1,160 @@
+/* post.css */
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    /* color: #333; */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header styles */
+header {
+    background-color: #000;
+    text-align: center;
+    padding: 0;
+    position: relative; 
+    top: 0;
+    left: 0;
+    min-width: 100%; 
+    z-index: 998;
+  }
+  
+  header h1 {
+    font-size: 35px;
+    /* padding: 1rem; */
+    color: #ffffffff;
+    font-weight: bold;
+  }
+  
+  @media (max-width: 768px) {
+    header h1 {
+      margin-top: 0px;
+      margin-left: 50px;
+      font-size: 2rem;
+      /* padding: 1rem; */
+      color: #fff;
+      font-weight: bold;
+    }
+  }
+
+/* main{
+    width: 70%;
+    margin: 0 auto;
+} */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#post-content {
+    padding: 20px 0;
+}
+
+.full-article {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 130px;
+    margin-bottom: 0px;
+    background-color: #ccc;
+    padding: 30px;
+    border-radius: 5px;
+}
+
+h2 {
+    color: #000;
+    font-size: 2.5em;
+    margin-bottom: 0px;
+}
+
+.full-article p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.full-article img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: blue;
+    color: #ffffffff;
+    font-weight: bolder;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.back:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .full-article {
+        width: 80%;
+        margin-top: 40px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .full-article p {
+        font-size: 1em;
+    }
+}
+
+/* Additional styles for code blocks, quotes, etc. */
+pre, code {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-family: monospace;
+    font-size: 0.9em;
+    padding: 10px;
+    overflow-x: auto;
+}
+
+blockquote {
+    border-left: 4px solid #3498db;
+    padding-left: 20px;
+    margin: 20px 0;
+    font-style: italic;
+    color: #555;
+}
+
+/* Style for lists within the article */
+.full-article ul, .full-article ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.full-article li {
+    margin-bottom: 10px;
+}
+
+/* Style for links within the article */
+/* .full-article a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+.full-article a:hover {
+    text-decoration: underline;
+} */
