@@ -19,8 +19,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Set EJS as the view engine
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+/* app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views')); */
 
 //index route
 /* app.get('/', (req, res) => {
@@ -28,24 +28,24 @@ app.set('views', path.join(__dirname, 'views'));
 }); */
 
 
-// Dynamic blog list route
-app.get('/blog/list', async (req, res) => {
+// Proxy route for fetching posts
+app.get('/api/posts', async (req, res) => {
     try {
-        const apiUrl = 'https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts';
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const posts = await response.json();
-        res.render('blog', { posts });
+      const apiUrl = 'https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts';
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const posts = await response.json();
+      res.json(posts);
     } catch (error) {
-        console.error('Error fetching posts:', error);
-        res.status(500).render('error', { message: 'Error loading blog posts' });
+      console.error('Error fetching posts:', error);
+      res.status(500).json({ error: 'Error fetching posts' });
     }
-});
+  });
 
 // Individual post route
-app.get('/blog/post/:id', async (req, res) => {
+/* app.get('/blog/post/:id', async (req, res) => {
     try {
         const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts/${req.params.id}`;
         const response = await fetch(apiUrl);
@@ -58,7 +58,7 @@ app.get('/blog/post/:id', async (req, res) => {
         console.error('Error fetching post:', error);
         res.status(500).render('error', { message: 'Error loading blog post' });
     }
-});
+}); */
 
 // Start the server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const blogPosts = document.getElementById('blog-posts');
-    const apiUrl = 'https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts';
+    const apiUrl = '/api/posts'; // fetching wordpress api from the proxy server.mjs
 
     fetch(apiUrl)
         .then(response => {
