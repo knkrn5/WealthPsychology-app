@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Serve files from the root directory
+// Serve files from the root directory  - so this is the one that serves all the file from the root directory
 app.use(express.static(path.join(__dirname)));
 
 
@@ -23,9 +23,9 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 //index route
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
-});
+}); */
 
 
 // Dynamic blog list route
