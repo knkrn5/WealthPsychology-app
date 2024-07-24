@@ -15,32 +15,17 @@ app.use(express.static(path.join(__dirname)));
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
-/* app.use('/global', express.static(path.join(__dirname, 'imgs')));
-app.use('/about-us', express.static(path.join(__dirname, 'about-us')));
-app.use('/contact-us', express.static(path.join(__dirname, 'contact-us'))); */
-app.use('/blog', express.static(path.join(__dirname, 'blog')));
-
+// app.use('/blog', express.static(path.join(__dirname, 'blog')));
 
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-
+//index route
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
-
-// About Us route
-/* app.get('/about-us', (req, res) => {
-    res.sendFile(path.join(__dirname, 'about-us', 'about-us.html'));
-}); */
-
-// Contact Us route
-/* app.get('/contact-us', (req, res) => {
-    res.sendFile(path.join(__dirname, 'contact-us', 'contact-us.html'));
-}); */
-
 
 
 // Dynamic blog list route
