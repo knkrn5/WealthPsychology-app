@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const blogPosts = document.getElementById('blog-posts');
-    const apiUrl = '/api/posts'; // fetching wordpress api from the proxy server.mjs
+    const apiUrl = '/api/posts'; // fetching wordpress api from the proxy server.mjs - i have only changed this for fetching from the server
 
     fetch(apiUrl)
         .then(response => {
