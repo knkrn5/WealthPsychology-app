@@ -29,7 +29,7 @@ app.set('views', path.join(__dirname, 'views')); */
 
 
 // Proxy route for fetching posts
-app.get('/api/posts', async (req, res) => {
+/* app.get('/api/posts', async (req, res) => {
     try {
       const apiUrl = 'https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts';
       const response = await fetch(apiUrl);
@@ -42,7 +42,7 @@ app.get('/api/posts', async (req, res) => {
       console.error('Error fetching posts:', error);
       res.status(500).json({ error: 'Error fetching posts' });
     }
-  });
+  }); */
 
 
 // Individual post route
