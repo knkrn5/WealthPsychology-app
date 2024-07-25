@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const blogPosts = document.getElementById('blog-posts');
-    const apiUrl = '/.netlify/functions/fetch-posts'; // fetching netlify serverless function
-    // const apiUrl = '/api/posts'; // fetching wordpress api from the proxy server.mjs - i have only changed this for fetching from the server
+    // const apiUrl = '/.netlify/functions/fetch-posts'; // fetching netlify serverless function
+    // const apiUrl = '/api/posts'; // fetching wordpress api from the proxy server
+    const apiUrl = 'http://localhost:3000/api/posts';
 
     fetch(apiUrl)
         .then(response => {
