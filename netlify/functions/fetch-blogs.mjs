@@ -1,22 +1,20 @@
 import fetch from 'node-fetch';
 
 export async function handler(event, context) {
-  const postId = event.queryStringParameters.id;
-  // const postId = event.path.split('/').pop();
-  const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts/${postId}`;
+  const apiUrl = 'https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts';
 
   try {
     const response = await fetch(apiUrl);
     if (!response.ok) {
       return {
         statusCode: response.status,
-        body: JSON.stringify({ error: 'Error fetching post' }),
+        body: JSON.stringify({ error: 'Error fetching posts' }),
       };
     }
-    const post = await response.json();
+    const posts = await response.json();
     return {
       statusCode: 200,
-      body: JSON.stringify(post),
+      body: JSON.stringify(posts),
     };
   } catch (error) {
     return {
@@ -25,5 +23,3 @@ export async function handler(event, context) {
     };
   }
 }
-
-

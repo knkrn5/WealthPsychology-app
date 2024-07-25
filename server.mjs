@@ -46,7 +46,7 @@ app.set('views', path.join(__dirname, 'views')); */
 
 
 // Individual post route
-app.get('/blog/post/:id', async (req, res) => {
+/* app.get('/blog/post/:id', async (req, res) => {
   try {
       const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts/${req.params.id}`;
       const response = await fetch(apiUrl);
@@ -59,7 +59,7 @@ app.get('/blog/post/:id', async (req, res) => {
       console.error('Error fetching post:', error);
       res.status(500).json({ error: 'Error loading blog post' });
   }
-});
+}); */
 
 // Start the server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
