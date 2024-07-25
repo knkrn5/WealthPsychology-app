@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const blogPosts = document.getElementById('blog-posts');
     // const apiUrl = '/.netlify/functions/fetch-posts'; // fetching netlify serverless function
     // const apiUrl = '/api/posts'; // fetching wordpress api from the proxy server
-    const apiUrl = 'http://localhost:3000/api/posts';
+    const apiUrl = 'http://localhost:5000/api/posts';
 
     fetch(apiUrl)
         .then(response => {

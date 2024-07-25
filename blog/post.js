@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts/${postId}`;
-    const apiUrl = `http://localhost:3000/blog/post/${postId}`;
+    const apiUrl = `http://localhost:5000/blog/post/${postId}`;
 
     fetch(apiUrl)
         .then(response => {
