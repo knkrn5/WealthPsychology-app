@@ -1,8 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const blogPosts = document.getElementById('blog-posts');
     const apiUrl = '/.netlify/functions/fetch-blogs'; // fetching netlify serverless function
-    // const apiUrl = '/api/posts'; // fetching wordpress api from the proxy server
-    // const apiUrl = 'http://localhost:5000/api/posts';
+    // const apiUrl = '/api/posts'; // fetching wordpress api from the proxy server and this will only show output in localhost only
+    // const apiUrl = 'http://localhost:5000/api/posts'; // this will show output in both live server and localhost
+    
+
 
     fetch(apiUrl)
         .then(response => {
@@ -14,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(posts => {
             blogPosts.innerHTML = ''; // Clear existing content
             if (posts.length === 0) {
-                blogPosts.innerHTML = '<p>No blog available.</p>';
+                blogPosts.innerHTML = '<p>No blogs available.</p>';
                 return;
             }
-             posts.forEach(post => {
+            posts.forEach(post => {
                 const article = document.createElement('article');
                 article.className = 'article';
                 article.innerHTML = `
