@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(posts => {
             blogPosts.innerHTML = ''; // Clear existing content
             if (posts.length === 0) {
-                blogPosts.innerHTML = '<p>No posts available.</p>';
+                blogPosts.innerHTML = '<p>No blog available.</p>';
                 return;
             }
              posts.forEach(post => {
