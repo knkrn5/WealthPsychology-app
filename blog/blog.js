@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 blogPosts.innerHTML = '<p>No posts available.</p>';
                 return;
             }
-            posts.forEach(post => {
+             posts.forEach(post => {
                 const article = document.createElement('article');
                 article.className = 'article';
                 article.innerHTML = `
                     <h2>${post.title.rendered}</h2>
                     <div>${post.excerpt.rendered}</div>
-                    <a href="post.html?id=${post.id}" class="read-more">Read More...</a>
+                    <a href="post.html?${encodeURIComponent(post.slug)}" class="read-more">Read More...</a>
                 `;
                 blogPosts.appendChild(article);
             });

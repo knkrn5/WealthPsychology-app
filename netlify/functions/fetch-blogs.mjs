@@ -1,4 +1,4 @@
-import fetch from 'node-fetch';
+// import fetch from 'node-fetch'; // Netlify does indeed have a global fetch available in its runtime environment, which means you don't need to install or import node-fetch.
 
 export async function handler(event, context) {
   const apiUrl = 'https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts';

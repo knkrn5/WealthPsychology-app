@@ -1,18 +1,19 @@
 
-
 document.addEventListener('DOMContentLoaded', () => {
     const postContent = document.getElementById('post-content');
     const urlParams = new URLSearchParams(window.location.search);
-    const postId = urlParams.get('id');
+    // const postSlug = urlParams.get('slug');
+    const postSlug = window.location.search.substring(1); 
 
-    if (!postId) {
-        postContent.innerHTML = '<p>No post ID provided.</p>';
+    if (!postSlug) {
+        postContent.innerHTML = '<p>No post slug provided.</p>';
         return;
     }
 
     // const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts/${postId}`;
-    // const apiUrl = `http://localhost:5000/blog/post/${postId}`;
-    const apiUrl = `/.netlify/functions/fetch-posts?id=${postId}`; // fetching from netlify serverless function
+    // const apiUrl = `http://localhost:3000/blog/post/${postId}`;
+    const apiUrl = `/.netlify/functions/fetch-posts?slug=${postSlug}`; // fetching from netlify serverless function
+
 
     fetch(apiUrl)
         .then(response => {
