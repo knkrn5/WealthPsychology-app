@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // const apiUrl = 'http://localhost:5000/api/posts'; // this will show output in both live server and localhost
     
 
-
     fetch(apiUrl)
         .then(response => {
             if (!response.ok) {
