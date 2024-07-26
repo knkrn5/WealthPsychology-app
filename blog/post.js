@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts/${postSlug}`;
     // const apiUrl = `http://localhost:5000/blog/post/${postId}`;
-    const apiUrl = `http://localhost:5000/blog/post/${encodeURIComponent(postSlug)}`;
-    // const apiUrl = `/.netlify/functions/fetch-posts?slug=${postSlug}`; // fetching from netlify serverless function
+    // const apiUrl = `http://localhost:5000/blog/post/${encodeURIComponent(postSlug)}`;
+    const apiUrl = `/.netlify/functions/fetch-posts?slug=${postSlug}`; // fetching from netlify serverless function
 
 
     fetch(apiUrl)
