@@ -2,6 +2,7 @@ export async function handler(event, context) {
   console.log("Received event:", event);
   const postSlug = event.queryStringParameters.slug || event.queryStringParameters[0] || event.path.split('/').pop();
 
+  //const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts/${postId}`;
   const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts?slug=${encodeURIComponent(postSlug)}`;
 
   try {

@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const blogPosts = document.getElementById('blog-posts');
-    const apiUrl = '/.netlify/functions/fetch-blogs'; // fetching netlify serverless function
+    // const apiUrl = '/.netlify/functions/fetch-blogs'; // fetching netlify serverless function
     // const apiUrl = '/api/posts'; // fetching wordpress api from the proxy server and this will only show output in localhost only
-    // const apiUrl = 'http://localhost:5000/api/posts'; // this will show output in both live server and localhost
+    const apiUrl = 'http://localhost:5000/api/posts'; // this will show output in both live server and localhost
     
 
     fetch(apiUrl)
@@ -18,6 +18,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 blogPosts.innerHTML = '<p>No blogs available.</p>';
                 return;
             }
+            /* posts.forEach(post => {
+                const article = document.createElement('article');
+                article.className = 'article';
+                article.innerHTML = `
+                    <h2>${post.title.rendered}</h2>
+                    <div>${post.excerpt.rendered}</div>
+                    <a href="post.html?id=${post.id}" class="read-more">Read More...</a>
+                `;
+                blogPosts.appendChild(article);
+            }); */
+
             posts.forEach(post => {
                 const article = document.createElement('article');
                 article.className = 'article';
