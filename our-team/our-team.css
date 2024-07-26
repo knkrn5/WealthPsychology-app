@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Header styles */
+header {
+    background-color: #000;
+    color: #ffffff;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    padding: 1rem;
+    color: #fff;
+    margin-top: 0px;
+    font-weight: bold;
+}
+
+.brand-logo {
+    height: 60px;
+    width: auto;
+    top: 2px;
+    left: 5px;
+    position: absolute;
+  }
+
+@media (max-width: 768px) {
+    header h1 {
+        margin-top: 0px;
+        font-size: 25px;
+        margin-left: 40px;
+    }
+    .brand-logo {
+        height: 50px;
+        width: auto;
+        top: 5px;
+        left: 0px;
+      }
+}
+
+
+
+/* body styling-------- */
+.our-team{
+    width: 50%;
+    margin: 0 auto;
+}
+
+section.role {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+section.role h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+
+@media (max-width: 768px) {
+    .our-team{
+        width: 90%;
+        /* margin: 0 auto; */
+    }
+}

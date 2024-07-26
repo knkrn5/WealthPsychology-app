@@ -67,7 +67,7 @@ body {
 }
 
 .title1 {
-    max-width: 630px;
+    max-width: 740px;
     margin-left: auto;
     font-size: 2rem;
     padding: 10px 0 10px 0;
@@ -132,6 +132,10 @@ body {
     .image1 {
         float: none; 
         margin-top: -50px;
+    }
+    .image2 {
+        float: none; 
+       margin: 0 auto;
     }
     .journey-container{
         max-width: 90%;
