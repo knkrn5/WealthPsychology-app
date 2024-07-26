@@ -24,27 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             return response.json();
         })
-        .then(postData => {
-            // console.log('Received post data:', JSON.stringify(postData, null, 2));
-
-            if (!postData || typeof postData !== 'object') {
-                throw new Error('Invalid post data received');
+        fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok ' + response.statusText);
             }
-
-            // Extract the actual post data from the response
-            const post = postData[0] || {};
-
-            const title = post.title && post.title.rendered ? post.title.rendered : 'Untitled';
-            const content = post.content && post.content.rendered ? post.content.rendered : 'No content available';
-
-          /* console.log('Processed title:', title);
-            console.log('Processed content:', content); */
-
-            document.title = title + ' - WealthPsychology';
+            return response.json();
+        })
+        .then(post => {
+            document.title = post.title.rendered + ' - WealthPsychology';
             postContent.innerHTML = `
                 <article class="full-article">
-                    <h2>${title}</h2>
-                    <div>${content}</div>
+                    <h2>${post.title.rendered}</h2>
+                    <div>${post.content.rendered}</div>
                     <a href="blog.html" class="back"><i class="fa-solid fa-caret-left"></i>Back</a>
                 </article>
             `;

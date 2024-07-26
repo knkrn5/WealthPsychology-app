@@ -49,32 +49,20 @@ app.get('/api/posts', async (req, res) => {
   });
 
 
+
 // Individual post route
-app.get('/blog/post/:slug', async (req, res) => {
+app.get('/blog/post/:id', async (req, res) => {
   try {
-    const slug = req.params.slug;
-    console.log('Requested slug:', slug);
-
-    const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts?slug=${encodeURIComponent(slug)}`;
-    console.log('WordPress API URL:', apiUrl);
-
-    const response = await fetch(apiUrl);
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-   /*  const posts = await response.json();
-    console.log('WordPress API response:', JSON.stringify(posts, null, 2));
-
-    if (!Array.isArray(posts) || posts.length === 0) {
-      return res.status(404).json({ error: 'Post not found' });
-    } */
-
-    res.json(posts); // Send the entire array, let the client handle it
+      const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts/${req.params.id}`;
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const post = await response.json();
+      res.json(post); // Send JSON instead of rendering a view
   } catch (error) {
-    console.error('Error fetching post:', error);
-    res.status(500).json({ error: 'Error loading blog post', details: error.message });
+      console.error('Error fetching post:', error);
+      res.status(500).json({ error: 'Error loading blog post' });
   }
 });
 
