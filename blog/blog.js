@@ -23,7 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 article.className = 'article';
                 article.innerHTML = `
                     <h2>${post.title.rendered}</h2>
+                    <img src="${post.featured_image_url}" alt="${post.title.rendered}">
                     <div>${post.excerpt.rendered}</div>
+                    <p>Published on: ${new Date(post.date).toLocaleDateString()}</p>
                     <a href="post.html?id=${post.id}" class="read-more">Read More...</a>
                 `;
                 blogPosts.appendChild(article);
@@ -33,10 +35,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const article = document.createElement('article');
                 article.className = 'article';
                 article.innerHTML = `
-                    <h2>${post.title.rendered}</h2>
-                    <div>${post.excerpt.rendered}</div>
-                    <a href="post.html?${encodeURIComponent(post.slug)}" class="read-more">Read More...</a>
-                `;
+                <h2>${post.title.rendered}</h2>
+                <img src="${post.featured_image_url}" alt="${post.title.rendered}">
+                <div>${post.excerpt.rendered}</div>
+                <p>Published on: ${new Date(post.date).toLocaleDateString()}</p>
+                <a href="post.html?${encodeURIComponent(post.slug)}" class="read-more">Read More...</a>
+            `;
                 blogPosts.appendChild(article);
             });
         })
