@@ -50,7 +50,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 0px !important;
-    padding: 0 30px;
+    padding: 0 20px;
   }
 
 #contact-info {
