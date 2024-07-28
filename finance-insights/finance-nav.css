@@ -1,6 +1,5 @@
 
-
-/*finance-hub Navigation styles-*/
+/*finance-nav CSS styles--------------------------------------------- */
 nav {
   background-color: #000000;
   position: fixed;
@@ -31,41 +30,36 @@ nav ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  background-color: #333;
   overflow: hidden;
   display: flex;
-  align-items: flex-end; 
-  justify-content: center; 
-  margin-top: -15px;
+  align-items: flex-end; /* Align items at the bottom */
+  justify-content: center; /* Center items horizontally */
+  /* height: -100px;  */
+  margin-top: -20px;
 }
 
 
 nav ul li a {
   display: flex;
-  align-items: flex-end; 
-  justify-content: center; 
+  align-items: flex-end; /* Align text at the bottom */
+  justify-content: center; /* Center text horizontally */
   color: #fff;
   text-align: center;
-  padding: 12px 14px;
+  padding: 14px 16px;
   text-decoration: none;
-  margin-right: 3px;
+  margin-right: 5px;
   font-weight: bold;
-  border-right: 1px solid #ffffff; 
+  transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out, transform 0.3s ease-in-out; 
 }
 
-/* Remove the right border from the last link */
-nav ul li:last-child a {
-  border-right: none;
+nav ul li a:hover {
+  color: lightyellow;
+  transform: scale(1.05); 
 }
 
-nav ul li a:hover{
-  background-color: #cccccccc;  
-  color: #000000;  
-}
-
-nav ul li a.active {
-  background-color: #cccccccc;  
-  color: #000000; 
+nav ul li .active{
+  color: lightyellow;
+  text-decoration: underline;
 }
 
 
@@ -92,7 +86,7 @@ opacity: 0;
 
 
 /* Mobile view nav styling for smaller screen */
-@media (max-width: 1200px) {
+@media (max-width: 768px) {
   .brand-logo{
     height: 50px;
     width: auto;
@@ -111,11 +105,6 @@ opacity: 0;
       justify-content: center;
   }
 
-  #mobile-menu{
-    right: 5px;
-   
-   }
-
   .menu-toggle .bar {
       height: 3px;
       width: 30px;
@@ -130,7 +119,7 @@ opacity: 0;
       width: 100%;
       text-align: left;
       position: absolute;
-      top: 65px; 
+      top: 50px; 
       left: 0;
       background-color: #333;
       z-index: 1;
@@ -161,9 +150,19 @@ opacity: 0;
       padding: 12px 16px;
       align-items: center;
       text-align: left;
-      transition: color 0.3s ease; 
+      transition: color 0.3s ease; /* Add transition for hover effect */
   }
 }
 
 
+/*only for blog page nav css */
+.blog-page nav ul {
+  margin-top: -80px; 
+}
+
+@media (max-width: 768px) {
+  .blog-page .nav-menu{
+    margin-top: 0px;
+  }
+}
 
