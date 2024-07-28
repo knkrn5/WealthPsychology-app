@@ -92,7 +92,7 @@ opacity: 0;
 
 
 /* Mobile view nav styling for smaller screen */
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .brand-logo{
     height: 50px;
     width: auto;
