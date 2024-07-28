@@ -1,14 +1,15 @@
 {
   "name": "wealth-psychology",
   "version": "1.0.0",
-  "description": "",
   "main": "server.mjs",
   "directories": {
     "test": "tests"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.mjs"
+    "start": "node server.mjs",
+    "netlify": "netlify",
+    "netlify-dev": "netlify dev"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +20,9 @@
     "express": "^4.19.2",
     "node-fetch": "^2.7.0"
   },
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "netlify-cli": "^17.33.4"
+  },
+  "description": ""
 }

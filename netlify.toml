@@ -1,0 +1,12 @@
+[build]
+  functions = "netlify/functions"
+  publish = "."  # Ensure this points to the directory containing your index.html
+
+[dev]
+  port = 8888
+  publish = "."  # Ensure this points to the directory containing your index.html
+
+#[[redirects]]
+#  from = "/*"
+#  to = "/index.html"
+#  status = 200
