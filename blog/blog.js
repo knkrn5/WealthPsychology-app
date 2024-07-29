@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const blogPosts = document.getElementById('blog-posts');
-    // const apiUrl = 'http://localhost:1000/api/posts'; // this will show output in both live server and localhost
+    // const apiUrl = 'http://localhost:55555/api/posts'; // this will show output in both live server and localhost
     // const apiUrl = '/api/posts'; // fetching wordpress api from the proxy server and this will only show output in localhost only
     const apiUrl = '/.netlify/functions/fetch-blogs'; // fetching netlify serverless function
     

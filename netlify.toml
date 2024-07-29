@@ -3,7 +3,7 @@
   publish = "."  # Ensure this points to the directory containing your index.html
 
 [dev]
-  port = 8888
+  port = 55555
   publish = "."  # Ensure this points to the directory containing your index.html
 
 #[[redirects]]

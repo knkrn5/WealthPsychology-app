@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = process.env.PORT || 1000;
+const PORT = process.env.PORT || 55555;
 
 // Enable CORS for all routes //CORS (Cross-Origin Resource Sharing) is required when you want to make requests between different domains or subdomains.
 app.use(cors());
