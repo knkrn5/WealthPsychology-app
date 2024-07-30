@@ -84,15 +84,47 @@ h2 {
     margin: 10px 0;
 }
 
-.loading {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 24px;
-    color: #000;
+/* loading and spin animation styling */
+.loading-container {
+    position: relative;
+    margin-top: 20%;
+    /* left: 50%; 
+       transform: translate(-50%, -50%);  */
+    text-align: center;
+    font-size: 18px;
+    color: #555;
     z-index: 1000; 
-}
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .loading-container .fa-spinner {
+    font-size: 30px; 
+    animation: spin 2s linear infinite;
+    color: #555; 
+  }
+  
+  .loading-container p {        
+    margin-top: 3px;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  @media (max-width: 786px) {
+  /*   .loading-container .fa-spinner {
+      font-size: 30px; 
+      animation: spin 2s linear infinite;
+      color: #555; 
+    } */
+    .loading-container p{
+      margin-top: 5px;
+      font-size: 14px;
+      color: #555;
+     }
+  }
 
 .back {
     display: inline-block;

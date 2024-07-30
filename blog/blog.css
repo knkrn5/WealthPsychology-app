@@ -98,11 +98,11 @@ body {
 
 
 /* loading and spin animation styling */
-.loading {
+.loading-container {
   position: relative;
-  top: 25%;
-  /* left: 50%; */
-  /* transform: translate(-50%, -50%);  */
+  margin-top: 20%;
+  /* left: 50%; 
+     transform: translate(-50%, -50%);  */
   text-align: center;
   font-size: 18px;
   color: #555;
@@ -114,31 +114,30 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-.loading .fa-spinner {
+.loading-container .fa-spinner {
   font-size: 30px; 
   animation: spin 2s linear infinite;
-  color: #555; /
+  color: #555; 
 }
 
-.loading p {        
+.loading-container p {        
   margin-top: 5px;
   font-size: 14px;
   color: #555;
 }
 
 @media (max-width: 786px) {
-  /* .loading .fa-spinner {
+ /*  .loading-container .fa-spinner {
     font-size: 30px; 
     animation: spin 2s linear infinite;
     color: #555; 
   } */
-  .loading p{
+  .loading-container p{
     margin-top: 5px;
     font-size: 14px;
     color: #555;
    }
 }
-
 
 
 .read-more {

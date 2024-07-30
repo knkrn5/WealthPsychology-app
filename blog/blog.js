@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
        // Create and append loading indicator
     const loadingIndicator = document.createElement('div');
     loadingIndicator.id = 'loading';
-    loadingIndicator.className = 'loading'; // this
+    loadingIndicator.className = 'loading-container'; // this
     loadingIndicator.innerHTML = '<i class="fa-solid fa-spinner"></i><p>Loading...</p>';
     blogPosts.appendChild(loadingIndicator);
 
