@@ -97,10 +97,11 @@ body {
 }
 
 .loading {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  position: relative;
+  text-align: center;
+  top: 30%;
+ /*  left: 50%;
+  transform: translate(-50%, -50%); */
   font-size: 24px;
   color: #000;
   z-index: 1000; 
@@ -225,7 +226,7 @@ body {
       border-radius: 6px;
     }
     .loading{
-      top: 15%;
+      top: 5%;
     }
 
     .read-more {
