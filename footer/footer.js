@@ -12,11 +12,11 @@ function loadHTML(url, selector, callback) {
         .catch(error => console.error('Error loading HTML:', error));
 }
 
-// after defining the loadHTML funciton now here we are calling the function with the argument for its parameter after 2 second
+// after defining the loadHTML function now here we are calling the function with the argument for its parameter 
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() =>{
     loadHTML('/footer/footer.html', '#footer');  
-    },2000);  //will load footer after 2 second
+    },1500);  //will load footer after 1.5 second
 });
 
 
