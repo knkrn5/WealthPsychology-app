@@ -84,6 +84,16 @@ h2 {
     margin: 10px 0;
 }
 
+.loading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #000;
+    z-index: 1000; /* Make sure it's on top */
+}
+
 .back {
     display: inline-block;
     margin-top: 20px;

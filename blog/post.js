@@ -1,6 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const postContent = document.getElementById('post-content');
+    const loadingIndicator = document.getElementById('loading');
     const urlParams = new URLSearchParams(window.location.search);
     // const postId = urlParams.get('id'); //this fetch the data with Id in the URL
     //const postSlug = urlParams.get('slug'); //this fetch the data with slug= in the URL
@@ -8,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!postSlug) {
         postContent.innerHTML = '<p>No post slug provided.</p>';
+        loadingIndicator.style.display = 'none'; // Hide loading indicator if no slug
         return;
     }
 
@@ -16,6 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // const apiUrl = `http://localhost:55555/blog/post/${encodeURIComponent(postSlug)}`;
     const apiUrl = `/.netlify/functions/fetch-posts?slug=${postSlug}`; // fetching from netlify serverless function
 
+     // Show loading indicator
+     loadingIndicator.style.display = 'block';
 
     fetch(apiUrl)
         .then(response => {
@@ -40,10 +44,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="blog.html" class="back"><i class="fa-solid fa-caret-left"></i>Back</a>
                 </article>
             `;
+
+              // Hide loading indicator after content is loaded
+              loadingIndicator.style.display = 'none';
         })
         .catch(error => {
             console.error('Error fetching full post:', error);
             postContent.innerHTML = '<p>Failed to load the full article. Please try again later.</p>';
+            // Hide loading indicator after content is loaded
+            loadingIndicator.style.display = 'none';
         });
 });
 

@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // const apiUrl = '/api/posts'; // fetching wordpress api from the proxy server and this will only show output in localhost only
     const apiUrl = '/.netlify/functions/fetch-blogs'; // fetching netlify serverless function
     
+      // Create and append loading indicator
+      const loadingIndicator = document.createElement('div');
+      loadingIndicator.className = 'loading'; // Ensure this class is defined in your CSS
+      loadingIndicator.textContent = 'Loading...';
+      blogPosts.appendChild(loadingIndicator);
 
     fetch(apiUrl)
         .then(response => {
@@ -42,10 +47,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="post.html?${encodeURIComponent(post.slug)}" class="read-more">Read More...</a>
             `;
                 blogPosts.appendChild(article);
+
+                 // Remove loading indicator after content is loaded
+                 loadingIndicator.remove();
             });
         })
         .catch(error => {
             console.error('Error fetching posts:', error);
             blogPosts.innerHTML = '<p>Failed to load news articles. Please try again later.</p>';
+             // Remove loading indicator after content is loaded
+             loadingIndicator.remove();
         });
 });
