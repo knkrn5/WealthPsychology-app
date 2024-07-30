@@ -16,7 +16,7 @@ function loadHTML(url, selector, callback) {
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() =>{
     loadHTML('/footer/footer.html', '#footer');  
-    },2000);  //will load after 2 second
+    },2000);  //will load footer after 2 second
 });
 
 
