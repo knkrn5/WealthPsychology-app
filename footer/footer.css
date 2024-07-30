@@ -43,13 +43,31 @@ footer p{
   margin-right: 5px; /* Adjust the value as needed */
 }
 
-.social-links img{
-  margin-top: 3px;
-  transition: transform 0.3s ease-in-out;
+.social-links a .fa-brands {
+  display: inline-block;
+  font-size: 28PX;
+  margin-top: 3px; 
+  color: #fff;
+  transition: transform 0.3s ease-in-out; 
+  
 }
 
-.social-links img:hover {
-  transform: scale(1.3);
+.social-links a .fa-brands:hover {
+  transform: scale(1.1); 
+  /* background-color: #fff; */
+  /* padding: 2px; */
+}
+.social-links a .fa-instagram:hover {
+  color: rgb(196, 129, 5);
+}
+.social-links a .fa-youtube:hover {
+  color: red;
+}
+.social-links a .fa-twitter:hover {
+  color: lightblue;
+}
+.social-links a .fa-linkedin:hover {
+  color: blue;
 }
 
 .broker-account {
