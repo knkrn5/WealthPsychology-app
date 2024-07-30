@@ -4,11 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // const apiUrl = '/api/posts'; // fetching wordpress api from the proxy server and this will only show output in localhost only
     const apiUrl = '/.netlify/functions/fetch-blogs'; // fetching netlify serverless function
     
-      // Create and append loading indicator
-      const loadingIndicator = document.createElement('div');
-      loadingIndicator.className = 'loading'; // Ensure this class is defined in your CSS
-      loadingIndicator.textContent = 'Loading...';
-      blogPosts.appendChild(loadingIndicator);
+       // Create and append loading indicator
+    const loadingIndicator = document.createElement('div');
+    loadingIndicator.id = 'loading';
+    loadingIndicator.className = 'loading'; // this
+    loadingIndicator.innerHTML = '<i class="fa-solid fa-spinner"></i><p>Loading...</p>';
+    blogPosts.appendChild(loadingIndicator);
 
     fetch(apiUrl)
         .then(response => {
