@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <h2>${post.title.rendered}</h2>
                     <img src="${post.featured_image_url}" alt="${post.title.rendered}">
                     <div>${post.excerpt.rendered}</div>
-                    <p>Published on: ${new Date(post.date).toLocaleDateString()}</p>
+                    <p>Published on: ${new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
                     <a href="post.html?id=${post.id}" class="read-more">Read More...</a>
                 `;
                 blogPosts.appendChild(article);
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h2>${post.title.rendered}</h2>
                 <img src="${post.featured_image_url}" alt="${post.title.rendered}">
                 <div>${post.excerpt.rendered}</div>
-                <p>Published on: ${new Date(post.date).toLocaleDateString()}</p>
+                <p>Published on: ${new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
                 <a href="post.html?${encodeURIComponent(post.slug)}" class="read-more">Read More...</a>
             `;
                 blogPosts.appendChild(article);
