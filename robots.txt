@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 disallow: /admin/
 disallow: /private/
+disallow: /testing/
 Allow: /wp-content/uploads/
 Sitemap: https://wealthpsychology.in/sitemap.xml

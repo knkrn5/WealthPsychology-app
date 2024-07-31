@@ -24,18 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 blogPosts.innerHTML = '<p>No blogs available.</p>';
                 return;
             }
-            /* posts.forEach(post => {
-                const article = document.createElement('article');
-                article.className = 'article';
-                article.innerHTML = `
-                    <h2>${post.title.rendered}</h2>
-                    <img src="${post.featured_image_url}" alt="${post.title.rendered}">
-                    <div>${post.excerpt.rendered}</div>
-                    <p>Published on: ${new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
-                    <a href="post.html?id=${post.id}" class="read-more">Read More...</a>
-                `;
-                blogPosts.appendChild(article);
-            }); */
 
             posts.forEach(post => {
                 const article = document.createElement('article');
@@ -48,15 +36,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 <a href="post.html?${encodeURIComponent(post.slug)}" class="read-more">Read More...</a>
             `;
                 blogPosts.appendChild(article);
-
-                 // Remove loading indicator after content is loaded
-                 loadingIndicator.remove();
             });
         })
         .catch(error => {
             console.error('Error fetching posts:', error);
             blogPosts.innerHTML = '<p>Failed to load news articles. Please try again later.</p>';
-             // Remove loading indicator after content is loaded
-             loadingIndicator.remove();
+        })
+        .finally(() => {
+            // Remove loading indicator after content is loaded or on error
+            loadingIndicator.remove();
         });
 });
