@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             posts.forEach(post => {
-                let imageUrl = 'https://via.placeholder.com/150'; // this is Default placeholder image
+                let imageUrl = 'https://default-image-url.jpg'; // this is Default placeholder image
             
                 if (post._embedded?.['wp:featuredmedia']?.[0]) {
                     imageUrl = post._embedded['wp:featuredmedia'][0].media_details.sizes.medium?.source_url 
