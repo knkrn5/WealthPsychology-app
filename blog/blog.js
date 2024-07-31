@@ -21,20 +21,27 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(posts => {
             blogPosts.innerHTML = ''; // Clear existing content
             if (posts.length === 0) {
-                blogPosts.innerHTML = '<p>No blogs available.</p>';
+                blogPosts.innerHTML = '<p>No posts available.</p>';
                 return;
             }
-
             posts.forEach(post => {
+                let imageUrl = 'https://via.placeholder.com/150'; // this is Default placeholder image
+            
+                if (post._embedded?.['wp:featuredmedia']?.[0]) {
+                    imageUrl = post._embedded['wp:featuredmedia'][0].media_details.sizes.medium?.source_url 
+                        || post._embedded['wp:featuredmedia'][0].source_url;
+                }
+                            
                 const article = document.createElement('article');
                 article.className = 'article';
                 article.innerHTML = `
-                <h2>${post.title.rendered}</h2>
-                <img src="${post.featured_image_url}" alt="${post.title.rendered}">
-                <div>${post.excerpt.rendered}</div>
-                <p>Published on: ${new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
-                <a href="post.html?${encodeURIComponent(post.slug)}" class="read-more">Read More...</a>
-            `;
+                    <h2>${post.title.rendered}</h2>
+                    <img src="${imageUrl}" alt="${post.title.rendered}">
+                    <div>${post.excerpt.rendered}</div>
+                    <p>Published on: ${new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+                    <a href="post.html?${encodeURIComponent(post.slug)}" class="read-more">Read More...</a>
+                `;
+                
                 blogPosts.appendChild(article);
             });
         })

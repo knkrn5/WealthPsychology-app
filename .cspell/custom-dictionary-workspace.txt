@@ -1,8 +1,9 @@
 # Custom Dictionary Words
+demat
+featuredmedia
 karan
+myname
+othercourses
 smcourse
 smcourses
-myname
-demat
-othercourses
 typesofcourses
