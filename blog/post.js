@@ -21,13 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
      // Show loading indicator
      loadingIndicator.style.display = 'block';
 
-    fetch(apiUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
         fetch(apiUrl)
         .then(response => {
             if (!response.ok) {
