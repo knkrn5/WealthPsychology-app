@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!-- Google tag (gtag.js) for analytics-->
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D1L8LGWZ"></script>
+   <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', 'G-L4D1L8LGWZ');
+   </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="finance-news.css">
+    <link rel="stylesheet" href="/footer/footer.css">
+    <link rel="stylesheet" href="/navbar/nav.css">
+    <script src="/footer/footer.js" defer></script> 
+    <link rel="icon" href="../global/icons/favicon.ico" type="image/x-icon"> 
+
+    <title>finance news - WealthPsychology</title>
+
+</head>
+
+<body id="finance-news-page">
+
+    <header>
+        <nav>
+            <div class="menu-toggle" id="menu-bars">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+               
+            <div class="brand-logo-container">
+              <a href="/index.html" class="home-nav">
+                <img src="/global/imgs/logo.webp" alt="Brand Logo" class="brand-logo">
+              </a>
+            </div>
+         
+            <h1>Finance News</h1> 
+        
+            <ul class="nav-menu">
+              <li><a href="/index.html" >Home</a></li>
+              <li><a href="#" class="active">Finance News</a></li>
+              <li><a href="/blog/blog.html" >Blog</a></li>
+              <li><a href="/finance-insights/finance-insights.html">Finance Insights</a></li>
+              <li><a href="/plans/plans.html">Our Plans</a></li>
+              <!-- <li class="search-bar">
+                <input type="text" placeholder="Search...">
+                <button type="submit">🔎</button>
+              </li> -->
+            </ul>
+          </nav>
+    </header>
+    <main>
+      <div id="news-content">
+        <div id="loading" class="loading-container"><i class="fa-solid fa-spinner"></i>  <!-- loading icon -->
+          <p>Loading...</p></div>
+          <!-- Post content will be loaded here -->
+      </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="finance-news.js"></script>
+    <script src="/navbar/nav.js"></script>
+
+</body>
+</html>
