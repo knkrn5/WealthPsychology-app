@@ -44,13 +44,6 @@ header {
     margin: 0 auto;
 } */
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
 
 #post-content {
     padding: 20px 0;
