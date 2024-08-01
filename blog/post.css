@@ -11,14 +11,14 @@ body {
 
 /* Header styles */
 header {
-    background-color: #000;
+    /* background-color: #000; */
     text-align: center;
-    padding: 0;
-    position: relative; 
-    top: 0;
-    left: 0;
-    min-width: 100%; 
-    z-index: 998;
+    /* padding: 0; */
+    /* position: relative;  */
+    /* top: 0; */
+    /* left: 0; */
+    /* min-width: 100%;  */
+    /* z-index: 998; */
   }
   
   header h1 {
