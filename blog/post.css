@@ -80,7 +80,7 @@ h2 {
 /* loading and spin animation styling */
 .loading-container {
     position: relative;
-    margin-top: 20%;
+    margin-top: 15%;
     /* left: 50%; 
        transform: translate(-50%, -50%);  */
     text-align: center;
@@ -107,13 +107,16 @@ h2 {
   }
   
   @media (max-width: 786px) {
-  /*   .loading-container .fa-spinner {
+    .loading-container {
+        margin-top: 20%;
+      }
+    .loading-container .fa-spinner {
       font-size: 30px; 
       animation: spin 2s linear infinite;
       color: #555; 
-    } */
+    }
     .loading-container p{
-      margin-top: 5px;
+      margin-top: 3px;
       font-size: 14px;
       color: #555;
      }
