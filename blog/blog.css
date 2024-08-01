@@ -98,7 +98,7 @@ body {
 
 
 /* loading and spin animation styling */
-.loading-container {
+#loading-container {
   position: relative;
   margin-top: 20%;
   /* left: 50%; 
@@ -114,25 +114,25 @@ body {
   100% { transform: rotate(360deg); }
 }
 
-.loading-container .fa-spinner {
+.loading-indicator .fa-spinner {
   font-size: 30px; 
   animation: spin 2s linear infinite;
   color: #555; 
 }
 
-.loading-container p {        
+.loading-indicator p {        
   margin-top: 5px;
   font-size: 14px;
   color: #555;
 }
 
 @media (max-width: 786px) {
- /*  .loading-container .fa-spinner {
+ /*  .loading-indicator .fa-spinner {
     font-size: 30px; 
     animation: spin 2s linear infinite;
     color: #555; 
   } */
-  .loading-container p{
+  .loading-indicator p{
     margin-top: 5px;
     font-size: 14px;
     color: #555;

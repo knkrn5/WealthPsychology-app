@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const apiUrl = '/.netlify/functions/fetch-blogs'; // fetching netlify serverless function
     
        // Create and append loading indicator
-    const loadingIndicator = document.createElement('div');
-    loadingIndicator.id = 'loading';
-    loadingIndicator.className = 'loading-container'; // this
-    loadingIndicator.innerHTML = '<i class="fa-solid fa-spinner"></i><p>Loading...</p>';
-    blogPosts.appendChild(loadingIndicator);
+    const loadingContainer = document.createElement('div');
+    loadingContainer.id = 'loading-container';
+    loadingContainer.className = 'loading-indicator'; 
+    loadingContainer.innerHTML = '<i class="fa-solid fa-spinner"></i><p>Loading...</p>';
+    blogPosts.appendChild(loadingContainer);
 
     fetch(apiUrl)
         .then(response => {
@@ -51,6 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .finally(() => {
             // Remove loading indicator after content is loaded or on error
-            loadingIndicator.remove();
+            loadingContainer.remove();
         });
 });
