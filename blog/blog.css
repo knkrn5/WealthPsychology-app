@@ -60,13 +60,21 @@ body {
     padding-right: 50px;
   }
 
-  .left-column .article{
+  .left-column .article {
     background-color: #e6e6e6;
-    box-shadow: #eee 2px inset;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
     margin-bottom: 40px;
     padding: 20px 20px 60px 20px;
     border-radius: 10px;
+    transition: box-shadow 0.3s ease; /* Smooth transition for hover effect */
   }
+  
+  .left-column .article:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), /* Outset shadow effect on hover */
+                0 4px 8px rgba(0, 0, 0, 0.1); /* Maintain the original border shadow */
+  }
+  
+  
 
   .left-column .article h1 {
     color: #000;
