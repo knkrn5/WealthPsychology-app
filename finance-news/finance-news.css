@@ -106,13 +106,16 @@ h2 {
   }
   
   @media (max-width: 786px) {
-  /*   .loading-container .fa-spinner {
+    .loading-indicator {
+        margin-top: 30%;
+      }
+    .loading-indicator .fa-spinner {
       font-size: 30px; 
       animation: spin 2s linear infinite;
       color: #555; 
-    } */
-    .loading-container p{
-      margin-top: 5px;
+    }
+    .loading-indicator p{
+      margin-top: 3px;
       font-size: 14px;
       color: #555;
      }

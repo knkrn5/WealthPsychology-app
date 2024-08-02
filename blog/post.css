@@ -108,7 +108,7 @@ h2 {
   
   @media (max-width: 786px) {
     .loading-indicator {
-        margin-top: 20%;
+        margin-top: 25%;
       }
     .loading-indicator .fa-spinner {
       font-size: 30px; 
