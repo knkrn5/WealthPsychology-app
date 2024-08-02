@@ -132,14 +132,17 @@ header {
   bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
-   /* margin: 0 40%; it can also be used to center but it wrap the text specifically adjust for different screen */
+   /* margin: 0 40%; */ /*it can also be used to center but it wrap the text specifically adjust for different screen*/
   background-color: #f0f0f0;
-  padding: 10px 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  width: 20;
-  z-index: 1000; /* Ensure it appears above other content */
+  z-index: 1000; 
+}
+
+#newFeaturePrompt p{
+  padding: 5px 20px 0px 20px;
+  background: contain;
 }
 
 #newFeaturePrompt button {
@@ -147,6 +150,7 @@ header {
   float: right; 
   color: white;
   border: none;
+  margin: -5px 25px 15px auto;
   padding: 8px 16px;
   border-radius: 4px;
   cursor: pointer;
@@ -154,9 +158,10 @@ header {
 
 @media (max-width: 468px) {
   #newFeaturePrompt {
-    width: 60%;
+    width: 80%;
   }
 }
+
 
 
 
@@ -282,7 +287,7 @@ body {
 .content {
   display: flex;
   align-items: center;
-  width: 80%;
+  width: 90%;
   position: relative;
   border-radius: 20px;
   /* background-color: #ccc; */
@@ -335,7 +340,7 @@ body {
 
 .content img {
   width: 200px;
-  height: 200px;
+  height: auto;
   object-fit: cover;
   border-radius: 10%;
 }
