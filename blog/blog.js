@@ -41,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     <p>Published on: ${new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
                     <a href="post.html?${encodeURIComponent(post.slug)}" class="read-more">Read More...</a>
                 `;
-                
                 blogPosts.appendChild(article);
             });
         })

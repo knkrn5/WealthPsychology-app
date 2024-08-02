@@ -37,15 +37,16 @@ document.addEventListener('DOMContentLoaded', () => {
                     <a href="blog.html" class="back"><i class="fa-solid fa-caret-left"></i>Back</a>
                 </article>
             `;
-
-              // Hide loading indicator after content is loaded
-              loadingContainer.style.display = 'none';
         })
         .catch(error => {
             console.error('Error fetching full post:', error);
             postContent.innerHTML = '<p>Failed to load the full article. Please try again later.</p>';
             // Hide loading indicator after content is loaded
             loadingContainer.style.display = 'none';
+        })
+        .finally(() => {
+            // Remove loading indicator after content is loaded or on error
+            loadingContainer.remove();
         });
 });
 
