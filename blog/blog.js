@@ -36,9 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 article.className = 'article';
                 article.innerHTML = `
                     <h2>${post.title.rendered}</h2>
+                    <p>Published on: ${new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
                     <img src="${imageUrl}" alt="${post.title.rendered}">
                     <div>${post.excerpt.rendered}</div>
-                    <p>Published on: ${new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
                     <a href="post.html?${encodeURIComponent(post.slug)}" class="read-more">Read More...</a>
                 `;
                 blogPosts.appendChild(article);
