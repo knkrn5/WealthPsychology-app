@@ -126,7 +126,7 @@ opacity: 0;
       top: 50px; 
       left: 0;
       background-color: #333;
-      z-index: 1;
+      z-index: 1000;
   }
 
   .nav-menu.active {
@@ -164,14 +164,16 @@ opacity: 0;
 /*only for blog and finance-news page nav css */
 #blog-page nav ul,
 #blog-post-page nav ul,
-#finance-news-page nav ul {
+#finance-news-page nav ul, 
+#finance-insights-page nav ul {
   margin-top: -80px; 
 }
 
 @media (max-width: 768px) {
   #blog-page .nav-menu,
   #blog-post-page .nav-menu,
-  #finance-news-page .nav-menu{
+  #finance-news-page .nav-menu,
+  #finance-insights-page .nav-menu{
     margin-top: 0px;
   }
 }

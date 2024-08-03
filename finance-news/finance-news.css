@@ -60,7 +60,7 @@ header {
     text-align: center;
     font-size: 18px;
     color: #555;
-    z-index: 1000; 
+    /* z-index: 1000;  */
   }
   
   @keyframes spin {
