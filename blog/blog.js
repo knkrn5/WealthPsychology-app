@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const blogPosts = document.getElementById('blog-posts');
     const categoryList = document.getElementById('category-list');
-    // const apiUrl = 'http://localhost:55555/api/posts'; // this will show output in both live server and localhost
     const apiUrl = '/.netlify/functions/fetch-blogs?_embed';
     
     const loadingContainer = document.createElement('div');
@@ -24,92 +23,121 @@ document.addEventListener('DOMContentLoaded', () => {
         'union-budget': ['union budget 2024']
     };
 
-    fetch(apiUrl)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
-            }
-            return response.json();
-        })
-        .then(posts => {
-            console.log('API Response:', posts);
+    let postsByCategory = {
+        'all': []
+    };
 
-            blogPosts.innerHTML = '';  // Clear existing content
-            if (posts.length === 0) {
-                blogPosts.innerHTML = '<p>No posts available.</p>';
-                return;
-            }
-
-            const postsByCategory = {
-                'all': []
-            };
-
-            posts.forEach(post => {
-                console.log('Processing post:', post.title.rendered, 'Categories:', post.categories);
-
-                let imageUrl = 'https://default-image-url.jpg';
-            
-                if (post._embedded?.['wp:featuredmedia']?.[0]) {
-                    imageUrl = post._embedded['wp:featuredmedia'][0].media_details.sizes.medium?.source_url 
-                        || post._embedded['wp:featuredmedia'][0].source_url;
+    function fetchPosts() {
+        fetch(apiUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
                 }
-                
-                const article = document.createElement('article');
-                article.className = 'article';
-                article.innerHTML = `
-                    <h2>${post.title.rendered}</h2>
-                    <p>Published on: ${new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
-                    <img src="${imageUrl}" alt="${post.title.rendered}">
-                    <div>${post.excerpt.rendered}</div>
-                    <a href="post.html?${encodeURIComponent(post.slug)}" class="read-more">Read More...</a>
-                `;
-                
-                postsByCategory['all'].push(article);
+                return response.json();
+            })
+            .then(posts => {
+                console.log('API Response:', posts);
 
-                if (Array.isArray(post.categories) && post._embedded && post._embedded['wp:term']) {
-                    const categories = post._embedded['wp:term'][0];
-                    post.categories.forEach(categoryId => {
-                        const category = categories.find(cat => cat.id === categoryId);
-                        if (category) {
-                            Object.entries(categoryMapping).forEach(([categorySlug, keywords]) => {
-                                if (keywords.some(keyword => category.name.toLowerCase().includes(keyword))) {
-                                    if (!postsByCategory[categorySlug]) {
-                                        postsByCategory[categorySlug] = [];
-                                    }
-                                    postsByCategory[categorySlug].push(article);
-                                }
-                            });
-                        }
-                    });
-                }
-            });
-
-            console.log('Posts by Category:', postsByCategory);
-
-            categoryList.querySelectorAll('li').forEach(li => {
-                li.addEventListener('click', () => {
-                    const categorySlug = li.getAttribute('data-category');
-                    displayPostsByCategory(categorySlug);
-                });
-            });
-
-            function displayPostsByCategory(categorySlug) {
                 blogPosts.innerHTML = '';
-                const categoryPosts = postsByCategory[categorySlug] || [];
-                if (categoryPosts.length === 0) {
-                    blogPosts.innerHTML = '<p>No posts available for this category.</p>';
-                } else {
-                    categoryPosts.forEach(article => blogPosts.appendChild(article.cloneNode(true)));
+                if (posts.length === 0) {
+                    blogPosts.innerHTML = '<p>No posts available.</p>';
+                    return;
                 }
-            }
 
-            displayPostsByCategory('all');
-        })
-        .catch(error => {
-            console.error('Error fetching posts:', error);
-            blogPosts.innerHTML = '<p>Failed to load news articles. Please try again later.</p>';
-        })
-        .finally(() => {
-            loadingContainer.remove();
+                posts.forEach(post => {
+                    console.log('Processing post:', post.title.rendered, 'Categories:', post.categories);
+
+                    let imageUrl = 'https://default-image-url.jpg';
+                
+                    if (post._embedded?.['wp:featuredmedia']?.[0]) {
+                        imageUrl = post._embedded['wp:featuredmedia'][0].media_details.sizes.medium?.source_url 
+                            || post._embedded['wp:featuredmedia'][0].source_url;
+                    }
+                    
+                    const article = document.createElement('article');
+                    article.className = 'article';
+                    article.innerHTML = `
+                        <h2>${post.title.rendered}</h2>
+                        <p>Published on: ${new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+                        <img src="${imageUrl}" alt="${post.title.rendered}">
+                        <div>${post.excerpt.rendered}</div>
+                        <a href="post.html?${encodeURIComponent(post.slug)}" class="read-more">Read More...</a>
+                    `;
+                    
+                    postsByCategory['all'].push(article);
+
+                    if (Array.isArray(post.categories) && post._embedded && post._embedded['wp:term']) {
+                        const categories = post._embedded['wp:term'][0];
+                        post.categories.forEach(categoryId => {
+                            const category = categories.find(cat => cat.id === categoryId);
+                            if (category) {
+                                Object.entries(categoryMapping).forEach(([categorySlug, keywords]) => {
+                                    if (keywords.some(keyword => category.name.toLowerCase().includes(keyword))) {
+                                        if (!postsByCategory[categorySlug]) {
+                                            postsByCategory[categorySlug] = [];
+                                        }
+                                        postsByCategory[categorySlug].push(article);
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+
+                console.log('Posts by Category:', postsByCategory);
+
+                // Get the category from URL or default to 'all'
+                const urlParams = new URLSearchParams(window.location.search);
+                const categoryFromUrl = urlParams.get('category') || 'all';
+                displayPostsByCategory(categoryFromUrl);
+            })
+            .catch(error => {
+                console.error('Error fetching posts:', error);
+                blogPosts.innerHTML = '<p>Failed to load news articles. Please try again later.</p>';
+            })
+            .finally(() => {
+                loadingContainer.remove();
+            });
+    }
+
+    function displayPostsByCategory(categorySlug) {
+        blogPosts.innerHTML = '';
+        const categoryPosts = postsByCategory[categorySlug] || [];
+        if (categoryPosts.length === 0) {
+            blogPosts.innerHTML = '<p>No posts available for this category.</p>';
+        } else {
+            categoryPosts.forEach(article => blogPosts.appendChild(article.cloneNode(true)));
+        }
+
+        // Update URL
+        const url = new URL(window.location);
+        url.searchParams.set('category', categorySlug);
+        window.history.pushState({}, '', url);
+
+        // Update active class on category list
+        categoryList.querySelectorAll('li').forEach(li => {
+            li.classList.remove('active');
+            if (li.getAttribute('data-category') === categorySlug) {
+                li.classList.add('active');
+            }
         });
+    }
+
+    categoryList.querySelectorAll('li').forEach(li => {
+        li.addEventListener('click', (e) => {
+            e.preventDefault();
+            const categorySlug = li.getAttribute('data-category');
+            displayPostsByCategory(categorySlug);
+        });
+    });
+
+    // Initial fetch
+    fetchPosts();
+
+    // Handle browser back/forward
+    window.addEventListener('popstate', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryFromUrl = urlParams.get('category') || 'all';
+        displayPostsByCategory(categoryFromUrl);
+    });
 });

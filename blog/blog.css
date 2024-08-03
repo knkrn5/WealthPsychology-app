@@ -200,9 +200,12 @@ body {
     cursor: pointer;
     text-decoration: underline;
    }
+
+   #category-list li.active {
+    font-weight: bold;
+    /* Add any other styles you want for the active category */
+}
  
-  
-  
 
 /* Media Query for Mobile Devices */
 @media (max-width: 1200px) {
