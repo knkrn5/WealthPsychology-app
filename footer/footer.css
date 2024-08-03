@@ -34,6 +34,12 @@ footer p{
   margin-top: 3px;
 }
 
+.col br {     /* targets the br tag */
+  content: "";
+  display: block;
+  margin-bottom: 3px; /* Adjust this value to increase or decrease space */
+}
+
 .footer-link:hover {
   text-decoration: underline; 
 }
