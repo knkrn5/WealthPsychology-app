@@ -168,7 +168,7 @@ body {
 .blog-container .right-column {
   grid-column: 2;
   background-color: #e9e9e9; 
-  border-radius: 10px;
+  /* border-radius: 10px; */
   height: 600px;
   width: 280px;
 }
@@ -192,6 +192,7 @@ body {
      padding: 10px;
      /* font-size: 1em; */
      border-bottom: 1px solid #000;
+     width: 80%;
    }
  
    .blog-container .right-column li:hover{
@@ -203,7 +204,9 @@ body {
 
    #category-list li.active {
     font-weight: bold;
-    /* Add any other styles you want for the active category */
+    background-color: #555;
+    color: #fff;
+    text-decoration: none;
 }
  
 
