@@ -90,10 +90,10 @@ opacity: 0;
   .brand-logo{
     height: 50px;
     width: auto;
-    top: 0px;
+    top: 1px;
     left: 1px;
-    position: absolute;
   }
+
 
   .menu-toggle {
       display: flex;
@@ -113,6 +113,10 @@ opacity: 0;
       transition: 0.4s;
   }
 
+  nav{
+    height: 53px;
+  }
+
   .nav-menu {
       display: none;
       flex-direction: column;
@@ -127,10 +131,6 @@ opacity: 0;
 
   .nav-menu.active {
       display: flex;
-  }
-
-  nav{
-    height: 50px;
   }
 
   nav ul {
