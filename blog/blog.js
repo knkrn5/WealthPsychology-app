@@ -1,15 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
     const blogPosts = document.getElementById('blog-posts');
-    // const apiUrl = 'http://localhost:55555/api/posts'; // this will show output in both live server and localhost
-    // const apiUrl = '/api/posts'; // fetching wordpress api from the proxy server and this will only show output in localhost only
-    const apiUrl = '/.netlify/functions/fetch-blogs'; // fetching netlify serverless function
+    const categoryList = document.getElementById('category-list');
+    const apiUrl = '/.netlify/functions/fetch-blogs?_embed';
     
-       // Create and append loading indicator
     const loadingContainer = document.createElement('div');
     loadingContainer.id = 'loading-container';
-    loadingContainer.className = 'loading-indicator'; 
+    loadingContainer.className = 'loading-indicator';
     loadingContainer.innerHTML = '<i class="fa-solid fa-spinner"></i><p>Loading...</p>';
     blogPosts.appendChild(loadingContainer);
+
+    const categoryMapping = {
+        'company-analysis': ['company analysis'],
+        'cryptocurrency': ['cryptocurrency'],
+        'futures-options': ['derivative assets', 'futures and option'],
+        'financial-insights': ['financial insights'],
+        'fundamental-analysis': ['fundamental analysis'],
+        'ipo': ['ipo analysis'],
+        'mutual-funds': ['mutual fund analysis'],
+        'personal-finance': ['personal finance'],
+        'stock-market': ['stock market blogsdefault'],
+        'technical-analysis': ['technical analysis'],
+        'union-budget': ['union budget 2024']
+    };
 
     fetch(apiUrl)
         .then(response => {
@@ -19,19 +31,28 @@ document.addEventListener('DOMContentLoaded', () => {
             return response.json();
         })
         .then(posts => {
-            blogPosts.innerHTML = ''; // Clear existing content
+            console.log('API Response:', posts);
+
+            blogPosts.innerHTML = '';
             if (posts.length === 0) {
                 blogPosts.innerHTML = '<p>No posts available.</p>';
                 return;
             }
+
+            const postsByCategory = {
+                'all': []
+            };
+
             posts.forEach(post => {
-                let imageUrl = 'https://default-image-url.jpg'; // this is Default placeholder image
+                console.log('Processing post:', post.title.rendered, 'Categories:', post.categories);
+
+                let imageUrl = 'https://default-image-url.jpg';
             
                 if (post._embedded?.['wp:featuredmedia']?.[0]) {
                     imageUrl = post._embedded['wp:featuredmedia'][0].media_details.sizes.medium?.source_url 
                         || post._embedded['wp:featuredmedia'][0].source_url;
                 }
-                            
+                
                 const article = document.createElement('article');
                 article.className = 'article';
                 article.innerHTML = `
@@ -41,15 +62,53 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div>${post.excerpt.rendered}</div>
                     <a href="post.html?${encodeURIComponent(post.slug)}" class="read-more">Read More...</a>
                 `;
-                blogPosts.appendChild(article);
+                
+                postsByCategory['all'].push(article);
+
+                if (Array.isArray(post.categories) && post._embedded && post._embedded['wp:term']) {
+                    const categories = post._embedded['wp:term'][0];
+                    post.categories.forEach(categoryId => {
+                        const category = categories.find(cat => cat.id === categoryId);
+                        if (category) {
+                            Object.entries(categoryMapping).forEach(([categorySlug, keywords]) => {
+                                if (keywords.some(keyword => category.name.toLowerCase().includes(keyword))) {
+                                    if (!postsByCategory[categorySlug]) {
+                                        postsByCategory[categorySlug] = [];
+                                    }
+                                    postsByCategory[categorySlug].push(article);
+                                }
+                            });
+                        }
+                    });
+                }
             });
+
+            console.log('Posts by Category:', postsByCategory);
+
+            categoryList.querySelectorAll('li').forEach(li => {
+                li.addEventListener('click', () => {
+                    const categorySlug = li.getAttribute('data-category');
+                    displayPostsByCategory(categorySlug);
+                });
+            });
+
+            function displayPostsByCategory(categorySlug) {
+                blogPosts.innerHTML = '';
+                const categoryPosts = postsByCategory[categorySlug] || [];
+                if (categoryPosts.length === 0) {
+                    blogPosts.innerHTML = '<p>No posts available for this category.</p>';
+                } else {
+                    categoryPosts.forEach(article => blogPosts.appendChild(article.cloneNode(true)));
+                }
+            }
+
+            displayPostsByCategory('all');
         })
         .catch(error => {
             console.error('Error fetching posts:', error);
             blogPosts.innerHTML = '<p>Failed to load news articles. Please try again later.</p>';
         })
         .finally(() => {
-            // Remove loading indicator after content is loaded or on error
             loadingContainer.remove();
         });
 });
