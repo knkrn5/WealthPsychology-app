@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const blogPosts = document.getElementById('blog-posts');
     const categoryList = document.getElementById('category-list');
+    // const apiUrl = 'http://localhost:55555/api/posts'; // this will show output in both live server and localhost
     const apiUrl = '/.netlify/functions/fetch-blogs?_embed';
     
     const loadingContainer = document.createElement('div');
@@ -33,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(posts => {
             console.log('API Response:', posts);
 
-            blogPosts.innerHTML = '';
+            blogPosts.innerHTML = '';  // Clear existing content
             if (posts.length === 0) {
                 blogPosts.innerHTML = '<p>No posts available.</p>';
                 return;
