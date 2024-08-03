@@ -152,6 +152,12 @@ opacity: 0;
       text-align: left;
       transition: color 0.3s ease; /* Add transition for hover effect */
   }
+
+  nav ul li .active{
+    background-color: #bbb;
+    color: #000;
+    text-decoration: none;
+  }
 }
 
 
