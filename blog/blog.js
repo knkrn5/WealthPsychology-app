@@ -27,6 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
         'all': []
     };
 
+    const postsPerPage = 2;
+    let currentPage = 1;
+
     function fetchPosts() {
         fetch(apiUrl)
             .then(response => {
@@ -100,18 +103,48 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    function displayPostsByCategory(categorySlug) {
+    function displayPostsByCategory(categorySlug, page = 1) {
         blogPosts.innerHTML = '';
         const categoryPosts = postsByCategory[categorySlug] || [];
         if (categoryPosts.length === 0) {
             blogPosts.innerHTML = '<p>No posts available for this category.</p>';
         } else {
-            categoryPosts.forEach(article => blogPosts.appendChild(article.cloneNode(true)));
+            const startIndex = (page - 1) * postsPerPage;
+            const endIndex = startIndex + postsPerPage;
+            const postsToShow = categoryPosts.slice(0, endIndex);
+
+            postsToShow.forEach(article => blogPosts.appendChild(article.cloneNode(true)));
+
+            const navigationDiv = document.createElement('div');
+            navigationDiv.className = 'navigation-buttons';
+
+            if (page > 1) {
+                const seeLessButton = document.createElement('button');
+                seeLessButton.textContent = 'See Less';
+                seeLessButton.className = 'see-less-button';
+                seeLessButton.addEventListener('click', () => {
+                    displayPostsByCategory(categorySlug, page - 1);
+                });
+                navigationDiv.appendChild(seeLessButton);
+            }
+
+            if (endIndex < categoryPosts.length) {
+                const seeMoreButton = document.createElement('button');
+                seeMoreButton.textContent = 'See More';
+                seeMoreButton.className = 'see-more-button';
+                seeMoreButton.addEventListener('click', () => {
+                    displayPostsByCategory(categorySlug, page + 1);
+                });
+                navigationDiv.appendChild(seeMoreButton);
+            }
+
+            blogPosts.appendChild(navigationDiv);
         }
 
         // Update URL
         const url = new URL(window.location);
         url.searchParams.set('category', categorySlug);
+        url.searchParams.set('page', page);
         window.history.pushState({}, '', url);
 
         // Update active class on category list
@@ -121,6 +154,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 li.classList.add('active');
             }
         });
+
+        currentPage = page;
     }
 
     categoryList.querySelectorAll('li').forEach(li => {
@@ -138,6 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('popstate', () => {
         const urlParams = new URLSearchParams(window.location.search);
         const categoryFromUrl = urlParams.get('category') || 'all';
-        displayPostsByCategory(categoryFromUrl);
+        const pageFromUrl = parseInt(urlParams.get('page')) || 1;
+        displayPostsByCategory(categoryFromUrl, pageFromUrl);
     });
 });

@@ -120,6 +120,37 @@ body {
 }
 
 
+/* see more and see less styling */
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.see-less-button,
+.see-more-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.see-less-button:hover,
+.see-more-button:hover {
+  background-color: #0056b3;
+}
+
+.see-less-button {
+  margin-right: auto;
+}
+
+.see-more-button {
+  margin-left: auto;
+}
+
+
 
 /* loading and spin animation styling */
 #loading-container {
