@@ -21,7 +21,7 @@
 <priority>0.80</priority>
 </url>
 <url>
-<loc>https://wealthpsychology.in/plans/plans</loc>
+<loc>https://wealthpsychology.in/our-plans/plans</loc>
 <lastmod>2024-08-04T05:16:06+00:00</lastmod>
 <priority>0.80</priority>
 </url>
@@ -43,6 +43,11 @@
 <url>
 <loc>https://wealthpsychology.in/privacy-policy/privacy-policy</loc>
 <lastmod>2024-07-26T16:10:07+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://wealthpsychology.in/our-team/team</loc>
+<lastmod>2024-08-04T10:16:43+00:00</lastmod>
 <priority>0.64</priority>
 </url>
 </urlset>
