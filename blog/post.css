@@ -124,7 +124,6 @@ h2 {
 
 .back {
     display: inline-block;
-    cursor: pointer;
     margin-top: 20px;
     padding: 10px 15px;
     background-color: #555f;
@@ -137,6 +136,7 @@ h2 {
 
 .back:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 /* Responsive design */
