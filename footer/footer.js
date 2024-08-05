@@ -21,6 +21,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+// another way to load the footer--My logic--------------------------------------------------
+/* document.addEventListener("DOMContentLoaded", () => {
+    const footer = document.getElementById('footer');
+     
+    function loadFooter() {
+        fetch('/footer/footer.html')
+        .then(response => response.text())
+        .then(data => {
+            footer.innerHTML = data;
+            if (callback) callback(); // If you need to use a callback, you can add it here
+        })
+        .catch(error => console.error('Error loading footer:', error));
+    }
+
+    // Setting time to load footer
+    setTimeout(() => {
+        loadFooter();
+    }, 1500);  // Load footer after 1.5 seconds
+}); */
+
+
+
+
 
 
 
