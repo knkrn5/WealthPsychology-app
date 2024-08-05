@@ -134,24 +134,33 @@ header h1{
 
 
 @media (max-width: 768px) {
-    .image1 img {
-        width: 300px; 
-        height: auto; 
-        border-radius: 10px;
-        float: none; 
-        margin-top: -50px;
-    } 
-    .image2 img {
-        width: 300px; 
-        height: auto; 
-        border-radius: 50%;
-        float: none; 
-        margin: 0 auto;
-    } 
-
+    #about-us{
+        margin-top: 0px;
+    }
     .journey-container{
         max-width: 90%;
     }
+    .title1 {
+        margin-top: 300px;
+    }
+    .image1 img {
+        width: 300px; 
+        display: flex;
+        height: auto; 
+        border-radius: 10px;
+        /* float: none;  */
+        /* justify-content: center; */
+        margin-top: 0px;
+    } 
+    .image2 img {
+        width: 320px; 
+        /* height: auto;  */
+        border-radius: 50%;
+        margin-bottom: 20px;
+        /* float: none;  */
+        /* margin: 0 auto; */
+    } 
+
 }
 
 
