@@ -1,4 +1,10 @@
-
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
 
 /* Header styles */
 header {
@@ -37,12 +43,8 @@ header h1{
 }
 
 
-/* Body styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
+#about-us{
+    margin-bottom: 20px;
 }
 
 .journey-container {
@@ -92,14 +94,11 @@ body {
     width: 360px; 
     height: auto; 
     border-radius: 10px;
-} 
-.image1 {
     float: left;
     margin-right: 25px;
     margin-bottom: 20px; 
     margin-top: 40px; 
-}
-
+} 
 
 
 .title2 {
@@ -119,23 +118,37 @@ body {
     width: 350px; 
     height: auto; 
     border-radius: 50%;
-} 
-.image2 {
     float: right;
     margin-right: 10px;
     margin-left: 30px;
+} 
+
+.contact-me{
+    font-size: 20px;
+    text-decoration: none;
+}
+.contact-me:hover{
+    /* font-weight: bold; */
+    text-decoration: underline;
 }
 
 
 @media (max-width: 768px) {
-    .image1 {
+    .image1 img {
+        width: 300px; 
+        height: auto; 
+        border-radius: 10px;
         float: none; 
         margin-top: -50px;
-    }
-    .image2 {
+    } 
+    .image2 img {
+        width: 300px; 
+        height: auto; 
+        border-radius: 50%;
         float: none; 
-       margin: 0 auto;
-    }
+        margin: 0 auto;
+    } 
+
     .journey-container{
         max-width: 90%;
     }
