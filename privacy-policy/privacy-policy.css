@@ -1,4 +1,9 @@
-
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
 
 /* Header styles */
@@ -6,28 +11,32 @@ header {
     background-color: #000;
     /* color: #ffffff; */
     text-align: center;
+    position: fixed;
+    top: 0;
+    /* left: 0; */
+    width: 100%;
 }
 
 header h1 {
-    font-size: 2rem;
-    padding: 1rem;
+    font-size: 28px;
+    /* padding: 1rem; */
     color: #fff;
-    margin-top: 0px;
-    font-weight: bold;
+    /* margin-top: 0px; */
+    /* font-weight: bold; */
 }
 
 .brand-logo {
     height: 60px;
     width: auto;
-    top: 2px;
+    top: 5px;
     left: 5px;
     position: absolute;
   }
 
 @media (max-width: 768px) {
     header h1 {
-        margin-top: 0px;
-        font-size: 25px;
+        /* margin-top: 0px; */
+        font-size: 27px;
         margin-left: 40px;
     }
     .brand-logo {
@@ -40,17 +49,11 @@ header h1 {
 
 
 
-/* Body styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-
 .privacy-policy {
     width: 60%; 
     margin: 0 auto; 
+    margin-top: 100px;
+    margin-bottom: 20px;
     padding: 0 20px;
     padding-bottom: 30px;
     background-color: #f9f9f9;
@@ -58,6 +61,7 @@ body {
 
 @media (max-width: 768px) {
     .privacy-policy {
+        margin-top: 90px;
         width: 80%;
     }
 }
