@@ -1,0 +1,118 @@
+
+
+
+/* Container styling with bubbles */
+#quiz-container {
+    position: relative; /* Ensure the container can position pseudo-elements correctly */
+    max-width: 800px;
+    margin: 30px auto;
+    margin-top: 130px;
+    padding: 20px;
+    border-radius: 10px;
+    /* background-color: #fff; */
+    overflow: hidden; /* Hide overflowing bubbles */
+}
+
+/* Bubble effect */
+.bubbles {
+    position: fixed; /* Fixed positioning to stay in place relative to the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks to pass through */
+    z-index: -1; 
+    overflow: hidden; /* Hide any bubbles that go out of bounds */
+}
+
+.bubble {
+    position: absolute; 
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.1);
+    animation: float 15s ease-in-out infinite; 
+    opacity: 0.5;
+}
+
+@keyframes float {
+    0% { transform: translateY(100%) scale(0.5); }
+    50% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-100%) scale(0.5); }
+}
+
+/* Question container */
+.question {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific background colors for questions */
+.bg-color-1 {
+    background-color: #e6f7ff; /* Light blue */
+}
+
+.bg-color-2 {
+    background-color: #fff7e6; /* Light orange */
+}
+
+.bg-color-3 {
+    background-color: #e6ffe6; /* Light green */
+}
+
+.bg-color-4 {
+    background-color: #ffe6f7; /* Light pink */
+}
+
+.bg-color-5 {
+    background-color: #f7e6ff; /* Light purple */
+}
+
+/* Question heading */
+.question h2 {
+    font-size: 1.5em; 
+    color: #333;
+    margin-bottom: 10px; 
+}
+
+/* Options styling */
+.options {
+    margin-bottom: 20px;
+}
+
+.options label {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #f9f9f9; 
+    border: 1px solid #ddd; 
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.options label:hover {
+    background-color: #e0e0e0; 
+}
+
+/* Result text */
+.result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold; 
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 768px) {
+    #quiz-container {
+        margin-top: 50px;
+        margin-bottom: 0px;
+    }
+    .question h2 {
+        font-size: 1.1em;
+    }
+    .result {
+        font-size: 1em;
+    }
+}

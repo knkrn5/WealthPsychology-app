@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/quizzes/quizzes-nav.css">
+    <link rel="stylesheet" href="/quizzes/quizzes.css"> 
+    <link rel="stylesheet" href="intermediate-quizzes.css">
+    <link rel="stylesheet" href="/footer/footer.css">
+    <script src="/footer/footer.js" defer></script> 
+    <title>Indian Stock Market Quiz</title>
+</head>
+
+<body>
+
+    <header> 
+        <nav>
+            <div class="menu-toggle" id="menu-bars">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+                
+            <div class="brand-logo-container">
+                <a href="/index.html" class="home-nav">
+                <img src="/global/imgs/logo.webp" alt="Brand Logo" class="brand-logo">
+                </a>
+            </div>
+        
+            <h1>Intermediate Quizzes</h1> 
+        
+            <ul class="nav-menu">
+                <li><a href="/quizzes/beginner-quizzes/beginner-quizzes.html">Beginner Level</a></li>
+                <li><a href="intermediate-quizzes.html" class="active" >Intermediate Level</a></li>
+                <li><a href="/quizzes/advance-quizzes/advance-quizzes.html" >Advance Level</a></li>
+            </ul>
+        </nav>
+    </header> 
+
+    <main>
+            <!-- Bubble effect -->
+            <div class="bubbles">
+                <!-- Generate 20 bubble elements -->
+                <div class="bubble"></div>
+            </div>
+
+        <div id="quiz-container">
+                        <!-- Question 1 -->
+                <div class="question bg-color-1">
+                    <h2>1. What is the primary purpose of the Securities and Exchange Board of India (SEBI)?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question0" value="To protect the interests of investors"> To protect the interests of investors</label>
+                        <label><input type="radio" name="question0" value="To increase stock market prices"> To increase stock market prices</label>
+                        <label><input type="radio" name="question0" value="To provide loans to businesses"> To provide loans to businesses</label>
+                        <label><input type="radio" name="question0" value="To manage government securities"> To manage government securities</label>
+                    </div>
+                    <div class="result" id="result0"></div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question bg-color-2">
+                    <h2>2. Which of the following is a characteristic of a 'blue-chip' stock?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question1" value="High volatility"> High volatility</label>
+                        <label><input type="radio" name="question1" value="High dividends and stable earnings"> High dividends and stable earnings</label>
+                        <label><input type="radio" name="question1" value="Low market capitalization"> Low market capitalization</label>
+                        <label><input type="radio" name="question1" value="High debt-to-equity ratio"> High debt-to-equity ratio</label>
+                    </div>
+                    <div class="result" id="result1"></div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="question bg-color-3">
+                    <h2>3. What does the term 'market capitalization' refer to?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question2" value="The total value of a company's outstanding shares"> The total value of a company's outstanding shares</label>
+                        <label><input type="radio" name="question2" value="The total profits of a company"> The total profits of a company</label>
+                        <label><input type="radio" name="question2" value="The total assets of a company"> The total assets of a company</label>
+                        <label><input type="radio" name="question2" value="The total number of shareholders in a company"> The total number of shareholders in a company</label>
+                    </div>
+                    <div class="result" id="result2"></div>
+                </div>
+
+                <!-- Question 4 -->
+                <div class="question bg-color-4">
+                    <h2>4. What is the role of an 'underwriter' in an IPO?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question3" value="To provide funds to the company"> To provide funds to the company</label>
+                        <label><input type="radio" name="question3" value="To assess the financial health of the company"> To assess the financial health of the company</label>
+                        <label><input type="radio" name="question3" value="To guarantee the sale of a certain number of shares"> To guarantee the sale of a certain number of shares</label>
+                        <label><input type="radio" name="question3" value="To regulate the trading of shares"> To regulate the trading of shares</label>
+                    </div>
+                    <div class="result" id="result3"></div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="question bg-color-5">
+                    <h2>5. What does P/E ratio stand for?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question4" value="Price-to-Earnings ratio"> Price-to-Earnings ratio</label>
+                        <label><input type="radio" name="question4" value="Profit-to-Equity ratio"> Profit-to-Equity ratio</label>
+                        <label><input type="radio" name="question4" value="Price-to-Equity ratio"> Price-to-Equity ratio</label>
+                        <label><input type="radio" name="question4" value="Profit-to-Earnings ratio"> Profit-to-Earnings ratio</label>
+                    </div>
+                    <div class="result" id="result4"></div>
+                </div>
+
+                <!-- Question 6 -->
+                <div class="question bg-color-1">
+                    <h2>6. Which of the following is a derivative instrument?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question5" value="Bond"> Bond</label>
+                        <label><input type="radio" name="question5" value="Stock"> Stock</label>
+                        <label><input type="radio" name="question5" value="Option"> Option</label>
+                        <label><input type="radio" name="question5" value="Mutual fund"> Mutual fund</label>
+                    </div>
+                    <div class="result" id="result5"></div>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="question bg-color-2">
+                    <h2>7. What is the function of a 'stop-loss' order?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question6" value="To limit potential losses"> To limit potential losses</label>
+                        <label><input type="radio" name="question6" value="To maximize profits"> To maximize profits</label>
+                        <label><input type="radio" name="question6" value="To reduce brokerage fees"> To reduce brokerage fees</label>
+                        <label><input type="radio" name="question6" value="To increase the number of shares held"> To increase the number of shares held</label>
+                    </div>
+                    <div class="result" id="result6"></div>
+                </div>
+
+                <!-- Question 8 -->
+                <div class="question bg-color-3">
+                    <h2>8. What does the term 'diversification' mean in investment?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question7" value="Investing all money in one stock"> Investing all money in one stock</label>
+                        <label><input type="radio" name="question7" value="Spreading investments across various assets"> Spreading investments across various assets</label>
+                        <label><input type="radio" name="question7" value="Investing in high-risk stocks only"> Investing in high-risk stocks only</label>
+                        <label><input type="radio" name="question7" value="Holding cash instead of stocks"> Holding cash instead of stocks</label>
+                    </div>
+                    <div class="result" id="result7"></div>
+                </div>
+
+                <!-- Question 9 -->
+                <div class="question bg-color-4">
+                    <h2>9. Which of the following indices tracks the performance of the top 100 companies in India?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question8" value="NIFTY 50"> NIFTY 50</label>
+                        <label><input type="radio" name="question8" value="BSE Sensex"> BSE Sensex</label>
+                        <label><input type="radio" name="question8" value="NIFTY Next 50"> NIFTY Next 50</label>
+                        <label><input type="radio" name="question8" value="BSE 500"> BSE 500</label>
+                    </div>
+                    <div class="result" id="result8"></div>
+                </div>
+
+                <!-- Question 10 -->
+                <div class="question bg-color-5">
+                    <h2>10. What is a 'bull market'?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question9" value="A market where prices are falling"> A market where prices are falling</label>
+                        <label><input type="radio" name="question9" value="A market where prices are rising"> A market where prices are rising</label>
+                        <label><input type="radio" name="question9" value="A market with no significant price changes"> A market with no significant price changes</label>
+                        <label><input type="radio" name="question9" value="A market with high trading volumes"> A market with high trading volumes</label>
+                    </div>
+                    <div class="result" id="result9"></div>
+                </div>
+        
+        </div>
+
+    </main>
+
+
+    <!-- footer html via global footer html -->
+    <div id="footer"></div> 
+
+    <script src="intermediate-quizzes.js"></script>
+    <script src="/quizzes/quizzes-nav.js"></script> <!-- for mobile menu events -->
+    <script src="/quizzes/quizzes.js"></script> <!-- for bubbles effect -->
+
+</body>
+</html>

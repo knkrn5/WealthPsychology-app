@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="quizzes.css">
+    <link rel="stylesheet" href="/quizzes/quizzes-nav.css">
+    <link rel="stylesheet" href="/footer/footer.css">
+    <script src="/footer/footer.js" defer></script> 
+    <title>Indian Stock Market Quiz</title>
+</head>
+
+<body>
+
+    <header> 
+        <nav>
+            <div class="menu-toggle" id="menu-bars">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+                
+            <div class="brand-logo-container">
+                <a href="/index.html" class="home-nav">
+                <img src="/global/imgs/logo.webp" alt="Brand Logo" class="brand-logo">
+                </a>
+            </div>
+        
+            <h1>Stock Market Quizzes</h1> 
+        
+            <ul class="nav-menu">
+                <li><a href="# " class="active" data-quiz="beginner-quizzes/beginner-quizzes.html">Beginner Level</a></li>
+                <li><a href="#" data-quiz="intermediate-quizzes/intermediate-quizzes.html">Intermediate Level</a></li>
+                <li><a href="#" data-quiz="advance-quizzes/advance-quizzes.html">Advance Level</a></li>
+            </ul>
+        </nav>
+    </header> 
+
+<main>
+
+     <!-- Bubble effect -->
+     <div class="bubbles">
+        <!-- Generate 20 bubble elements -->
+        <div class="bubble bubble-1"></div>
+    </div>
+
+        <div id="quiz-container">
+            <!-- Quizzes will be dynamically inserted here -->
+        </div>
+
+    <p>select the quiz level</p>
+
+
+</main>
+
+
+    <!-- footer html via global footer html -->
+    <div id="footer"></div> 
+
+    <script src="quizzes.js"></script>
+    <script src="/navbar/nav.js"></script>
+
+</body>
+</html>

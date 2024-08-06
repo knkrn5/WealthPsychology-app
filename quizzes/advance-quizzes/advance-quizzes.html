@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/quizzes/quizzes-nav.css">
+    <link rel="stylesheet" href="/quizzes/quizzes.css"> 
+    <link rel="stylesheet" href="advance-quizzes.css">
+    <link rel="stylesheet" href="/footer/footer.css">
+    <script src="/footer/footer.js" defer></script> 
+    <title>Beginner Level Stock Market Quiz</title>
+</head>
+
+<body>
+
+    <header> 
+        <nav>
+            <div class="menu-toggle" id="menu-bars">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+                
+            <div class="brand-logo-container">
+                <a href="/index.html" class="home-nav">
+                <img src="/global/imgs/logo.webp" alt="Brand Logo" class="brand-logo">
+                </a>
+            </div>
+        
+            <h1>Advance Quizzes</h1> 
+        
+            <ul class="nav-menu">
+                <li><a href="/quizzes/beginner-quizzes/beginner-quizzes.html" >Beginner Level</a></li>
+                <li><a href="/quizzes/intermediate-quizzes/intermediate-quizzes.html" >Intermediate Level</a></li>
+                <li><a href="advance-quizzes.html" class="active">Advance Level</a></li>
+            </ul>
+        </nav>
+    </header> 
+
+    <main>
+            <!-- Bubble effect -->
+            <div class="bubbles">
+                <!-- Generate 20 bubble elements -->
+                <div class="bubble"></div>
+            </div>
+
+            <div id="quiz-container">
+                <!-- Question 1 -->
+                <div class="question bg-color-1">
+                    <h2>1. What is an example of an arbitrage opportunity in the Indian stock market?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question0" value="Buying a stock at NSE and selling it at BSE for a profit"> Buying a stock at NSE and selling it at BSE for a profit</label>
+                        <label><input type="radio" name="question0" value="Buying a stock and holding it long term"> Buying a stock and holding it long term</label>
+                        <label><input type="radio" name="question0" value="Short selling a stock"> Short selling a stock</label>
+                        <label><input type="radio" name="question0" value="Investing in a mutual fund"> Investing in a mutual fund</label>
+                    </div>
+                    <div class="result" id="result0"></div>
+                </div>
+            
+                <!-- Question 2 -->
+                <div class="question bg-color-2">
+                    <h2>2. Which of the following is a 'contra' mutual fund?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question1" value="A fund that invests in both equities and bonds"> A fund that invests in both equities and bonds</label>
+                        <label><input type="radio" name="question1" value="A fund that invests against prevailing market trends"> A fund that invests against prevailing market trends</label>
+                        <label><input type="radio" name="question1" value="A fund that tracks the market index"> A fund that tracks the market index</label>
+                        <label><input type="radio" name="question1" value="A fund that invests in international stocks"> A fund that invests in international stocks</label>
+                    </div>
+                    <div class="result" id="result1"></div>
+                </div>
+            
+                <!-- Question 3 -->
+                <div class="question bg-color-3">
+                    <h2>3. What is the significance of the 'beta' coefficient in stock market analysis?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question2" value="It measures the volatility of a stock compared to the market"> It measures the volatility of a stock compared to the market</label>
+                        <label><input type="radio" name="question2" value="It indicates the dividend payout ratio"> It indicates the dividend payout ratio</label>
+                        <label><input type="radio" name="question2" value="It represents the stock's growth rate"> It represents the stock's growth rate</label>
+                        <label><input type="radio" name="question2" value="It shows the stock's return on equity"> It shows the stock's return on equity</label>
+                    </div>
+                    <div class="result" id="result2"></div>
+                </div>
+            
+                <!-- Question 4 -->
+                <div class="question bg-color-4">
+                    <h2>4. Which type of derivative instrument gives the holder the right but not the obligation to buy an asset?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question3" value="Futures"> Futures</label>
+                        <label><input type="radio" name="question3" value="Options"> Options</label>
+                        <label><input type="radio" name="question3" value="Swaps"> Swaps</label>
+                        <label><input type="radio" name="question3" value="Forwards"> Forwards</label>
+                    </div>
+                    <div class="result" id="result3"></div>
+                </div>
+            
+                <!-- Question 5 -->
+                <div class="question bg-color-5">
+                    <h2>5. What is 'technical analysis' in the context of stock trading?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question4" value="Analyzing a company's financial statements"> Analyzing a company's financial statements</label>
+                        <label><input type="radio" name="question4" value="Studying historical price movements and trading volumes"> Studying historical price movements and trading volumes</label>
+                        <label><input type="radio" name="question4" value="Evaluating macroeconomic indicators"> Evaluating macroeconomic indicators</label>
+                        <label><input type="radio" name="question4" value="Assessing a company's management team"> Assessing a company's management team</label>
+                    </div>
+                    <div class="result" id="result4"></div>
+                </div>
+            
+                <!-- Question 6 -->
+                <div class="question bg-color-1">
+                    <h2>6. What is a 'penny stock'?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question5" value="A stock with a very high market capitalization"> A stock with a very high market capitalization</label>
+                        <label><input type="radio" name="question5" value="A stock that trades at a very low price, typically under Rs. 10"> A stock that trades at a very low price, typically under Rs. 10</label>
+                        <label><input type="radio" name="question5" value="A stock that consistently pays high dividends"> A stock that consistently pays high dividends</label>
+                        <label><input type="radio" name="question5" value="A stock listed on a major stock exchange"> A stock listed on a major stock exchange</label>
+                    </div>
+                    <div class="result" id="result5"></div>
+                </div>
+            
+                <!-- Question 7 -->
+                <div class="question bg-color-2">
+                    <h2>7. What does the term 'alpha' refer to in investment performance?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question6" value="The measure of a portfolio's return compared to the market"> The measure of a portfolio's return compared to the market</label>
+                        <label><input type="radio" name="question6" value="The measure of a stock's volatility"> The measure of a stock's volatility</label>
+                        <label><input type="radio" name="question6" value="The risk-free rate of return"> The risk-free rate of return</label>
+                        <label><input type="radio" name="question6" value="The expected dividend yield"> The expected dividend yield</label>
+                    </div>
+                    <div class="result" id="result6"></div>
+                </div>
+            
+                <!-- Question 8 -->
+                <div class="question bg-color-3">
+                    <h2>8. Which of the following strategies is used to hedge against potential losses in the stock market?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question7" value="Leveraging"> Leveraging</label>
+                        <label><input type="radio" name="question7" value="Speculating"> Speculating</label>
+                        <label><input type="radio" name="question7" value="Short selling"> Short selling</label>
+                        <label><input type="radio" name="question7" value="Hedging with options"> Hedging with options</label>
+                    </div>
+                    <div class="result" id="result7"></div>
+                </div>
+            
+                <!-- Question 9 -->
+                <div class="question bg-color-4">
+                    <h2>9. Which financial metric is used to evaluate the profitability of a company relative to its equity?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question8" value="Return on Assets (ROA)"> Return on Assets (ROA)</label>
+                        <label><input type="radio" name="question8" value="Return on Equity (ROE)"> Return on Equity (ROE)</label>
+                        <label><input type="radio" name="question8" value="Earnings Per Share (EPS)"> Earnings Per Share (EPS)</label>
+                        <label><input type="radio" name="question8" value="Price-to-Earnings (P/E) Ratio"> Price-to-Earnings (P/E) Ratio</label>
+                    </div>
+                    <div class="result" id="result8"></div>
+                </div>
+            
+                <!-- Question 10 -->
+                <div class="question bg-color-5">
+                    <h2>10. What is 'mean reversion' in stock market theory?</h2>
+                    <div class="options">
+                        <label><input type="radio" name="question9" value="The tendency of a stock's price to revert to its historical average"> The tendency of a stock's price to revert to its historical average</label>
+                        <label><input type="radio" name="question9" value="The process of averaging out stock prices"> The process of averaging out stock prices</label>
+                        <label><input type="radio" name="question9" value="The correlation between a stock's price and its earnings"> The correlation between a stock's price and its earnings</label>
+                        <label><input type="radio" name="question9" value="The impact of market sentiment on stock prices"> The impact of market sentiment on stock prices</label>
+                    </div>
+                    <div class="result" id="result9"></div>
+                </div>
+            </div>
+           
+    </main>
+
+     <!-- footer html via global footer html -->
+     <div id="footer"></div> 
+
+    <script src="advance-quizzes.js"></script>
+    <script src="/quizzes/quizzes-nav.js"></script> <!-- for mobile menu events -->
+    <script src="/quizzes/quizzes.js"></script> <!-- for bubbles effect -->
+
+</body>
+</html>
