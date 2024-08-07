@@ -5,6 +5,13 @@ html {
   scroll-padding-top: 130px; 
 }
 
+/* body styling ------------------------*/
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  /* background: linear-gradient(135deg, #ddd8d0 0%, #b8b5ac 100% ); */
+  
+}
 
 /* Header styles */
 header {
@@ -200,14 +207,8 @@ header {
 }
 
 
-/* body styling ------------------------*/
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
-  /* background: linear-gradient(135deg, #ddd8d0 0%, #b8b5ac 100% ); */
-  
-}
 
+/* main styling------- */
 .home-page {
   display: flex;
   flex-direction: column;

@@ -3,6 +3,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background: #ddd;
 }
 
 
@@ -60,7 +61,7 @@ header h1 {
 
 @media (max-width: 768px) {
     .privacy-policy {
-        margin-top: 90px;
+        margin-top: 75px;
         width: 80%;
     }
 }

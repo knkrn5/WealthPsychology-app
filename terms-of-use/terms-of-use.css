@@ -1,32 +1,44 @@
+/* Body styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #ddd;
+}
 
 
 /* Header styles */
 header {
     background-color: #000;
-    color: #ffffff;
+    /* color: #ffffff; */
     text-align: center;
+    position: fixed;
+    top: 0;
+    /* left: 0; */
+    width: 100%;
 }
 
 header h1 {
-    font-size: 2rem;
-    padding: 1rem;
+    font-size: 28px;
+    /* padding: 1rem; */
     color: #fff;
-    margin-top: 0px;
-    font-weight: bold;
+    /* margin-top: 0px; */
+    /* font-weight: bold; */
 }
 
 .brand-logo {
     height: 60px;
     width: auto;
-    top: 2px;
+    top: 5px;
     left: 5px;
     position: absolute;
   }
 
 @media (max-width: 768px) {
     header h1 {
-        margin-top: 0px;
-        font-size: 25px;
+         /* margin-top: 0px; */
+         font-size: 27px;
+         margin-left: 40px;
     }
     .brand-logo {
         height: 50px;
@@ -37,25 +49,21 @@ header h1 {
 }
 
 
-/* Body styles */
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-}
 
-
+/* main styling-- */
 .termsofuse {
     width: 60%; 
     margin: 0 auto; 
-    padding: 0 20px;
-    padding-bottom: 30px;
+    margin-top: 100px;
+    margin-bottom: 20px;
+    padding: 20px;
     background-color: #f9f9f9;
 }
 
 
 @media (max-width: 768px) {
     .termsofuse {
+        margin-top: 75px;
         width: 80%;
     }
 }
