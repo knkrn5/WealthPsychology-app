@@ -80,6 +80,12 @@
     margin-bottom: 20px;
 }
 
+.options .icon {
+    margin-right: 5px;  
+    float: right;
+    font-size: 25px;
+}
+
 .options label {
     display: block;
     margin-bottom: 10px;
@@ -95,13 +101,6 @@
     background-color: #e0e0e0; 
 }
 
-/* Result text */
-.result {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 1.2em;
-    font-weight: bold; 
-}
 
 /* total score styling */
 #score-container {

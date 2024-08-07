@@ -41,41 +41,52 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll('.options input').forEach((input) => {
         input.addEventListener('change', function() {
             const questionIndex = this.name.replace('question', '');
-            const resultDiv = document.getElementById(`result${questionIndex}`);
             const selectedOption = document.querySelector(`input[name="question${questionIndex}"]:checked`);
-
-            // Clear previous highlights
-            document.querySelectorAll(`input[name="question${questionIndex}"]`).forEach(option => {
+    
+            // Clear previous highlights and icons
+            document.querySelectorAll(`.options input[name="question${questionIndex}"]`).forEach(option => {
+                const icon = option.nextElementSibling;
                 option.parentElement.style.backgroundColor = ""; // Clear previous background color
+                if (icon) {
+                    icon.innerHTML = ''; // Clear previous icon
+                }
             });
-
-        // highlighting/styling the selected option
+    
+            // Highlighting/styling the selected option
             if (selectedOption) {
                 const isCorrect = selectedOption.value === quizQuestions[questionIndex].answer;
+                const icon = selectedOption.nextElementSibling; // Get the icon next to the selected option
+    
                 if (isCorrect) {
-                    score++ ;
-                    resultDiv.textContent = "Well Done! Correct answer🎉";
-                    resultDiv.style.color = "green";
+                    score++;
+                    if (icon) {
+                        icon.innerHTML = '<i class="fa-regular fa-circle-check">'; // Show ✔️ icon
+                        icon.style.color = 'green'; 
+                    }
                     selectedOption.parentElement.style.backgroundColor = 'lightgreen';
                     selectedOption.parentElement.style.color = 'black';
-                } 
-                
-                else {
-                    resultDiv.textContent = `Opps!😬 The answer is: ${quizQuestions[questionIndex].answer}`;
-                    resultDiv.style.color = "red";
+                } else {
+                    if (icon) {
+                        icon.innerHTML = '<i class="fa-regular fa-circle-xmark">'; // Show ❌ icon
+                        icon.style.color = 'red'; 
+                    }
                     selectedOption.parentElement.style.backgroundColor = 'lightcoral';
                     selectedOption.parentElement.style.color = 'black';
-                    
-
+    
                     // Highlight the correct answer
                     document.querySelectorAll(`input[name="question${questionIndex}"]`).forEach(option => {
                         if (option.value === quizQuestions[questionIndex].answer) {
+                            const correctIcon = option.nextElementSibling;
+                            if (correctIcon) {
+                                correctIcon.innerHTML = '<i class="fa-regular fa-circle-check">'; // Show ✔️ icon for the correct answer
+                                correctIcon.style.color = 'green'; 
+                            }
                             option.parentElement.style.backgroundColor = 'lightgreen';
                             option.parentElement.style.color = 'black';
                         }
                     });
                 }
-
+    
                 // Calculate and display the score
                 updateScore();
             }
