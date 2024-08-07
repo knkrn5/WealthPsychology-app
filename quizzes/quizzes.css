@@ -103,6 +103,27 @@
     font-weight: bold; 
 }
 
+/* total score styling */
+#score-container {
+    margin-top: 30px;
+    padding: 10px;
+    /* background: linear-gradient(135deg, #4CAF50, #8BC34A); */
+    /* background-color: #333; */
+    /* background: linear-gradient(135deg, #FFD700, #FF8C00, #FFD700); */
+    /* background: linear-gradient(135deg, #32CD32, #7CFC00, #32CD32); */
+    background: linear-gradient(135deg, #1E90FF, #00BFFF, #1E90FF);
+
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#score {
+    font-size: 1.5em;
+    color: #000;
+    padding-bottom: 20px;
+}
+
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
     #quiz-container {
