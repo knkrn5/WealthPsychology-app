@@ -85,21 +85,12 @@ header h1 {
     line-height: 1.6;
 }
 
-.plans-intro{
-    /* margin: 0; */
-    /* margin-bottom: -27px; */
-    /* margin-top: 50px; */
-}
-
 .plans-intro p{
     text-align: center;
-    padding: 10px 0;
     background-color: #4CAF50;
-    color: white;
+    color: #fff;
     padding: 20px 20px;
     margin: 0 auto;
-    /* margin-top: 0px; */
-    /* margin-bottom: 0; */
 }
 
 .our-Plans-container h2 {
