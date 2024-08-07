@@ -79,11 +79,15 @@ header h1 {
     padding: 20px;
     width: 50%;
     margin: 10px auto;
-    margin-top: 65px;
+    margin-top: 70px;
     background-color: #f9f9f9;
     color: #333;
     line-height: 1.6;
 }
+
+.plans-intro{
+    margin: -20px -20px 0 -20px;
+ }
 
 .plans-intro p{
     text-align: center;
@@ -146,16 +150,18 @@ header h1 {
   }
 
 @media (max-width: 1200px) {
+    .our-Plans-container{
+        padding: 20px;
+        width: 90%;
+        margin-top: 57px;
+    }
     .brand-logo {
         height: 50px;
         width: auto;
         top: 6px;
         left: 0px;
       }
-    .our-Plans-container{
-        padding: 20px;
-        width: 90%;
-    }
+  
     header p{
     padding: 0px 30px;
     }
