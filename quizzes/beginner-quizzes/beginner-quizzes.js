@@ -3,4 +3,4 @@
 
     
 
-    // quizzes calculation from the quizzes.js--------------------------------
+    // quizzes calculation from the quizzes.js----
