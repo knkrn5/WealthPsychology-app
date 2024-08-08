@@ -32,78 +32,67 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-    //answers taken from there respective js
 
-
-    // for quizzes calculation and answer display------------------------
+    // JavaScript for quizzes score and answer display------------------------
     let score = 0;
 
-    document.querySelectorAll('.options input').forEach((input) => {
-        input.addEventListener('change', function() {
-            const questionIndex = this.name.replace('question', '');
-            const selectedOption = document.querySelector(`input[name="question${questionIndex}"]:checked`);
-    
-            // Clear previous highlights and icons
-            document.querySelectorAll(`.options input[name="question${questionIndex}"]`).forEach(option => {
-                const icon = option.nextElementSibling;
-                option.parentElement.style.backgroundColor = ""; // Clear previous background color
-                if (icon) {
-                    icon.innerHTML = ''; // Clear previous icon
-                }
-            });
-    
-            // Highlighting/styling the selected option
-            if (selectedOption) {
-                const isCorrect = selectedOption.value === quizQuestions[questionIndex].answer;
-                const icon = selectedOption.nextElementSibling; // Get the icon next to the selected option
-    
-                if (isCorrect) {
-                    score++;
-                    if (icon) {
-                        icon.innerHTML = '<i class="fa-regular fa-circle-check">'; // Show ✔️ icon
-                        icon.style.color = 'green'; 
-                    }
-                    selectedOption.parentElement.style.backgroundColor = 'lightgreen';
-                    selectedOption.parentElement.style.color = 'black';
-                } else {
-                    if (icon) {
-                        icon.innerHTML = '<i class="fa-regular fa-circle-xmark">'; // Show ❌ icon
-                        icon.style.color = 'red'; 
-                    }
-                    selectedOption.parentElement.style.backgroundColor = 'lightcoral';
-                    selectedOption.parentElement.style.color = 'black';
-    
-                    // Highlight the correct answer
-                    document.querySelectorAll(`input[name="question${questionIndex}"]`).forEach(option => {
-                        if (option.value === quizQuestions[questionIndex].answer) {
-                            const correctIcon = option.nextElementSibling;
-                            if (correctIcon) {
-                                correctIcon.innerHTML = '<i class="fa-regular fa-circle-check">'; // Show ✔️ icon for the correct answer
-                                correctIcon.style.color = 'green'; 
-                            }
-                            option.parentElement.style.backgroundColor = 'lightgreen';
-                            option.parentElement.style.color = 'black';
-                        }
-                    });
-                }
-    
-                // Calculate and display the score
-                updateScore();
-            }
-        });
+    // Attach event listeners to all radio buttons
+    document.querySelectorAll('input[type="radio"]').forEach(radio => {
+        radio.addEventListener('change', checkAnswers);
     });
 
-    
-        //function to update the score
-        function updateScore() {
-            let score = 0;
-            quizQuestions.forEach((quiz, index) => {
-                const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
-                if (selectedOption && selectedOption.value === quiz.answer) {
-                    score++;
-                }
-            });
-            const scoreDiv = document.getElementById("score");
-            scoreDiv.textContent = `You scored ${score} out of ${quizQuestions.length}!`;
-        }
+    // Function to check the answers
+    function checkAnswers() {
+        const questions = document.querySelectorAll('.question');
+        const scoreContainer = document.getElementById('score-container');
+        score = 0; // Reset score
 
+        questions.forEach((question) => {
+            const options = question.querySelectorAll('input[type="radio"]');
+            const selectedOption = question.querySelector('input[type="radio"]:checked');
+
+            if (selectedOption) {
+                options.forEach(option => {
+                    const label = option.parentElement;
+                    const icon = label.querySelector('.icon');
+
+                    if (option.classList.contains('answer')) {
+                        // Correct answer
+                        label.style.backgroundColor = 'lightgreen';
+                        label.style.color = 'black';
+                        if (icon) {
+                            icon.innerHTML = '<i class="fa-regular fa-circle-check"></i>';
+                            icon.style.color = 'green';
+                        }
+                        if (option === selectedOption) {
+                            score++; // Increment score if the selected option is correct
+                        }
+                    } else if (option === selectedOption) {
+                        // Wrong selected answer
+                        label.style.backgroundColor = 'lightcoral';
+                        label.style.color = 'black';
+                        if (icon) {
+                            icon.innerHTML = '<i class="fa-regular fa-circle-xmark"></i>';
+                            icon.style.color = 'red';
+                        }
+                    } else {
+                        // Reset other options
+                        label.style.backgroundColor = '';
+                        label.style.color = '';
+                        if (icon) {
+                            icon.innerHTML = '';
+                        }
+                    }
+                });
+            }
+        });
+
+        // Update score container
+        if (scoreContainer) {
+            scoreContainer.innerHTML = `You scored ${score} out of ${questions.length}!`;
+        }
+    }
+
+
+
+ 

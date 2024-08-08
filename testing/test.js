@@ -1,105 +1,104 @@
-    // const apiUrl = '/api/posts'; // fetching wordpress api from the proxy server and this will only show output in localhost only
-    document.addEventListener('DOMContentLoaded', () => {
-        const blogPosts = document.getElementById('blog-posts');
-        // const apiUrl = 'http://localhost:1000/api/posts'; // this will show output in both live server and localhost
-        // const apiUrl = '/api/posts'; // fetching wordpress api from the proxy server and this will only show output in localhost only
-        const apiUrl = '/.netlify/functions/fetch-blogs';
-    
-        // Create and append loading indicator
-        const loadingIndicator = document.createElement('div');
-        loadingIndicator.id = 'loading';
-        loadingIndicator.className = 'loading';
-        loadingIndicator.innerHTML = '<i class="fa-solid fa-spinner"></i><p>Loading...</p>';
-        blogPosts.appendChild(loadingIndicator);
-    
-        fetch(apiUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(posts => {
-                console.log('Received posts:', posts);
-                blogPosts.innerHTML = ''; // Clear existing content
-                if (posts.length === 0) {
-                    blogPosts.innerHTML = '<p>No blogs available.</p>';
-                    return;
-                }
-    
-                posts.forEach(post => {
-                    console.log('Processing post:', post);
-                    const article = document.createElement('article');
-                    article.className = 'article';
-                    article.innerHTML = `
-                        <h2>${post.title.rendered}</h2>
-                        ${post.featured_image_url ? `<img src="${post.featured_image_url}" alt="${post.title.rendered}">` : ''}
-                        <div>${post.excerpt.rendered}</div>
-                        <p>Published on: ${new Date(post.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
-                        <a href="post.html?${encodeURIComponent(post.slug)}" class="read-more">Read More...</a>
-                    `;
-                    blogPosts.appendChild(article);
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching posts:', error);
-                blogPosts.innerHTML = '<p>Error loading blogs. Please try again later.</p>';
-            })
-            .finally(() => {
-                // Remove loading indicator after content is loaded or on error
-                loadingIndicator.remove();
-            });
-    });
+ // for quizzes score and answer display------------------------
+ let score = 0;
 
+ // Attach event listeners to all radio buttons
+ document.querySelectorAll('input[type="radio"]').forEach(radio => {
+     radio.addEventListener('change', checkAnswers);
+ });
 
-    // ------------------------------------------------------
-    document.addEventListener('DOMContentLoaded', () => {
-        const blogPosts = document.getElementById('blog-posts');
-        // const apiUrl = 'http://localhost:55555/api/posts'; // this will show output in both live server and localhost
-        // const apiUrl = '/api/posts'; // fetching wordpress api from the proxy server and this will only show output in localhost only
-        const apiUrl = '/.netlify/functions/fetch-blogs'; // fetching netlify serverless function
-        
-           // Create and append loading indicator
-        const loadingIndicator = document.createElement('div');
-        loadingIndicator.id = 'loading';
-        loadingIndicator.className = 'loading-container'; // this
-        loadingIndicator.innerHTML = '<i class="fa-solid fa-spinner"></i><p>Loading...</p>';
-        blogPosts.appendChild(loadingIndicator);
+ //function for check the answer
+ function checkAnswers() {
+     const questions = document.querySelectorAll('.question');
+     questions.forEach((question) => {
+         const scoreContainer = document.getElementById('score-container');
+         const options = question.querySelectorAll('input[type="radio"]');
+         const selectedOption = question.querySelector('input[type="radio"]:checked');
+         
+
+         if (selectedOption) {
+             options.forEach(option => {
+                 const label = option.parentElement;
+                 const icon = label.querySelector('.icon');
+                 // const icon = option.parentElement.querySelector('.icon');
+ 
+                 if (option.classList.contains('answer')) {
+                     // Correct answer
+                     score++;
+                     label.style.backgroundColor = 'lightgreen';
+                     label.style.color = 'black';
+                     icon.innerHTML = '<i class="fa-regular fa-circle-check"></i>';
+                     icon.style.color = 'green';
+                 } else if (option === selectedOption) {
+                     // Wrong selected answer
+                     score--;
+                     label.style.backgroundColor = 'lightcoral';
+                     label.style.color = 'black';
+                     icon.innerHTML = '<i class="fa-regular fa-circle-xmark"></i>';
+                     icon.style.color = 'red';
+                 } else {
+                     // Reset other options
+                     label.style.backgroundColor = '';
+                     label.style.color = '';
+                     icon.innerHTML = '';
+                     scoreContainer.textContent = `you scored ${score} out of ${questions.length}`
+                 }
+                 
+             });
+         }
+     });
+
+ }
+
+//  ----------------------------------------------------
+let score = 0;
+let answeredQuestions = new Set();
+
+// Attach event listeners to all radio buttons
+document.querySelectorAll('input[type="radio"]').forEach(radio => {
+    radio.addEventListener('change', checkAnswers);
+});
+
+//function for check the answer
+function checkAnswers() {
+    const questions = document.querySelectorAll('.question');
+    const scoreContainer = document.getElementById('score-container');
     
-        fetch(apiUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
+    questions.forEach((question, index) => {
+        const options = question.querySelectorAll('input[type="radio"]');
+        const selectedOption = question.querySelector('input[type="radio"]:checked');
+
+        if (selectedOption && !answeredQuestions.has(index)) {
+            answeredQuestions.add(index);
+            
+            options.forEach(option => {
+                const label = option.parentElement;
+                const icon = label.querySelector('.icon');
+
+                if (option.classList.contains('answer')) {
+                    // Correct answer
+                    label.style.backgroundColor = 'lightgreen';
+                    label.style.color = 'black';
+                    icon.innerHTML = '<i class="fa-regular fa-circle-check"></i>';
+                    icon.style.color = 'green';
+                    
+                    if (option === selectedOption) {
+                        score++;
+                    }
+                } else if (option === selectedOption) {
+                    // Wrong selected answer
+                    label.style.backgroundColor = 'lightcoral';
+                    label.style.color = 'black';
+                    icon.innerHTML = '<i class="fa-regular fa-circle-xmark"></i>';
+                    icon.style.color = 'red';
+                } else {
+                    // Reset other options
+                    label.style.backgroundColor = '';
+                    label.style.color = '';
+                    icon.innerHTML = '';
                 }
-                return response.json();
-            })
-            .then(posts => {
-                blogPosts.innerHTML = ''; // Clear existing content
-                if (posts.length === 0) {
-                    blogPosts.innerHTML = '<p>No blogs available.</p>';
-                    return;
-                }
-    
-                posts.forEach(post => {
-                    const article = document.createElement('article');
-                    article.className = 'article';
-                    article.innerHTML = `
-                    <h2>${post.title.rendered}</h2>
-                    <img src="${post.featured_image_url}" alt="${post.title.rendered}">
-                    <div>${post.excerpt.rendered}</div>
-                    <p>Published on: ${new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
-                    <a href="post.html?${encodeURIComponent(post.slug)}" class="read-more">Read More...</a>
-                `;
-                    blogPosts.appendChild(article);
-                });
-            })
-            .catch(error => {
-                console.error('Error fetching posts:', error);
-                blogPosts.innerHTML = '<p>Failed to load news articles. Please try again later.</p>';
-            })
-            .finally(() => {
-                // Remove loading indicator after content is loaded or on error
-                loadingIndicator.remove();
             });
+
+            scoreContainer.textContent = `You scored ${score} out of ${questions.length}`;
+        }
     });
-    
+}
