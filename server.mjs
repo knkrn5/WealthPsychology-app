@@ -32,37 +32,53 @@ app.set('views', path.join(__dirname, 'views')); */
 }); */
 
 
-// Proxy route for fetching posts
-app.get('/api/posts', async (req, res) => {
-    try {
-      const apiUrl = 'https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts';
-      const response = await fetch(apiUrl);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const posts = await response.json();
-      res.json(posts);
-    } catch (error) {
-      console.error('Error fetching posts:', error);
-      res.status(500).json({ error: 'Error fetching posts' });
-    }
-  });
-
-
-
-// Individual post route
-app.get('/blog/post/:id', async (req, res) => {
+// Proxy route for fetching blogs 
+app.get('/api/blogs', async (req, res) => {
   try {
-      const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts/${req.params.id}`;
+    const apiUrl = 'https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts?_embed';
+    const response = await fetch(apiUrl);
+    
+    if (!response.ok) {
+      return res.status(response.status).json({ error: 'Error fetching posts' });
+    }
+    
+    const posts = await response.json();
+    res.status(200).json(posts);
+  } catch (error) {
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
+
+// Individual blog post route
+app.get('/post/:slug?', async (req, res) => {
+  const { slug } = req.params;
+
+  // Log the slug to ensure it is being received correctly
+  console.log("Received slug:", slug);
+
+  if (!slug) {
+      return res.status(400).json({ error: 'Post slug is required' });
+  }
+
+  const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts?slug=${encodeURIComponent(slug)}`;
+
+  try {
       const response = await fetch(apiUrl);
       if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+          return res.status(response.status).json({ error: 'Error fetching post from WordPress API' });
       }
-      const post = await response.json();
-      res.json(post); // Send JSON instead of rendering a view
+
+      const posts = await response.json();
+      if (!Array.isArray(posts) || posts.length === 0) {
+          return res.status(404).json({ error: 'Post not found' });
+      }
+
+      return res.status(200).json(posts[0]);
+
   } catch (error) {
-      console.error('Error fetching post:', error);
-      res.status(500).json({ error: 'Error loading blog post' });
+      return res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 

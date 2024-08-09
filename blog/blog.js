@@ -1,7 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const blogPosts = document.getElementById('blog-posts');
     const categoryList = document.getElementById('category-list');
-    const apiUrl = '/.netlify/functions/fetch-blogs?_embed';
+    // const apiUrl = '/.netlify/functions/fetch-blogs?_embed';
+    const apiUrl = '/api/blogs';
+
     
     const loadingContainer = document.createElement('div');
     loadingContainer.id = 'loading-container';
