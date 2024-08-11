@@ -6,10 +6,11 @@
   "directories": {
     "test": "tests"
   },
-  "scripts": {
-    "test": "echo \"No test specified\" && exit 0",
-    "start": "node server.mjs"
-  },
+ "scripts": {
+  "test": "echo \"No test specified\" && exit 0",
+  "start": "node server.mjs",
+  "nodemon": "nodemon server.mjs"
+ },
   "keywords": [],
   "author": "",
   "license": "ISC",
