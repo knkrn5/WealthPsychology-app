@@ -1,5 +1,5 @@
 {
-  "name": "wealth-psychology",
+  "name": "wealthpsychology-app",
   "version": "1.0.0",
   "main": "server.mjs",
   "type": "module",
