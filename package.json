@@ -7,9 +7,7 @@
   },
   "scripts": {
     "test": "echo \"No test specified\" && exit 0",
-    "start": "node server.mjs",
-    "netlify": "netlify",
-    "netlify-dev": "netlify dev"
+    "start": "node server.mjs"
   },
   "resolutions": {
     "braces": "^3.0.3"
