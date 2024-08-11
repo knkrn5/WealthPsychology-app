@@ -3,7 +3,5 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 Disallow: /testing/
-Disallow: /netlify/
 Disallow: /public/
-Allow: /wp-content/uploads/
 Sitemap: https://wealthpsychology.in/sitemap.xml
