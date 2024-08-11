@@ -1,8 +1,7 @@
 import express from 'express';
-import fetch from 'node-fetch';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import cors from 'cors'; //CORS (Cross-Origin Resource Sharing) is required when you want to make requests between different domains or subdomains.
+import cors from 'cors';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

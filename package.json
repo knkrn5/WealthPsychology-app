@@ -6,19 +6,21 @@
   "directories": {
     "test": "tests"
   },
- "scripts": {
-  "test": "echo \"No test specified\" && exit 0",
-  "start": "node server.mjs",
-  "nodemon": "nodemon server.mjs"
- },
+  "scripts": {
+    "test": "echo \"No test specified\" && exit 0",
+    "start": "node server.mjs",
+    "dev": "nodemon server.mjs"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "ejs": "^3.1.10",
-    "express": "^4.19.2",
-    "node-fetch": "^3.3.2"
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   },
   "engines": {
     "node": ">=18.0.0"
