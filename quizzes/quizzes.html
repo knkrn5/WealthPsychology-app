@@ -4,11 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="quizzes.css">
-    <link rel="stylesheet" href="/quizzes/quizzes-nav.css">
+    <link rel="stylesheet" href="quizzes-nav.css">
     <link rel="stylesheet" href="/footer/footer.css">
     <script src="/footer/footer.js" defer></script> 
-    <title>Indian Stock Market Quiz</title>
+
+    <link rel="icon" href="/global/icons/favicon.ico" type="image/x-icon"> 
+    <title>Stock Market Quiz</title>
 </head>
 
 <body>
@@ -30,26 +33,23 @@
             <h1>Stock Market Quizzes</h1> 
         
             <ul class="nav-menu">
-                <li><a href="# " class="active" data-quiz="beginner-quizzes/beginner-quizzes.html">Beginner Level</a></li>
-                <li><a href="#" data-quiz="intermediate-quizzes/intermediate-quizzes.html">Intermediate Level</a></li>
-                <li><a href="#" data-quiz="advance-quizzes/advance-quizzes.html">Advance Level</a></li>
+                <li><a href="# " data-quiz="beginner-quizzes.html">Beginner Level</a></li>
+                <li><a href="#" data-quiz="intermediate-quizzes.html">Intermediate Level</a></li>
+                <li><a href="#" data-quiz="advance-quizzes.html">Advance Level</a></li>
             </ul>
         </nav>
     </header> 
 
 <main>
-
-     <!-- Bubble effect -->
-     <div class="bubbles">
-        <!-- Generate 20 bubble elements -->
-        <div class="bubble bubble-1"></div>
-    </div>
+        <!-- Bubble effect -->
+        <div class="bubbles">
+            <!-- Generate 20 bubble elements -->
+            <div class="bubble bubble-1"></div>
+        </div>
 
         <div id="quiz-container">
             <!-- Quizzes will be dynamically inserted here -->
         </div>
-
-    <p>select the quiz level</p>
 
 
 </main>
@@ -59,7 +59,7 @@
     <div id="footer"></div> 
 
     <script src="quizzes.js"></script>
-    <script src="/navbar/nav.js"></script>
+    <script src="quizzes-nav.js"></script>
 
 </body>
 </html>
