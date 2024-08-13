@@ -1,27 +1,36 @@
+
+// for bubbles effects---------------------------------
 document.addEventListener("DOMContentLoaded", function() {
     const bubbleContainer = document.querySelector('.bubbles');
-    const quizContainer = document.getElementById('quiz-container');
+    const quizContainer = document.getElementById('quiz-container')
     const heading = document.getElementsByTagName('h1')[0]; // Get the first <h1> element
     const navLinks = document.querySelectorAll('.nav-menu a');
 
-    // Bubble effect code (unchanged)
     for (let i = 0; i < 50; i++) {
         const bubble = document.createElement('div');
         bubble.className = 'bubble';
-        const size = Math.random() * (80 - 20) + 20;
+
+        // Set random size
+        const size = Math.random() * (80 - 20) + 20; // Random size between 20px and 80px
         bubble.style.width = `${size}px`;
         bubble.style.height = `${size}px`;
-        const top = Math.random() * 100;
-        const left = Math.random() * 100;
+
+        // Set random position
+        const top = Math.random() * 100; // Random top position percentage
+        const left = Math.random() * 100; // Random left position percentage
         bubble.style.top = `${top}%`;
         bubble.style.left = `${left}%`;
+
+        // Set random color
         const color = `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.5)`;
         bubble.style.backgroundColor = color;
-        const duration = Math.random() * (30 - 10) + 10;
+
+        // Set random animation duration
+        const duration = Math.random() * (30 - 10) + 10; // Random duration between 10s and 30s
         bubble.style.animationDuration = `${duration}s`;
+
         bubbleContainer.appendChild(bubble);
     }
-
 
     // Function to initialize quiz-related JavaScript and for quizzes score and answer display
     function initQuizJS() {
@@ -85,6 +94,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    //function for adding active in the current url of the page
     function setActiveNavLink() {
         const urlParams = new URLSearchParams(window.location.search);
         const currentQuiz = urlParams.get('quiz');
@@ -99,11 +109,13 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+     // Function to load quiz content
     function loadQuiz(url, title, quizHeading) {
         fetch(url)
             .then(response => response.text())
             .then(data => {
                 quizContainer.innerHTML = data;
+                // Update the browser's session history 
                 history.pushState({ quizUrl: url, title: title, heading: quizHeading }, title, `?quiz=${encodeURIComponent(title)}`);
                 document.title = `Quiz - ${quizHeading || title || 'Stock Market'}`;
                 heading.textContent = `${quizHeading || title || 'Stock Market'}`;
@@ -116,11 +128,17 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
 
+    // Add click event listener to all navigation links
     navLinks.forEach(link => {
         link.addEventListener('click', function(event) {
             event.preventDefault();
+            // Remove active class from all links
             navLinks.forEach(link => link.classList.remove('active'));
+            // Add active class to the clicked link
             this.classList.add('active');
+
+
+            //getting the value/textcontent from the url
             const quizUrl = this.getAttribute('data-quiz');
             const quizHeading = this.textContent.trim();
             const quizTitle = quizHeading.replace(' ', '-').toLowerCase();
@@ -130,11 +148,30 @@ document.addEventListener("DOMContentLoaded", function() {
 
     window.addEventListener('popstate', (event) => {
         if (event.state && event.state.quizUrl) {
-            loadQuiz(event.state.quizUrl, event.state.title, event.state.heading);
+            // Load the quiz without pushing a new state
+            loadQuizWithoutPush(event.state.quizUrl, event.state.title, event.state.heading);
         }
         setActiveNavLink();
     });
+    
+    // New function to load quiz without pushing a new state
+    function loadQuizWithoutPush(url, title, quizHeading) {
+        fetch(url)
+            .then(response => response.text())
+            .then(data => {
+                quizContainer.innerHTML = data;
+                document.title = `Quiz - ${quizHeading || title || 'Stock Market'}`;
+                heading.textContent = `${quizHeading || title || 'Stock Market'}`;
+                setActiveNavLink();
+                initQuizJS();
+            })
+            .catch(error => {
+                console.error('Error loading quiz:', error);
+                quizContainer.innerHTML = '<p>Failed to load the quiz. Please try again later.</p>';
+            });
+    }
 
+     // Load the default quiz (if needed)
     const urlParams = new URLSearchParams(window.location.search);
     const initialQuiz = urlParams.get('quiz');
     const defaultLink = initialQuiz ? 
