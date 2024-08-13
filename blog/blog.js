@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Update active class on category list
         categoryList.querySelectorAll('li').forEach(li => {
             li.classList.remove('active');
-            if (li.getAttribute('data-category') === categorySlug) {
+            if (li.getAttribute('blog-category') === categorySlug) {
                 li.classList.add('active');
             }
         });
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
     categoryList.querySelectorAll('li').forEach(li => {
         li.addEventListener('click', (e) => {
             e.preventDefault();
-            const categorySlug = li.getAttribute('data-category');
+            const categorySlug = li.getAttribute('blog-category');
             displayPostsByCategory(categorySlug);
         });
     });
