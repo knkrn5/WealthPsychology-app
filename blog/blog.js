@@ -1,10 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const blogPosts = document.getElementById('blog-posts');
     const categoryList = document.getElementById('category-list');
-    // const apiUrl = '/.netlify/functions/fetch-blogs?_embed';
     const apiUrl = '/api/blogs';
 
-    
     const loadingContainer = document.createElement('div');
     loadingContainer.id = 'loading-container';
     loadingContainer.className = 'loading-indicator';
@@ -91,6 +89,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 console.log('Posts by Category:', postsByCategory);
 
+                // Update post counts in the category list
+                updatePostCounts();
+
                 // Get the category from URL or default to 'all'
                 const urlParams = new URLSearchParams(window.location.search);
                 const categoryFromUrl = urlParams.get('category') || 'all';
@@ -103,6 +104,18 @@ document.addEventListener('DOMContentLoaded', () => {
             .finally(() => {
                 loadingContainer.remove();
             });
+    }
+
+    function updatePostCounts() {
+        const allCount = postsByCategory['all'].length;
+        categoryList.querySelector('[blog-category="all"] .post-count').textContent = `(${allCount})`;
+
+        Object.entries(postsByCategory).forEach(([categorySlug, posts]) => {
+            const categoryItem = categoryList.querySelector(`[blog-category="${categorySlug}"]`);
+            if (categoryItem) {
+                categoryItem.querySelector('.post-count').textContent = `(${posts.length})`;
+            }
+        });
     }
 
     function displayPostsByCategory(categorySlug, page = 1) {
