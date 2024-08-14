@@ -83,49 +83,8 @@ header h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-label {
-    margin-bottom: 8px;
-    font-weight: bold;
-}
-
-input,
-textarea {
-    margin-bottom: 16px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 3px;
-}
-
-textarea {
-    max-width: 96%;
-}
-
-button {
-    background-color: #444;
-    color: #ffffffff;
-    padding: 10px;
-    cursor: pointer;
-    border: none;
-    width: 50%;
+#contact-form iframe{
     margin: 0 auto;
-    font-weight: bolder;
-    /* display: block; */
-}
-
-input:focus, 
-textarea:focus {
-    outline: none;
-    /* border: 2px solid #333; */
-    box-shadow: 0 0 10px #333;
-}
-
-button:hover {
-    background-color: #000;
 }
 
 
@@ -138,6 +97,10 @@ button:hover {
   
     textarea {
         max-width: 92%;
+    }
+   
+    #contact-form iframe{
+        max-width: 100%;
     }
 }
 
