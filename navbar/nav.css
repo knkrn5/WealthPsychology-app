@@ -44,11 +44,11 @@ nav ul li a {
   justify-content: center;
   color: #fff;
   text-align: center;
-  padding: 8px 16px;
+  padding: 6px 16px;
   border-radius: 10px;
   text-decoration: none;
   margin-right: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
   font-weight: bold;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out, transform 0.3s ease-in-out;
@@ -63,7 +63,7 @@ nav ul li a:hover {
 
 nav ul li .active {
   background-color: rgba(255, 255, 255, 0.2); /* Light white background */
-  padding: 8px 16px;
+  padding: 6px 16px;
   color: lightyellow;
   transform: scale(1.05); /* Slight zoom effect */
   text-decoration: underline;
