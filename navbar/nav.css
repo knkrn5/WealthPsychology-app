@@ -38,29 +38,37 @@ nav ul {
   height: 100px; 
 }
 
-
 nav ul li a {
   display: flex;
-  align-items: flex-end; /* Align text at the bottom */
-  justify-content: center; /* Center text horizontally */
+  align-items: flex-end;
+  justify-content: center;
   color: #fff;
   text-align: center;
-  padding: 14px 16px;
+  padding: 8px 16px;
+  border-radius: 10px;
   text-decoration: none;
-  margin-right: 5px;
+  margin-right: 10px;
+  margin-bottom: 5px;
   font-weight: bold;
-  transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out, transform 0.3s ease-in-out; 
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: color 0.3s ease-in-out, text-decoration 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 nav ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Light white background */
+  transform: scale(1.05); /* Slight zoom effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
   color: lightyellow;
-  transform: scale(1.05); 
 }
 
-nav ul li .active{
+nav ul li .active {
+  background-color: rgba(255, 255, 255, 0.2); /* Light white background */
+  padding: 8px 16px;
   color: lightyellow;
+  transform: scale(1.05); /* Slight zoom effect */
   text-decoration: underline;
 }
+
 
 
 /* Hamburger menu styles-------------------------------------------------- */
