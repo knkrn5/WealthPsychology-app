@@ -75,71 +75,97 @@ header {
   position: absolute;
   left: 100%;
   animation-name: scrollLeft;
-  animation-duration: 15s; /* Increased duration */
+  animation-duration: 15s; 
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
 .item1 a {
   text-decoration: none;
+  background: -webkit-linear-gradient(to right, navy, darkblue);
   background: linear-gradient(to right, navy, darkblue); /* Navy to Dark Blue */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
 }
 
 .item2 a {
   text-decoration: none;
+  background: -webkit-linear-gradient(to right, darkred, firebrick); 
   background: linear-gradient(to right, darkred, firebrick); /* Dark Red to Brick Red */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
 }
 
 .item3 a {
   text-decoration: none;
+  background: -webkit-linear-gradient(to right, darkgoldenrod, sienna); 
   background: linear-gradient(to right, darkgoldenrod, sienna); /* Dark Goldenrod to Sienna */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
 }
 
 .item4 a {
   text-decoration: none;
+  background: -webkit-linear-gradient(to right, darkgreen, olive); 
   background: linear-gradient(to right, darkgreen, olive); /* Dark Green to Olive */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
 }
 
 .item5 a {
   text-decoration: none;
+  background: -webkit-linear-gradient(to right, darkviolet, indigo); 
   background: linear-gradient(to right, darkviolet, indigo); /* Dark Violet to Indigo */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
 }
 
 .item6 a { 
   text-decoration: none;
+  background: -webkit-linear-gradient(to right, darkcyan, darkslategray); 
   background: linear-gradient(to right, darkcyan, darkslategray); /* Dark Cyan to Dark Slate Gray */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
 }
 
 .item7 a {
   text-decoration: none;
+  background: -webkit-linear-gradient(to right, midnightblue, darkslateblue); 
   background: linear-gradient(to right, midnightblue, darkslateblue); /* Midnight Blue to Dark Slate Blue */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
 }
 
 .item8 a {
   text-decoration: none;
+  background: -webkit-linear-gradient(to right, darkred, darkorange); 
   background: linear-gradient(to right, darkred, darkorange); /* Dark Red to Dark Orange */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
 }
 
 
-
-.item a:hover{
-  color: #000;
+.item a:hover {
+  background: none; /* Remove gradient background */
+  -webkit-background-clip: initial; /* Reset background clip */
+  color: #000; 
+  -webkit-text-fill-color: #000; 
 }
 
 @keyframes scrollLeft {
