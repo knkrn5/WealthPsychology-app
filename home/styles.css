@@ -5,10 +5,12 @@ html {
   scroll-padding-top: 130px; 
 }
 
-/* body styling ------------------------*/
+/* body */
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
+  padding: 0;
+  margin: 0;
   /* background: linear-gradient(135deg, #ddd8d0 0%, #b8b5ac 100% ); */
   
 }
@@ -24,6 +26,14 @@ header {
   z-index: 998; 
 }
 
+/* header h1 {
+  font-size: 2rem;
+  background: linear-gradient(to right, blue 0%, cyan 14.28%, orange 28.56%, red 42.84%, yellow 57.12%, brown 71.4%, green 85.68%, lightblue 100%);
+  background-clip: text;
+  color: transparent;
+  font-weight: bold;
+} */
+
 
 /* Navigation styles via global nav css */
 
@@ -32,22 +42,14 @@ header {
 /*css moving animations and styling */
 
 .wrapper {
-  /* border: 2px solid black; */
   /* z-index: 1000; */
-  margin-top: 20px;
   background-color: #ccc;
-  /* background-image: url('/home-page/imgs/bosmhp.webp'); */
-  background-size: cover;
-  background-position: center;
   width: 100%;
   margin-inline: auto;
   margin-top: 103px;
   height: 50px;
   position: relative;
   overflow: hidden;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
   mask-image: linear-gradient(
     to right,
    rgba(0,0,0,0),
@@ -68,7 +70,7 @@ header {
   align-items: center;
   text-align: center;
   justify-content: center;
-  font-weight: bold;
+  font-weight: bolder;
   border-radius: 10px;
   position: absolute;
   left: 100%;
@@ -78,13 +80,66 @@ header {
   animation-iteration-count: infinite;
 }
 
-.item a{
+.item1 a {
   text-decoration: none;
-  color: black;
+  background: linear-gradient(to right, navy, darkblue); /* Navy to Dark Blue */
+  background-clip: text;
+  color: transparent;
 }
 
+.item2 a {
+  text-decoration: none;
+  background: linear-gradient(to right, darkred, firebrick); /* Dark Red to Brick Red */
+  background-clip: text;
+  color: transparent;
+}
+
+.item3 a {
+  text-decoration: none;
+  background: linear-gradient(to right, darkgoldenrod, sienna); /* Dark Goldenrod to Sienna */
+  background-clip: text;
+  color: transparent;
+}
+
+.item4 a {
+  text-decoration: none;
+  background: linear-gradient(to right, darkgreen, olive); /* Dark Green to Olive */
+  background-clip: text;
+  color: transparent;
+}
+
+.item5 a {
+  text-decoration: none;
+  background: linear-gradient(to right, darkviolet, indigo); /* Dark Violet to Indigo */
+  background-clip: text;
+  color: transparent;
+}
+
+.item6 a { 
+  text-decoration: none;
+  background: linear-gradient(to right, darkcyan, darkslategray); /* Dark Cyan to Dark Slate Gray */
+  background-clip: text;
+  color: transparent;
+}
+
+.item7 a {
+  text-decoration: none;
+  background: linear-gradient(to right, midnightblue, darkslateblue); /* Midnight Blue to Dark Slate Blue */
+  background-clip: text;
+  color: transparent;
+}
+
+.item8 a {
+  text-decoration: none;
+  background: linear-gradient(to right, darkred, darkorange); /* Dark Red to Dark Orange */
+  background-clip: text;
+  color: transparent;
+}
+
+
+
 .item a:hover{
-  color: blue;
+  color: #000;
 }
 
 @keyframes scrollLeft {
@@ -96,14 +151,38 @@ header {
   }
 }
 
-.item1 { animation-delay: 0s; }
-.item2 { animation-delay: 1.875s; }
-.item3 { animation-delay: 3.75s; }
-.item4 { animation-delay: 5.625s; }
-.item5 { animation-delay: 7.5s; }
-.item6 { animation-delay: 9.375s; }
-.item7 { animation-delay: 11.25s; }
-.item8 { animation-delay: 13.125s; }
+.item1 {
+  animation-delay: 0s; 
+}
+
+.item2 {
+  animation-delay: 1.875s; 
+}
+
+.item3 {
+  animation-delay: 3.75s; 
+}
+
+.item4 {
+  animation-delay: 5.625s;
+}
+
+.item5 {
+  animation-delay: 7.5s; 
+}
+
+.item6 { 
+  animation-delay: 9.375s; 
+}
+
+.item7 {
+  animation-delay: 11.25s; 
+}
+
+.item8 {
+  animation-delay: 13.125s;
+}
+
 
 @media(max-width: 768px){
   @keyframes scrollLeft {
@@ -116,7 +195,7 @@ header {
   }
   .wrapper {
     width: 100%;
-    margin-top: 55px;
+    margin-top: 56px;
   }
 
   .item {
