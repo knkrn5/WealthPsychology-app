@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Attach event listeners to all radio buttons
         document.querySelectorAll('input[type="radio"]').forEach(radio => {
-            radio.addEventListener('change', checkAnswers);
+            radio.addEventListener('change', checkAnswers); //change is a event listener
         });
 
         // Function to check the answers
