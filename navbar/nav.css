@@ -171,7 +171,6 @@ opacity: 0;
 
 /*only for blog and finance-news page nav css */
 #blog-page nav ul,
-#blog-post-page nav ul,
 #finance-news-page nav ul, 
 #finance-insights-page nav ul {
   margin-top: -80px; 
@@ -179,7 +178,6 @@ opacity: 0;
 
 @media (max-width: 768px) {
   #blog-page .nav-menu,
-  #blog-post-page .nav-menu,
   #finance-news-page .nav-menu,
   #finance-insights-page .nav-menu{
     margin-top: 0px;
