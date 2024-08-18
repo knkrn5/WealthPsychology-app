@@ -3,28 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-   <!-- Google tag (gtag.js) for analytics-->
-   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D1L8LGWZ"></script>
-   <script>
-     window.dataLayer = window.dataLayer || [];
-     function gtag(){dataLayer.push(arguments);}
-     gtag('js', new Date());
-     gtag('config', 'G-L4D1L8LGWZ');
-   </script>
-
+ 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="finnews.css">
+    <link rel="stylesheet" href="news-article.css">
     <link rel="stylesheet" href="finnews-nav.css">
     <link rel="stylesheet" href="/footer/footer.css">
     <script src="/footer/footer.js" defer></script> 
     <link rel="icon" href="../global/icons/favicon.ico" type="image/x-icon"> 
 
-    <title>finance news - WealthPsychology</title>
-
+    <title>Finance News</title>
 </head>
-
-<body id="finance-news-page">
+<body id="full-news-article-page">
 
     <header>
         <nav>
@@ -40,17 +29,17 @@
               </a>
             </div>
          
-            <h1>Finance News</h1> 
+            <h1>News</h1> 
         
             <ul class="nav-menu">
               <li><a href="/index.html">Home</a></li>
               <li class="dropdown">
                 <a href="finance-news.html" class="active">Finance News <i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#market-updates" class="category-filter" data-category="market-updates">Market Updates <i class="fa-solid fa-angle-right"></i></a></li>
-                    <li><a href="#corporate-news" class="category-filter" data-category="corporate-news">Corporate News <i class="fa-solid fa-angle-right"></i></a></li>
-                    <li><a href="#economy" class="category-filter" data-category="economy">Economy <i class="fa-solid fa-angle-right"></i></a></li>
-                    <li><a href="#fintech" class="category-filter" data-category="fintech">FinTech <i class="fa-solid fa-angle-right"></i></a></li>
+                    <li><a href="/finance-news/finance-news.html?category=market-updates">Market Updates <i class="fa-solid fa-angle-right"></i></a></li>
+                    <li><a href="/finance-news/finance-news.html?category=corporate-news">Corporate News <i class="fa-solid fa-angle-right"></i></a></li>
+                    <li><a href="/finance-news/finance-news.html?category=economy">Economy <i class="fa-solid fa-angle-right"></i></a></li>
+                    <li><a href="/finance-news/finance-news.html?category=fintech">FinTech <i class="fa-solid fa-angle-right"></i></a></li>
                 </ul>
               </li>
               <li><a href="/blog/blog.html">Blog</a></li>
@@ -61,18 +50,13 @@
     </header>
 
     <main>
-      <div id="news-container" class="news-grid">
-        <div id="loading-container" class="loading-indicator">
-          <i class="fa-solid fa-spinner"></i>
-          <p>Loading...</p>
-        </div>
-        <!-- news content will be loaded here -->
-      </div>
+        <div id="news-container"></div>
+
     </main>
 
     <div id="footer"></div>
 
-    <script src="finnews.js"></script>
+    <script src="news-article.js"></script>
     <script src="finnews-nav.js"></script>
 
 </body>

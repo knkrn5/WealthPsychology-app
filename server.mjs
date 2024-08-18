@@ -2,6 +2,8 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import cors from 'cors';
+import axios from 'axios';
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -49,7 +51,6 @@ app.get('/api/blogs', async (req, res) => {
 });
 
 
-
 // Individual blog post route
 app.get('/api/blog/post/:slug?', async (req, res) => {
   const { slug } = req.params;
@@ -80,6 +81,47 @@ app.get('/api/blog/post/:slug?', async (req, res) => {
       return res.status(500).json({ error: 'Internal Server Error' });
   }
 });
+
+
+// Define the proxy endpoint for finnews news
+app.get('/api/finnews', async (req, res) => {
+  try {
+      // Fetch data from the WordPress API
+      const response = await axios.get('https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyfinnews.wordpress.com/posts?_embed');
+      res.json(response.data); // Send the data back to the client
+  } catch (error) {
+      console.error('Error fetching finance news:', error);
+      res.status(500).json({ message: 'Error fetching finance news' });
+  }
+});
+
+
+// Define the API endpoint for new article
+app.get('/api/news-article/:slug', async (req, res) => {
+  const { slug } = req.params;
+
+  if (!slug) {
+    return res.status(400).json({ error: 'Post slug is required' });
+  }
+
+  const fullPostUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyfinnews.wordpress.com/posts?slug=${encodeURIComponent(slug)}`;
+
+  try {
+    const response = await axios.get(fullPostUrl);
+    const posts = response.data;
+    
+    if (!Array.isArray(posts) || posts.length === 0) {
+      return res.status(404).json({ error: 'Post not found' });
+    }
+
+    res.json(posts[0]); // Send the first post found
+  } catch (error) {
+    console.error('Error fetching WordPress post:', error.message);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
+
 
 // Start the server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
