@@ -51,7 +51,7 @@ app.get('/api/blogs', async (req, res) => {
 
 
 // Individual blog post route
-app.get('/blog/post/:slug?', async (req, res) => {
+app.get('/api/blog/post/:slug?', async (req, res) => {
   const { slug } = req.params;
 
   // Log the slug to ensure it is being received correctly

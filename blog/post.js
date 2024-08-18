@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts/${postSlug}`;
-    const apiUrl = `/blog/post/${encodeURIComponent(postSlug)}`;
+    const apiUrl = `/api/blog/post/${encodeURIComponent(postSlug)}`;
 
      // Show loading indicator
      loadingContainer.style.display = 'block';
