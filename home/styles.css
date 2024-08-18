@@ -580,7 +580,7 @@ header {
 /* 920px  Mobile responsive styling */
 @media (max-width: 920px) {
   .central-line {
-    height: 1623px;
+    height: 1697px;
   }
 
   .content::before {
@@ -599,12 +599,12 @@ header {
   }
 
   .content:nth-child(odd) {
-    width: 320px;
-    margin-left: 420px;
+    width: 290px;
+    margin-left: 390px;
   }
   .content:nth-child(even) {
-    width: 320px;
-    margin-right: 420px;
+    width: 290px;
+    margin-right: 390px;
   }
  
   .content img {
@@ -614,8 +614,8 @@ header {
 
 
 
-/* 768px  Mobile responsive styling */
-@media (max-width: 768px) {
+/* 690px  Mobile responsive styling */
+@media (max-width: 690px) {
   .home-page {
     padding: 30px 10px;
     max-width: 100%;
