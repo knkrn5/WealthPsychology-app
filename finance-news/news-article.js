@@ -3,6 +3,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
     const postSlug = urlParams.get('post');
 
+    const loadingContainer = document.createElement('div');
+    loadingContainer.id = 'loading-container';
+    loadingContainer.className = 'loading-indicator';
+    loadingContainer.innerHTML = '<i class="fa-solid fa-spinner"></i><p>Loading...</p>';
+    newsContainer.appendChild(loadingContainer);
+
     if (postSlug) {
         loadFullNewsArticle(postSlug);
     } else {
@@ -46,6 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => {
                 console.error('Error fetching full post:', error);
                 newsContainer.innerHTML = '<p>Failed to load the full article. Please try again later.</p>';
+            })
+            .finally(() => {
+                loadingContainer.remove();
             });
     }
 });
