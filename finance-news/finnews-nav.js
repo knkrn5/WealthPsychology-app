@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //function to open the dropdown when clicked on the finance news
     function handleNavLinkClick(event) {
-        if (window.innerWidth <= 1300) {
+        if (window.innerWidth <= 768) {
             if (this === financeNewsLink) {
                 event.preventDefault();
                 dropdownMenu.classList.toggle('active');
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     //funtion to add the active on the dropdown list links
     function addMobileClickListeners() {
-        if (window.innerWidth <= 1300) {
+        if (window.innerWidth <= 768) {
             const dropdowns = document.querySelectorAll('.dropdown > a');
             dropdowns.forEach(dropdown => {
                 dropdown.addEventListener('click', function(e) {
