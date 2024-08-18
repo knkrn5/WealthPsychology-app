@@ -1,0 +1,71 @@
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* full Body styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    text-align: center;
+    padding: 0;
+    position: relative; 
+    top: 0;
+    left: 0;
+    min-width: 100%; 
+    z-index: 998;
+}
+
+header h1 {
+    font-size: 30px;
+    /* padding: 1rem; */
+    /* margin-top: 40px; */
+    color: #fff;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 40px;
+}
+
+@media (max-width: 1200px) {
+    header h1 {
+        margin-top: 0px;
+        margin-left: 75px;
+        font-size: 1.5rem;
+        /* padding: 1rem; */
+        color: #fff;
+        font-weight: bold;
+    }
+}
+
+
+/* finance-nav styling via  finance-nav.css*/
+
+
+/* General Styles for Main Section */
+main {
+    padding: 20px;
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    color: #333;
+  }
+  
+  /* Heading Styles */
+  h2 {
+    text-align: center;
+    font-size: 3em;
+    color: #0073b1; /* LinkedIn blue */
+    margin-top: 100px;
+    margin-bottom: 30px;
+    background: linear-gradient(to right, #0073b1, #00aaff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+ 
+
+/* Footer styles via global footer css */
