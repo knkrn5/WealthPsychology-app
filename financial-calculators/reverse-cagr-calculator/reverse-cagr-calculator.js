@@ -14,7 +14,7 @@ document.getElementById('reverse-cagr-form').addEventListener('submit', function
     const resultTable = document.querySelector('#reverse-cagr-calculator-container .result').querySelectorAll('td');
 
     resultTable[1].textContent = `₹${startingValue.toFixed(2)}`;
-    resultTable[3].textContent = `${timePeriod} Period(s)`;
+    resultTable[3].textContent = `${timePeriod}`;
     resultTable[5].textContent = `${(interestRate * 100).toFixed(2)}%`;
     resultTable[7].textContent = `₹${futureValue.toFixed(2)}`;
 });

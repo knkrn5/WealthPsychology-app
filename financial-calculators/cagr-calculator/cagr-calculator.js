@@ -15,7 +15,7 @@ document.getElementById('cagr-form').addEventListener('submit', function(event) 
 
     resultTable[1].textContent = `₹${startingValue.toFixed(2)}`;
     resultTable[3].textContent = `₹${endingValue.toFixed(2)}`;
-    resultTable[5].textContent = `${timePeriod} Period(s)`;
+    resultTable[5].textContent = `${timePeriod}`;
     resultTable[7].textContent = `${(cagr * 100).toFixed(2)}%`;
 });
 
