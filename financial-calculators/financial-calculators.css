@@ -59,7 +59,7 @@ header h1 {
 .financial-calculators-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 80px;
+    gap: 70px;
     max-width: 900px;
     margin: 0 auto;
     justify-content: center;
