@@ -15,52 +15,69 @@
 
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- <link rel="stylesheet" href="finance-nav.css"> -->
     <link rel="stylesheet" href="/navbar/nav.css">
-    <link rel="stylesheet" href="financial-calculators.css">
-    <link rel="stylesheet" href="/footer/footer.css">
-    <script src="/footer/footer.js" defer></script> 
+    <link rel="stylesheet" href="/layouts/footer/footer.css">
+    <script src="/layouts/footer/footer.js" defer></script> 
 
-    <title>Financial Calculators - WealthPsychology</title>
+    <link rel="stylesheet" href="financial-calculators.css">
     <link rel="icon" href="../global/icons/favicon.ico" type="image/x-icon"> 
+    <title>Financial Calculators - WealthPsychology</title>
 </head>
 <body id="finance-insights-page">
 <header> 
-  <nav>
-    <div class="menu-toggle" id="mobile-menu">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-       
-    <div class="brand-logo-container">
-      <a href="/index.html" class="home-nav">
-        <img src="/global/imgs/logo.webp" alt="Brand Logo" class="brand-logo">
-      </a>
-    </div>
+    <nav>
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+        
+      <div class="brand-logo-container">
+        <a href="/index.html" class="home-nav">
+          <img src="/global/imgs/logo.webp" alt="Brand Logo" class="brand-logo">
+        </a>
+      </div>
 
-    <h1>Financial Calculators</h1>
+      <h1>Financial Calculators</h1>
 
-    <ul class="nav-menu">
-      <li><a href="/index.html" >Home</a></li>
-      <li><a href="/finance-news/finance-news.html">Finance News</a></li>
-      <li><a href="/blog/blog.html" >Blog</a></li>
-      <li><a href="finance-insights.html" class="active">Financial Calculators</a></li>
-      <li><a href="/our-plans/plans.html">Our Plans</a></li>
-    </ul>
-  </nav>
+      <ul class="nav-menu">
+        <li><a href="/index.html" >Home</a></li>
+        <li><a href="/finance-news/finance-news.html">Finance News</a></li>
+        <li><a href="/blog/blog.html" >Blog</a></li>
+        <li><a href="financial-calculators.html" class="active">Financial Calculators</a></li>
+        <li><a href="/our-plans/plans.html">Our Plans</a></li>
+      </ul>
+    </nav>
 
 </header>   
 
-<main>
-     <h2>calculate different interest rates</h2>
+      <main>
+        <div id="financial-calculators-container" class="financial-calculators-grid">
+                <a href="/financial-calculators/simple-interest-calculator/simple-interest-calculator.html">
+                    <img src="/financial-calculators/imgs/si.webp" alt="Simple Interest Calculator">
+                </a>
+                <a href="/financial-calculators/reverse-simple-interest-calculator/reverse-simple-interest-calculator.html">
+                    <img src="/financial-calculators/imgs/recerse si.webp" alt="Reverse Simple Interest Calculator">
+                </a>
+                <a href="/financial-calculators/cagr-calculator/cagr-calculator.html">
+                    <img src="/financial-calculators/imgs/cagr.webp" alt="CAGR Calculator">
+                </a>
+                <a href="/financial-calculators/reverse-cagr-calculator/reverse-cagr-calculator.html">
+                    <img src="/financial-calculators/imgs/reverse cagr.webp" alt="Reverse CAGR Calculator">
+                </a>
+                <a href="si.html" onclick="alert('Coming Soon!'); return false;">
+                  <img src="/financial-calculators/imgs/sip.webp" alt="SIP Calculator">
+                </a>
+                <a href="si.html" onclick="alert('Coming Soon!'); return false;">
+                  <img src="/financial-calculators/imgs/lumpsum.webp" alt="Lumpsum Calculator">
+                </a>
+              
+        </div>
 
-   
+      </main>
 
-</main>
-
-<!-- footer html via global footer html--------------------------------------------- --->
-<div id="footer"></div> 
+  <!-- footer via layouts--->
+  <div id="footer"></div> 
 
 <script src="financial-calculators.js"></script>
 <script src="/navbar/nav.js"></script>
