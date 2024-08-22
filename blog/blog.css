@@ -276,6 +276,11 @@ body {
       grid-column: 1;
       padding-right: 20px;
     }
+
+    .left-column .article img {
+      height: 150px; 
+      width: auto;
+  }
     
     .blog-container .right-column {
       grid-column: 2;
@@ -316,7 +321,7 @@ body {
   }
 
  .left-column .article img {
-      height: 120px; 
+      height: 150px; 
       width: auto;
       /* object-fit: cover;
       object-position: center; */
