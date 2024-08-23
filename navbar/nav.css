@@ -172,14 +172,14 @@ opacity: 0;
 /*only for blog and finance-news page nav css */
 #blog-page nav ul,
 #finance-news-page nav ul, 
-#finance-insights-page nav ul {
+#financial-calculators-page nav ul {
   margin-top: -80px; 
 }
 
 @media (max-width: 768px) {
   #blog-page .nav-menu,
   #finance-news-page .nav-menu,
-  #finance-insights-page .nav-menu{
+  #financial-calculators-page .nav-menu{
     margin-top: 0px;
   }
 }
