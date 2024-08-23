@@ -160,7 +160,7 @@ header {
 
 
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
   #news-container{
     margin-top: 55px;
   }
