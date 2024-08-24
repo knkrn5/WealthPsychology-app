@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <article class="full-news-article">
                             <h2 class="full-news-article-title">${post.title.rendered}</h2>
                             <div class="full-news-article-content">${post.content.rendered}</div>
-                            <a href="finance-news.html" class="back">Back</a>
+                            <a href="finance-news.html" class="back"><i class="fa-solid fa-caret-left"></i>Back</a>
                         </article>
                     </div>
                 `;
