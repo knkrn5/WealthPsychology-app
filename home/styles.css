@@ -209,8 +209,45 @@ header {
   animation-delay: 13.125s;
 }
 
+@media (max-width: 1300px) {
+  @keyframes scrollLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-210vw); /* For medium screens */
+    }
+  }
+}
 
-@media(max-width: 768px){
+@media (max-width: 850px) {
+  @keyframes scrollLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-270vw); /* For medium screens */
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  @keyframes scrollLeft {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-300vw); /* For medium screens */
+    }
+  }
+  .wrapper {
+    width: 100%;
+    margin-top: 55px;
+  }
+}
+
+
+@media(max-width: 480px){
   @keyframes scrollLeft {
     0% {
       transform: translateX(0);
