@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'ipo': ['ipo analysis'],
         'mutual-funds': ['mutual fund analysis'],
         'personal-finance': ['personal finance'],
-        'stock-market': ['stock market blogsdefault'],
         'technical-analysis': ['technical analysis'],
         'union-budget': ['union budget 2024']
     };
