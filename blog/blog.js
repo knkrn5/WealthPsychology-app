@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p class="blog-author">Post by: ${post._embedded.author[0].name || 'Author Name'}</p>
                         <img src="${imageUrl}" alt="${post.title.rendered}">
                         <div>${post.excerpt.rendered}</div>
-                        <a href="post.html?${encodeURIComponent(post.slug)}" class="read-more">Read More...</a>
-                    `;
+                        <a href="/blog/post/${encodeURIComponent(post.slug)}" class="read-more">Read More...</a>
+                   `;
                     
                     postsByCategory['all'].push(article);
 

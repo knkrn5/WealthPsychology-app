@@ -14,6 +14,12 @@ const PORT = process.env.PORT || 55555;
 // Enable CORS for all routes //CORS (Cross-Origin Resource Sharing) is required when you want to make requests between different domains or subdomains.
 app.use(cors());
 
+// Set EJS as the view engine
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
+
+
 // Serve files from the root directory  - so this is the one that serves all the file from the root directory
 app.use(express.static(path.join(__dirname)));
 
@@ -22,10 +28,6 @@ app.use(express.static(path.join(__dirname)));
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/blog', express.static(path.join(__dirname, 'blog')));
 
-
-// Set EJS as the view engine
-/* app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views')); */
 
 //index route
 /* app.get('/', (req, res) => {
@@ -51,36 +53,56 @@ app.get('/api/blogs', async (req, res) => {
 });
 
 
-// Individual blog post route
-app.get('/api/blog/post/:slug?', async (req, res) => {
+// Individual blog post route and ------
+function decodeHtmlEntities(str) {
+  return str.replace(/&#([0-9]{1,4});/g, function(match, dec) {
+      return String.fromCharCode(dec);
+  }).replace(/&nbsp;/g, ' '); // Replace &nbsp; with a normal space
+}
+
+app.get('/blog/post/:slug?', async (req, res) => {
   const { slug } = req.params;
 
-  // Log the slug to ensure it is being received correctly
-  console.log("Received slug:", slug);
-
   if (!slug) {
-      return res.status(400).json({ error: 'Post slug is required' });
+      return res.status(400).render('error', { message: 'Post slug is required' });
   }
 
-  const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts?slug=${encodeURIComponent(slug)}`;
+  const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts?slug=${encodeURIComponent(slug)}&_embed`;
 
   try {
       const response = await fetch(apiUrl);
       if (!response.ok) {
-          return res.status(response.status).json({ error: 'Error fetching post from WordPress API' });
+          return res.status(response.status).render('error', { message: 'Error fetching post from WordPress API' });
       }
 
       const posts = await response.json();
       if (!Array.isArray(posts) || posts.length === 0) {
-          return res.status(404).json({ error: 'Post not found' });
+          return res.status(404).render('error', { message: 'Post not found' });
       }
 
-      return res.status(200).json(posts[0]);
+      const post = posts[0];
+      const decodedTitle = decodeHtmlEntities(post.title.rendered);
+
+      res.render('components/post/post', { 
+          post: {
+              title: { rendered: decodedTitle },
+              content: { rendered: decodeHtmlEntities(post.content.rendered) },
+              date: post.date
+          },
+          title: decodedTitle,
+          metaDescription: post.excerpt.rendered.replace(/(<([^>]+)>)/gi, "").slice(0, 160),
+          metaKeywords: post.tags ? post.tags.join(', ') : 'finance, wealth, psychology',
+          metaUrl: req.protocol + '://' + req.get('host') + req.originalUrl
+      });
 
   } catch (error) {
-      return res.status(500).json({ error: 'Internal Server Error' });
+      console.error('Error:', error);
+      return res.status(500).render('error', { message: 'Internal Server Error' });
   }
 });
+
+
+
 
 
 // Define the proxy endpoint for finnews news
@@ -121,7 +143,7 @@ app.get('/api/news-article/:slug', async (req, res) => {
   }
 });
 
-
+// console.log('restart')
 
 // Start the server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
