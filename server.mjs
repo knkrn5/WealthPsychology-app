@@ -29,12 +29,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/blog', express.static(path.join(__dirname, 'blog')));
 
 
-//index route
-/* app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-}); */
-
-
 // Proxy route for fetching blogs 
 app.get('/api/blogs', async (req, res) => {
   try {
@@ -64,45 +58,55 @@ app.get('/blog/post/:slug?', async (req, res) => {
   const { slug } = req.params;
 
   if (!slug) {
-      return res.status(400).render('error', { message: 'Post slug is required' });
+    return res.status(400).render('error', { message: 'Post slug is required' });
   }
 
   const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts?slug=${encodeURIComponent(slug)}&_embed`;
 
   try {
-      const response = await fetch(apiUrl);
-      if (!response.ok) {
-          return res.status(response.status).render('error', { message: 'Error fetching post from WordPress API' });
+    const response = await fetch(apiUrl);
+    if (!response.ok) {
+      return res.status(response.status).render('error', { message: 'Error fetching post from WordPress API' });
+    }
+
+    const posts = await response.json();
+    console.log('API Response:', posts);
+
+    if (!Array.isArray(posts) || posts.length === 0) {
+      return res.status(404).render('error', { message: 'Post not found' });
+    }
+
+    const post = posts[0];
+    let tags = [];
+
+    // Check if reader_suggested_tags is present and parse it
+    if (post.reader_suggested_tags) {
+      try {
+        tags = JSON.parse(post.reader_suggested_tags);
+      } catch (e) {
+        console.error('Error parsing tags:', e);
       }
+    }
 
-      const posts = await response.json();
-      if (!Array.isArray(posts) || posts.length === 0) {
-          return res.status(404).render('error', { message: 'Post not found' });
-      }
+    const metaKeywords = tags.length > 0 ? tags.join(', ') : 'finance, wealth, psychology';
+    const decodedTitle = decodeHtmlEntities(post.title.rendered);
 
-      const post = posts[0];
-      const decodedTitle = decodeHtmlEntities(post.title.rendered);
-
-      res.render('components/post/post', { 
-          post: {
-              title: { rendered: decodedTitle },
-              content: { rendered: decodeHtmlEntities(post.content.rendered) },
-              date: post.date
-          },
-          title: decodedTitle,
-          metaDescription: post.excerpt.rendered.replace(/(<([^>]+)>)/gi, "").slice(0, 160),
-          metaKeywords: post.tags ? post.tags.join(', ') : 'finance, wealth, psychology',
-          metaUrl: req.protocol + '://' + req.get('host') + req.originalUrl
-      });
-
+    res.render('components/post/post', {
+      post: {
+        title: { rendered: decodedTitle },
+        content: { rendered: decodeHtmlEntities(post.content.rendered) },
+        date: post.date
+      },
+      title: decodedTitle,
+      metaDescription: post.excerpt.rendered.replace(/(<([^>]+)>)/gi, "").slice(0, 160),
+      metaKeywords: metaKeywords,
+      metaUrl: req.protocol + '://' + req.get('host') + req.originalUrl
+    });
   } catch (error) {
-      console.error('Error:', error);
-      return res.status(500).render('error', { message: 'Internal Server Error' });
+    console.error('Error:', error);
+    return res.status(500).render('error', { message: 'Internal Server Error' });
   }
 });
-
-
-
 
 
 // Define the proxy endpoint for finnews news
