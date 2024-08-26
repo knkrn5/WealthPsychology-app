@@ -51,9 +51,6 @@ app.get('/blog', async (req, res) => {
     });
 
     res.render('components/blog/blog', {
-      title: 'Blog - WealthPsychology',
-      metaDescription: "Your dynamic meta description here",
-      metaKeywords: "blog, finance, wealth, psychology",
       posts: posts,
     
     });
