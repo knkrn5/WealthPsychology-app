@@ -30,21 +30,39 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 // Proxy route for fetching blogs 
-app.get('/api/blogs', async (req, res) => {
+app.get('/blog', async (req, res) => {
   try {
     const apiUrl = 'https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts?_embed';
-    const response = await fetch(apiUrl);
+    const response = await axios.get(apiUrl);
     
-    if (!response.ok) {
-      return res.status(response.status).json({ error: 'Error fetching posts' });
-    }
+    const posts = response.data.map(post => {
+      const categories = post._embedded['wp:term']
+        .flat()
+        .filter(term => term.taxonomy === 'category')
+        .map(category => category.slug);
     
-    const posts = await response.json();
-    res.status(200).json(posts);
+      return {
+        ...post,
+        categories: categories,
+        featuredImageUrl: post._embedded?.['wp:featuredmedia']?.[0]?.media_details?.sizes?.medium?.source_url
+          || post._embedded?.['wp:featuredmedia']?.[0]?.source_url
+          || 'https://default-image-url.jpg'
+      };
+    });
+
+    res.render('components/blog/blog', {
+      title: 'Blog - WealthPsychology',
+      metaDescription: "Your dynamic meta description here",
+      metaKeywords: "blog, finance, wealth, psychology",
+      posts: posts,
+    
+    });
   } catch (error) {
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error('Error fetching posts:', error.message);
+    res.status(500).send('Internal Server Error');
   }
 });
+
 
 
 // Individual blog post route and ------
