@@ -11,6 +11,7 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 55555;
 
+
 // Enable CORS for all routes
 app.use(cors());
 
@@ -89,7 +90,7 @@ app.get('/blog/post/:slug?', async (req, res) => {
     const metaKeywords = tags.length > 0 ? tags.join(', ') : 'finance, wealth, psychology';
     const decodedTitle = decode(post.title.rendered);
     const decodedContent = decode(post.content.rendered);
-    const metaDescription = decode(post.excerpt.rendered).replace(/(<([^>]+)>)/gi, "").slice(0, 160);
+    const metaDescription = decode(post.excerpt.rendered).replace(/(<([^>]+)>)/gi, "").slice(0, 200);
 
     // Determine the protocol
     const protocol = req.headers['x-forwarded-proto'] || req.protocol;
@@ -141,14 +142,12 @@ app.get('/news-article/:postSlug', async (req, res) => {
     const post = {
       title: decode(data[0].title.rendered), // Decode the title
       content: decode(data[0].content.rendered), // Decode the content
-      description: decode(data[0].excerpt.rendered), // Decode the description/excerpt
+      description: decode(data[0].excerpt.rendered).replace(/(<([^>]+)>)/gi, "").slice(0, 160), // Decode and trim the description/excerpt
       keywords: 'Finance News, Stock Market, Corporate Financial News, Market Updates, FinTech, Economic Insights, WealthPsychology',
-      author: 'WealthPsychology, karan',
+      author: 'WealthPsychology, Karan',
       imageUrl: '/global/imgs/logo.webp',
-      
-      // Determine the protocol
-      url: `${req.protocol}://${req.get('host')}${req.originalUrl}`.replace(/^http:/, 'https:') // Replace http with https
-    };
+      url: `${req.protocol}://${req.get('host')}${req.originalUrl}`.replace(/^http:/, 'https:')
+    };    
 
     res.render('components/finance-news/news-article', { post });
   } catch (error) {
