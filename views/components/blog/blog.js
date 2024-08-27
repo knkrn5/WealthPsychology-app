@@ -38,23 +38,16 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    function displayPostsByCategory(categorySlug, page = 1, append = false) {
+    function displayPostsByCategory(categorySlug, page = 1) {
         const categoryPosts = postsByCategory[categorySlug] || [];
         const startIndex = (page - 1) * postsPerPage;
         const endIndex = startIndex + postsPerPage;
         const postsToShow = categoryPosts.slice(startIndex, endIndex);
         
-        if (!append) {
-            blogPosts.innerHTML = categoryPosts.length ? '' : '<p>No posts available for this category.</p>';
-        }
+        // Clear previous content
+        blogPosts.innerHTML = categoryPosts.length ? '' : '<p>No posts available for this category.</p>';
         
         postsToShow.forEach(article => blogPosts.appendChild(article.cloneNode(true)));
-        
-        // Remove existing navigation buttons
-        const existingNavigation = blogPosts.querySelector('.navigation-buttons');
-        if (existingNavigation) {
-            existingNavigation.remove();
-        }
         
         // Navigation buttons
         const navigationDiv = document.createElement('div');
@@ -64,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const seeLessButton = document.createElement('button');
             seeLessButton.textContent = 'See Less';
             seeLessButton.className = 'see-less-button';
-            seeLessButton.addEventListener('click', () => displayPostsByCategory(categorySlug, 1));
+            seeLessButton.addEventListener('click', () => displayPostsByCategory(categorySlug, page - 1));
             navigationDiv.appendChild(seeLessButton);
         }
         
@@ -72,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const seeMoreButton = document.createElement('button');
             seeMoreButton.textContent = 'See More';
             seeMoreButton.className = 'see-more-button';
-            seeMoreButton.addEventListener('click', () => displayPostsByCategory(categorySlug, page + 1, true));
+            seeMoreButton.addEventListener('click', () => displayPostsByCategory(categorySlug, page + 1));
             navigationDiv.appendChild(seeMoreButton);
         }
         
