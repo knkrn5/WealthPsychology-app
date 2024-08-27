@@ -11,8 +11,6 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 55555;
 
-app.set('trust proxy', true);
-
 // Enable CORS for all routes
 app.use(cors());
 
