@@ -31,7 +31,7 @@
     <meta property="og:title" content="<%= title %>">
     <meta property="og:description" content="<%= metaDescription %>">
     <meta property="og:image" content="https://wealthpsychology.in/global/imgs/logo.webp">
-    <meta property="og:url" content="<%= metaUrl %>">
+    <meta property="og:url" content="<%= blogUrl %>">
     <meta property="og:type" content="website">
 
     <!-- Twitter Card Meta Tags -->
@@ -39,11 +39,11 @@
     <meta name="twitter:title" content="<%= title %>">
     <meta name="twitter:description" content="<%= metaDescription %>">
     <meta name="twitter:image" content="https://wealthpsychology.in/global/imgs/logo.webp">
-    <meta name="twitter:url" content="<%= metaUrl %>">
+    <meta name="twitter:url" content="<%= blogUrl %>">
     <meta name="twitter:site" content="@ka_r_an5">
 
      <!-- Canonical Link -->
-     <link rel="canonical" href="<%= metaUrl %>">
+     <link rel="canonical" href="<%= blogUrl %>">
 
       <!-- Additional Meta Tags -->
     <meta name="apple-mobile-web-app-capable" content="yes">
@@ -67,7 +67,7 @@
               <h2><%= post.title.rendered.replace(/&nbsp;/g, ' ') %></h2> <!-- Replace &nbsp; with a space -->
               <p>Published on: <%= new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) %></p>
               <div><%- post.content.rendered.replace(/&nbsp;/g, ' ') %></div> <!-- Replace &nbsp; with a space in the content -->
-              <a href="/blog" class="back"><i class="fa-solid fa-caret-left"></i>Back</a>
+              <a href="/blog/blog.html" class="back"><i class="fa-solid fa-caret-left"></i>Back</a>
             </article>
             
           

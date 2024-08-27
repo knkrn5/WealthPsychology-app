@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Dynamic SEO Meta Tags -->
+    <meta name="description" content="<%= post.description %>">
+    <meta name="keywords" content="<%= post.keywords %>">
+    <meta name="author" content="<%= post.author %>">
+    <meta name="robots" content="index, follow">
+
+    <!-- Dynamic Open Graph Meta Tags -->
+    <meta property="og:title" content="<%= post.title %>">
+    <meta property="og:description" content="<%= post.description %>">
+    <meta property="og:image" content="<%= post.imageUrl %>">
+    <meta property="og:url" content="<%= post.url %>">
+    <meta property="og:type" content="article">
+
+    <!-- Dynamic Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= post.title %>">
+    <meta name="twitter:description" content="<%= post.description %>">
+    <meta name="twitter:image" content="<%= post.imageUrl %>">
+    <meta name="twitter:site" content="@ka_r_an5">
+
+    <!-- Canonical Meta Tag -->
+    <link rel="canonical" href="<%= post.url %>">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D1L8LGWZ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-L4D1L8LGWZ');
+    </script>
+ 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/views/components/finance-news/news-article.css">
+    <link rel="stylesheet" href="/finance-news/finnews-nav.css">
+    <link rel="stylesheet" href="/layouts/footer/footer.css">
+    <script src="/layouts/footer/footer.js" defer></script> 
+    <link rel="icon" href="../global/icons/favicon.ico" type="image/x-icon"> 
+
+    <title><%= post.title %></title>
+</head>
+<body id="full-news-article-page">
+
+    <header>
+        <nav>
+            <div class="menu-toggle" id="menu-bars">
+              <span class="bar"></span>
+              <span class="bar"></span>
+              <span class="bar"></span>
+            </div>
+               
+            <div class="brand-logo-container">
+              <a href="/index.html" class="home-nav">
+                <img src="/global/imgs/logo.webp" alt="Brand Logo" class="brand-logo">
+              </a>
+            </div>
+         
+            <h1>News</h1> 
+        
+            <ul class="nav-menu">
+              <li><a href="/index.html">Home</a></li>
+              <li class="dropdown">
+                <a href="/finance-news/finance-news.html" class="active">Finance News <i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="/finance-news/finance-news.html?category=market-updates">Market Updates <i class="fa-solid fa-angle-right"></i></a></li>
+                    <li><a href="/finance-news/finance-news.html?category=corporate-news">Corporate News <i class="fa-solid fa-angle-right"></i></a></li>
+                    <li><a href="/finance-news/finance-news.html?category=economy">Economy <i class="fa-solid fa-angle-right"></i></a></li>
+                    <li><a href="/finance-news/finance-news.html?category=fintech">FinTech <i class="fa-solid fa-angle-right"></i></a></li>
+                </ul>
+              </li>
+              <li><a href="/blog">Blog</a></li>
+              <li><a href="/financial-calculators/financial-calculators.html">Financial Calculators</a></li>
+              <li><a href="/our-plans/plans.html">Our Plans</a></li>
+            </ul>
+          </nav>
+    </header>
+
+    <main>
+        <div id="news-container">
+            <div class="news-article-container">
+                <article class="full-news-article">
+                    <h2 class="full-news-article-title"><%- post.title %></h2>
+                    <div class="full-news-article-content"><%- post.content %></div>
+                    <a href="finance-news.html" class="back"><i class="fa-solid fa-caret-left"></i>Back</a>
+                </article>
+            </div>
+        </div>
+    </main>
+
+    <!-- footer via layouts -->
+    <div id="footer"></div>
+
+    <script src="/views/components/finance-news/news-article.js"></script>
+    <script src="/finance-news/finnews-nav.js"></script>
+
+</body>
+</html>

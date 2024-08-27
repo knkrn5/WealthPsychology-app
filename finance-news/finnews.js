@@ -165,7 +165,8 @@ document.addEventListener('DOMContentLoaded', () => {
             article.addEventListener('click', (e) => {
                 e.preventDefault();
                 const postSlug = article.dataset.slug;
-                window.location.href = `/finance-news/news-article.html?post=${postSlug}`;
+                // window.location.href = `/finance-news/news-article.html?post=${postSlug}`;
+                window.location.href = `/news-article/${postSlug}`;
             });
         });
     }
