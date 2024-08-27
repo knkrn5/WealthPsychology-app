@@ -11,6 +11,8 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 55555;
 
+app.set('trust proxy', true);
+
 // Enable CORS for all routes
 app.use(cors());
 
@@ -91,6 +93,10 @@ app.get('/blog/post/:slug?', async (req, res) => {
     const decodedContent = decode(post.content.rendered);
     const metaDescription = decode(post.excerpt.rendered).replace(/(<([^>]+)>)/gi, "").slice(0, 160);
 
+    // Determine the protocol
+    const protocol = req.headers['x-forwarded-proto'] || req.protocol;
+    const fullUrl = `${protocol}://${req.get('host')}${req.originalUrl}`;
+
     res.render('components/post/post', {
       post: {
         title: { rendered: decodedTitle },
@@ -100,13 +106,14 @@ app.get('/blog/post/:slug?', async (req, res) => {
       title: decodedTitle,
       metaDescription: metaDescription,
       metaKeywords: metaKeywords,
-      blogUrl: `${req.protocol}://${req.get('host')}${req.originalUrl}`
+      blogUrl: fullUrl.replace(/^http:/, 'https:') // Replace http with https
     });
   } catch (error) {
     console.error('Error:', error);
     return res.status(500).render('error', { message: 'Internal Server Error' });
   }
 });
+
 
 // Define the proxy endpoint for finance news
 app.get('/api/finnews', async (req, res) => {
@@ -119,6 +126,7 @@ app.get('/api/finnews', async (req, res) => {
     res.status(500).json({ message: 'Error fetching finance news' });
   }
 });
+
 
 // Define the API endpoint for new article
 app.get('/news-article/:postSlug', async (req, res) => {
@@ -139,7 +147,9 @@ app.get('/news-article/:postSlug', async (req, res) => {
       keywords: 'Finance News, Stock Market, Corporate Financial News, Market Updates, FinTech, Economic Insights, WealthPsychology',
       author: 'WealthPsychology, karan',
       imageUrl: '/global/imgs/logo.webp',
-      url: `${req.protocol}://${req.get('host')}${req.originalUrl}`
+      
+      // Determine the protocol
+      url: `${req.protocol}://${req.get('host')}${req.originalUrl}`.replace(/^http:/, 'https:') // Replace http with https
     };
 
     res.render('components/finance-news/news-article', { post });
@@ -148,6 +158,7 @@ app.get('/news-article/:postSlug', async (req, res) => {
     res.status(500).send('Failed to load the article. Please try again later.');
   }
 });
+
 
 // Start the server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
