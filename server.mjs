@@ -145,7 +145,7 @@ app.get('/news-article/:postSlug', async (req, res) => {
       description: decode(data[0].excerpt.rendered).replace(/(<([^>]+)>)/gi, "").slice(0, 160), // Decode and trim the description/excerpt
       keywords: 'Finance News, Stock Market, Corporate Financial News, Market Updates, FinTech, Economic Insights, WealthPsychology',
       author: 'WealthPsychology, Karan',
-      imageUrl: '/global/imgs/logo.webp',
+      imageUrl: 'https://wealthpsychology.in/global/imgs/logo.webp',
       url: `${req.protocol}://${req.get('host')}${req.originalUrl}`.replace(/^http:/, 'https:')
     };    
 
