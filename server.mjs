@@ -115,7 +115,7 @@ app.get('/blog/post/:slug?', async (req, res) => {
 
 
 // Define the proxy endpoint for finance news
-app.get('/api/finnews', async (req, res) => {
+app.get('/finnews', async (req, res) => {
   try {
     // Fetch data from the WordPress API
     const response = await axios.get('https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyfinnews.wordpress.com/posts?_embed');

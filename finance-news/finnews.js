@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const newsContainer = document.getElementById('news-container');
     const loadingContainer = document.getElementById('loading-container');
-    //const apiUrl = 'https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyfinnews.wordpress.com/posts?_embed';
-    const apiUrl = '/api/finnews';
+    const apiUrl = '/finnews';
     
     const categoryMapping = {
         'market-updates': 'Market Updates',
@@ -20,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const imageUrl = post._embedded?.['wp:featuredmedia']?.[0]?.media_details?.sizes?.medium?.source_url 
             || post._embedded?.['wp:featuredmedia']?.[0]?.source_url
             || 'https://default-image-url.jpg';
+
+        const categories = post._embedded['wp:term'][0].map(cat => cat.name).join(', ');
 
         const article = document.createElement('article');
         article.className = 'news-content';
@@ -40,52 +41,23 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(posts => {
                 console.log('Fetched posts:', posts);
-                const categorizedPosts = {
-                    'market-updates': [],
-                    'corporate-news': [],
-                    'economy': [],
-                    'fintech': []
-                };
-        
-                posts.forEach(post => {
-                    console.log('Processing post:', post.title.rendered, 'Categories:', post._embedded['wp:term']);
-
-                    if (Array.isArray(post.categories) && post._embedded && post._embedded['wp:term']) {
-                        const postCategories = post._embedded['wp:term'][0];
-                        postCategories.forEach(cat => {
-                            for (const [category, displayName] of Object.entries(categoryMapping)) {
-                                if (cat.name.toLowerCase() === displayName.toLowerCase()) {
-                                    categorizedPosts[category].push(post);
-                                    console.log('Assigned to category:', category);
-                                    break;
-                                }
-                            }
-                        });
-                    }
-                });
-        
-                console.log('Categorized posts:', categorizedPosts);
-                displayCategorizedPosts(categorizedPosts);
+                
+                displayAllPosts(posts);
+                
                 if (loadingContainer) loadingContainer.remove();
-                setupCategoryFilters();
+                setupCategoryFilters(posts);
 
                 // Check for category in URL
                 const urlParams = new URLSearchParams(window.location.search);
                 const categoryParam = urlParams.get('category');
                 if (categoryParam && categoryMapping[categoryParam]) {
-                    const categoryLink = document.querySelector(`.category-filter[data-category="${categoryParam}"]`);
-                    if (categoryLink) {
-                        categoryLink.click();
-                    } else {
-                        updateHeading('all');
-                        updateURL('all');
-                    }
+                    filterByCategory(posts, categoryParam);
+                    updateHeading(categoryParam);
                 } else {
                     updateHeading('all');
                     updateURL('all');
                 }
             })
-            
             .catch(error => {
                 console.error('Error fetching posts:', error);
                 newsContainer.innerHTML = '<p>Failed to load news articles. Please try again later.</p>';
@@ -93,53 +65,51 @@ document.addEventListener('DOMContentLoaded', () => {
             });
     }
 
-    function displayCategorizedPosts(categorizedPosts) {
-        console.log('Displaying categorized posts:', categorizedPosts);
+    function displayAllPosts(posts) {
         newsContainer.innerHTML = '';
-        
-        for (const [category, posts] of Object.entries(categorizedPosts)) {
-            console.log(`Category: ${category}, Posts: ${posts.length}`);
-            posts.forEach(post => {
-                const articleElement = createArticleElement(post);
-                articleElement.dataset.category = category; // Add category as a data attribute
-                newsContainer.appendChild(articleElement);
-            });
-        }
-        
+        posts.forEach(post => {
+            const articleElement = createArticleElement(post);
+            newsContainer.appendChild(articleElement);
+        });
         addArticleEventListeners();
     }
-    
-  
-    function setupCategoryFilters() {
+
+    function setupCategoryFilters(posts) {
         const categoryLinks = document.querySelectorAll('.category-filter');
-        const articles = document.querySelectorAll('.news-content');
         
         categoryLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const category = this.dataset.category;
                 
-                // Remove 'active' class from all links
-                categoryLinks.forEach(l => l.classList.remove('dropdown-active'));
-                
                 if (category === 'all') {
-                    articles.forEach(article => article.style.display = 'block');
+                    displayAllPosts(posts);
                     updateHeading('all');
                     updateURL('all');
                 } else {
-                    this.classList.add('dropdown-active');
-                    articles.forEach(article => {
-                        if (article.dataset.category === category) {
-                            article.style.display = 'block';
-                        } else {
-                            article.style.display = 'none';
-                        }
-                    });
+                    filterByCategory(posts, category);
                     updateHeading(category);
                     updateURL(category);
                 }
             });
         });
+    }
+
+    function filterByCategory(posts, category) {
+        const filteredPosts = posts.filter(post => {
+            if (post._embedded && post._embedded['wp:term']) {
+                const postCategories = post._embedded['wp:term'][0];
+                return postCategories.some(cat => cat.name.toLowerCase() === categoryMapping[category].toLowerCase());
+            }
+            return false;
+        });
+
+        newsContainer.innerHTML = '';
+        filteredPosts.forEach(post => {
+            const articleElement = createArticleElement(post);
+            newsContainer.appendChild(articleElement);
+        });
+        addArticleEventListeners();
     }
 
     function updateHeading(category) {
@@ -151,7 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    //function for URL manipulation
     function updateURL(category) {
         if (category === 'all') {
             history.pushState({ category: 'all' }, '', window.location.pathname);
@@ -165,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
             article.addEventListener('click', (e) => {
                 e.preventDefault();
                 const postSlug = article.dataset.slug;
-                // window.location.href = `/finance-news/news-article.html?post=${postSlug}`;
                 window.location.href = `/news-article/${postSlug}`;
             });
         });
@@ -180,25 +148,12 @@ document.addEventListener('DOMContentLoaded', () => {
             if (categoryLink) {
                 categoryLink.click();
             } else {
-                const articles = document.querySelectorAll('.news-content');
-                if (category === 'all') {
-                    articles.forEach(article => article.style.display = 'block');
-                } else {
-                    articles.forEach(article => {
-                        if (article.dataset.category === category) {
-                            article.style.display = 'block';
-                        } else {
-                            article.style.display = 'none';
-                        }
-                    });
-                }
                 updateHeading(category);
+                loadNewsArticles(); // Reload all articles and then filter
             }
         } else {
-            // Default to showing all if no state or category is found
             updateHeading('all');
-            const articles = document.querySelectorAll('.news-content');
-            articles.forEach(article => article.style.display = 'block');
+            loadNewsArticles(); // Reload all articles
         }
     });
 
