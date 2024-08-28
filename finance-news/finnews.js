@@ -76,17 +76,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function setupCategoryFilters(posts) {
         const categoryLinks = document.querySelectorAll('.category-filter');
+        const mainFinanceNewsLink = document.querySelector('a.active');
         
+        // Handle main "Finance News" link
+        mainFinanceNewsLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            displayAllPosts(posts);
+            updateHeading('all');
+            updateURL('all');
+            // Remove 'dropdown-active' class from all category links
+            categoryLinks.forEach(l => l.classList.remove('dropdown-active'));
+        });
+    
         categoryLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const category = this.dataset.category;
+                
+                // Remove 'dropdown-active' class from all links
+                categoryLinks.forEach(l => l.classList.remove('dropdown-active'));
                 
                 if (category === 'all') {
                     displayAllPosts(posts);
                     updateHeading('all');
                     updateURL('all');
                 } else {
+                    // Add 'dropdown-active' class to clicked link
+                    this.classList.add('dropdown-active');
                     filterByCategory(posts, category);
                     updateHeading(category);
                     updateURL(category);
