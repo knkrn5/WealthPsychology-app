@@ -135,9 +135,9 @@ header h1{
 
 
 @media (max-width: 768px) {
-   /*  #about-us{
-        margin-top: 0px;
-    } */
+    #about-us{
+        margin-top: -10px;
+    }
     .journey-container{
         margin-top: 0px;
         max-width: 90%;
