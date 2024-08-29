@@ -106,8 +106,9 @@ header {
         padding: 10px;
     }
 
-    h2 {
-        font-size: 2em;
+    .full-article h2 {
+        margin-top: -15px;
+        font-size: 1.5em;
     }
 
     .full-article p {
