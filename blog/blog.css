@@ -145,8 +145,8 @@ header h1 {
 
 
 .left-column .article img {
-    height: 200px;
-    width: 20;
+  max-width: 100%;
+  height: auto;
 }
 
 .article .read-more{
@@ -277,13 +277,6 @@ header h1 {
       grid-column: 1;
       padding-right: 20px;
     }
-
-    .left-column .article img {
-      height: auto; 
-      width: 250px;
-      /* object-fit: cover;
-      object-position: center; */
-  }
     
     .blog-container .right-column {
       grid-column: 2;
@@ -328,13 +321,6 @@ header h1 {
   .left-column .article{
     width: 85%;
     /* margin: 20px auto; */
-  }
-
- .left-column .article img {
-      height: auto; 
-      width: 250px;
-      /* object-fit: cover;
-      object-position: center; */
   }
 
  .left-column .article h2 {
