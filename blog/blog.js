@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const article = document.createElement('article');
                     article.className = 'article';
                     article.innerHTML = `
-                    <h2>${post.title.rendered}</h2>
+                    <h1>${post.title.rendered}</h1>
                     <p>Published on: ${new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
                     <p class="blog-author">Post by: ${post._embedded.author[0].name || 'Author Name'}</p>
                     <img src="${imageUrl}" alt="${post.title.rendered}">
