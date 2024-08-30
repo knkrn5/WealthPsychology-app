@@ -33,37 +33,61 @@
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';"> -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- JSON-LD (JavaScript Object Notation for Linked Data)  -->
-    <script type="application/ld+json">
+     <!--contact-us schema tags -->
+     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Wealth Psychology",
-        "url": "https://wealthpsychology.in",
-        "logo": "https://wealthpsychology.in/global/imgs/logo.webp",
-        "founder": {
-          "@type": "Person",
-          "name": "karan"
+        "@type": "ContactPage",
+        "url": "https://wealthpsychology.in/contact-us/contact-us",
+        "headline": "Contact Us - WealthPsychology",
+        "description": "Get in touch with WealthPsychology for any queries or support. Contact us via phone, email, or through our online form.",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://wealthpsychology.in/contact-us/contact-us"
         },
-        "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "contactType": "Customer Service",
-          "email": "contact@wealthpsychology.in"
-        },
-        {
-          "@type": "ContactPoint",
-          "contactType": "Support",
-          "email": "support@wealthpsychology.in"
-        },
-        {
-          "@type": "ContactPoint",
-          "contactType": "brands",
-          "email": "brands@wealthpsychology.in"
+        "contactOption": [
+          {
+            "@type": "ContactPoint",
+            "contactType": "Customer Service",
+            "email": "contact@wealthpsychology.in",
+            "availableLanguage": ["English", "Hindi"]
+          },
+          {
+            "@type": "ContactPoint",
+            "contactType": "Support",
+            "email": "support@wealthpsychology.in",
+            "availableLanguage": ["English", "Hindi"]
+          },
+          {
+            "@type": "ContactPoint",
+            "contactType": "Branding",
+            "email": "brands@wealthpsychology.in",
+            "availableLanguage": ["English", "Hindi"]
+          },
+          {
+            "@type": "ContactPoint",
+            "contactType": "Collaboration",
+            "email": "collab@wealthpsychology.in",
+            "availableLanguage": ["English", "Hindi"]
+          },
+          {
+            "@type": "ContactPoint",
+            "contactType": "Technical Support",
+            "email": "techsupport@wealthpsychology.in",
+            "availableLanguage": ["English", "Hindi"]
+          }
+        ],
+        "publisher": {
+          "@type": "Organization",
+          "name": "WealthPsychology",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://wealthpsychology.in/global/imgs/logo.webp"
+          }
         }
-      ]
       }
       </script>
+      
 
       <!-- Google tag (gtag.js) -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-L4D1L8LGWZ"></script>
