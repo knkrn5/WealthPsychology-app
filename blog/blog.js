@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     article.className = 'article';
                     article.innerHTML = `
                     <h1>${post.title.rendered}</h1>
-                    <p>Published on: ${new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
+                    <p>${new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</p>
                     <p class="blog-author">Post by: ${post._embedded.author[0].name || 'Author Name'}</p>
                     <img src="${imageUrl}" alt="${post.title.rendered}">
                     <div>${post.excerpt.rendered}</div>
