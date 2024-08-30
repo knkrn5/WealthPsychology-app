@@ -12,13 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const categoryMapping = {
         'company-analysis': ['company analysis'],
         'cryptocurrency': ['cryptocurrency'],
-        'futures-options': ['derivative assets', 'futures and option'],
+        'futures-options': ['futures and option'],
         'financial-insights': ['financial insights'],
         'fundamental-analysis': ['fundamental analysis'],
         'ipo': ['ipo analysis'],
         'mutual-funds': ['mutual fund analysis'],
         'personal-finance': ['personal finance'],
-        'stock-market': ['stock market blogsdefault'],
         'technical-analysis': ['technical analysis'],
         'union-budget': ['union budget 2024']
     };
