@@ -92,25 +92,31 @@ app.get('/blog/post/:slug?', async (req, res) => {
     const decodedContent = decode(post.content.rendered);
     const metaDescription = decode(post.excerpt.rendered).replace(/(<([^>]+)>)/gi, "").slice(0, 200);
 
-    // Determine the protocol
-    const protocol = req.headers['x-forwarded-proto'] || req.protocol;
-    const fullUrl = `${protocol}://${req.get('host')}${req.originalUrl}`;
-
-    res.render('components/post/post', {
-      post: {
-        title: { rendered: decodedTitle },
-        content: { rendered: decodedContent },
-        date: post.date
-      },
-      title: decodedTitle,
-      metaDescription: metaDescription,
-      metaKeywords: metaKeywords,
-      blogUrl: fullUrl.replace(/^http:/, 'https:') // Replace http with https
-    });
-  } catch (error) {
-    console.error('Error:', error);
-    return res.status(500).render('error', { message: 'Internal Server Error' });
-  }
+       // Determine the protocol
+       const protocol = req.headers['x-forwarded-proto'] || req.protocol;
+       const fullUrl = `${protocol}://${req.get('host')}${req.originalUrl}`;
+       
+       // Safely get the image URL, with a fallback to a default image if necessary
+       const imageUrl = post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && post._embedded['wp:featuredmedia'][0].source_url
+         ? post._embedded['wp:featuredmedia'][0].source_url
+         : 'https://wealthpsychology.in/global/imgs/default-image.webp'; 
+   
+       res.render('components/post/post', {
+         post: {
+           title: { rendered: decodedTitle },
+           content: { rendered: decodedContent },
+           date: post.date
+         },
+         title: decodedTitle,
+         metaDescription: metaDescription,
+         metaKeywords: metaKeywords,
+         imageUrl: imageUrl,  // Dynamically assigned image URL
+         blogUrl: fullUrl.replace(/^http:/, 'https:') // Replace http with https
+       });
+     } catch (error) {
+       console.error('Error:', error);
+       return res.status(500).render('error', { message: 'Internal Server Error' });
+     }
 });
 
 
@@ -132,12 +138,17 @@ app.get('/news-article/:postSlug', async (req, res) => {
   const postSlug = req.params.postSlug;
 
   try {
-    const response = await fetch(`https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyfinnews.wordpress.com/posts?slug=${encodeURIComponent(postSlug)}`);
+    const response = await fetch(`https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyfinnews.wordpress.com/posts?slug=${encodeURIComponent(postSlug)}&_embed`);
     const data = await response.json();
 
     if (!response.ok || !data.length) {
       throw new Error('Post not found');
     }
+
+    // Safely get the image URL, with a fallback to a default image if necessary
+    const imageUrl = data[0]._embedded && data[0]._embedded['wp:featuredmedia'] && data[0]._embedded['wp:featuredmedia'][0] && data[0]._embedded['wp:featuredmedia'][0].source_url
+      ? data[0]._embedded['wp:featuredmedia'][0].source_url
+      : 'https://wealthpsychology.in/global/imgs/logo.webp'; // Use a default image
 
     const post = {
       title: decode(data[0].title.rendered), // Decode the title
@@ -145,9 +156,9 @@ app.get('/news-article/:postSlug', async (req, res) => {
       description: decode(data[0].excerpt.rendered).replace(/(<([^>]+)>)/gi, "").slice(0, 160), // Decode and trim the description/excerpt
       keywords: 'Finance News, Stock Market, Corporate Financial News, Market Updates, FinTech, Economic Insights, WealthPsychology',
       author: 'WealthPsychology, Karan',
-      imageUrl: 'https://wealthpsychology.in/global/imgs/logo.webp',
+      imageUrl: imageUrl, 
       url: `${req.protocol}://${req.get('host')}${req.originalUrl}`.replace(/^http:/, 'https:')
-    };    
+    };
 
     res.render('components/finance-news/news-article', { post });
   } catch (error) {
@@ -155,6 +166,7 @@ app.get('/news-article/:postSlug', async (req, res) => {
     res.status(500).send('Failed to load the article. Please try again later.');
   }
 });
+
 
 
 // Start the server
