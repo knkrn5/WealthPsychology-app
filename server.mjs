@@ -99,7 +99,7 @@ app.get('/blog/post/:slug?', async (req, res) => {
        // Safely get the image URL, with a fallback to a default image if necessary
        const imageUrl = post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && post._embedded['wp:featuredmedia'][0].source_url
          ? post._embedded['wp:featuredmedia'][0].source_url
-         : 'https://wealthpsychology.in/global/imgs/default-image.webp'; 
+         : 'https://wealthpsychology.in/global/imgs/default-image.webp'; // Use a default image
    
        res.render('components/post/post', {
          post: {
