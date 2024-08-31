@@ -26,8 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'all': []
     };
 
-    const postsPerPage = 2;
-    let currentPage = 1;
+    const postsPerPage = 3;
 
     function fetchPosts() {
         fetch(apiUrl)
@@ -172,7 +171,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     
-        currentPage = page;
     }
 
     
