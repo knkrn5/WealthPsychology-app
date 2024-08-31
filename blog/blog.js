@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 seeLessButton.className = 'see-less-button';
                 seeLessButton.addEventListener('click', () => {
                     displayPostsByCategory(categorySlug, page - 1);
-                    window.scrollTo({ top: 0 }); // Scroll to top smoothly
+                    window.scrollTo({ top: 0 }); // move to top 
                 });
                 navigationDiv.appendChild(seeLessButton);
             }
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 seeMoreButton.className = 'see-more-button';
                 seeMoreButton.addEventListener('click', () => {
                     displayPostsByCategory(categorySlug, page + 1);
-                    window.scrollTo({ top: 0 }); // Scroll to top smoothly
+                    window.scrollTo({ top: 0 }); // move to top
                 });
                 navigationDiv.appendChild(seeMoreButton);
             }
