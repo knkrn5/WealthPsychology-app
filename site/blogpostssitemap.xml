@@ -1,52 +1,84 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 
-<url>
-<loc>https://wealthpsychology.in/blog/post/what-is-wealth-psychology</loc>
-<lastmod>2024-08-29T14:49:53+00:00</lastmod>
-</url>
-<url>
-<loc>https://wealthpsychology.in/blog/post/profit-and-loss-analysis-of-individual-traders-in-the-equity-fo-segment-fy19-fy22</loc>
-<lastmod>2024-08-29T14:51:49+00:00</lastmod>
-</url>
-<url>
-<loc>https://wealthpsychology.in/blog/post/orient-technologies-limited-ipo-a-comprehensive-overview</loc>
-<lastmod>2024-08-29T14:53:03+00:00</lastmod>
-</url>
-<url>
-<loc>https://wealthpsychology.in/blog/post/beware-of-financial-scams-the-reality-behind-easy-money</loc>
-<lastmod>2024-08-29T14:53:48+00:00</lastmod>
-</url>
-<url>
-<loc>https://wealthpsychology.in/blog/post/concentrated-investing-why-focused-investing-beats-blindly-holding-stocks</loc>
-<lastmod>2024-08-29T14:57:53+00:00</lastmod>
-</url>
-<url>
-<loc>https://wealthpsychology.in/blog/post/union-budget-2024-impact-on-investors-and-taxation-changes</loc>
-<lastmod>2024-08-29T14:59:29+00:00</lastmod>
-</url>
-<url>
-<loc>https://wealthpsychology.in/blog/post/decoding-amit-shahs-portfolio-real-or-fake</loc>
-<lastmod>2024-08-29T15:00:49+00:00</lastmod>
-</url>
-<url>
-<loc>https://wealthpsychology.in/blog/post/idfc-first-bank-analysis</loc>
-<lastmod>2024-08-30T02:49:58+00:00</lastmod>
-</url>
-<url>
-<loc>https://wealthpsychology.in/blog/post/frustrated-with-technical-glitches-heres-how-to-choose-the-best-stockbroker</loc>
-<lastmod>2024-08-30T09:49:58+00:00</lastmod>
-</url>
-<url>
-<loc>https://wealthpsychology.in/blog/post/worried-about-brokerage-fees-eating-into-your-profits-discover-how-to-select-the-ideal-brokerage-partner-and-maximize-your-returns</loc>
-<lastmod>2024-08-30T10:41:04+00:00</lastmod>
-</url>
-<url>
-<loc>https://wealthpsychology.in/blog/post/the-intraday-trader-reality-check-of-the-trend-and-risk</loc>
-<lastmod>2024-08-31T03:27:45+00:00</lastmod>
-</url>
-<url>
-<loc>https://wealthpsychology.in/blog/post/mastering-risk-reward-management-in-active-trading</loc>
-<lastmod>2024-08-31T16:45:59+00:00</lastmod>
-</url>
-
+    <url>
+        <loc>https://wealthpsychology.in/index.html</loc>
+        <lastmod>2023-10-05T03:20:06+00:00</lastmod>
+        <priority>1.00</priority>
+    </url>
+    <url>
+        <loc>https://wealthpsychology.in/finance-news/finance-news.html</loc>
+        <lastmod>2023-10-05T03:20:06+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://wealthpsychology.in/blog/blog.html</loc>
+        <lastmod>2023-10-05T03:20:06+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://wealthpsychology.in/financial-calculators/financial-calculators.html</loc>
+        <lastmod>2023-10-05T03:20:06+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://wealthpsychology.in/our-plans/plans.html</loc>
+        <lastmod>2023-10-05T03:20:06+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://wealthpsychology.in/quizzes/quizzes.html?quiz=beginner-level</loc>
+        <lastmod>2023-10-05T03:20:06+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://wealthpsychology.in/quizzes/quizzes.html?quiz=intermediate-level</loc>
+        <lastmod>2023-10-05T03:20:06+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://wealthpsychology.in/quizzes/quizzes.html?quiz=advance-level</loc>
+        <lastmod>2023-10-05T03:20:06+00:00</lastmod>
+        <priority>0.80</priority>
+    </url>
+    <url>
+        <loc>https://wealthpsychology.in/financial-calculators/simple-interest-calculator/simple-interest-calculator.html</loc>
+        <lastmod>2023-10-05T03:20:06+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://wealthpsychology.in/financial-calculators/reverse-simple-interest-calculator/reverse-simple-interest-calculator.html</loc>
+        <lastmod>2023-10-05T03:20:06+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://wealthpsychology.in/financial-calculators/cagr-calculator/cagr-calculator.html</loc>
+        <lastmod>2023-10-05T03:20:06+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://wealthpsychology.in/financial-calculators/reverse-cagr-calculator/reverse-cagr-calculator.html</loc>
+        <lastmod>2023-10-05T03:20:06+00:00</lastmod>
+        <priority>0.64</priority>
+    </url>
+    <url>
+        <loc>https://wealthpsychology.in/contact-us/contact-us.html</loc>
+        <lastmod>2023-10-05T03:20:06+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://wealthpsychology.in/about-us/about-us.html</loc>
+        <lastmod>2023-10-05T03:20:06+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://wealthpsychology.in/our-team/team.html</loc>
+        <lastmod>2023-10-05T03:20:06+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://wealthpsychology.in/terms-of-use/terms-of-use.html</loc>
+        <lastmod>2023-10-05T03:20:06+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://wealthpsychology.in/privacy-policy/privacy-policy.html</loc>
+        <lastmod>2023-10-05T03:20:06+00:00</lastmod>
+    </url>
+    
 </urlset>
