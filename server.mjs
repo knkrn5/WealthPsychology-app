@@ -22,7 +22,7 @@ app.set('views', path.join(__dirname, 'views'));
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve files from the root directory  - so this is the one that serves all the file from the root directory
+// Serve files from the root directory
 app.use(express.static(path.join(__dirname)));
 
 
@@ -30,14 +30,9 @@ app.use(express.static(path.join(__dirname)));
 app.get('/blog', async (req, res) => {
   try {
     const apiUrl = 'https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts?_embed';
-    const response = await fetch(apiUrl);
+    const response = await axios.get(apiUrl);
     
-    if (!response.ok) {
-      return res.status(response.status).json({ error: 'Error fetching posts' });
-    }
-    
-    const posts = await response.json();
-    res.status(200).json(posts);
+    res.status(200).json(response.data);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
@@ -55,13 +50,8 @@ app.get('/blog/post/:slug?', async (req, res) => {
   const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts?slug=${encodeURIComponent(slug)}&_embed`;
 
   try {
-    const response = await fetch(apiUrl);
-    if (!response.ok) {
-      return res.status(response.status).render('error', { message: 'Error fetching post from WordPress API' });
-    }
-
-    const posts = await response.json();
-    console.log('API Response:', posts);
+    const response = await axios.get(apiUrl);
+    const posts = response.data;
 
     if (!Array.isArray(posts) || posts.length === 0) {
       return res.status(404).render('error', { message: 'Post not found' });
@@ -92,38 +82,37 @@ app.get('/blog/post/:slug?', async (req, res) => {
     const decodedContent = decode(post.content.rendered);
     const metaDescription = decode(post.excerpt.rendered).replace(/(<([^>]+)>)/gi, "").slice(0, 200);
 
-       // Determine the protocol
-       const protocol = req.headers['x-forwarded-proto'] || req.protocol;
-       const fullUrl = `${protocol}://${req.get('host')}${req.originalUrl}`;
+    // Determine the protocol
+    const protocol = req.headers['x-forwarded-proto'] || req.protocol;
+    const fullUrl = `${protocol}://${req.get('host')}${req.originalUrl}`;
        
-       // Safely get the image URL, with a fallback to a default image if necessary
-       const imageUrl = post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && post._embedded['wp:featuredmedia'][0].source_url
-         ? post._embedded['wp:featuredmedia'][0].source_url
-         : 'https://wealthpsychology.in/global/imgs/default-image.webp'; // Use a default image
+    // Safely get the image URL, with a fallback to a default image if necessary
+    const imageUrl = post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && post._embedded['wp:featuredmedia'][0].source_url
+      ? post._embedded['wp:featuredmedia'][0].source_url
+      : 'https://wealthpsychology.in/global/imgs/default-image.webp'; // Use a default image
    
-       res.render('components/post/post', {
-         post: {
-           title: { rendered: decodedTitle },
-           content: { rendered: decodedContent },
-           date: post.date
-         },
-         title: decodedTitle,
-         metaDescription: metaDescription,
-         metaKeywords: metaKeywords,
-         imageUrl: imageUrl,  // Dynamically assigned image URL
-         blogUrl: fullUrl.replace(/^http:/, 'https:') // Replace http with https
-       });
-     } catch (error) {
-       console.error('Error:', error);
-       return res.status(500).render('error', { message: 'Internal Server Error' });
-     }
+    res.render('components/post/post', {
+      post: {
+        title: { rendered: decodedTitle },
+        content: { rendered: decodedContent },
+        date: post.date
+      },
+      title: decodedTitle,
+      metaDescription: metaDescription,
+      metaKeywords: metaKeywords,
+      imageUrl: imageUrl,  // Dynamically assigned image URL
+      blogUrl: fullUrl.replace(/^http:/, 'https:') // Replace http with https
+    });
+  } catch (error) {
+    console.error('Error:', error);
+    return res.status(500).render('error', { message: 'Internal Server Error' });
+  }
 });
 
 
 // Define the proxy endpoint for finance news
 app.get('/finnews', async (req, res) => {
   try {
-    // Fetch data from the WordPress API
     const response = await axios.get('https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyfinnews.wordpress.com/posts?_embed');
     res.json(response.data); // Send the data back to the client
   } catch (error) {
@@ -138,10 +127,10 @@ app.get('/news-article/:postSlug', async (req, res) => {
   const postSlug = req.params.postSlug;
 
   try {
-    const response = await fetch(`https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyfinnews.wordpress.com/posts?slug=${encodeURIComponent(postSlug)}&_embed`);
-    const data = await response.json();
+    const response = await axios.get(`https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyfinnews.wordpress.com/posts?slug=${encodeURIComponent(postSlug)}&_embed`);
+    const data = response.data;
 
-    if (!response.ok || !data.length) {
+    if (!data.length) {
       throw new Error('Post not found');
     }
 
@@ -166,7 +155,6 @@ app.get('/news-article/:postSlug', async (req, res) => {
     res.status(500).send('Failed to load the article. Please try again later.');
   }
 });
-
 
 
 // Start the server
