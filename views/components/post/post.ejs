@@ -92,7 +92,7 @@
               <h1><%= post.title.rendered.replace(/&nbsp;/g, ' ') %></h1> <!-- Replace &nbsp; with a space -->
               <p>Published on: <%= new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) %></p>
               <div><%- post.content.rendered.replace(/&nbsp;/g, ' ') %></div> <!-- Replace &nbsp; with a space in the content -->
-              <a href="/blog/blog.html" class="back"><i class="fa-solid fa-caret-left"></i>Back</a>
+              <a href="javascript:history.back()" class="back"><i class="fa-solid fa-caret-left"></i>Back</a>
             </article>
             
         </div>
