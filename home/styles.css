@@ -573,6 +573,50 @@ header {
   text-underline-offset: 1px;
 }
 
+/* quizzes selection last part styling--------------- */
+.quiz-selection{
+  margin: 10px 0px;
+  border-radius: 20px;
+  background-color: #c5c588;
+  padding: 1px 10px;
+}
+
+.take-quiz {
+  background-color: #000;
+  color: #fff;
+  width: 400px;
+  margin: 40px auto;
+  font-weight: bold;
+  text-align: center;
+  padding: 15px;
+  font-size: 20px;
+  border-radius: 20px;
+}
+
+.quizzes {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+  gap: 150px;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+
+.quizzes p a {
+  padding: 20px 40px;
+  border: 2px solid black;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  background-color: #ddd;
+}
+
+.quizzes :hover{
+  background-color: #000;
+  color: #fff;
+}
 
 
 
@@ -647,9 +691,29 @@ header {
   .content img {
     display: none;
   }
+
+  .quizzes{
+    gap: 20px;
+  }
 }
 
 
+
+@media (max-width: 768px){
+  .quiz-selection{
+    /* margin: 15px; */
+    padding: 1px 20px;
+    border-radius: 20px;
+   
+  }
+  .take-quiz{
+    width: 90%;
+  }
+  .quizzes{
+    gap: 20px;
+  }
+  
+}
 
 /* 690px  Mobile responsive styling */
 @media (max-width: 690px) {
@@ -713,70 +777,5 @@ header {
   }
 }
 
-
-
-
-/* quizzes selection last part styling--------------- */
-.quiz-selection{
-  margin: 10px 0px;
-  border-radius: 20px;
-  background-color: #c5c588;
-  padding: 1px 10px;
-}
-
-.take-quiz {
-  background-color: #000;
-  color: #fff;
-  width: 400px;
-  margin: 40px auto;
-  font-weight: bold;
-  text-align: center;
-  padding: 15px;
-  font-size: 20px;
-  border-radius: 20px;
-}
-
-.quizzes {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 50px;
-  gap: 150px;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-}
-
-
-.quizzes p a {
-  padding: 20px 40px;
-  border: 2px solid black;
-  color: #000;
-  text-decoration: none;
-  font-weight: bold;
-  background-color: #ddd;
-}
-
-.quizzes :hover{
-  background-color: #000;
-  color: #fff;
-}
-
-
-@media (max-width: 768px){
-  .quiz-selection{
-    margin: 15px;
-    padding: 1px 20px;
-    border-radius: 20px;
-   
-  }
-  .take-quiz{
-    width: 90%;
-  }
-  .quizzes{
-    margin-top: -10px;
-    gap: 20px;
-  }
-  
-}
 
 /* Footer styles via global footer css */
