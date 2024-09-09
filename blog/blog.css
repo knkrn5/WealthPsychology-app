@@ -145,8 +145,9 @@ header h1 {
 
 
 .left-column .article img {
-  max-width: 100%;
+  max-width: 70%;
   height: auto;
+  border-radius: 5px;
 }
 
 .article .read-more{
@@ -321,6 +322,10 @@ header h1 {
   .left-column .article{
     width: 85%;
     /* margin: 20px auto; */
+  }
+
+  .left-column .article img {
+    max-width: 90%;
   }
 
  .left-column .article h2 {

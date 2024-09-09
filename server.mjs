@@ -4,13 +4,16 @@ import { fileURLToPath } from 'url';
 import cors from 'cors';
 import axios from 'axios';
 import { decode } from 'html-entities';
+import contentful from 'contentful';
+import CircularJSON from 'circular-json';
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
+import { BLOCKS } from '@contentful/rich-text-types';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 55555;
-
 
 // Enable CORS for all routes
 app.use(cors());
@@ -26,86 +29,119 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname)));
 
 
-// Proxy route for fetching blogs 
+// Initialize Contentful client
+const client = contentful.createClient({
+  space: 'ucfnymwo68v4',
+  accessToken: 'pbXCDRwNaD33p8dj3lhOKAJLSezMtbGF4Q9g3-sn10Y'
+});
+
+//proxy for contentful cms for blog
 app.get('/blog', async (req, res) => {
+  console.log('Received request for /blog');
   try {
-    const apiUrl = 'https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts?_embed';
-    const response = await axios.get(apiUrl);
+    console.log('Attempting to fetch entries from Contentful');
+    const response = await client.getEntries({
+      content_type: 'pageBlogPost',
+      order: '-fields.publishedDate'
+    });
     
-    res.status(200).json(response.data);
+    // Use a custom serializer to handle circular references
+    const safeResponse = CircularJSON.stringify(response.items);
+    res.send(safeResponse);
   } catch (error) {
-    res.status(500).json({ error: 'Internal Server Error' });
+    console.error('Detailed error:', error);
+    res.status(500).json({
+       error: 'Failed to fetch blog articles',
+       details: error.message,
+      stack: error.stack
+    });
   }
 });
 
 
-// Individual blog post route
-app.get('/blog/post/:slug?', async (req, res) => {
-  const { slug } = req.params;
-
-  if (!slug) {
-    return res.status(400).render('error', { message: 'Post slug is required' });
-  }
-
-  const apiUrl = `https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyblogs.wordpress.com/posts?slug=${encodeURIComponent(slug)}&_embed`;
-
+// Function to fetch a post by its slug and render rich text including assets and links
+export async function fetchPostBySlug(slug) {
   try {
-    const response = await axios.get(apiUrl);
-    const posts = response.data;
+    const entries = await client.getEntries({
+      content_type: 'pageBlogPost',
+      'fields.slug': slug,
+      limit: 1,
+      include: 2, // Include linked assets
+    });
 
-    if (!Array.isArray(posts) || posts.length === 0) {
-      return res.status(404).render('error', { message: 'Post not found' });
-    }
-
-    const post = posts[0];
-    let tags = [];
-
-    // Parse reader_suggested_tags
-    if (post.reader_suggested_tags) {
-      try {
-        tags = JSON.parse(post.reader_suggested_tags);
-      } catch (e) {
-        console.error('Error parsing reader_suggested_tags:', e);
+    if (entries.items.length > 0) {
+      const post = entries.items[0];
+      
+      // Render rich text with custom rendering for embedded assets and hyperlinks
+      if (post.fields.content) {
+        const options = {
+          renderNode: {
+            // Handle embedded assets (images)
+            [BLOCKS.EMBEDDED_ASSET]: (node) => {
+              const assetUrl = node.data.target.fields.file.url;
+              const assetAlt = node.data.target.fields.title || 'Embedded Image';
+              return `<img class="rich-asset" src="${assetUrl}" alt="${assetAlt}" />`;
+            },
+            // Handle links
+            [BLOCKS.HYPERLINK]: (node) => {
+              const url = node.data.uri;
+              const linkText = node.content[0].value; // Get the text for the link
+              return `<a href="${url}" target="_blank" rel="noopener noreferrer">${linkText}</a>`;
+            }
+          },
+        };
+        post.fields.renderPostRichTextHtml = documentToHtmlString(post.fields.content, options);
       }
+
+      return post;
+    }
+    return null;
+  } catch (error) {
+    console.error('Error fetching post:', error);
+    throw error;
+  }
+}
+
+
+// Individual blog post route
+app.get('/blog/post/:slug', async (req, res) => {
+  try {
+    const postSlug = req.params.slug;
+    const post = await fetchPostBySlug(postSlug);
+
+    // Check if the post was found
+    if (!post) {
+      return res.status(404).render('error', {
+        message: 'Post not found',
+        error: { status: 404, stack: '' }
+      });
     }
 
-    // If reader_suggested_tags parsing failed or is empty, try to get tags from _embedded
-    if (tags.length === 0 && post._embedded && post._embedded['wp:term']) {
-      const tagTerms = post._embedded['wp:term'].find(terms => terms[0] && terms[0].taxonomy === 'post_tag');
-      if (tagTerms) {
-        tags = tagTerms.map(tag => tag.name);
-      }
-    }
+    // Safely get the image URL with a fallback to a default image
+    const imageUrl = post.fields && post.fields.featuredImage && post.fields.featuredImage.fields && post.fields.featuredImage.fields.file
+      ? post.fields.featuredImage.fields.file.url
+      : 'https://wealthpsychology.in/global/imgs/logo.webp';
 
-    const metaKeywords = tags.length > 0 ? tags.join(', ') : 'finance, wealth, psychology';
-    const decodedTitle = decode(post.title.rendered);
-    const decodedContent = decode(post.content.rendered);
-    const metaDescription = decode(post.excerpt.rendered).replace(/(<([^>]+)>)/gi, "").slice(0, 200);
-
-    // Determine the protocol
+    // Determine the protocol and construct the full URL for the blog post
     const protocol = req.headers['x-forwarded-proto'] || req.protocol;
     const fullUrl = `${protocol}://${req.get('host')}${req.originalUrl}`;
-       
-    // Safely get the image URL, with a fallback to a default image if necessary
-    const imageUrl = post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0] && post._embedded['wp:featuredmedia'][0].source_url
-      ? post._embedded['wp:featuredmedia'][0].source_url
-      : 'https://wealthpsychology.in/global/imgs/default-image.webp'; // Use a default image
-   
+
+    // Render the post.ejs template with the full post content
     res.render('components/post/post', {
-      post: {
-        title: { rendered: decodedTitle },
-        content: { rendered: decodedContent },
-        date: post.date
-      },
-      title: decodedTitle,
-      metaDescription: metaDescription,
-      metaKeywords: metaKeywords,
-      imageUrl: imageUrl,  // Dynamically assigned image URL
-      blogUrl: fullUrl.replace(/^http:/, 'https:') // Replace http with https
+      post: post.fields,
+      title: post.fields.title || 'Untitled Post',
+      metaDescription: post.fields.excerpt || '',
+      metaKeywords: post.fields.tags || ['finance', 'trading', 'investing', 'wealthpsychology', 'blog'],
+      imageUrl: imageUrl,
+      blogUrl: fullUrl.replace(/^http:/, 'https:'), // Replace http with https
+      renderPostRichTextHtml: post.fields.renderPostRichTextHtml || '' // Ensure rendered HTML is available
     });
   } catch (error) {
-    console.error('Error:', error);
-    return res.status(500).render('error', { message: 'Internal Server Error' });
+    console.error('Error fetching post:', error);
+    res.status(500).render('error', {
+      message: 'Error loading post',
+      error: { status: 500, stack: process.env.NODE_ENV === 'development' ? error.stack : '' }
+    });
   }
 });
 
