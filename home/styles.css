@@ -164,6 +164,7 @@ header {
 .item a:hover {
   background: none; /* Remove gradient background */
   -webkit-background-clip: initial; /* Reset background clip */
+  background-clip: initial; /* Define standard property for compatibility */
   color: #000; 
   -webkit-text-fill-color: #000; 
 }
