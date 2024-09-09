@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const blogPosts = document.getElementById('blog-posts');
+    const blogPostsLeftContainer = document.getElementById('blog-posts-left-container');
     const categoryList = document.getElementById('category-list');
 
     const loadingContainer = document.createElement('div');
     loadingContainer.id = 'loading-container';
     loadingContainer.className = 'loading-indicator';
     loadingContainer.innerHTML = '<i class="fa-solid fa-spinner"></i><p>Loading...</p>';
-    blogPosts.appendChild(loadingContainer);
+    blogPostsLeftContainer.appendChild(loadingContainer);
 
     const categoryMapping = {
         'company-analysis': ['company analysis'],
@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             return response.json();
         })
-        .then(blogArticles => {
-            console.log(`Found ${blogArticles.length} article(s)`);
-            displayBlogArticles(blogArticles);
+        .then(blogPosts => {
+            console.log(`Found ${blogPosts.length} post(s)`);
+            displayBlogPosts(blogPosts);
         })
         .catch(error => {
             console.error('Error fetching or processing entries:', error);
@@ -44,21 +44,21 @@ document.addEventListener('DOMContentLoaded', () => {
             if (typeof error === 'object' && error !== null) {
                 errorMessage = error.details || error.message || JSON.stringify(error);
             }
-            blogPosts.innerHTML = `<p>Error: ${errorMessage}</p>`;
+            blogPostsLeftContainer.innerHTML = `<p>Error: ${errorMessage}</p>`;
         })
         .finally(() => {
             loadingContainer.remove();
         });
 
-    function displayBlogArticles(articles) {
-        blogPosts.innerHTML = '';
+    function displayBlogPosts(posts) {
+        blogPostsLeftContainer.innerHTML = '';
         postsByCategory = { 'all': [] };
 
-        articles.forEach(article => {
-            postsByCategory['all'].push(article);
+        posts.forEach(post => {
+            postsByCategory['all'].push(post);
 
-            if (article.fields && article.fields.category) {
-                let categories = Array.isArray(article.fields.category) ? article.fields.category : [article.fields.category];
+            if (post.fields && post.fields.category) {
+                let categories = Array.isArray(post.fields.category) ? post.fields.category : [post.fields.category];
 
                 categories.forEach(category => {
                     Object.entries(categoryMapping).forEach(([categorySlug, keywords]) => {
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             if (!postsByCategory[categorySlug]) {
                                 postsByCategory[categorySlug] = [];
                             }
-                            postsByCategory[categorySlug].push(article);
+                            postsByCategory[categorySlug].push(post);
                         }
                     });
                 });
@@ -80,28 +80,28 @@ document.addEventListener('DOMContentLoaded', () => {
         displayPostsByCategory(categoryFromUrl);
     }
 
-    function createArticleExcerpt(article) {
-        const publishedDate = article.fields && article.fields.publishedDate 
-            ? new Date(article.fields.publishedDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) 
+    function createPostExcerpt(post) {
+        const publishedDate = post.fields && post.fields.publishedDate 
+            ? new Date(post.fields.publishedDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) 
             : 'No date';
 
-        const authorName = article.fields && article.fields.author && article.fields.author.fields && article.fields.author.fields.name
-            ? article.fields.author.fields.name
+        const authorName = post.fields && post.fields.author && post.fields.author.fields && post.fields.author.fields.name
+            ? post.fields.author.fields.name
             : 'Unknown';
 
-        const articleElement = document.createElement('article');
-        articleElement.className = "article";
-        articleElement.innerHTML = `
-            <h2>${article.fields && (article.fields.title || article.fields.internalName) || 'No title'}</h2>
+        const postElement = document.createElement('article');
+        postElement.className = "post";
+        postElement.innerHTML = `
+            <h2>${post.fields && (post.fields.title || post.fields.internalName) || 'No title'}</h2>
             <p>${publishedDate}</p>
             <p class="blog-author">Post By: ${authorName}</p>
-            ${article.fields && article.fields.featuredImage && article.fields.featuredImage.fields 
-                ? `<img src="${article.fields.featuredImage.fields.file.url}" alt="${article.fields.featuredImage.fields.title}">`
+            ${post.fields && post.fields.featuredImage && post.fields.featuredImage.fields 
+                ? `<img src="${post.fields.featuredImage.fields.file.url}" alt="${post.fields.featuredImage.fields.title}">`
                 : ''}
-            <p>${article.fields && article.fields.excerpt ? article.fields.excerpt + ' [...]' : 'No excerpt available'}</p>
-            <a href="/blog/post/${article.fields.slug}" class="read-more">Read More</a>
+            <p>${post.fields && post.fields.excerpt ? post.fields.excerpt + ' [...]' : 'No excerpt available'}</p>
+            <a href="/blog/post/${post.fields.slug}" class="read-more">Read More</a>
         `;
-        return articleElement;
+        return postElement;
     }
 
     function updatePostCounts() {
@@ -114,18 +114,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function displayPostsByCategory(categorySlug, page = 1) {
-        blogPosts.innerHTML = '';
+        blogPostsLeftContainer.innerHTML = '';
         const categoryPosts = postsByCategory[categorySlug] || [];
         if (categoryPosts.length === 0) {
-            blogPosts.innerHTML = '<p>No posts available for this category.</p>';
+            blogPostsLeftContainer.innerHTML = '<p>No posts available for this category.</p>';
         } else {
             const startIndex = (page - 1) * postsPerPage;
             const endIndex = startIndex + postsPerPage;
             const postsToShow = categoryPosts.slice(startIndex, endIndex);
 
-            postsToShow.forEach(article => {
-                const articleExcerpt = createArticleExcerpt(article);
-                blogPosts.appendChild(articleExcerpt);
+            postsToShow.forEach(post => {
+                const postExcerpt = createPostExcerpt(post);
+                blogPostsLeftContainer.appendChild(postExcerpt);
             });
 
             const navigationDiv = document.createElement('div');
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 navigationDiv.appendChild(seeMoreButton);
             }
 
-            blogPosts.appendChild(navigationDiv);
+            blogPostsLeftContainer.appendChild(navigationDiv);
         }
 
         const url = new URL(window.location);
