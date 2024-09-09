@@ -778,5 +778,10 @@ header {
   }
 }
 
+@media (max-width: 480px) {
+  .content:nth-child(odd), .content:nth-child(even) {
+      width: 100%;
+  }
+}
 
 /* Footer styles via global footer css */
