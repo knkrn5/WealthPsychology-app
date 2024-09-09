@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const authorName = post.fields && post.fields.author && post.fields.author.fields && post.fields.author.fields.name
             ? post.fields.author.fields.name
-            : 'Unknown';
+            : 'WealthPsychology';
 
         const postElement = document.createElement('article');
         postElement.className = "post";
