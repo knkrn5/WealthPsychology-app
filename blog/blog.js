@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'futures-options': ['futures and option'],
         'finance-insights': ['finance insights'],
         'fundamental-analysis': ['fundamental analysis'],
-        'ipo': ['ipo analysis'],
+        'ipo': ['ipo analysis', 'ipo review'],
         'mutual-funds': ['mutual fund analysis'],
         'personal-finance': ['personal finance'],
         'technical-analysis': ['technical analysis'],
