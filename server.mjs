@@ -7,7 +7,7 @@ import { decode } from 'html-entities';
 import contentful from 'contentful';
 import CircularJSON from 'circular-json';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import { BLOCKS } from '@contentful/rich-text-types';
+import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -83,7 +83,7 @@ export async function fetchPostBySlug(slug) {
               return `<img class="rich-asset" src="${assetUrl}" alt="${assetAlt}" />`;
             },
             // Handle links
-            [BLOCKS.HYPERLINK]: (node) => {
+            [INLINES.HYPERLINK]: (node) => {
               const url = node.data.uri;
               const linkText = node.content[0].value; // Get the text for the link
               return `<a href="${url}" target="_blank" rel="noopener noreferrer">${linkText}</a>`;
