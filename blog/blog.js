@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const blogPostsLeftContainer = document.getElementById('blog-posts-left-container');
+    const blogLeftContainer = document.getElementById('blog-left-container');
     const categoryList = document.getElementById('category-list');
 
     const loadingContainer = document.createElement('div');
     loadingContainer.id = 'loading-container';
     loadingContainer.className = 'loading-indicator';
     loadingContainer.innerHTML = '<i class="fa-solid fa-spinner"></i><p>Loading...</p>';
-    blogPostsLeftContainer.appendChild(loadingContainer);
+    blogLeftContainer.appendChild(loadingContainer);
 
     const categoryMapping = {
         'company-analysis': ['company analysis'],
@@ -44,14 +44,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (typeof error === 'object' && error !== null) {
                 errorMessage = error.details || error.message || JSON.stringify(error);
             }
-            blogPostsLeftContainer.innerHTML = `<p>Error: ${errorMessage}</p>`;
+            blogLeftContainer.innerHTML = `<p>Error: ${errorMessage}</p>`;
         })
         .finally(() => {
             loadingContainer.remove();
         });
 
     function displayBlogPosts(posts) {
-        blogPostsLeftContainer.innerHTML = '';
+        blogLeftContainer.innerHTML = '';
         postsByCategory = { 'all': [] };
 
         posts.forEach(post => {
@@ -114,10 +114,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function displayPostsByCategory(categorySlug, page = 1) {
-        blogPostsLeftContainer.innerHTML = '';
+        blogLeftContainer.innerHTML = '';
         const categoryPosts = postsByCategory[categorySlug] || [];
         if (categoryPosts.length === 0) {
-            blogPostsLeftContainer.innerHTML = '<p>No posts available for this category.</p>';
+            blogLeftContainer.innerHTML = '<p>No posts available for this category.</p>';
         } else {
             const startIndex = (page - 1) * postsPerPage;
             const endIndex = startIndex + postsPerPage;
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             postsToShow.forEach(post => {
                 const postExcerpt = createPostExcerpt(post);
-                blogPostsLeftContainer.appendChild(postExcerpt);
+                blogLeftContainer.appendChild(postExcerpt);
             });
 
             const navigationDiv = document.createElement('div');
@@ -153,7 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 navigationDiv.appendChild(seeMoreButton);
             }
 
-            blogPostsLeftContainer.appendChild(navigationDiv);
+            blogLeftContainer.appendChild(navigationDiv);
         }
 
         const url = new URL(window.location);
