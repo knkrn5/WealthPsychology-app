@@ -5,7 +5,11 @@ module.exports = {
     '!./node_modules/**', // Exclude node_modules
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        'custom-sans': ['Arial', 'sans-serif'],
+      },
+    },
   },
   corePlugins: {
     preflight: false, // Disable Tailwind's Preflight (base/reset) styles

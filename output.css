@@ -193,14 +193,6 @@
   margin-top: 1.5rem
 }
 
-.ml-9 {
-  margin-left: 2.25rem
-}
-
-.mt-2 {
-  margin-top: 0.5rem
-}
-
 .block {
   display: block
 }
@@ -273,11 +265,6 @@
   padding-right: 1rem
 }
 
-.px-8 {
-  padding-left: 2rem;
-  padding-right: 2rem
-}
-
 .pl-1 {
   padding-left: 0.25rem
 }
@@ -290,8 +277,8 @@
   text-align: center
 }
 
-.font-sans {
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+.font-custom-sans {
+  font-family: Arial, sans-serif
 }
 
 .text-3xl {
@@ -330,6 +317,10 @@
 
 .underline {
   text-decoration-line: underline
+}
+
+.no-underline {
+  text-decoration-line: none
 }
 
 .shadow-lg {
