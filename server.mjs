@@ -58,7 +58,6 @@ app.get('/blog', async (req, res) => {
   }
 });
 
-
 // Function to fetch a post by its slug and render rich text including assets and links
 export async function fetchPostBySlug(slug) {
   try {
@@ -66,70 +65,77 @@ export async function fetchPostBySlug(slug) {
       content_type: 'pageBlogPost',
       'fields.slug': slug,
       limit: 1,
-      include: 2, // Include linked assets
+      include: 4, // Include linked assets and related content
     });
 
     if (entries.items.length > 0) {
       const post = entries.items[0];
-      
+
+      // Ensure post and fields are defined
+      if (!post || !post.fields) {
+        console.error('Post or post.fields is undefined');
+        return null;
+      }
+
+      const fields = post.fields; // Safely access fields
+
       // Render rich text with custom rendering for embedded assets and hyperlinks
-      if (post.fields.content) {
+      if (fields.content) {
         const options = {
           renderNode: {
-            // Handle embedded assets (images)
             [BLOCKS.EMBEDDED_ASSET]: (node) => {
               const assetUrl = node.data.target.fields.file.url;
               const assetAlt = node.data.target.fields.title || 'Embedded Image';
               return `<img class="rich-asset" src="${assetUrl}" alt="${assetAlt}" />`;
             },
-            // Handle links
             [INLINES.HYPERLINK]: (node) => {
               const url = node.data.uri;
-              const linkText = node.content[0].value; // Get the text for the link
+              const linkText = node.content[0].value;
               return `<a href="${url}" target="_blank" rel="noopener noreferrer">${linkText}</a>`;
             }
           },
         };
-        post.fields.renderPostRichTextHtml = documentToHtmlString(post.fields.content, options);
+        fields.renderPostRichTextHtml = documentToHtmlString(fields.content, options);
       }
 
-        // Initialize relatedPostsHtml
-        let relatedPostsHtml = '';
-        const relatedBlogPosts = fields.relatedBlogPosts || []; // Ensure relatedBlogPosts is defined and default to an empty array
-  
-        if (Array.isArray(relatedBlogPosts)) {
-          relatedPostsHtml = relatedBlogPosts.map(relatedPost => {
-            const postFields = relatedPost.fields || {}; // Ensure relatedPost.fields is defined
-            const title = postFields.title || 'Untitled Post';
-            const imageUrl = postFields.featuredImage
-              ? postFields.featuredImage.fields.file.url
-              : 'https://example.com/default-image.jpg'; // Fallback image URL
-  
-            return `
-              <div class="related-post">
-                <a href="/blog/post/${postFields.slug || '#'}">
-                  <img src="${imageUrl}" alt="${title}" class="related-post-image" />
-                  <h3 class="related-post-title">${title}</h3>
-                </a>
-              </div>
-            `;
-          }).join('');
-        } else {
-          console.log('relatedBlogPosts is not an array or is undefined.');
-        }
-  
-        // Add the HTML for related posts to the post object
-        fields.renderRelatedBlogPostsHtml = relatedPostsHtml;
-  
-        return { fields }; // Return fields directly
+      // Initialize relatedPostsHtml
+      let relatedPostsHtml = '';
+      const relatedBlogPosts = fields.relatedBlogPosts || []; // Ensure relatedBlogPosts is defined and default to an empty array
+
+      if (Array.isArray(relatedBlogPosts)) {
+        relatedPostsHtml = relatedBlogPosts.map(relatedPost => {
+          const postFields = relatedPost.fields || {}; // Ensure relatedPost.fields is defined
+          const title = postFields.title || 'Untitled Post';
+          const imageUrl = postFields.featuredImage
+            ? postFields.featuredImage.fields.file.url
+            : 'https://example.com/default-image.jpg'; // Fallback image URL
+
+          return `
+            <div class="related-post">
+              <a href="/blog/post/${postFields.slug || '#'}">
+                <img src="${imageUrl}" alt="${title}" class="related-post-image" />
+                <h3 class="related-post-title">${title}</h3>
+              </a>
+            </div>
+          `;
+        }).join('');
+      } else {
+        console.log('relatedBlogPosts is not an array or is undefined.');
       }
-      return null;
-    } catch (error) {
-      console.error('Error fetching post:', error);
-      throw error;
+
+      // Add the HTML for related posts to the post object
+      fields.renderRelatedBlogPostsHtml = relatedPostsHtml;
+
+      return { fields }; // Return fields directly
     }
+    return null;
+  } catch (error) {
+    console.error('Error fetching post:', error);
+    throw error;
   }
-  
+}
+
+
 
 // Individual blog post route
 app.get('/blog/post/:slug', async (req, res) => {
@@ -162,7 +168,7 @@ app.get('/blog/post/:slug', async (req, res) => {
       metaKeywords: post.fields.tags || ['finance', 'trading', 'investing', 'wealthpsychology', 'blog'],
       imageUrl: imageUrl,
       blogUrl: fullUrl.replace(/^http:/, 'https:'), // Replace http with https
-      renderPostRichTextHtml: post.fields.renderPostRichTextHtml || '' // Ensure rendered HTML is available
+      renderPostRichTextHtml: post.fields.renderPostRichTextHtml || '', // Ensure rendered HTML is available
       renderRelatedBlogPostsHtml: post.fields.renderRelatedBlogPostsHtml || '' // Ensure related posts HTML is available
     });
   } catch (error) {
