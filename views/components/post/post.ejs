@@ -93,7 +93,7 @@
                 <h1><%- post.title %></h1>
                 <p>Published on: <%= new Date(post.publishedDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) %></p>
                 <!-- <p>Author: <%= post.author.fields.name %></p> -->
-                 <div class="post-images">
+                <!--  <div class="post-images">
                     <% if (post.postImages) { %>
                       <% if (Array.isArray(post.postImages)) { %>
                         <% post.postImages.forEach(image => { %>
@@ -103,11 +103,19 @@
                         <img src="<%= post.postImages.fields.file.url %>" alt="<%= post.postImages.fields.title %>">
                       <% } %>
                     <% } %>
-                 </div>
+                 </div> -->
 
                 <div><%- renderPostRichTextHtml %></div>
                 <a href="javascript:history.back()" class="back"><i class="fa-solid fa-caret-left"></i>Back</a>
             </article>
+
+            <div id="related-posts"></div>
+              <h2>Related posts</h2>
+              <div class="related-posts-wrapper">
+                <%- renderRelatedBlogPostsHtml %>
+              </div>
+            </div>
+
             
         </div>
 

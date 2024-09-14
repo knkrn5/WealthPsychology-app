@@ -99,7 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 ? `<img src="${post.fields.featuredImage.fields.file.url}" alt="${post.fields.featuredImage.fields.title}">`
                 : ''}
             <p>${post.fields && post.fields.excerpt ? post.fields.excerpt + ' [...]' : 'No excerpt available'}</p>
-            <a href="/blog/post/${post.fields.slug}" class="read-more">Read More</a>
+            ${post.fields && post.fields.slug 
+                ? `<a href="/blog/post/${post.fields.slug}" class="read-more">Read More</a>`
+                : '<span class="read-more-unavailable">Read More (Link Unavailable)</span>'}
         `;
         return postElement;
     }
