@@ -165,8 +165,16 @@
   margin-right: auto
 }
 
+.mb-4 {
+  margin-bottom: 1rem
+}
+
 .mb-5 {
   margin-bottom: 1.25rem
+}
+
+.ml-1 {
+  margin-left: 0.25rem
 }
 
 .ml-6 {
@@ -177,12 +185,20 @@
   margin-top: 0px
 }
 
+.mt-2 {
+  margin-top: 0.5rem
+}
+
 .mt-2\.5 {
   margin-top: 0.625rem
 }
 
 .mt-20 {
   margin-top: 5rem
+}
+
+.mt-3 {
+  margin-top: 0.75rem
 }
 
 .mt-4 {
@@ -265,8 +281,8 @@
   padding-right: 1rem
 }
 
-.pl-1 {
-  padding-left: 0.25rem
+.pl-0 {
+  padding-left: 0px
 }
 
 .pt-1 {
@@ -310,6 +326,11 @@
   color: rgb(29 78 216 / var(--tw-text-opacity))
 }
 
+.text-blue-800 {
+  --tw-text-opacity: 1;
+  color: rgb(30 64 175 / var(--tw-text-opacity))
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity))
@@ -340,6 +361,10 @@
 }
 
 @media not all and (min-width: 640px) {
+  .max-sm\:ml-10 {
+    margin-left: 2.5rem
+  }
+
   .max-sm\:ml-9 {
     margin-left: 2.25rem
   }
