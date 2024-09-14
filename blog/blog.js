@@ -81,27 +81,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createPostExcerpt(post) {
+        console.log('Creating excerpt for post:', post);
+
+        if (!post || !post.fields) {
+            console.error('Invalid post structure:', post);
+            // return document.createElement('div'); // Return empty div for invalid posts
+        }
+
+        // Ensure the title fallback works as expected
+        const postTitle = post.fields && (post.fields.title || post.fields.internalName) || 'No title';
+
+        // Safeguard the publish date rendering with fallback
         const publishedDate = post.fields && post.fields.publishedDate 
             ? new Date(post.fields.publishedDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) 
             : 'No date';
 
+        // Safeguard the author name rendering with fallback   
         const authorName = post.fields && post.fields.author && post.fields.author.fields && post.fields.author.fields.name
             ? post.fields.author.fields.name
             : 'WealthPsychology';
 
+        // Safeguard the featured image rendering with fallback
+        const featuredImage = post.fields && post.fields.featuredImage && post.fields.featuredImage.fields
+        ? `<img src="${post.fields.featuredImage.fields.file.url}" alt="${post.fields.featuredImage.fields.title}">`
+        : '';
+
+        // Safeguard the excerpt rendering with fallback
+        const postExcerpt = post.fields && post.fields.excerpt ? post.fields.excerpt + ' [...]' : 'No excerpt available';
+
+        // Safeguard the fetching and rendering of slug with fallback
+        const postSlug  = post.fields && post.fields.slug 
+             ? `<a href="/blog/post/${post.fields.slug}" class="read-more">Read More</a>`
+             : '<span class="read-more-unavailable">Read More (Link Unavailable)</span>';
+
         const postElement = document.createElement('article');
         postElement.className = "post";
         postElement.innerHTML = `
-            <h2>${post.fields && (post.fields.title || post.fields.internalName) || 'No title'}</h2>
+            <h2>${postTitle}</h2>
             <p>${publishedDate}</p>
             <p class="blog-author">Post By: ${authorName}</p>
-            ${post.fields && post.fields.featuredImage && post.fields.featuredImage.fields 
-                ? `<img src="${post.fields.featuredImage.fields.file.url}" alt="${post.fields.featuredImage.fields.title}">`
-                : ''}
-            <p>${post.fields && post.fields.excerpt ? post.fields.excerpt + ' [...]' : 'No excerpt available'}</p>
-            ${post.fields && post.fields.slug 
-                ? `<a href="/blog/post/${post.fields.slug}" class="read-more">Read More</a>`
-                : '<span class="read-more-unavailable">Read More (Link Unavailable)</span>'}
+            <img>${featuredImage}</img>
+            <p>${postExcerpt}</p>
+            <span>${postSlug}</span>
         `;
         return postElement;
     }
