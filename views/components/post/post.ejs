@@ -30,7 +30,7 @@
       <link rel="canonical" href="<%= blogUrl %>">
   
       <!-- Additional Meta Tags -->
-    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="googlebot" content="index, follow">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
@@ -71,6 +71,7 @@
     <link rel="stylesheet" href="/navbar/nav.css">
     <link rel="stylesheet" href="/layouts/footer/footer.css">
 
+    <link rel="stylesheet" href="/output.css" >
     <link rel="stylesheet" href="/views/components/post/post.css">
     <!-- <title><%= title %></title> -->
 </head>
@@ -88,35 +89,41 @@
     <main>
         <div id="post-container">
 
-           <!-- Post content will be loaded here -->
-           <article class="full-blog-post">
-                <h1><%- post.title %></h1>
-                <p>Published on: <%= new Date(post.publishedDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) %></p>
-                <!-- <p>Author: <%= post.author.fields.name %></p> -->
-                <!--  <div class="post-images">
-                    <% if (post.postImages) { %>
+        <!-- Post content will be loaded here -->
+            <article class="full-blog-post">
+              <h1><%- post.title %></h1>
+              <p>Published on: <%= new Date(post.publishedDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) %></p>
+              
+              <!-- Optional author information -->
+              <!-- <p>Author: <%= post.author.fields.name %></p> -->
+              
+              <!-- Optional post images -->
+              <!--
+              <div class="post-images">
+                  <% if (post.postImages) { %>
                       <% if (Array.isArray(post.postImages)) { %>
-                        <% post.postImages.forEach(image => { %>
-                          <img src="<%= image.fields.file.url %>" alt="<%= image.fields.title %>">
-                        <% }); %>
+                          <% post.postImages.forEach(image => { %>
+                              <img src="<%= image.fields.file.url %>" alt="<%= image.fields.title %>">
+                          <% }); %>
                       <% } else if (post.postImages.fields && post.postImages.fields.file) { %>
-                        <img src="<%= post.postImages.fields.file.url %>" alt="<%= post.postImages.fields.title %>">
+                          <img src="<%= post.postImages.fields.file.url %>" alt="<%= post.postImages.fields.title %>">
                       <% } %>
-                    <% } %>
-                 </div> -->
-
-                <div><%- renderPostRichTextHtml %></div>
-                <a href="javascript:history.back()" class="back"><i class="fa-solid fa-caret-left"></i>Back</a>
-            </article>
-
-            <div id="related-posts">
-              <h2>Related posts</h2>
-               <div class="related-posts-wrapper">
-                <%- renderRelatedBlogPostsHtml %>
+                  <% } %>
               </div>
-            </div>
+              -->
 
+              <!-- Render rich text content -->
+              <div><%- renderPostRichTextHtml %></div>
+              <a href="javascript:history.back()" class="back"><i class="fa-solid fa-caret-left"></i>Back</a>
+            </article>
             
+            <!-- <div id="related-posts">
+              <h2>Related posts</h2>
+              <div class="related-posts-wrapper">
+                renderRelatedBlogPostsHtml will come here
+              </div>
+            </div> -->
+
         </div>
 
     </main>

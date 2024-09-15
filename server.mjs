@@ -2,8 +2,8 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import cors from 'cors';
-import axios from 'axios';
-import { decode } from 'html-entities';
+// import axios from 'axios';
+// import { decode } from 'html-entities';
 import contentful from 'contentful';
 import CircularJSON from 'circular-json';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
@@ -35,7 +35,7 @@ const client = contentful.createClient({
   accessToken: 'pbXCDRwNaD33p8dj3lhOKAJLSezMtbGF4Q9g3-sn10Y'
 });
 
-//proxy for contentful cms for blog
+//proxy for blog contentful cms for blog
 app.get('/blog', async (req, res) => {
   console.log('Received request for /blog');
   try {
@@ -58,29 +58,22 @@ app.get('/blog', async (req, res) => {
   }
 });
 
+
 // Function to fetch a post by its slug and render rich text including assets and links
-export async function fetchPostBySlug(slug) {
+export async function fetchContentBySlug(contentType, slug) {
   try {
     const entries = await client.getEntries({
-      content_type: 'pageBlogPost',
+      content_type: contentType,
       'fields.slug': slug,
       limit: 1,
-      include: 4, // Include linked assets and related content
+      include: 2, // Include linked assets
     });
 
     if (entries.items.length > 0) {
       const post = entries.items[0];
-
-      // Ensure post and fields are defined
-      if (!post || !post.fields) {
-        console.error('Post or post.fields is undefined');
-        return null;
-      }
-
-      const fields = post.fields; // Safely access fields
-
-      // Render rich text with custom rendering for embedded assets and hyperlinks
-      if (fields.content) {
+      
+      // Render rich text content
+      if (post.fields.content) {
         const options = {
           renderNode: {
             [BLOCKS.EMBEDDED_ASSET]: (node) => {
@@ -95,53 +88,30 @@ export async function fetchPostBySlug(slug) {
             }
           },
         };
-        fields.renderPostRichTextHtml = documentToHtmlString(fields.content, options);
-      }
-
-      // Initialize relatedPostsHtml
-      let relatedPostsHtml = '';
-      const relatedBlogPosts = fields.relatedBlogPosts || []; // Ensure relatedBlogPosts is defined and default to an empty array
-
-      if (Array.isArray(relatedBlogPosts)) {
-        relatedPostsHtml = relatedBlogPosts.map(relatedPost => {
-          const postFields = relatedPost.fields || {}; // Ensure relatedPost.fields is defined
-          const title = postFields.title || 'Untitled Post';
-          const imageUrl = postFields.featuredImage
-            ? postFields.featuredImage.fields.file.url
-            : 'https://example.com/default-image.jpg'; // Fallback image URL
-
-          return `
-            <div class="related-post">
-              <a href="/blog/post/${postFields.slug || '#'}">
-                <img src="${imageUrl}" alt="${title}" class="related-post-image" />
-                <h3 class="related-post-title">${title}</h3>
-              </a>
-            </div>
-          `;
-        }).join('');
+        try {
+          post.fields.renderPostRichTextHtml = documentToHtmlString(post.fields.content, options);
+        } catch (error) {
+          console.error('Error rendering rich text:', error);
+          post.fields.renderPostRichTextHtml = 'Error rendering content';
+        }
       } else {
-        console.log('relatedBlogPosts is not an array or is undefined.');
+        post.fields.renderPostRichTextHtml = 'No content available';
       }
-
-      // Add the HTML for related posts to the post object
-      fields.renderRelatedBlogPostsHtml = relatedPostsHtml;
-
-      return { fields }; // Return fields directly
+      
+        return post;
+      }
+      return null;
+    } catch (error) {
+      console.error('Error fetching content:', error);
+      throw error;
     }
-    return null;
-  } catch (error) {
-    console.error('Error fetching post:', error);
-    throw error;
   }
-}
-
-
 
 // Individual blog post route
 app.get('/blog/post/:slug', async (req, res) => {
   try {
     const postSlug = req.params.slug;
-    const post = await fetchPostBySlug(postSlug);
+    const post = await fetchContentBySlug('pageBlogPost', postSlug);
 
     // Check if the post was found
     if (!post) {
@@ -168,8 +138,7 @@ app.get('/blog/post/:slug', async (req, res) => {
       metaKeywords: post.fields.tags || ['finance', 'trading', 'investing', 'wealthpsychology', 'blog'],
       imageUrl: imageUrl,
       blogUrl: fullUrl.replace(/^http:/, 'https:'), // Replace http with https
-      renderPostRichTextHtml: post.fields.renderPostRichTextHtml || '', // Ensure rendered HTML is available
-      renderRelatedBlogPostsHtml: post.fields.renderRelatedBlogPostsHtml || '' // Ensure related posts HTML is available
+      renderPostRichTextHtml: post.fields.renderPostRichTextHtml || '' // Ensure rendered HTML is available
     });
   } catch (error) {
     console.error('Error fetching post:', error);
@@ -181,51 +150,73 @@ app.get('/blog/post/:slug', async (req, res) => {
 });
 
 
-// Define the proxy endpoint for finance news
+//proxy for finance news contentful cms for blog
 app.get('/finnews', async (req, res) => {
+  console.log('Received request for /blog');
   try {
-    const response = await axios.get('https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyfinnews.wordpress.com/posts?_embed');
-    res.json(response.data); // Send the data back to the client
+    console.log('Attempting to fetch entries from Contentful');
+    const response = await client.getEntries({
+      content_type: 'pageNewsArticles',
+      order: '-fields.publishedDate'
+    });
+    
+    // Use a custom serializer to handle circular references
+    const safeResponse = CircularJSON.stringify(response.items);
+    res.send(safeResponse);
   } catch (error) {
-    console.error('Error fetching finance news:', error);
-    res.status(500).json({ message: 'Error fetching finance news' });
+    console.error('Detailed error:', error);
+    res.status(500).json({
+       error: 'Failed to fetch blog articles',
+       details: error.message,
+      stack: error.stack
+    });
   }
 });
 
 
-// Define the API endpoint for new article
-app.get('/news-article/:postSlug', async (req, res) => {
-  const postSlug = req.params.postSlug;
-
+// Individual news article route
+app.get('/news-article/:slug', async (req, res) => { 
   try {
-    const response = await axios.get(`https://public-api.wordpress.com/wp/v2/sites/wealthpsychologyfinnews.wordpress.com/posts?slug=${encodeURIComponent(postSlug)}&_embed`);
-    const data = response.data;
+    const postSlug = req.params.slug;
+    const post = await fetchContentBySlug('pageNewsArticles', postSlug);
 
-    if (!data.length) {
-      throw new Error('Post not found');
+    // Check if the post was found
+    if (!post) {
+      return res.status(404).render('error', {
+        message: 'Post not found',
+        error: { status: 404, stack: '' }
+      });
     }
 
-    // Safely get the image URL, with a fallback to a default image if necessary
-    const imageUrl = data[0]._embedded && data[0]._embedded['wp:featuredmedia'] && data[0]._embedded['wp:featuredmedia'][0] && data[0]._embedded['wp:featuredmedia'][0].source_url
-      ? data[0]._embedded['wp:featuredmedia'][0].source_url
-      : 'https://wealthpsychology.in/global/imgs/logo.webp'; // Use a default image
+    // Safely get the image URL with a fallback to a default image
+    const imageUrl = post.fields && post.fields.featuredImage && post.fields.featuredImage.fields && post.fields.featuredImage.fields.file
+      ? post.fields.featuredImage.fields.file.url
+      : 'https://wealthpsychology.in/global/imgs/logo.webp';
 
-    const post = {
-      title: decode(data[0].title.rendered), // Decode the title
-      content: decode(data[0].content.rendered), // Decode the content
-      description: decode(data[0].excerpt.rendered).replace(/(<([^>]+)>)/gi, "").slice(0, 160), // Decode and trim the description/excerpt
-      keywords: 'Finance News, Stock Market, Corporate Financial News, Market Updates, FinTech, Economic Insights, WealthPsychology',
-      author: 'WealthPsychology, Karan',
-      imageUrl: imageUrl, 
-      url: `${req.protocol}://${req.get('host')}${req.originalUrl}`.replace(/^http:/, 'https:')
-    };
+    // Determine the protocol and construct the full URL for the blog post
+    const protocol = req.headers['x-forwarded-proto'] || req.protocol;
+    const fullUrl = `${protocol}://${req.get('host')}${req.originalUrl}`;
 
-    res.render('components/finance-news/news-article', { post });
+    // Render the post.ejs template with the full post content
+    res.render('components/finance-news/news-article', {
+      post: post.fields,
+      metaTitle: post.fields.title || 'Untitled Post',
+      metaDescription: post.fields.excerpt || '',
+      metaKeywords: post.fields.tags || ['finance', 'trading', 'investing', 'wealthpsychology', 'blog'],
+      imageUrl: imageUrl,
+      newsUrl: fullUrl.replace(/^http:/, 'https:'),
+      renderPostRichTextHtml: post.fields.renderPostRichTextHtml || 'No content available'
+    });
+
   } catch (error) {
-    console.error('Error fetching post:', error);
-    res.status(500).send('Failed to load the article. Please try again later.');
+    console.error('Detailed error in /news-article/:slug route:', error);
+    res.status(500).render('error', {
+      message: 'Error loading post',
+      error: { status: 500, stack: process.env.NODE_ENV === 'development' ? error.stack : '' }
+    });
   }
 });
+
 
 
 // Start the server
