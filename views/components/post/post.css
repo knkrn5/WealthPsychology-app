@@ -12,12 +12,6 @@ body {
 header {
     /* background-color: #000; */
     text-align: center;
-    /* padding: 0; */
-    /* position: relative;  */
-    /* top: 0; */
-    /* left: 0; */
-    /* min-width: 100%;  */
-    /* z-index: 998; */
   }
   
   header h1 {
@@ -37,12 +31,6 @@ header {
       font-weight: bold;
     }
   }
-
-/* main{
-    width: 70%;
-    margin: 0 auto;
-} */
-
 
 #post-container {
     padding: 20px 10px;
@@ -101,7 +89,6 @@ header {
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
-
 .back:hover {
   background-color: #007bff;
     cursor: pointer;
@@ -160,16 +147,11 @@ header {
 }
 
 
-
 /* Responsive design */
 @media (max-width: 768px) {
     .full-blog-post {
         width: 80%;
         margin-top: 40px;
-    }
-
-    .container {
-        padding: 10px;
     }
 
     .full-blog-post h1 {
