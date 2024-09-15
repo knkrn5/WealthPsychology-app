@@ -106,8 +106,12 @@ document.addEventListener('DOMContentLoaded', () => {
         ? `<img src="${post.fields.featuredImage.fields.file.url}" alt="${post.fields.featuredImage.fields.title}">`
         : '';
 
-        // Safeguard the excerpt rendering with fallback
-        const postExcerpt = post.fields && post.fields.excerpt ? post.fields.excerpt + ' [...]' : 'No excerpt available';
+         // Safeguard the excerpt rendering and shorten it to 100 characters
+         const postExcerpt = post.fields && post.fields.excerpt 
+         ? post.fields.excerpt.length > 250 
+             ? post.fields.excerpt.substr(0, 250).trim() + ' [...]'
+             : post.fields.excerpt + ' [...]'
+         : 'No excerpt available';
 
         // Safeguard the fetching and rendering of slug with fallback
         const postSlug  = post.fields && post.fields.slug 
