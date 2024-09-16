@@ -92,7 +92,7 @@
         <!-- Post content will be loaded here -->
             <article class="full-blog-post">
               <h1><%- post.title %></h1>
-              <p>Published on: <%= new Date(post.publishedDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) %></p>
+              <p> <%= new Date(post.publishedDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) %></p>
               
               <!-- Optional author information -->
               <!-- <p>Author: <%= post.author.fields.name %></p> -->

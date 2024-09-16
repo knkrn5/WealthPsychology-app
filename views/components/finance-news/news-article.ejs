@@ -117,7 +117,7 @@
             <div class="news-article-container">
                   <article class="full-news-article">
                       <h1><%- post.title %></h1>
-                      <p>Published on: <%= new Date(post.publishedDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) %></p>
+                      <p><%= new Date(post.publishedDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) %></p>
                       <!-- <p>Author: <%= post.author.fields.name %></p> -->
 
                       <!-- Render rich text content -->
