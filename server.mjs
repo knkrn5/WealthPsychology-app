@@ -131,7 +131,7 @@ app.get('/blog/post/:slug', async (req, res) => {
     const fullUrl = `${protocol}://${req.get('host')}${req.originalUrl}`;
 
     // Render the post.ejs template with the full post content
-    res.render('components/post/post', {
+    res.render('templates/post/post', {
       post: post.fields,
       title: post.fields.title || 'Untitled Post',
       metaDescription: post.fields.excerpt || '',
@@ -198,7 +198,7 @@ app.get('/news-article/:slug', async (req, res) => {
     const fullUrl = `${protocol}://${req.get('host')}${req.originalUrl}`;
 
     // Render the post.ejs template with the full post content
-    res.render('components/finance-news/news-article', {
+    res.render('templates/finance-news/news-article', {
       post: post.fields,
       metaTitle: post.fields.title || 'Untitled Post',
       metaDescription: post.fields.excerpt || '',
