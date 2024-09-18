@@ -11,8 +11,12 @@
     "start": "node server.mjs",
     "dev": "nodemon server.mjs"
   },
-  "keywords": [],
-  "author": "",
+  "author": {
+    "name": "wealthpsychology",
+    "email": "contact@wealthpsychology.in",
+    "url": "http://wealthpsychology.in"
+  },
+  "keywords": ["finance", "psychology", "wealth management", "personal growth"],
   "license": "ISC",
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^16.6.10",
