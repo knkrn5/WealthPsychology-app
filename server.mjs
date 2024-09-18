@@ -22,11 +22,12 @@ app.use(cors());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-// Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
-
 // Serve files from the root directory
 app.use(express.static(path.join(__dirname)));
+
+// Serve static files
+app.use(express.static(path.join(__dirname, 'public/pages')));
+
 
 
 // Initialize Contentful client
