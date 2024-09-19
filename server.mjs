@@ -30,7 +30,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public/pages')));
 
 
-
 // Initialize Contentful client
 const client = contentful.createClient({
   space: 'ucfnymwo68v4',
