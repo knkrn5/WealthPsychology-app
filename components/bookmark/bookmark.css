@@ -59,8 +59,8 @@
     border-radius: 10px;
     background-color: #999;
     /* opacity: 0.9;  */
-    backdrop-filter: blur(10px);
    -webkit-backdrop-filter: blur(10px); 
+   backdrop-filter: blur(10px);
     overflow-y: auto; /* Enable vertical scrolling */
     z-index: 1000;
     border-top: 1.5px solid #eee; /* Top border for the cart container */
@@ -134,8 +134,8 @@
     left: 50%;
     transform: translate(-50%);
     background-color: rgb(255, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
    -webkit-backdrop-filter: blur(10px);
+   backdrop-filter: blur(10px);
     margin-top: 15px;
     padding: 7px;
     color: #000;
