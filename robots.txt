@@ -3,5 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /private/
 Disallow: /testing/
-Disallow: /public/
 Sitemap: https://wealthpsychology.in/sitemap.xml
