@@ -30,6 +30,10 @@
     border-radius: 50%;
   }
 
+  #bookmark-icon-container {
+    cursor: pointer;
+  }
+
   #total-bookmark{
     cursor: pointer;
     font-weight: bold;
@@ -59,15 +63,14 @@
     border-radius: 10px;
     background-color: #999;
     /* opacity: 0.9;  */
+    -webkit-backdrop-filter: blur(10px); 
     backdrop-filter: blur(10px);
-   -webkit-backdrop-filter: blur(10px); 
     overflow-y: auto; /* Enable vertical scrolling */
     z-index: 1000;
     border-top: 1.5px solid #eee; /* Top border for the cart container */
     border-bottom: 1.5px solid #eee; /* Top border for the cart container */
     padding-top: 10px; /* Padding to separate the top border from the content */
   }
-  
   
   .bookmark-container h2 {
     margin-bottom: 10px;
