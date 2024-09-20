@@ -213,7 +213,7 @@ header h1 {
     width: 260px;
   }
   .right-column #category-list{
-    height: 500px;
+    max-height: 500px;
     overflow-y: auto; 
   }
 
