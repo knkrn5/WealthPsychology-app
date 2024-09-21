@@ -62,17 +62,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
         });
-        updateArticleCounts();
+        // updateArticleCounts();
     }
 
-    function updateArticleCounts() {
+   /*  function updateArticleCounts() {
         Object.entries(categoryMapping).forEach(([categorySlug, categoryName]) => {
             const countElement = document.querySelector(`.category-filter[data-category="${categorySlug}"] .count`);
             if (countElement) {
                 countElement.textContent = articlesByCategory[categorySlug] ? articlesByCategory[categorySlug].length : 0;
             }
         });
-    }
+    } */
 
     function displayAllArticles(articles) {
         newsContainer.innerHTML = '';
