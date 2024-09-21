@@ -30,6 +30,34 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'public/pages')));
 
 
+app.get('/blog', (req, res) => {
+  res.sendFile(path.join(__dirname, 'blog/blog.html'));
+});
+
+app.get('/contact-us', (req, res) => {
+  res.sendFile(path.join(__dirname, 'contact-us/contact-us.html'));
+});
+
+app.get('/about-us', (req, res) => {
+  res.sendFile(path.join(__dirname, 'about-us/about-us.html'));
+});
+
+app.get('/team', (req, res) => {
+  res.sendFile(path.join(__dirname, 'our-team/team.html'));
+});
+
+app.get('/privacy-policy', (req, res) => {
+  res.sendFile(path.join(__dirname, 'privacy-policy/privacy-policy.html'));
+});
+
+app.get('/terms-of-use', (req, res) => {
+  res.sendFile(path.join(__dirname, 'terms-of-use/terms-of-use.html'));
+});
+
+app.get('/plans', (req, res) => {
+  res.sendFile(path.join(__dirname, 'our-plans/plans.html'));
+});
+
 // Redirect finance-news.html
 app.get('/finance-news/finance-news.html', (req, res) => {
   res.redirect(301, '/finance-news.html');
@@ -78,7 +106,7 @@ const client = contentful.createClient({
 });
 
 //proxy for blog contentful cms for blog
-app.get('/blog', async (req, res) => {
+app.get('/blog/posts', async (req, res) => {
   console.log('Received request for /blog');
   try {
     console.log('Attempting to fetch entries from Contentful');

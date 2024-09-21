@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const postsPerPage = 3;
 
-    fetch('/blog')
+    fetch('/blog/posts')
         .then(response => {
             if (!response.ok) {
                 return response.json().then(err => { throw err; });
