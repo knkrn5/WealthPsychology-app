@@ -27,8 +27,6 @@ app.use(express.static(path.join(__dirname)));
 
 // Serve static files
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public/pages')));
-
 
 app.get('/finance-news', (req, res) => {
   res.sendFile(path.join(__dirname, 'finnews/finance-news.html'));
@@ -36,6 +34,10 @@ app.get('/finance-news', (req, res) => {
 
 app.get('/blog', (req, res) => {
   res.sendFile(path.join(__dirname, 'blog/blog.html'));
+});
+
+app.get('/financial-calculators', (req, res) => {
+  res.sendFile(path.join(__dirname, 'financial-calculators/financial-calculators.html'));
 });
 
 app.get('/contact-us', (req, res) => {
