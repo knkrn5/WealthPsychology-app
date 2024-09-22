@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname)));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/finance-news', (req, res) => {
-  res.sendFile(path.join(__dirname, 'finnews/finance-news.html'));
+  res.sendFile(path.join(__dirname, 'finance-news/finance-news.html'));
 });
 
 app.get('/blog', (req, res) => {
