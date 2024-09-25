@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'fintech': 'FinTech'
     };
 
-    let articlesByCategory = {};
+    let articlesByCategory = [];
 
     function loadNewsArticles() {
         fetch('/finnews')
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 const articles = items.map(item => item.fields);
                 displayNewsArticles(articles);
-                displayAllArticles(articles);
+                // displayAllArticles(articles);
                 
                 if (loadingContainer) 
                      loadingContainer.remove();
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const urlParams = new URLSearchParams(window.location.search);
                 const categoryParam = urlParams.get('category');
                 if (categoryParam && categoryMapping[categoryParam]) {
-                    filterByCategory(articles, categoryParam);
+                    filterByCategory(categoryParam);
                     updateHeading(categoryParam);
                 } else {
                     updateHeading('all');
@@ -42,6 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (loadingContainer) loadingContainer.remove();
             });
     }
+
+    loadNewsArticles();
 
     function displayNewsArticles(articles) {
         newsContainer.innerHTML = '';
@@ -63,6 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
         // updateArticleCounts();
+        displayAllArticles(articles);
+
     }
 
    /*  function updateArticleCounts() {
@@ -111,49 +115,59 @@ document.addEventListener('DOMContentLoaded', () => {
         return articleElem;
     }
 
+    
     function setupCategoryFilters(articles) {
         const categoryLinks = document.querySelectorAll('.category-filter');
-        const mainFinanceNewsLink = document.querySelector('.dropdown > a.active');
-        
+
+        /* const mainFinanceNewsLink = document.querySelector('.dropdown > a.active');
+
         mainFinanceNewsLink.addEventListener('click', function(e) {
             e.preventDefault();
             displayAllArticles(articlesByCategory['all']);
             updateHeading('all');
             updateURL('all');
             categoryLinks.forEach(l => l.classList.remove('dropdown-active'));
-        });
-    
+        }); */
+
+      
         categoryLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const category = this.dataset.category;
+                // console.log(category);
                 
                 categoryLinks.forEach(l => l.classList.remove('dropdown-active'));
-                
+
                 if (category === 'all') {
                     displayAllArticles(articlesByCategory['all']);
                     updateHeading('all');
                     updateURL('all');
                 } else {
                     this.classList.add('dropdown-active');
-                    filterByCategory(category);
                     updateHeading(category);
                     updateURL(category);
+                    console.log(articlesByCategory['all'].length)
+                    filterByCategory(category);
                 }
             });
         });
     }
 
-    function filterByCategory(category) {
-        const filteredArticles = articlesByCategory[category] || [];
+        function filterByCategory(category) {
+            const filteredArticles = articlesByCategory[category] || [];
+        
+            if (filteredArticles.length === 0) {
+                newsContainer.innerHTML = `No articles found for ${categoryMapping[category] || category}`;
+            } else {
+                newsContainer.innerHTML = '';
+                filteredArticles.forEach(article => {
+                    const articleElement = createArticleElement(article);
+                    newsContainer.appendChild(articleElement);
+                });
+            }
+            addArticleEventListeners();
+        }
 
-        newsContainer.innerHTML = '';
-        filteredArticles.forEach(article => {
-            const articleElement = createArticleElement(article);
-            newsContainer.appendChild(articleElement);
-        });
-        addArticleEventListeners();
-    }
 
     function updateHeading(category) {
         const heading = document.getElementsByTagName('h1')[0];
@@ -199,5 +213,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    loadNewsArticles();
 });
