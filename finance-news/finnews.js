@@ -19,18 +19,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 const articles = items.map(item => item.fields);
                 displayNewsArticles(articles);
+                setupCategoryFilters();
                 // displayAllArticles(articles);
                 
-                if (loadingContainer) 
-                     loadingContainer.remove();
-                setupCategoryFilters(articles);
-
+               
                 // Check for category in URL
                 const urlParams = new URLSearchParams(window.location.search);
                 const categoryParam = urlParams.get('category');
                 if (categoryParam && categoryMapping[categoryParam]) {
                     filterByCategory(categoryParam);
                     updateHeading(categoryParam);
+                    const categoryLink = document.querySelector(`.category-filter[data-category="${categoryParam}"]`);
+                    if (categoryLink) {
+                        categoryLink.classList.add('dropdown-active');
+                    }
                 } else {
                     updateHeading('all');
                     updateURL('all');
@@ -39,11 +41,15 @@ document.addEventListener('DOMContentLoaded', () => {
             .catch(error => {
                 console.error('Error fetching articles:', error);
                 newsContainer.innerHTML = '<p>Failed to load news articles. Please try again later.</p>';
-                if (loadingContainer) loadingContainer.remove();
-            });
+            })
+            .finally(() => { 
+                if (loadingContainer) 
+                    loadingContainer.remove();
+              });
     }
 
     loadNewsArticles();
+
 
     function displayNewsArticles(articles) {
         newsContainer.innerHTML = '';
@@ -116,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     
-    function setupCategoryFilters(articles) {
+    function setupCategoryFilters() {
         const categoryLinks = document.querySelectorAll('.category-filter');
 
         /* const mainFinanceNewsLink = document.querySelector('.dropdown > a.active');
@@ -128,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
             updateURL('all');
             categoryLinks.forEach(l => l.classList.remove('dropdown-active'));
         }); */
-
       
         categoryLinks.forEach(link => {
             link.addEventListener('click', function(e) {
@@ -146,7 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     this.classList.add('dropdown-active');
                     updateHeading(category);
                     updateURL(category);
-                    console.log(articlesByCategory['all'].length)
                     filterByCategory(category);
                 }
             });
