@@ -120,6 +120,13 @@ document.querySelectorAll('.rlbtn').forEach(button => {
 const deleteAllButton = document.querySelector('.deleteall');
 deleteAllButton.addEventListener('click', () => {
     bookmarkItems = [];
+
+    // Reset all "Bookmarked" buttons back to "Add to Bookmark"
+    const readLaterButtons = document.querySelectorAll('.rlbtn');
+    readLaterButtons.forEach(button => {
+    button.innerText = "Read Later";
+    });
+
     saveBookmarkItems();
     updateBookmarks();
 });
