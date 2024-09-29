@@ -110,13 +110,14 @@ function appendBookmark(bookmarkItem) {
 // Function to handle the "Read Later" button click
 const readLater = document.querySelectorAll('.rlbtn');
 readLater.forEach(button => button.addEventListener('click', () => {
-    console.log("clicked readmore");
+    const contentSection = button.closest('.content');
+
+    // console.log("clicked readmore");
     button.innerText = "Bookmarked";
-    const conceptId = button.getAttribute('concept-id');
+    const conceptId = contentSection.getAttribute('concept-id');
     buttonStates[conceptId] = "Bookmarked"; 
     saveButtonStates(); // Save updated states to localStorage
 
-    const contentSection = button.closest('.content');
     const contentTitle = contentSection.querySelector('h2 strong').innerText;
     const contentImage = contentSection.querySelector('img').src;
 
