@@ -81,21 +81,21 @@ function appendBookmark(bookmarkItem) {
 }
 
     // Function to delete a bookmark
-    function deleteBookmark(bookmarkDiv, conceptId) {
+    function deleteBookmark(bookmarkDiv, moduleId) {
         // console.log("clicked delete button");
 
         // Remove the entire bookmarkDiv
         bookmarkDiv.remove();
 
         // Update the bookmark items array
-        bookmarkItems = bookmarkItems.filter(item => item.id !== conceptId);
+        bookmarkItems = bookmarkItems.filter(item => item.id !== moduleId);
 
         // Reset the button text for the removed item
-        const button = document.querySelector(`.rlbtn[concept-id="${conceptId}"]`);
+        const button = document.querySelector(`.rlbtn[module-id="${moduleId}"]`);
         if (button) {
             button.innerText = "Read Later";
-            const conceptId = button.getAttribute('concept-id');
-            buttonStates[conceptId] = "Read Later"; 
+            const moduleId = button.getAttribute('module-id');
+            buttonStates[moduleId] = "Read Later"; 
             saveButtonStates(); // Save updated states to localStorage
         }
 
@@ -114,8 +114,8 @@ readLater.forEach(button => button.addEventListener('click', () => {
 
     // console.log("clicked readmore");
     button.innerText = "Bookmarked";
-    const conceptId = contentSection.getAttribute('concept-id');
-    buttonStates[conceptId] = "Bookmarked"; 
+    const moduleId = contentSection.getAttribute('module-id');
+    buttonStates[moduleId] = "Bookmarked"; 
     saveButtonStates(); // Save updated states to localStorage
 
     const contentTitle = contentSection.querySelector('h2 strong').innerText;
@@ -125,19 +125,19 @@ readLater.forEach(button => button.addEventListener('click', () => {
     const onclickLink = contentUrl.getAttribute('onclick');
 
     // Use a regex to extract the URL part from the onclick attribute
-    const conceptUrl = onclickLink.match(/'([^']+)'/)[1]; // This will capture the URL inside the single quotes
-    console.log(conceptUrl);
+    const moduleUrl = onclickLink.match(/'([^']+)'/)[1]; // This will capture the URL inside the single quotes
+    console.log(moduleUrl);
     
 
     const bookmarkItem = {
         image: contentImage,
-        id: conceptId,
+        id: moduleId,
         title: contentTitle,
-        url: conceptUrl
+        url: moduleUrl
     };
 
     // Check if the item already exists in bookmarkItems
-    const itemExists = bookmarkItems.some(item => item.id === conceptId);
+    const itemExists = bookmarkItems.some(item => item.id === moduleId);
     if (itemExists) {
         alert(`${bookmarkItem.title} "Item already in cart"`);
     } else {
@@ -195,9 +195,9 @@ deleteAllButton.addEventListener('click', () => {
         // Reset all "Bookmarked" buttons back to "Read Later"
         const readLaterButtons = document.querySelectorAll('.rlbtn');
         readLaterButtons.forEach(button => {
-            const conceptId = button.getAttribute('concept-id');
+            const moduleId = button.getAttribute('module-id');
             button.innerText = "Read Later";
-            buttonStates[conceptId] = "Read Later"; // Update button state
+            buttonStates[moduleId] = "Read Later"; // Update button state
         });
 
         // Update bookmark display and count
@@ -223,9 +223,9 @@ function loadBookmarks() {
     // Restore "Read Later" button states
     const readLaterButtons = document.querySelectorAll('.rlbtn');
     readLaterButtons.forEach(button => {
-        const conceptId = button.getAttribute('concept-id');
-        if (buttonStates[conceptId]) {
-            button.innerText = buttonStates[conceptId];
+        const moduleId = button.getAttribute('module-id');
+        if (buttonStates[moduleId]) {
+            button.innerText = buttonStates[moduleId];
         }
     });
 }
