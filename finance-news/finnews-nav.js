@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const menuBars = document.getElementById('menu-bars');
     const navMenu = document.querySelector('.nav-menu');
     const financeNewsLink = document.querySelector('.nav-menu a[href*="finance-news"]');
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function addMobileClickListeners() {
         if (window.innerWidth <= 768) {
             document.querySelectorAll('.dropdown > a').forEach(dropdown => {
-                dropdown.addEventListener('click', function(e) {
+                dropdown.addEventListener('click', function (e) {
                     e.preventDefault();
                     this.nextElementSibling.classList.toggle('active');
                 });
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         menuBars.addEventListener('click', toggleMobileMenu);
         document.addEventListener('click', handleOutsideClick);
 
-        document.querySelector('.nav-menu').addEventListener('click', function(event) {
+        document.querySelector('.nav-menu').addEventListener('click', function (event) {
             const target = event.target;
             if (target.matches('.nav-menu a') && window.innerWidth <= 768) {
                 if (target === financeNewsLink) {
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        financeNewsLink.addEventListener('touchstart', function(event) {
+        financeNewsLink.addEventListener('touchstart', function (event) {
             if (window.innerWidth <= 768) {
                 event.preventDefault();
                 dropdownMenu.classList.toggle('active');

@@ -1,6 +1,6 @@
 
 // for bubbles effects---------------------------------
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const bubbleContainer = document.querySelector('.bubbles');
     const quizContainer = document.getElementById('quiz-container')
     const heading = document.getElementsByTagName('h1')[0]; // Get the first <h1> element
@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Function to initialize quiz-related JavaScript and for quizzes score and answer display
     function initQuizJS() {
-        let score = 0; 
+        let score = 0;
 
         // Attach event listeners to all radio buttons
         document.querySelectorAll('input[type="radio"]').forEach(radio => {
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function setActiveNavLink() {
         const urlParams = new URLSearchParams(window.location.search);
         const currentQuiz = urlParams.get('quiz');
-        
+
         navLinks.forEach(link => {
             const linkQuiz = link.textContent.trim().replace(' ', '-').toLowerCase();
             if (linkQuiz === currentQuiz) {
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-     // Function to load quiz content
+    // Function to load quiz content
     function loadQuiz(url, title, quizHeading) {
         fetch(url)
             .then(response => response.text())
@@ -130,7 +130,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Add click event listener to all navigation links
     navLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
+        link.addEventListener('click', function (event) {
             event.preventDefault();
             // Remove active class from all links
             navLinks.forEach(link => link.classList.remove('active'));
@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
         setActiveNavLink();
     });
-    
+
     // New function to load quiz without pushing a new state
     function loadQuizWithoutPush(url, title, quizHeading) {
         fetch(url)
@@ -171,11 +171,11 @@ document.addEventListener("DOMContentLoaded", function() {
             });
     }
 
-     // Load the default quiz (if needed)
+    // Load the default quiz (if needed)
     const urlParams = new URLSearchParams(window.location.search);
     const initialQuiz = urlParams.get('quiz');
-    const defaultLink = initialQuiz ? 
-        Array.from(navLinks).find(link => link.textContent.trim().replace(' ', '-').toLowerCase() === initialQuiz) : 
+    const defaultLink = initialQuiz ?
+        Array.from(navLinks).find(link => link.textContent.trim().replace(' ', '-').toLowerCase() === initialQuiz) :
         document.querySelector('.nav-menu a.active');
 
     if (defaultLink) {

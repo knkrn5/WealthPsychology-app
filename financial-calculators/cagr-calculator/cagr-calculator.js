@@ -1,5 +1,5 @@
 // Event listener for the CAGR calculator
-document.getElementById('cagr-form').addEventListener('submit', function(event) {
+document.getElementById('cagr-form').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent form submission
 
     // Get the input values for CAGR calculation

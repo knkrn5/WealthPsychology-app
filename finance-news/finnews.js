@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const newsContainer = document.getElementById('news-container');
     const loadingContainer = document.getElementById('loading-container');
-    
+
     const categoryMapping = {
         'market-updates': 'Market Updates',
         'corporate-news': 'Corporate News',
@@ -16,13 +16,13 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(items => {
                 console.log('Fetched items:', items);
-                
+
                 const articles = items.map(item => item.fields);
                 displayNewsArticles(articles);
                 setupCategoryFilters();
                 // displayAllArticles(articles);
-                
-               
+
+
                 // Check for category in URL
                 const urlParams = new URLSearchParams(window.location.search);
                 const categoryParam = urlParams.get('category');
@@ -42,10 +42,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('Error fetching articles:', error);
                 newsContainer.innerHTML = '<p>Failed to load news articles. Please try again later.</p>';
             })
-            .finally(() => { 
-                if (loadingContainer) 
+            .finally(() => {
+                if (loadingContainer)
                     loadingContainer.remove();
-              });
+            });
     }
 
     loadNewsArticles();
@@ -75,14 +75,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-   /*  function updateArticleCounts() {
-        Object.entries(categoryMapping).forEach(([categorySlug, categoryName]) => {
-            const countElement = document.querySelector(`.category-filter[data-category="${categorySlug}"] .count`);
-            if (countElement) {
-                countElement.textContent = articlesByCategory[categorySlug] ? articlesByCategory[categorySlug].length : 0;
-            }
-        });
-    } */
+    /*  function updateArticleCounts() {
+         Object.entries(categoryMapping).forEach(([categorySlug, categoryName]) => {
+             const countElement = document.querySelector(`.category-filter[data-category="${categorySlug}"] .count`);
+             if (countElement) {
+                 countElement.textContent = articlesByCategory[categorySlug] ? articlesByCategory[categorySlug].length : 0;
+             }
+         });
+     } */
 
     function displayAllArticles(articles) {
         newsContainer.innerHTML = '';
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return articleElem;
     }
 
-    
+
     function setupCategoryFilters() {
         const categoryLinks = document.querySelectorAll('.category-filter');
 
@@ -134,13 +134,13 @@ document.addEventListener('DOMContentLoaded', () => {
             updateURL('all');
             categoryLinks.forEach(l => l.classList.remove('dropdown-active'));
         }); */
-      
+
         categoryLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
+            link.addEventListener('click', function (e) {
                 e.preventDefault();
                 const category = this.dataset.category;
                 // console.log(category);
-                
+
                 categoryLinks.forEach(l => l.classList.remove('dropdown-active'));
 
                 if (category === 'all') {
@@ -157,20 +157,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-        function filterByCategory(category) {
-            const filteredArticles = articlesByCategory[category] || [];
-        
-            if (filteredArticles.length === 0) {
-                newsContainer.innerHTML = `No articles found for ${categoryMapping[category] || category}`;
-            } else {
-                newsContainer.innerHTML = '';
-                filteredArticles.forEach(article => {
-                    const articleElement = createArticleElement(article);
-                    newsContainer.appendChild(articleElement);
-                });
-            }
-            addArticleEventListeners();
+    function filterByCategory(category) {
+        const filteredArticles = articlesByCategory[category] || [];
+
+        if (filteredArticles.length === 0) {
+            newsContainer.innerHTML = `No articles found for ${categoryMapping[category] || category}`;
+        } else {
+            newsContainer.innerHTML = '';
+            filteredArticles.forEach(article => {
+                const articleElement = createArticleElement(article);
+                newsContainer.appendChild(articleElement);
+            });
         }
+        addArticleEventListeners();
+    }
 
 
     function updateHeading(category) {

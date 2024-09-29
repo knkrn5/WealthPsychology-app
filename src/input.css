@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-    .custom-heading h2 {
-      @apply text-xl font-bold mt-6;
-    }
+  .custom-heading h2 {
+    @apply text-xl font-bold mt-6;
   }
+}

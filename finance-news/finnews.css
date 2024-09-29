@@ -1,86 +1,87 @@
-
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #bbb;
-    line-height: 1.6;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #bbb;
+  line-height: 1.6;
 }
 
 /* Header styles */
 header {
-    /* background-color: #000; */
-    text-align: center;
-  }
-  
-  header h1 {
-    font-size: 29px;
-    /* padding: 1rem; */
-    color: #ffffffff;
-    font-weight: bold;
-    margin-top: 0px;
-    margin-bottom: 35px;
-  }
-  
-  @media (max-width: 768px) {
-    header h1 {
-      margin-top: 0px;
-      margin-left: 80px;
-      font-size: 25px;
-      padding: 5px;
-      color: #fff;
-      font-weight: bold;
-    }
-  }
+  /* background-color: #000; */
+  text-align: center;
+}
 
+header h1 {
+  font-size: 29px;
+  /* padding: 1rem; */
+  color: #ffffffff;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 35px;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    margin-top: 0px;
+    margin-left: 80px;
+    font-size: 25px;
+    padding: 5px;
+    color: #fff;
+    font-weight: bold;
+  }
+}
 
 /* loading and spin animation styling */
 #loading-container {
-   grid-column: 1 / -1; /* Span across all grid columns */
-    position: relative;
-    margin: 0 auto;
-    margin-top: 60px;
-    text-align: center;
-    font-size: 18px;
-    color: #555;
-    /* z-index: 1000;  */
+  grid-column: 1 / -1; /* Span across all grid columns */
+  position: relative;
+  margin: 0 auto;
+  margin-top: 60px;
+  text-align: center;
+  font-size: 18px;
+  color: #555;
+  /* z-index: 1000;  */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  100% {
+    transform: rotate(360deg);
   }
-  
+}
+
+.loading-indicator .fa-spinner {
+  font-size: 30px;
+  animation: spin 2s linear infinite;
+  color: #555;
+}
+
+.loading-indicator p {
+  margin-top: 3px;
+  font-size: 14px;
+  color: #555;
+}
+
+@media (max-width: 786px) {
+  #loading-container {
+    margin-top: 30%;
+  }
   .loading-indicator .fa-spinner {
-    font-size: 30px; 
+    font-size: 30px;
     animation: spin 2s linear infinite;
-    color: #555; 
+    color: #555;
   }
-  
-  .loading-indicator p {        
+  .loading-indicator p {
     margin-top: 3px;
     font-size: 14px;
     color: #555;
   }
-  
-  @media (max-width: 786px) {
-    #loading-container {
-        margin-top: 30%;
-      }
-    .loading-indicator .fa-spinner {
-      font-size: 30px; 
-      animation: spin 2s linear infinite;
-      color: #555; 
-    }
-    .loading-indicator p{
-      margin-top: 3px;
-      font-size: 14px;
-      color: #555;
-     }
-  }
+}
 
-
-#news-container{
+#news-container {
   max-width: 1000px;
   margin: 0 auto;
   margin-top: 100px;
@@ -102,21 +103,19 @@ header {
   border-radius: 10px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-  box-shadow: 0 8px 16px rgba(100, 100, 100, 0.4), /* Adjusted to match with #bbb body color */
-  0 4px 8px rgba(100, 100, 100, 0.2); 
+  box-shadow: 0 8px 16px rgba(100, 100, 100, 0.4), /* Adjusted to match with #bbb body color */ 0 4px 8px rgba(100, 100, 100, 0.2);
 }
 
 .news-content:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(100, 100, 100, 0.9), /* Adjusted to match with #bbb body color */
-              0 4px 8px rgba(100, 100, 100, 0.9); /* Maintain the original border shadow */
+  box-shadow: 0 8px 16px rgba(100, 100, 100, 0.9), /* Adjusted to match with #bbb body color */ 0 4px 8px rgba(100, 100, 100, 0.9); /* Maintain the original border shadow */
 }
 
 .news-excerpt,
 .news-title,
 .news-source,
 .news-date {
-  padding: 0 15px; 
+  padding: 0 15px;
   margin: 0;
 }
 
@@ -137,7 +136,7 @@ header {
   /* margin-bottom: 5px; */
 }
 
-.news-date{
+.news-date {
   display: none; /* not displaying the date */
 }
 
@@ -158,10 +157,8 @@ header {
   padding-bottom: 15px;
 }
 
-
-
 @media (max-width: 768px) {
-  #news-container{
+  #news-container {
     margin-top: 55px;
   }
   .news-grid {
@@ -174,11 +171,3 @@ header {
     grid-template-columns: 1fr;
   }
 }
-
-
-
-
-
-
-
-

@@ -80,15 +80,15 @@ app.get('/blog/posts', async (req, res) => {
       content_type: 'pageBlogPost',
       order: '-fields.publishedDate'
     });
-    
+
     // Use a custom serializer to handle circular references
     const safeResponse = CircularJSON.stringify(response.items);
     res.send(safeResponse);
   } catch (error) {
     console.error('Detailed error:', error);
     res.status(500).json({
-       error: 'Failed to fetch blog articles',
-       details: error.message,
+      error: 'Failed to fetch blog articles',
+      details: error.message,
       stack: error.stack
     });
   }
@@ -107,7 +107,7 @@ export async function fetchContentBySlug(contentType, slug) {
 
     if (entries.items.length > 0) {
       const post = entries.items[0];
-      
+
       // Render rich text content
       if (post.fields.content) {
         const options = {
@@ -133,15 +133,15 @@ export async function fetchContentBySlug(contentType, slug) {
       } else {
         post.fields.renderPostRichTextHtml = 'No content available';
       }
-      
-        return post;
-      }
-      return null;
-    } catch (error) {
-      console.error('Error fetching content:', error);
-      throw error;
+
+      return post;
     }
+    return null;
+  } catch (error) {
+    console.error('Error fetching content:', error);
+    throw error;
   }
+}
 
 // Individual blog post route
 app.get('/blog/post/:slug', async (req, res) => {
@@ -195,15 +195,15 @@ app.get('/finnews', async (req, res) => {
       content_type: 'pageNewsArticles',
       order: '-fields.publishedDate'
     });
-    
+
     // Use a custom serializer to handle circular references
     const safeResponse = CircularJSON.stringify(response.items);
     res.send(safeResponse);
   } catch (error) {
     console.error('Detailed error:', error);
     res.status(500).json({
-       error: 'Failed to fetch blog articles',
-       details: error.message,
+      error: 'Failed to fetch blog articles',
+      details: error.message,
       stack: error.stack
     });
   }
@@ -211,7 +211,7 @@ app.get('/finnews', async (req, res) => {
 
 
 // Individual news article route
-app.get('/news-article/:slug', async (req, res) => { 
+app.get('/news-article/:slug', async (req, res) => {
   try {
     const postSlug = req.params.slug;
     const post = await fetchContentBySlug('pageNewsArticles', postSlug);

@@ -1,5 +1,5 @@
 // Reverse Simple Interest Calculator
-document.getElementById('reverse-si-form').addEventListener('submit', function(event) {
+document.getElementById('reverse-si-form').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent form submission
 
     // Get the input values

@@ -1,5 +1,5 @@
 // Event listener for the Reverse CAGR calculator
-document.getElementById('reverse-cagr-form').addEventListener('submit', function(event) {
+document.getElementById('reverse-cagr-form').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent form submission
 
     // Get the input values for Reverse CAGR calculation

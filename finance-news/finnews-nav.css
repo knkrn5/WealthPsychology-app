@@ -60,7 +60,6 @@ nav ul li .active {
   background-color: lightblue;
 }
 
-
 /* Dropdown styling--------------------------- */
 /* Dropdown container */
 .dropdown {
@@ -82,9 +81,9 @@ nav ul li .active {
   display: none;
   position: absolute;
   background: rgba(255, 255, 255, 0.3);
-  -webkit-backdrop-filter: blur(20px); 
-  backdrop-filter: blur(20px); 
-  border-radius: 0 0 10px 10px; 
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-radius: 0 0 10px 10px;
   min-width: 180px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
   z-index: 1000;
@@ -107,14 +106,14 @@ nav ul li .active {
   text-decoration: none;
   display: block;
   transition: background-color 0.3s ease, color 0.3s ease;
-  border-top: 1px solid #000; 
+  border-top: 1px solid #000;
 }
 .dropdown-menu li:first-child a {
   border-top: none; /* Removes the top border from the first li */
 }
-.fa-angle-right{
- float: right;
- padding-top: 7px;
+.fa-angle-right {
+  float: right;
+  padding-top: 7px;
 }
 
 .dropdown-menu li a:hover {
@@ -131,34 +130,32 @@ nav ul li .active {
 /* Mobile dropdown styles */
 @media (max-width: 768px) {
   .dropdown-menu {
-    position: static ;
-    box-shadow: none ;
-    background:  #ccc ;
-    -webkit-backdrop-filter: blur(20px) ;
+    position: static;
+    box-shadow: none;
+    background: #ccc;
+    -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
-
   }
 
   .dropdown-menu li a {
-      padding: 0px;
-      color: #000; 
-      border-radius: 0;
+    padding: 0px;
+    color: #000;
+    border-radius: 0;
   }
-  .fa-angle-right{
+  .fa-angle-right {
     float: none;
     /* padding-top: 10px; */
-   }
+  }
 
-    /* for js dropdown-menu toogle on mibile*/
-    .dropdown-menu {
-      display: none;
-    }
-    
-    .dropdown-menu.active {
-      display: block;
-    }
+  /* for js dropdown-menu toogle on mibile*/
+  .dropdown-menu {
+    display: none;
+  }
+
+  .dropdown-menu.active {
+    display: block;
+  }
 }
-
 
 /* Hamburger menu styles */
 .menu-toggle {
@@ -251,5 +248,4 @@ nav ul li .active {
     color: #000;
     text-decoration: none;
   }
-
 }

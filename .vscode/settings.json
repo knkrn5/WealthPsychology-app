@@ -18,23 +18,5 @@
     "titleBar.inactiveBackground": "#00800099",
     "titleBar.inactiveForeground": "#e7e7e799"
   },
-  "peacock.color": "green",
-  "liveServer.settings.port": 5503,
-  "cSpell.words": [
-    "finnews",
-    "karan",
-    "Nowclick",
-    "tailwindcss"
-  ],
-  "cSpell.customDictionaries": {
-    "custom-dictionary-workspace": {
-      "name": "custom-dictionary-workspace",
-      "path": "${workspaceFolder:Wealth Psychology}/.cspell/custom-dictionary-workspace.txt",
-      "addWords": true,
-      "scope": "workspace"
-    }
-  },
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": false,
-  "editor.formatOnPaste": false
+  "peacock.color": "green"
 }

@@ -7,7 +7,7 @@ function handleFormSubmit(event) {
     var redirectUrl;
 
     // Define URLs for each option
-    switch(myPnL) {
+    switch (myPnL) {
         case 'value1':
             redirectUrl = 'https://docs.google.com/spreadsheets/d/1sy5YNpgrk0VcZdWFdWS7KFHzsDOuDFKbOZnUyOzAf6I/edit?usp=sharing';
             break;
@@ -23,7 +23,7 @@ function handleFormSubmit(event) {
             break;
     }
 
-    if(redirectUrl){
-    window.open(redirectUrl, '_blank');  // Open the specified URL in a new tab
+    if (redirectUrl) {
+        window.open(redirectUrl, '_blank');  // Open the specified URL in a new tab
     }
 }

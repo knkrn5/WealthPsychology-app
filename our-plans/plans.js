@@ -1,6 +1,6 @@
 
 //js for the bubble effect
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const bubbleContainer = document.querySelector('.bubbles');
 
     // Bubble Animation

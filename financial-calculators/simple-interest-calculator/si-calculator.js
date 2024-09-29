@@ -1,5 +1,5 @@
 // Simple Interest Calculator
-document.getElementById('si-form').addEventListener('submit', function(event) {
+document.getElementById('si-form').addEventListener('submit', function (event) {
     event.preventDefault(); // Prevent form submission
 
     // Get the input values
@@ -11,7 +11,7 @@ document.getElementById('si-form').addEventListener('submit', function(event) {
     const simpleInterest = (endingValue - startingValue);
 
     // Calculate the percentage of Simple Interest relative to the starting value
-    const simpleInterestPercentage = (simpleInterest/startingValue) * 100;
+    const simpleInterestPercentage = (simpleInterest / startingValue) * 100;
 
     // Populate the table with calculated values
     const resultTable = document.querySelector('#si-calculator-container .result').querySelectorAll('td');

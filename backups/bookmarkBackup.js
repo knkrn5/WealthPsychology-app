@@ -3,7 +3,7 @@
 // Function to toggle bookmark cart visibility
 
 // Array to store cart items
-let bookmarkItems = []; 
+let bookmarkItems = [];
 
 // Function to toggle the bookmark display
 function toggleBookmark() {
@@ -34,7 +34,7 @@ function saveBookmarkItems() {
 }
 
 // Function to add item to bookmarks
-function addToBookmarks(contentTitle, contentImage, conceptId ) {
+function addToBookmarks(contentTitle, contentImage, conceptId) {
     // Check if the item already exists in bookmarks
     const existingItem = bookmarkItems.find(item => item.id === conceptId);
     if (existingItem) {
@@ -85,7 +85,7 @@ function updateBookmarks() {
                 saveBookmarkItems();
                 updateBookmarks();
                 const readLaterButton = document.querySelector(`.rlbtn[concept-id="${conceptId}"]`);
-                if ( readLaterButton) {
+                if (readLaterButton) {
                     readLaterButton.innerText = 'Read Later';
                 }
             }
@@ -124,7 +124,7 @@ deleteAllButton.addEventListener('click', () => {
     // Reset all "Bookmarked" buttons back to "Add to Bookmark"
     const readLaterButtons = document.querySelectorAll('.rlbtn');
     readLaterButtons.forEach(button => {
-    button.innerText = "Read Later";
+        button.innerText = "Read Later";
     });
 
     saveBookmarkItems();
