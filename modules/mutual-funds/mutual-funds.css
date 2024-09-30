@@ -6,12 +6,11 @@ body {
     background-color: #dddeee;
   }
   
-  /* Header styles via header components*/
-  
+
   
   /* main content styling  */
   
-  .fa-container {
+  .mf-container {
     max-width: 750px;
     width: 100%;
     margin: auto;
@@ -21,15 +20,15 @@ body {
     border-radius: 10px;
   }
   
-  .fa-container section {
+  .mf-container section {
     margin-bottom: 30px;
-    background-color: #bfddaf;
+    background-color: #dddaaf;
     padding: 2px 15px 25px 15px;
     border-radius: 10px;
     /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
   }
   
-  .fa-container h2 {
+  .mf-container h2 {
     color: #333;
     font-size: 1.3em;
     margin-bottom: 10px;
@@ -45,7 +44,7 @@ body {
     padding: 10px;
     background-color: #f9f9f9;
     margin: 5px 0;
-    border-left: 5px solid #4cd105;
+    border-left: 5px solid #fae900;
     border-radius: 5px;
     color: #555;
     cursor: pointer;
@@ -55,31 +54,31 @@ body {
   /* Style when the summary is hovered or focused */
   details summary:hover,
   details summary:focus {
-    background-color: #5ea239;
+    background-color: #a9a12d;
     color: white;
-    border-left-color: #4cd105;
+    border-left-color: #7a7200;
   }
   
   /* Change background color when the details element is open */
   details[open] summary {
-    background-color: #5ea239;
+    background-color: #a9a12d;
     color: white;
-    border-left-color: #4cd105;
+    border-left-color: #7a7200;
   }
   
-  /* List styles inside .fa-container */
-  .fa-container ul {
+  /* List styles inside .mf-container */
+  .mf-container ul {
     margin-top: 0;
     padding-left: 20px; 
     list-style-position: inside; 
     padding-right: 30px; 
   }
   
-  .fa-container ul li {
+  .mf-container ul li {
     background-color: #f9f9f9;
     margin: 5px 0;
     padding: 5px 10px;
-    border-left: 5px solid #d19705;
+    border-left: 5px solid #00707a;
     color: #555;
     cursor: pointer;
     border-radius: 5px;
@@ -87,32 +86,33 @@ body {
     padding-left: 20px; /* Add padding to the left for proper spacing */
   }
   
-  .fa-container ul li:hover {
-    background-color: #c8a64e;
+  .mf-container ul li:hover {
+    background-color: #007a76;
     color: white;
-    border-left-color: #ffb909;
+    border-left-color: #377775;
   }
   
   /* Style for the bullet point */
-  .fa-container ul li::marker {
+  .mf-container ul li::marker {
     font-size: 1.3em;
     /* color: orange; */
   }
   
   
   @media (max-width: 768px) {
-    .fa-container {
+    .mf-container {
       /* max-width: 100%; */
       width: 90%;
       margin-top: 50px;
     }
   
-    .fa-container h2 {
+    .mf-container h2 {
       font-size: 1.1em;
     }
     
-    .fa-container section {
+    .mf-container section {
       margin-bottom: 30px;
+      background-color: #afd2dd;
       padding: 2px 15px 25px 15px;
     } 
   
@@ -121,7 +121,7 @@ body {
       padding-right: 10px;
     }
   
-    .fa-container ul {
+    .mf-container ul {
       margin-top: 0px;
       padding-left: 10px;
       padding-right: 10px;
