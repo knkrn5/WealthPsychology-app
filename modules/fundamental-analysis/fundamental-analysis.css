@@ -45,7 +45,7 @@ body {
   
   /* main content styling  */
   
-  .ta-container {
+  .fa-container {
     max-width: 750px;
     width: 100%;
     margin: auto;
@@ -55,15 +55,15 @@ body {
     border-radius: 10px;
   }
   
-  .ta-container section {
+  .fa-container section {
     margin-bottom: 30px;
-    background-color: #daafdd;
+    background-color: #bfddaf;
     padding: 2px 15px 25px 15px;
     border-radius: 10px;
     /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
   }
   
-  .ta-container h2 {
+  .fa-container h2 {
     color: #333;
     font-size: 1.3em;
     margin-bottom: 10px;
@@ -79,7 +79,7 @@ body {
     padding: 10px;
     background-color: #f9f9f9;
     margin: 5px 0;
-    border-left: 5px solid #cc50d5;
+    border-left: 5px solid #4cd105;
     border-radius: 5px;
     color: #555;
     cursor: pointer;
@@ -89,31 +89,31 @@ body {
   /* Style when the summary is hovered or focused */
   details summary:hover,
   details summary:focus {
-    background-color: #cc50d5;
+    background-color: #5ea239;
     color: white;
-    border-left-color: #bb06c8;
+    border-left-color: #4cd105;
   }
   
   /* Change background color when the details element is open */
   details[open] summary {
-    background-color: #cc50d5;
+    background-color: #5ea239;
     color: white;
-    border-left-color: #bb06c8;
+    border-left-color: #4cd105;
   }
   
-  /* List styles inside .ta-container */
-  .ta-container ul {
+  /* List styles inside .fa-container */
+  .fa-container ul {
     margin-top: 0;
     padding-left: 20px; 
     list-style-position: inside; 
     padding-right: 30px; 
   }
   
-  .ta-container ul li {
+  .fa-container ul li {
     background-color: #f9f9f9;
     margin: 5px 0;
     padding: 5px 10px;
-    border-left: 5px solid #4734c5;
+    border-left: 5px solid #d19705;
     color: #555;
     cursor: pointer;
     border-radius: 5px;
@@ -121,31 +121,31 @@ body {
     padding-left: 20px; /* Add padding to the left for proper spacing */
   }
   
-  .ta-container ul li:hover {
-    background-color: slateblue;
+  .fa-container ul li:hover {
+    background-color: #c8a64e;
     color: white;
-    border-left-color: #4734c5;
+    border-left-color: #ffb909;
   }
   
   /* Style for the bullet point */
-  .ta-container ul li::marker {
+  .fa-container ul li::marker {
     font-size: 1.3em;
     /* color: orange; */
   }
   
   
   @media (max-width: 768px) {
-    .ta-container {
+    .fa-container {
       /* max-width: 100%; */
       width: 90%;
       margin-top: 50px;
     }
   
-    .ta-container h2 {
+    .fa-container h2 {
       font-size: 1.1em;
     }
     
-    .ta-container section {
+    .fa-container section {
       margin-bottom: 30px;
       padding: 2px 15px 25px 15px;
     } 
@@ -155,7 +155,7 @@ body {
       padding-right: 10px;
     }
   
-    .ta-container ul {
+    .fa-container ul {
       margin-top: 0px;
       padding-left: 10px;
       padding-right: 10px;
