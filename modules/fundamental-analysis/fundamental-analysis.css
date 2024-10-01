@@ -57,14 +57,14 @@ body {
   details summary:focus {
     background-color: #5ea239;
     color: white;
-    border-left-color: #4cd105;
+    /* border-left-color: #4cd105; */
   }
   
   /* Change background color when the details element is open */
   details[open] summary {
     background-color: #5ea239;
     color: white;
-    border-left-color: #4cd105;
+    /* border-left-color: #4cd105; */
   }
   
   /* List styles inside .fa-container */
@@ -90,7 +90,7 @@ body {
   .fa-container ul li:hover {
     background-color: #c8a64e;
     color: white;
-    border-left-color: #ffb909;
+    /* border-left-color: #ffb909; */
   }
   
   /* Style for the bullet point */

@@ -6,11 +6,12 @@ body {
     background-color: #dddeee;
   }
   
-
+    /* Header styles via header components*/
+  
   
   /* main content styling  */
   
-  .mf-container {
+  .ipoa-container {
     max-width: 750px;
     width: 100%;
     margin: auto;
@@ -20,15 +21,15 @@ body {
     border-radius: 10px;
   }
   
-  .mf-container section {
+  .ipoa-container section {
     margin-bottom: 10px;
-    background-color: #dddaaf;
+    background-color: #afdddd;
     padding: 2px 15px 25px 15px;
     border-radius: 10px;
     /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
   }
   
-  .mf-container h2 {
+  .ipoa-container h2 {
     color: #333;
     font-size: 1.3em;
     margin-bottom: 10px;
@@ -44,7 +45,7 @@ body {
     padding: 10px;
     background-color: #f9f9f9;
     margin: 5px 0;
-    border-left: 5px solid #fae900;
+    border-left: 5px solid #00ffff;
     border-radius: 5px;
     color: #555;
     cursor: pointer;
@@ -54,31 +55,31 @@ body {
   /* Style when the summary is hovered or focused */
   details summary:hover,
   details summary:focus {
-    background-color: #a9a12d;
+    background-color: #007d7d;
     color: white;
-    /* border-left-color: #7a7200; */
+    /* border-left-color: #0056b3; */
   }
   
   /* Change background color when the details element is open */
   details[open] summary {
-    background-color: #a9a12d;
+    background-color: #007d7d;
     color: white;
-    /* border-left-color: #7a7200; */
+    /* border-left-color: #0056b3; */
   }
   
-  /* List styles inside .mf-container */
-  .mf-container ul {
+  /* List styles inside .ipoa-container */
+  .ipoa-container ul {
     margin-top: 0;
     padding-left: 20px; 
     list-style-position: inside; 
     padding-right: 30px; 
   }
   
-  .mf-container ul li {
+  .ipoa-container ul li {
     background-color: #f9f9f9;
     margin: 5px 0;
     padding: 5px 10px;
-    border-left: 5px solid #00707a;
+    border-left: 5px solid #00ff9d;
     color: #555;
     cursor: pointer;
     border-radius: 5px;
@@ -86,27 +87,27 @@ body {
     padding-left: 20px; /* Add padding to the left for proper spacing */
   }
   
-  .mf-container ul li:hover {
-    background-color: #007a76;
+  .ipoa-container ul li:hover {
+    background-color: #028e58;
     color: white;
-    /* border-left-color: #377775; */
+    /* border-left-color: darkgoldenrod; */
   }
   
   /* Style for the bullet point */
-  .mf-container ul li::marker {
+  .ipoa-container ul li::marker {
     font-size: 1.3em;
     /* color: orange; */
   }
   
   
   @media (max-width: 768px) {
-    .mf-container {
+    .ipoa-container {
       /* max-width: 100%; */
       width: 90%;
       margin-top: 50px;
     }
   
-    .mf-container h2 {
+    .ipoa-container h2 {
       font-size: 1.1em;
     }
   
@@ -115,7 +116,7 @@ body {
       padding-right: 10px;
     }
   
-    .mf-container ul {
+    .ipoa-container ul {
       margin-top: 0px;
       padding-left: 10px;
       padding-right: 10px;

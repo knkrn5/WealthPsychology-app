@@ -57,14 +57,14 @@ details summary:hover,
 details summary:focus {
   background-color: #007bff;
   color: white;
-  border-left-color: #0056b3;
+  /* border-left-color: #0056b3; */
 }
 
 /* Change background color when the details element is open */
 details[open] summary {
   background-color: #007bff;
   color: white;
-  border-left-color: #0056b3;
+  /* border-left-color: #0056b3; */
 }
 
 /* List styles inside .bosm-container */
@@ -79,7 +79,7 @@ details[open] summary {
   background-color: #f9f9f9;
   margin: 5px 0;
   padding: 5px 10px;
-  border-left: 5px solid orange;
+  border-left: 5px solid darkgoldenrod;
   color: #555;
   cursor: pointer;
   border-radius: 5px;
@@ -90,7 +90,7 @@ details[open] summary {
 .bosm-container ul li:hover {
   background-color: orange;
   color: white;
-  border-left-color: darkgoldenrod;
+  /* border-left-color: darkgoldenrod; */
 }
 
 /* Style for the bullet point */

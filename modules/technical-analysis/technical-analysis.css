@@ -56,14 +56,14 @@ details summary:hover,
 details summary:focus {
   background-color: #cc50d5;
   color: white;
-  border-left-color: #bb06c8;
+  /* border-left-color: #bb06c8; */
 }
 
 /* Change background color when the details element is open */
 details[open] summary {
   background-color: #cc50d5;
   color: white;
-  border-left-color: #bb06c8;
+  /* border-left-color: #bb06c8; */
 }
 
 /* List styles inside .ta-container */
@@ -89,7 +89,7 @@ details[open] summary {
 .ta-container ul li:hover {
   background-color: slateblue;
   color: white;
-  border-left-color: #4734c5;
+  /* border-left-color: #4734c5; */
 }
 
 /* Style for the bullet point */
