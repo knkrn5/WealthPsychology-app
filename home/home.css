@@ -343,7 +343,7 @@ header {
 
 .central-line {
   width: 5px;
-  height: 1887px;
+  height: 2091px;
   top: -100px; /* Move the line 100px higher */
   background-color: black;
   position: absolute;
@@ -459,10 +459,14 @@ header {
 }
 
 .content9 {
+  background-color: rgb(202, 206, 81);
+}
+
+.content10 {
   background-color: rgb(218, 52, 52);
 }
-.content9 h2,
-.content9 p {
+.content10 h2,
+.content10 p {
   color: #fff !important;
 }
 
@@ -602,7 +606,7 @@ header {
 /* 1200px  Mobile responsive styling */
 @media (max-width: 1200px) {
   .central-line {
-    height: 1847px;
+    height: 2055px;
   }
 
   .content::before {
@@ -640,7 +644,7 @@ header {
 /* 920px  Mobile responsive styling */
 @media (max-width: 920px) {
   .central-line {
-    height: 1885px;
+    height: 2089px;
   }
 
   .content::before {
