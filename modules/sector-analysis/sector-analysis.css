@@ -58,14 +58,12 @@ details summary:hover,
 details summary:focus {
   background-color: #a00085;
   color: white;
-  /* border-left-color: #0056b3; */
 }
 
 /* Change background color when the details element is open */
 details[open] summary {
   background-color: #a00085;
   color: white;
-  /* border-left-color: #0056b3; */
 }
 
 /* List styles inside .bosm-container */
@@ -91,13 +89,11 @@ details[open] summary {
 .sa-container ul li:hover {
   background-color: #bc0035;
   color: white;
-  /* border-left-color: darkgoldenrod; */
 }
 
 /* Style for the bullet point */
 .sa-container ul li::marker {
   font-size: 1.3em;
-  /* color: orange; */
 }
 
 @media (max-width: 768px) {

@@ -58,14 +58,12 @@ details summary:hover,
 details summary:focus {
   background-color: #007d7d;
   color: white;
-  /* border-left-color: #0056b3; */
 }
 
 /* Change background color when the details element is open */
 details[open] summary {
   background-color: #007d7d;
   color: white;
-  /* border-left-color: #0056b3; */
 }
 
 /* List styles inside .ipoa-container */
@@ -91,13 +89,11 @@ details[open] summary {
 .ipoa-container ul li:hover {
   background-color: #028e58;
   color: white;
-  /* border-left-color: darkgoldenrod; */
 }
 
 /* Style for the bullet point */
 .ipoa-container ul li::marker {
   font-size: 1.3em;
-  /* color: orange; */
 }
 
 @media (max-width: 768px) {

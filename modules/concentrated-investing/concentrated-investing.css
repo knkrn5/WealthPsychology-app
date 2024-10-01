@@ -6,12 +6,11 @@ body {
     background-color: #dddeee;
   }
   
-    /* Header styles via header components*/
-  
+  /* Header styles via header components*/
   
   /* main content styling  */
   
-  .cc-container {
+  .ci-container {
     max-width: 750px;
     width: 100%;
     margin: auto;
@@ -21,15 +20,15 @@ body {
     border-radius: 10px;
   }
   
-  .cc-container section {
+  .ci-container section {
     margin-bottom: 20px;
-    background-color: #ddb5af;
+    background-color: #dddbaf;
     padding: 2px 15px 25px 15px;
     border-radius: 10px;
     /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
   }
   
-  .cc-container h2 {
+  .ci-container h2 {
     color: #333;
     font-size: 1.3em;
     margin-bottom: 10px;
@@ -45,7 +44,7 @@ body {
     padding: 10px;
     background-color: #f9f9f9;
     margin: 5px 0;
-    border-left: 5px solid #ff0d00;
+    border-left: 5px solid #fff200;
     border-radius: 5px;
     font-weight: bold;
     color: #555;
@@ -57,56 +56,54 @@ body {
   /* Style when the summary is hovered or focused */
   details summary:hover,
   details summary:focus {
-    background-color: #9f0101;
+    background-color: #8d8500;
     color: white;
   }
   
   /* Change background color when the details element is open */
   details[open] summary {
-    background-color: #9f0101;
+    background-color: #8d8500;
     color: white;
   }
   
   /* List styles inside .bosm-container */
-  .cc-container ul {
+  .ci-container ul {
     margin-top: 0;
-    padding-left: 20px; 
-    list-style-position: inside; 
-    padding-right: 30px; 
+    padding-left: 20px;
+    list-style-position: inside;
+    padding-right: 30px;
   }
   
-  .cc-container ul li {
+  .ci-container ul li {
     background-color: #f9f9f9;
     margin: 5px 0;
     padding: 5px 10px;
-    border-left: 5px solid #26ff00;
+    border-left: 5px solid #ffae00;
     color: #555;
     cursor: pointer;
     border-radius: 5px;
-    text-indent: -10px; 
+    text-indent: -10px;
     padding-left: 20px; /* Add padding to the left for proper spacing */
   }
   
-  .cc-container ul li:hover {
-    background-color: #0c7a00;
+  .ci-container ul li:hover {
+    background-color: #ba6612;
     color: white;
   }
   
   /* Style for the bullet point */
-  .cc-container ul li::marker {
+  .ci-container ul li::marker {
     font-size: 1.3em;
-    /* color: orange; */
   }
   
-  
   @media (max-width: 768px) {
-    .cc-container {
+    .ci-container {
       /* max-width: 100%; */
       width: 90%;
       margin-top: 50px;
     }
   
-    .cc-container h2 {
+    .ci-container h2 {
       font-size: 1.1em;
     }
   
@@ -119,7 +116,7 @@ body {
       font-size: 15px;
     }
   
-    .cc-container ul {
+    .ci-container ul {
       margin-top: 0px;
       padding-left: 10px;
       padding-right: 10px;

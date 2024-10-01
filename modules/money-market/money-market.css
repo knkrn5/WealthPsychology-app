@@ -59,14 +59,12 @@ body {
   details summary:focus {
     background-color: #009c12;
     color: white;
-    /* border-left-color: #0056b3; */
   }
   
   /* Change background color when the details element is open */
   details[open] summary {
     background-color: #009c12;
     color: white;
-    /* border-left-color: #0056b3; */
   }
   
   /* List styles inside .bosm-container */
@@ -92,13 +90,11 @@ body {
   .mm-container ul li:hover {
     background-color: #009a88;
     color: white;
-    /* border-left-color: darkgoldenrod; */
   }
   
   /* Style for the bullet point */
   .mm-container ul li::marker {
     font-size: 1.3em;
-    /* color: orange; */
   }
   
   
