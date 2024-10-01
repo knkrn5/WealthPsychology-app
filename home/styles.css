@@ -343,7 +343,7 @@ header {
 
 .central-line {
   width: 5px;
-  height: 1685px;
+  height: 1887px;
   top: -100px; /* Move the line 100px higher */
   background-color: black;
   position: absolute;
@@ -447,14 +447,18 @@ header {
 }
 
 .content7 {
-  background-color: rgb(165, 42, 42);
-}
-.content7 h2,
-.content7 p {
-  color: #fff !important;
+  background-color: rgb(219, 40, 144);
 }
 
 .content8 {
+  background-color: rgb(165, 42, 42);
+}
+.content8 h2,
+.content8 p {
+  color: #fff !important;
+}
+
+.content9 {
   background-color: rgb(81, 206, 81);
 }
 
@@ -594,7 +598,7 @@ header {
 /* 1200px  Mobile responsive styling */
 @media (max-width: 1200px) {
   .central-line {
-    height: 1661px;
+    height: 1847px;
   }
 
   .content::before {
@@ -632,7 +636,7 @@ header {
 /* 920px  Mobile responsive styling */
 @media (max-width: 920px) {
   .central-line {
-    height: 1697px;
+    height: 1885px;
   }
 
   .content::before {
