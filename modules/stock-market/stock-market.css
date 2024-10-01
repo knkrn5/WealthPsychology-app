@@ -57,7 +57,7 @@ details summary {
 /* Style when the summary is hovered or focused */
 details summary:hover,
 details summary:focus {
-  background-color: #007bff;
+  background-color: #034fa0;
   color: white;
   /* border-left-color: #0056b3; */
 }
