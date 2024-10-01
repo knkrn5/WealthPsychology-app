@@ -64,7 +64,7 @@ details summary:focus {
 
 /* Change background color when the details element is open */
 details[open] summary {
-  background-color: #007bff;
+  background-color: #034fa0;
   color: white;
   /* border-left-color: #0056b3; */
 }
