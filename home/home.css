@@ -459,7 +459,11 @@ header {
 }
 
 .content9 {
-  background-color: rgb(197, 107, 69);
+  background-color: rgb(218, 52, 52);
+}
+.content9 h2,
+.content9 p {
+  color: #fff !important;
 }
 
 
