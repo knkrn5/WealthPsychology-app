@@ -1,0 +1,5 @@
+box-shadow{
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), /* Outset shadow effect on hover */
+              0 4px 8px rgba(0, 0, 0, 0.1); /* Maintain the original border shadow */
+}

@@ -115,7 +115,8 @@ header h1 {
 }
 
 .left-column .post:hover {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), /* Outset shadow effect on hover */ 0 4px 8px rgba(0, 0, 0, 0.1); /* Maintain the original border shadow */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), /* Outset shadow effect on hover */ 
+              0 4px 8px rgba(0, 0, 0, 0.1); /* Maintain the original border shadow */
 }
 
 .left-column .post h1 {
