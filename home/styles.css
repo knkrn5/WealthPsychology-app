@@ -447,15 +447,15 @@ header {
 }
 
 .content7 {
-  background-color: rgb(219, 40, 144);
+  background-color: rgb(140, 0, 112);
+}
+.content7 h2,
+.content7 p {
+  color: #fff !important;
 }
 
 .content8 {
-  background-color: rgb(165, 42, 42);
-}
-.content8 h2,
-.content8 p {
-  color: #fff !important;
+  background-color: rgb(69, 82, 197);
 }
 
 .content9 {
@@ -466,7 +466,7 @@ header {
   width: 200px;
   height: auto;
   object-fit: cover;
-  border-radius: 10%;
+  border-radius: 15px 0 0 15px;
 }
 
 .content-wrapper {
