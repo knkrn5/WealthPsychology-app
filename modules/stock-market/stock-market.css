@@ -86,7 +86,7 @@ details[open] summary {
   cursor: pointer;
   border-radius: 5px;
   text-indent: -10px; 
-  padding-left: 20px; /* Add padding to the left for proper spacing */
+  padding-left: 20px; 
 }
 
 .bosm-container ul li:hover {
