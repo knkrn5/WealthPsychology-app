@@ -101,13 +101,13 @@ body {
   
   
   @media (max-width: 768px) {
-    .bosm-container {
+    .sa-container {
       /* max-width: 100%; */
       width: 90%;
       margin-top: 50px;
     }
   
-    .bosm-container h2 {
+    .sa-container h2 {
       font-size: 1.1em;
     }
   
@@ -116,7 +116,7 @@ body {
       padding-right: 10px;
     }
   
-    .bosm-container ul {
+    .sa-container ul {
       margin-top: 0px;
       padding-left: 10px;
       padding-right: 10px;
