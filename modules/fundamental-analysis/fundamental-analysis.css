@@ -22,7 +22,7 @@ body {
   }
   
   .fa-container section {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     background-color: #bfddaf;
     padding: 2px 15px 25px 15px;
     border-radius: 10px;
@@ -110,11 +110,6 @@ body {
     .fa-container h2 {
       font-size: 1.1em;
     }
-    
-    .fa-container section {
-      margin-bottom: 30px;
-      padding: 2px 15px 25px 15px;
-    } 
   
     details {
       padding-left: 15px;

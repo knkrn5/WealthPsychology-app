@@ -21,7 +21,7 @@ body {
   }
   
   .mf-container section {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     background-color: #dddaaf;
     padding: 2px 15px 25px 15px;
     border-radius: 10px;
@@ -109,12 +109,6 @@ body {
     .mf-container h2 {
       font-size: 1.1em;
     }
-    
-    .mf-container section {
-      margin-bottom: 30px;
-      background-color: #afd2dd;
-      padding: 2px 15px 25px 15px;
-    } 
   
     details {
       padding-left: 15px;

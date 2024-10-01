@@ -6,9 +6,7 @@ body {
   background-color: #dddeee;
 }
 
-
 /* Header styles via header components*/
-
 
 /* main content styling  */
 
@@ -23,7 +21,7 @@ body {
 }
 
 .ta-container section {
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   background-color: #daafdd;
   padding: 2px 15px 25px 15px;
   border-radius: 10px;
@@ -109,11 +107,6 @@ details[open] summary {
 
   .ta-container h2 {
     font-size: 1.1em;
-  }
-
-  .ta-container section {
-    margin-bottom: 30px;
-    padding: 2px 15px 25px 15px;
   }
 
   details {

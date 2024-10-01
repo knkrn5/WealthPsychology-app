@@ -22,10 +22,7 @@ body {
 }
 
 .bosm-container section {
-  margin-bottom: 30px;
-  /* background-color: #eeeddd; */
-  /* background-color: #ddb3af; */
-  /* background-color: #d6ddaf; */
+  margin-bottom: 10px;
   background-color: #afd2dd;
   padding: 2px 15px 25px 15px;
   border-radius: 10px;
@@ -113,11 +110,6 @@ details[open] summary {
   .bosm-container h2 {
     font-size: 1.1em;
   }
-  
-  .bosm-container section {
-    margin-bottom: 30px;
-    padding: 2px 15px 25px 15px;
-  } 
 
   details {
     padding-left: 15px;
