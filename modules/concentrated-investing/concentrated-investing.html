@@ -45,8 +45,6 @@
 
   <body id="ci-page">
     <div id="modules-header"></div>
-    <span class="heading" style="display: none;"> Concentrated Investing </span>
-
 
     <main>
       <div class="ci-container">
@@ -208,15 +206,15 @@
       setTimeout(() => {
         // Check if both h1 and .heading exist to avoid errors
         const h1Element = document.getElementsByTagName('h1')[0];
-        const headingElement = document.querySelector('.heading');
+        const heading = document.title;
 
-        if (h1Element && headingElement) {
-          h1Element.innerText = headingElement.innerText;
-          console.log(h1Element.innerText);
+        if (h1Element && heading) {
+          h1Element.innerText = heading;
+          // console.log(h1Element.innerText);
         } else {
           console.log('Either h1 or .heading element is not found.');
         }
-      }, 50);
+      }, 100);
     </script>
 
   </body>
