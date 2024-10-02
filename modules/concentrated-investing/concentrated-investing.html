@@ -32,21 +32,6 @@
     <meta name="googlebot" content="index, follow" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <script defer>
-      // This script will run only after the HTML document is completely loaded
-      document.addEventListener('DOMContentLoaded', () => {
-        const h1Element = document.getElementsByTagName('h1')[0];
-        const heading = document.title;
-    
-        if (h1Element && heading) {
-          h1Element.innerText = heading;
-          // console.log(h1Element.innerText);
-        } else {
-          console.log('Either h1 or .heading element is not found.');
-        }
-      });
-    </script>
-
     <link rel="icon" href="/assets/branding/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="/components/modules-header/modules-header.css" />
@@ -216,7 +201,25 @@
 
     <!-- footer via footer folder -->
     <div id="footer"></div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const observer = new MutationObserver((mutationsList, observer) => {
+          const h1Element = document.querySelector('h1');
 
+          if (h1Element) {
+            const heading = document.title;
+            h1Element.innerText = heading;
+            console.log('Updated h1 with title:', h1Element.innerText);
 
+            // Stop observing since the <h1> has been found and updated
+            observer.disconnect();
+          }
+        });
+
+        // Observe changes in the document body or the specific parent element where <h1> might be inserted
+        observer.observe(document.body, { childList: true, subtree: true });
+      });
+    </script>
+    
   </body>
 </html>
