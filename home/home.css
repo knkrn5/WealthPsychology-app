@@ -423,22 +423,13 @@ header {
 .content1 p {
   color: #fff !important;
 }
-.content1 h2 {
-  font-size: larger;
-}
 
 .content2 {
   background-color: rgb(212, 210, 56);
 }
-.content2 h2 {
-  font-size: larger;
-}
 
 .content3 {
   background-color: rgb(186, 215, 70);
-}
-.content3 h2 {
-  font-size: larger;
 }
 
 .content4 {
@@ -448,22 +439,13 @@ header {
 .content4 p {
   color: #fff !important;
 }
-.content4 h2 {
-  font-size: larger;
-}
 
 .content5 {
   background-color: rgb(65, 193, 200);
 }
-.content5 h2 {
-  font-size: larger;
-}
 
 .content6 {
   background-color: rgb(219, 165, 40);
-}
-.content6 h2 {
-  font-size: larger;
 }
 
 .content7 {
@@ -473,22 +455,13 @@ header {
 .content7 p {
   color: #fff !important;
 }
-.content7 h2 {
-  font-size: larger;
-}
 
 .content8 {
   background-color: rgb(81, 206, 81);
 }
-.content8 h2 {
-  font-size: larger;
-}
 
 .content9 {
   background-color: rgb(202, 206, 81);
-}
-.content9 h2 {
-  font-size: larger;
 }
 
 .content10 {
@@ -497,9 +470,6 @@ header {
 .content10 h2,
 .content10 p {
   color: #fff !important;
-}
-.content10 h2 {
-  font-size: larger;
 }
 
 .content img {
@@ -519,6 +489,7 @@ header {
   text-align: center;
   margin-top: 15px;
   padding-bottom: 2.5px;
+  font-size: larger;
 }
 
 .content p {
