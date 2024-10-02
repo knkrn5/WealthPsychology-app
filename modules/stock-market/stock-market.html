@@ -34,8 +34,8 @@
 
     <link rel="icon" href="/assets/branding/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <link rel="stylesheet" href="/components/header/header.css" />
-    <script src="/components/header/header.js" defer></script>
+    <link rel="stylesheet" href="/components/modules-header/modules-header.css" />
+    <script src="/components/modules-header/modules-header.js" defer></script>
     <link rel="stylesheet" href="/components/footer/footer.css" />
     <script src="/components/footer/footer.js" defer></script>
 
@@ -44,10 +44,12 @@
   </head>
 
   <body id="sm-page">
-    <div id="header"></div>
+    <div id="modules-header"></div>
+    <span class="heading" style="display: none;"> Stock Market </span>
 
     <main>
       <div class="bosm-container">
+
         <section>
           <h2>1. Introduction to the Indian Stock Market</h2>
           <details>
@@ -215,5 +217,21 @@
 
     <!-- footer via footer folder -->
     <div id="footer"></div>
+
+    <script>
+      setTimeout(() => {
+        // Check if both h1 and .heading exist to avoid errors
+        const h1Element = document.getElementsByTagName('h1')[0];
+        const headingElement = document.querySelector('.heading');
+
+        if (h1Element && headingElement) {
+          h1Element.innerText = headingElement.innerText;
+          console.log(h1Element.innerText);
+        } else {
+          console.log('Either h1 or .heading element is not found.');
+        }
+      }, 50);
+    </script>
+
   </body>
 </html>

@@ -98,6 +98,11 @@ details[open] summary {
 }
 
 @media (max-width: 768px) {
+  h1{
+    font-size: larger !important;
+    margin-left: 70px !important;
+  }
+  
   .ta-container {
     /* max-width: 100%; */
     width: 90%;

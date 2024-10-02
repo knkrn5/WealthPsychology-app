@@ -97,6 +97,11 @@ body {
   }
   
   @media (max-width: 768px) {
+    h1{
+      font-size: larger !important;
+      margin-left: 70px !important;
+    }
+
     .ci-container {
       /* max-width: 100%; */
       width: 90%;
