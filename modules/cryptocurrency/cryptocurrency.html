@@ -45,8 +45,6 @@
 
   <body id="cc-page">
     <div id="modules-header"></div>
-    <span class="heading" style="display: none;"> Cryptocurrency </span>
-
 
     <main>
       <div class="cc-container">
@@ -235,19 +233,23 @@
     <div id="footer"></div>
 
     <script>
-      setTimeout(() => {
-        // Check if both h1 and .heading exist to avoid errors
-        const h1Element = document.getElementsByTagName('h1')[0];
-        const headingElement = document.querySelector('.heading');
+      document.addEventListener('DOMContentLoaded', () => {
+        const observer = new MutationObserver((mutationsList, observer) => {
+          const h1Element = document.querySelector('h1');
 
-        if (h1Element && headingElement) {
-          h1Element.innerText = headingElement.innerText;
-          console.log(h1Element.innerText);
-        } else {
-          console.log('Either h1 or .heading element is not found.');
-        }
-      }, 50);
+          if (h1Element) {
+            const heading = document.title;
+            h1Element.innerText = heading;
+            console.log('Updated h1 with title:', h1Element.innerText);
+
+            // Stop observing since the <h1> has been found and updated
+            observer.disconnect();
+          }
+        });
+
+        // Observe changes in the document body or the specific parent element where <h1> might be inserted
+        observer.observe(document.body, { childList: true, subtree: true });
+      });
     </script>
-
   </body>
 </html>
