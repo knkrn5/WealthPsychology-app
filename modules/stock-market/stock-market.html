@@ -217,20 +217,21 @@
     <!-- footer via footer folder -->
     <div id="footer"></div>
 
-    <script>
-      setTimeout(() => {
-        // Check if both h1 and .heading exist to avoid errors
+    <script defer>
+      // This script will run only after the HTML document is completely loaded
+      document.addEventListener('DOMContentLoaded', () => {
         const h1Element = document.getElementsByTagName('h1')[0];
         const heading = document.title;
-
+    
         if (h1Element && heading) {
           h1Element.innerText = heading;
           // console.log(h1Element.innerText);
         } else {
           console.log('Either h1 or .heading element is not found.');
         }
-      }, 100);
+      });
     </script>
+    
 
   </body>
 </html>
