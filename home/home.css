@@ -343,7 +343,7 @@ header {
 
 .central-line {
   width: 5px;
-  height: 2091px;
+  height: 2061px;
   top: -100px; /* Move the line 100px higher */
   background-color: black;
   position: absolute;
@@ -609,7 +609,7 @@ header {
 /* 1200px  Mobile responsive styling */
 @media (max-width: 1200px) {
   .central-line {
-    height: 2055px;
+    height: 1985px;
   }
 
   .content::before {
@@ -647,7 +647,7 @@ header {
 /* 920px  Mobile responsive styling */
 @media (max-width: 920px) {
   .central-line {
-    height: 2089px;
+    height: 2010px;
   }
 
   .content::before {
