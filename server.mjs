@@ -8,6 +8,8 @@ import contentful from 'contentful';
 import CircularJSON from 'circular-json';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
+import dotenv from 'dotenv';
+dotenv.config();  
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -66,9 +68,10 @@ app.get('/plans', (req, res) => {
 
 
 // Initialize Contentful client
+// Initialize Contentful client
 const client = contentful.createClient({
-  space: 'ucfnymwo68v4',
-  accessToken: 'pbXCDRwNaD33p8dj3lhOKAJLSezMtbGF4Q9g3-sn10Y'
+  space: process.env.CONTENTFUL_SPACE_ID,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
 });
 
 //proxy for blog contentful cms for blog
