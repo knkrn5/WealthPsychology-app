@@ -6,7 +6,7 @@ let buttonStates = JSON.parse(localStorage.getItem('readLaterStates')) || {};
 // Function to toggle bookmark cart visibility
 function toggleBookmark() {
     console.log("clicked");
-    const bookmarkContainer = document.querySelector('.bookmark-container');
+    const bookmarkContainer = document.querySelector('#bookmark-container');
     if (bookmarkContainer.style.display === 'none' || bookmarkContainer.style.display === '') {
         bookmarkContainer.style.display = 'block';
     } else {

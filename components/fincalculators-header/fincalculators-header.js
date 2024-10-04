@@ -12,7 +12,7 @@ function loadHTML(url, selector, callback) {
 // Combine the functions into a single DOMContentLoaded event listener
 document.addEventListener("DOMContentLoaded", () => {
     // Load the header HTML and initialize the menu after it's loaded
-    loadHTML('/components/header/header.html', '#header', () => {
+    loadHTML('/components/fincalculators-header/fincalculators-header.html', '#fincalculators-header', () => {
         const menuBars = document.getElementById('menu-bars');
         const navMenu = document.querySelector('.nav-menu');
 

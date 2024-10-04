@@ -17,7 +17,7 @@
   background-color: #eeeee6;
 }
 
-#bookmark-icon {
+#bookmark-icon-container #bookmark-icon {
   cursor: pointer;
   right: 6.5px;
   font-size: 1.6em;
@@ -26,7 +26,7 @@
   border-radius: 50%;
 }
 
-#total-bookmark {
+#bookmark-icon-container #total-bookmark {
   cursor: pointer;
   font-weight: bold;
   color: #000000;
@@ -41,7 +41,7 @@
 }
 
 /* Bookmark container styles */
-.bookmark-container {
+#bookmark-container {
   display: none;
   position: fixed;
   top: 12px;
@@ -62,7 +62,7 @@
   padding-top: 10px; /* Padding to separate the top border from the content */
 }
 
-.bookmark-container h2 {
+#bookmark-container h2 {
   margin-bottom: 10px;
   text-align: center;
   margin-top: 0;
@@ -118,7 +118,7 @@
     align-self: center;
   } */
 
-#bookmark .deleteall {
+  #bookmark-container .deleteall {
   cursor: pointer;
   bottom: 5px;
   left: 50%;
@@ -139,7 +139,7 @@
   align-items: center;
 }
 
-#bookmark .deleteall:hover {
+#bookmark-container .deleteall:hover {
   background-color: rgb(255, 255, 255, 0.7);
 }
 
@@ -149,7 +149,7 @@
     top: 2px;
     right: 60px;
   }
-  .bookmark-container {
+  #bookmark-container {
     top: 1px;
     right: 40px;
     width: 270px;
