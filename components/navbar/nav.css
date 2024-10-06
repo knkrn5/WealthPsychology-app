@@ -8,6 +8,7 @@ nav {
   z-index: 999;
   justify-content: space-between;
   align-items: center;
+  transition: transform 0.3s ease; 
 }
 
 /* .brand-logo-container {

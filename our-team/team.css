@@ -15,7 +15,8 @@ header {
   top: 0;
   /* left: 0; */
   width: 100%;
-  z-index: 1000;
+  /* z-index: 1000; */
+  transition: transform 0.3s ease;
 }
 
 header h1 {

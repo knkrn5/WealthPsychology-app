@@ -1,44 +1,50 @@
 /* Body styles */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  background: #ddd;
 }
 
-/* Header styling */
+/* Header styles */
 header {
   background-color: #000;
-  color: #ffffff;
+  /* color: #ffffff; */
   text-align: center;
+  position: fixed;
+  top: 0;
+  /* left: 0; */
+  width: 100%;
+  transition: transform 0.3s ease;
 }
 
 header h1 {
-  font-size: 2rem;
-  padding: 1rem;
+  font-size: 30px;
+  /* padding: 1rem; */
   color: #fff;
-  margin-top: 0px;
-  font-weight: bold;
+  margin-top: 10px;
+  padding-top: 5px;
+  /* font-weight: bold; */
 }
 
 .brand-logo {
   height: 60px;
   width: auto;
-  top: 2px;
+  top: 5px;
   left: 5px;
   position: absolute;
 }
 
 @media (max-width: 768px) {
   header h1 {
-    padding-top: 25px;
+    /* margin-top: 0px; */
     font-size: 25px;
     margin-left: 60px;
   }
+
   .brand-logo {
     height: 50px;
     width: auto;
-    top: 10px;
+    top: 5px;
     left: 0px;
   }
 }
@@ -46,10 +52,11 @@ header h1 {
 /* main styling-- */
 #contact-section {
   display: flex;
+  margin: 30px auto;
   max-width: 100%;
   flex-wrap: wrap;
   gap: 50px;
-  margin: 30px auto;
+  margin-top: 100px;
   justify-content: center;
 }
 
@@ -85,8 +92,9 @@ header h1 {
 
 /*for mobile and smaller screen styling*/
 @media (max-width: 768px) {
+
   #contact-section {
-    margin-top: 0px;
+    margin-top: 65px;
     padding: 20px;
   }
 
