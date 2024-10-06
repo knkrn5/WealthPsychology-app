@@ -9,7 +9,7 @@ Welcome to WealthPsychology-app! This project aims to provide a platform for exp
 - [License](#license)
 
 ## Introduction
-WealthPsychology-app is a web application that delves into the psychological factors that influence our relationship with money and wealth. By understanding the psychological aspects, we can make better financial decisions and improve our overall well-being.
+WealthPsychology-app is a web application that teaches about the finance and a detail understanding of different financial assets. By understanding these aspects throughly, we can make better financial decisions and improve our overall well-being.
 
 ## Features
 - Comprehensive analysis of the financial concepts
