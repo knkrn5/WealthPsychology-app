@@ -1,5 +1,5 @@
 let lastverticalScroll = 0;
-const navbar = document.querySelector("header");
+const header = document.querySelector("header");
 
 // Scroll threshold in pixels
 const scrollThreshold = 10; 
@@ -12,10 +12,10 @@ window.addEventListener("scroll", function () {
     if (Math.abs(verticalScroll - lastverticalScroll) > scrollThreshold) {
         if (verticalScroll > lastverticalScroll) {
             // User scrolled down past the threshold
-            navbar.style.transform = "translateY(-100%)"; // Hide navbar
+            header.style.transform = "translateY(-100%)"; // Hide header
         } else {
             // User scrolled up past the threshold
-            navbar.style.transform = "translateY(0)"; // Show navbar
+            header.style.transform = "translateY(0)"; // Show header
         }
     }
  
