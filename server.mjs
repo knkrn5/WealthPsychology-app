@@ -172,7 +172,7 @@ app.get('/blog/post/:slug', async (req, res) => {
     // Render the post.ejs template with the full post content
     res.render('templates/post/post', {
       post: post.fields,
-      title: post.fields.title || 'Untitled Post',
+      postTitle: post.fields.title || 'Untitled Post',
       metaDescription: post.fields.excerpt || '',
       metaKeywords: post.fields.tags || ['finance', 'trading', 'investing', 'wealthpsychology', 'blog'],
       imageUrl: imageUrl,

@@ -12,7 +12,7 @@
     <meta name="robots" content="index, follow" />
 
     <!--Dynamically  Open Graph Meta Tags -->
-    <meta property="og:title" content="<%= title %>" />
+    <meta property="og:title" content="<%= postTitle %>" />
     <meta property="og:description" content="<%= metaDescription %>" />
     <meta property="og:image" content="<%= imageUrl %>" />
     <meta property="og:url" content="<%= blogUrl %>" />
@@ -20,7 +20,7 @@
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="<%= title %>" />
+    <meta name="twitter:title" content="<%= postTitle %>" />
     <meta name="twitter:description" content="<%= metaDescription %>" />
     <meta name="twitter:image" content="<%= imageUrl %>" />
     <meta name="twitter:url" content="<%= blogUrl %>" />
@@ -80,7 +80,7 @@
     <link rel="stylesheet" href="/components/footer/footer.css" />
 
     <link rel="stylesheet" href="/views/templates/post/post.css" />
-    <!-- <title><%= title %></title> -->
+    <title><%= postTitle %></title>
   </head>
 
   <body id="blog-post-page">
