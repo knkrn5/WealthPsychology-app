@@ -27,7 +27,7 @@ fetch('/blog/posts')
         });
 
 
-        const filteredPosts = data.filter(post => post.fields.category === postCategory);
+        const filteredPosts = data.filter(post => post.fields.category.toLowerCase() === postCategory.toLowerCase());
         
 
         // Check if there are any filtered posts
