@@ -32,23 +32,103 @@ header h1 {
   }
 }
 
+/* ------------------------------------------------------------------ */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 #post-container {
-  padding: 20px 10px;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  /* gap: 50px; */
+}
+
+.recent-posts {
+  flex: 1;
+  background-color: #ccc;
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 5px;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  */
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  position: sticky;
+  top: 20px;
+  /* align-self: flex-start; */
+  max-height: calc(100vh - 40px); 
+  overflow-y: auto;
+}
+
+.recent-posts h2 {
+  font-family: Georgia;
+  font-size: 20px;
+  color: #333; 
+  text-align: center;
+  margin-top: 0;
+  border-bottom: 1px solid #000;
+  text-transform: uppercase;
+}
+
+.recent-posts-wrapper {
+  display: flex;
+  justify-content: center; 
+  flex-wrap: wrap; /* Allow wrapping if posts overflow the line */
+  gap: 30px; /* Add space between posts */
+  margin-top: 20px;
+}
+
+.side-post {
+  background-color: #fff;
+  border: 1px solid #ddd; 
+  border-radius: 8px; /* Rounded corners */
+  border: 1px solid black;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
+  padding: 0 15px;
+  /* width: 100%; */
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.side-post:hover {
+  transform: translateY(-5px); /* Slight hover effect */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+.side-post img {
+  max-width: 100%; /* Make sure image is responsive */
+  height: auto;
+  border-radius: 5px; /* Rounded corners for images */
+  /* border-bottom: 1px solid black; */
+  padding-top: 15px;
+  /* margin-bottom: 10px; */
+}
+
+.side-post h3 {
+  font-size: 13px ;
+  color: #333; /* Darker text color */
+  background-color: #eee;
+  padding: 7px;
+  border-radius: 5px;
+  text-align: left;
 }
 
 .full-blog-post {
-  max-width: 800px;
-  margin: 0 auto;
-  margin-top: 100px;
-  margin-bottom: 0px;
+  max-width: 750px;
   background-color: #ccc;
   padding: 30px;
+  margin: auto 20px;
   border-radius: 5px;
+  flex: 3;
+  align-self: center;
 }
 
 .full-blog-post h1 {
   color: #000;
-  font-size: 2.5em;
+  font-size: 2em;
   margin-top: 0px;
   margin-bottom: 0px;
 }
@@ -94,63 +174,63 @@ header h1 {
   cursor: pointer;
 }
 
-#related-posts {
-  margin: 20px auto;
-  padding: 20px;
-  text-align: center; /* Center the heading */
-  background-color: #ccc; /* Light background */
-  border-radius: 12px; /* Rounded corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  max-width: 1000px; /* Set a maximum width to keep it centered */
+.related-posts{
+  flex: 1;
+  background-color: #ccc;
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 5px;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  */
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  position: sticky;
+  top: 20px;
+  /* align-self: flex-start; */
+  max-height: calc(100vh - 40px); 
+  overflow-y: auto;
 }
 
-#related-posts h2 {
-  font-size: 28px;
-  color: #333; /* Darker text color for the heading */
-  margin-bottom: 20px; /* Space below the heading */
-  text-decoration: underline;
-  text-underline-offset: 2px;
+.related-posts h2 {
+  font-family: Georgia;
+  font-size: 20px;
+  color: #333; 
+  text-align: center;
+  margin-top: 0;
+  border-bottom: 1px solid #000;
+  text-transform: uppercase;
 }
+
 
 .related-posts-wrapper {
   display: flex;
-  justify-content: center; /* Center all related posts horizontally */
+  justify-content: center; 
   flex-wrap: wrap; /* Allow wrapping if posts overflow the line */
   gap: 30px; /* Add space between posts */
   margin-top: 20px;
 }
 
-.related-post {
-  display: flex;
-  flex-direction: row;
-  background-color: #ddd;
-  padding: 10px;
-  border-radius: 10px;
-  width: 350px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease; /* Smooth transition for all changing properties */
+/* ------------------------------------------------------------------ */
+@media (max-width: 1000px) {
+  .recent-posts {
+    display: none;
+  }
+
+  .related-posts {  
+    display: none;
+  }
 }
 
-.related-post img {
-  width: 150px;
-  height: auto;
-}
-
-.related-post-title {
-  font-size: 20px;
-  color: #333;
-}
-
-.related-post a {
-  text-decoration: none;
-  color: #333; /* Set the default color */
-}
 
 /* Responsive design */
 @media (max-width: 768px) {
+  main {
+    padding: 0px;
+  }
+  
   .full-blog-post {
-    width: 80%;
-    margin-top: 40px;
+    /* width: 80%; */
+    margin-top: -30px;
+    margin-bottom: 20px;
   }
 
   .full-blog-post h1 {

@@ -93,40 +93,32 @@
 
     <main>
       <div id="post-container">
-        <!-- Post content will be loaded here -->
+        <aside class="recent-posts">
+          <h2>Recent Posts</h2>
+          <div class="recent-posts-wrapper">
+            <!-- related post goes here -->
+          </div>
+        </aside>
+
         <article class="full-blog-post">
           <h1><%- post.title %></h1>
           <p><%= new Date(post.publishedDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) %></p>
 
-          <!-- Optional author information -->
-          <!-- <p>Author: <%= post.author.fields.name %></p> -->
-
-          <!-- Optional post images -->
-          <!--
-              <div class="post-images">
-                  <% if (post.postImages) { %>
-                      <% if (Array.isArray(post.postImages)) { %>
-                          <% post.postImages.forEach(image => { %>
-                              <img src="<%= image.fields.file.url %>" alt="<%= image.fields.title %>">
-                          <% }); %>
-                      <% } else if (post.postImages.fields && post.postImages.fields.file) { %>
-                          <img src="<%= post.postImages.fields.file.url %>" alt="<%= post.postImages.fields.title %>">
-                      <% } %>
-                  <% } %>
-              </div>
-              -->
-
+          <script>
+            var postCategory = "<%= post.category %>";
+        </script>
+        
           <!-- Render rich text content -->
           <div><%- renderPostRichTextHtml %></div>
           <a href="javascript:history.back()" class="back"><i class="fa-solid fa-caret-left"></i>Back</a>
         </article>
 
-        <!-- <div id="related-posts">
-              <h2>Related posts</h2>
-              <div class="related-posts-wrapper">
-                renderRelatedBlogPostsHtml will come here
-              </div>
-            </div> -->
+        <aside class="related-posts">
+          <h2>Related Posts</h2>
+          <div class="related-posts-wrapper">
+            <!-- related post goes here -->
+          </div>
+        </aside>
       </div>
     </main>
 
@@ -134,5 +126,6 @@
     <%- include('../../components/footer') %>
 
     <script src="/components/navbar/nav.js"></script>
+    <script src="/views/templates/post/post.js"></script>
   </body>
 </html>
