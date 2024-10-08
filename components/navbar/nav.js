@@ -31,7 +31,7 @@ const scrollThreshold = 10;
 
 window.addEventListener("scroll", function () {
 
-    let verticalScroll = window.pageYOffset || document.documentElement.verticalScroll;
+    let verticalScroll = window.pageYOffset || document.documentElement.scrollTop;
 
     // Check if the scroll difference exceeds the threshold
     if (Math.abs(verticalScroll - lastverticalScroll) > scrollThreshold) {
