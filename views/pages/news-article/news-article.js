@@ -8,7 +8,7 @@ recentLoadingContainer.id = 'loading-container';
 recentLoadingContainer.className = 'loading-indicator';
 recentLoadingContainer.innerHTML = '<i class="fa-solid fa-spinner"></i><p>Loading...</p>';
 
-const relatedLoadingContainer = recentLoadingContainer.cloneNode(true); 
+const relatedLoadingContainer = recentLoadingContainer.cloneNode(true);
 
 // Display loading indicator at the top of both sections
 recentNews.appendChild(recentLoadingContainer);
@@ -32,10 +32,15 @@ fetch('/finnews')
         })
 
         const filteredArticle = data.filter(article => article.fields.category.toLowerCase() === articleCategory.toLowerCase());
-        
+
         filteredArticle.forEach(article => {
             const RelatedNewsSideBar = createSideNewsDiv(article);
             relatedNews.appendChild(RelatedNewsSideBar);
+
+            RelatedNewsSideBar.addEventListener('click', () => {
+                // window.location.href = `/news-article/${article.fields.slug}`
+                window.location.href = `/news-article/` + article.fields.slug;
+            })
         })
 
 
@@ -45,8 +50,8 @@ fetch('/finnews')
     })
     .finally(() => {
         // Remove loading indicator after content is loaded
-        recentLoadingContainer.remove(); 
-        relatedLoadingContainer.remove(); 
+        recentLoadingContainer.remove();
+        relatedLoadingContainer.remove();
     });
 
 
