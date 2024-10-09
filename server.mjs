@@ -68,7 +68,6 @@ app.get('/plans', (req, res) => {
 
 
 // Initialize Contentful client
-// Initialize Contentful client
 const client = contentful.createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
@@ -170,7 +169,7 @@ app.get('/blog/post/:slug', async (req, res) => {
     const fullUrl = `${protocol}://${req.get('host')}${req.originalUrl}`;
 
     // Render the post.ejs template with the full post content
-    res.render('templates/post/post', {
+    res.render('pages/post/post', {
       post: post.fields,
       postTitle: post.fields.title || 'Untitled Post',
       metaDescription: post.fields.excerpt || '',
@@ -237,7 +236,7 @@ app.get('/news-article/:slug', async (req, res) => {
     const fullUrl = `${protocol}://${req.get('host')}${req.originalUrl}`;
 
     // Render the post.ejs template with the full post content
-    res.render('templates/finance-news/news-article', {
+    res.render('pages/news-article/news-article', {
       post: post.fields,
       metaTitle: post.fields.title || 'Untitled Post',
       metaDescription: post.fields.excerpt || '',

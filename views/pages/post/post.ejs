@@ -79,7 +79,7 @@
     <link rel="stylesheet" href="/components/navbar/nav.css" />
     <link rel="stylesheet" href="/components/footer/footer.css" />
 
-    <link rel="stylesheet" href="/views/templates/post/post.css" />
+    <link rel="stylesheet" href="/views/pages/post/post.css" />
     <title><%= postTitle %></title>
   </head>
 
@@ -105,9 +105,9 @@
           <p><%= new Date(post.publishedDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) %></p>
 
           <script>
-            var postCategory = "<%= post.category %>";
-        </script>
-        
+            var postCategory = '<%= post.category %>';
+          </script>
+
           <!-- Render rich text content -->
           <div><%- renderPostRichTextHtml %></div>
           <a href="javascript:history.back()" class="back"><i class="fa-solid fa-caret-left"></i>Back</a>
@@ -126,6 +126,6 @@
     <%- include('../../components/footer') %>
 
     <script src="/components/navbar/nav.js"></script>
-    <script src="/views/templates/post/post.js"></script>
+    <script src="/views/pages/post/post.js"></script>
   </body>
 </html>

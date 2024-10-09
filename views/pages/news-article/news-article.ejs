@@ -78,7 +78,7 @@
     <link rel="stylesheet" href="/components/footer/footer.css" />
     <!-- <script src="/layouts/footer/footer.js" defer></script>  -->
 
-    <link rel="stylesheet" href="/views/templates/finance-news/news-article.css" />
+    <link rel="stylesheet" href="/views/pages/news-article/news-article.css" />
     <title><%= post.title %></title>
   </head>
   <body id="full-news-article-page">
@@ -99,8 +99,6 @@
             <img src="/assets/branding/logo.webp" alt="Brand Logo" class="brand-logo" />
           </a>
         </div>
-
-        <h1>News</h1>
 
         <ul class="nav-menu">
           <li><a href="/index.html">Home</a></li>
@@ -130,23 +128,36 @@
 
     <main>
       <div id="news-container">
-        <div class="news-article-container">
+        <aside class="recent-news">
+          <h2>Recent News</h2>
+          <div class="recent-news-wrapper">
+            <!-- related post goes here -->
+          </div>
+        </aside>
+
+
           <article class="full-news-article">
             <h1><%- post.title %></h1>
             <p><%= new Date(post.publishedDate).toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' }) %></p>
             <!-- <p>Author: <%= post.author.fields.name %></p> -->
+
+            <script>
+              var articleCategory = '<%= post.category %>';
+            </script>
 
             <!-- Render rich text content -->
             <div><%- renderPostRichTextHtml %></div>
             <a href="javascript:history.back()" class="back"><i class="fa-solid fa-caret-left"></i>Back</a>
           </article>
 
-          <!-- <div id="related-posts">
-                  <h2>Related posts</h2>
-                   <div class="related-posts-wrapper">
-                    renderRelatedBlogPostsHtml ejs will come here
-                  </div>
-                </div> -->
+          
+        <aside class="related-news">
+          <h2>Related News</h2>
+          <div class="related-news-wrapper">
+            <!-- related post goes here -->
+          </div>
+        </aside>
+
         </div>
       </div>
     </main>
@@ -154,7 +165,8 @@
     <!-- Include Footer Partial -->
     <%- include('../../components/footer') %>
 
-    <!-- <script src="/views/templates/finance-news/news-article.js"></script> -->
+    <!-- <script src="/views/pages/finance-news/news-article.js"></script> -->
     <script src="/finance-news/finnews-nav.js"></script>
+    <script src="/views/pages/news-article/news-article.js"></script>
   </body>
 </html>
