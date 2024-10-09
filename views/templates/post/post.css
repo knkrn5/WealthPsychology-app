@@ -122,7 +122,7 @@ main {
   display: flex;
   justify-content: center; 
   flex-wrap: wrap; /* Allow wrapping if posts overflow the line */
-  gap: 30px; /* Add space between posts */
+  gap: 20px; /* Add space between posts */
   margin-top: 20px;
 }
 
@@ -251,7 +251,7 @@ main {
   display: flex;
   justify-content: center; 
   flex-wrap: wrap; /* Allow wrapping if posts overflow the line */
-  gap: 30px; /* Add space between posts */
+  gap: 20px; /* Add space between posts */
   margin-top: 20px;
 }
 
