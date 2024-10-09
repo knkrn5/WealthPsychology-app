@@ -1,14 +1,22 @@
-
 const recentPost = document.querySelector('.recent-posts-wrapper');
 const relatedPost = document.querySelector('.related-posts-wrapper');
 
-recentPost.innerHTML = " ";
+const loadingContainer = document.createElement('div');
+loadingContainer.id = 'loading-container';
+loadingContainer.className = 'loading-indicator';
+loadingContainer.innerHTML = '<i class="fa-solid fa-spinner"></i><p>Loading...</p>';
+
+// Display loading indicator at the top of both sections
+recentPost.appendChild(loadingContainer);
+relatedPost.appendChild(loadingContainer.cloneNode(true)); // Clone to prevent duplicate references
 
 fetch('/blog/posts')
     .then(res => res.json())
     .then(data => {
 
-        let category;
+        // Clear the previous posts and loading indicator after loading is done
+        recentPost.innerHTML = '';
+        relatedPost.innerHTML = '';
 
         // Loop through the first 5 posts
         data.slice(0, 5).forEach(post => {
@@ -20,15 +28,13 @@ fetch('/blog/posts')
             // Add click event listener to navigate to the post page
             RecentPostSideBar.addEventListener('click', (event) => {
                 console.log(event.target);
-                category = post.fields.category;
-                console.log(category);
                 window.location.href = '/blog/post/' + post.fields.slug;
             });
         });
 
-
+        // Log and filter posts based on the category
+        console.log(postCategory.toUpperCase());
         const filteredPosts = data.filter(post => post.fields.category.toLowerCase() === postCategory.toLowerCase());
-        
 
         // Check if there are any filtered posts
         if (filteredPosts.length === 0) {
@@ -36,11 +42,8 @@ fetch('/blog/posts')
         } else {
             // Loop through the filtered posts and append them to relatedPost
             filteredPosts.slice(0, 5).forEach(post => {
-                console.log(post.fields.category);
-
                 const RelatedPostSideBar = createSidePostDiv(post);
                 relatedPost.appendChild(RelatedPostSideBar);
-
 
                 // Add click event listener to navigate to the post page
                 RelatedPostSideBar.addEventListener('click', (event) => {
@@ -53,6 +56,10 @@ fetch('/blog/posts')
     })
     .catch(err => {
         console.error(err);
+    })
+    .finally(() => {
+        // Remove loading indicator after content is loaded
+        loadingContainer.remove();
     });
 
 
@@ -68,12 +75,9 @@ function createSidePostDiv(post) {
     const sidePostDiv = document.createElement('div');
     sidePostDiv.className = 'side-post';
     sidePostDiv.innerHTML = `
-         <img>${featuredImage}</img>
+         ${featuredImage}
          <h3>${postTitle}</h3>
         `;
-
-    /*   const sidePostClone = sidePostDiv.cloneNode(true); // Clone the element with all children (true means deep clone)
-      relatedPost.appendChild(sidePostClone); // Append the clone to relatedPost */
 
     return sidePostDiv;
 }
