@@ -26,8 +26,9 @@ fetch('/blog/posts')
             recentPost.appendChild(RecentPostSideBar);
 
             // Add click event listener to navigate to the post page
-            RecentPostSideBar.addEventListener('click', (event) => {
-                console.log(event.target);
+            RecentPostSideBar.addEventListener('click', (e) => {
+                e.preventDefault();
+                // console.log(event.target);
                 window.location.href = '/blog/post/' + post.fields.slug;
             });
         });
@@ -46,9 +47,9 @@ fetch('/blog/posts')
                 relatedPost.appendChild(RelatedPostSideBar);
 
                 // Add click event listener to navigate to the post page
-                RelatedPostSideBar.addEventListener('click', (event) => {
-                    console.log(event.target);
-                    console.log(post.fields.category);
+                RelatedPostSideBar.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    // console.log(event.target);
                     window.location.href = '/blog/post/' + post.fields.slug;
                 });
             });
