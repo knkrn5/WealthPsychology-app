@@ -67,7 +67,6 @@ main {
   color: #555;
 }
 
-
 #news-container {
   display: flex;
   justify-content: center;
@@ -86,14 +85,14 @@ main {
   position: sticky;
   top: 20px;
   /* align-self: flex-start; */
-  max-height: calc(100vh - 40px); 
+  max-height: calc(100vh - 40px);
   overflow-y: auto;
 }
 
 .recent-news h2 {
   font-family: Georgia;
   font-size: 20px;
-  color: #333; 
+  color: #333;
   text-align: center;
   margin-top: 0;
   border-bottom: 1px solid #000;
@@ -102,13 +101,11 @@ main {
 
 .recent-news-wrapper {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   flex-wrap: wrap; /* Allow wrapping if posts overflow the line */
   gap: 20px; /* Add space between posts */
   margin-top: 20px;
 }
-
-
 
 .full-news-article {
   max-width: 750px;
@@ -119,7 +116,6 @@ main {
   flex: 3;
   align-self: center;
 }
-
 
 .full-news-article h1 {
   flex: 3;
@@ -182,14 +178,14 @@ main {
   position: sticky;
   top: 20px;
   /* align-self: flex-start; */
-  max-height: calc(100vh - 40px); 
+  max-height: calc(100vh - 40px);
   overflow-y: auto;
 }
 
 .related-news h2 {
   font-family: Georgia;
   font-size: 20px;
-  color: #333; 
+  color: #333;
   text-align: center;
   margin-top: 0;
   border-bottom: 1px solid #000;
@@ -198,7 +194,7 @@ main {
 
 .related-news-wrapper {
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   flex-wrap: wrap; /* Allow wrapping if posts overflow the line */
   gap: 20px; /* Add space between posts */
   margin-top: 20px;
@@ -206,7 +202,7 @@ main {
 
 .side-content {
   background-color: #fff;
-  border: 1px solid #ddd; 
+  border: 1px solid #ddd;
   border-radius: 8px; /* Rounded corners */
   border: 1px solid black;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Light shadow */
@@ -232,7 +228,7 @@ main {
 }
 
 .side-content h3 {
-  font-size: 13px ;
+  font-size: 13px;
   color: #333; /* Darker text color */
   background-color: #eee;
   padding: 7px;
@@ -240,11 +236,27 @@ main {
   text-align: left;
 }
 
+/* ------------------------------------------------------------------ */
+@media (max-width: 1000px) {
+  .recent-news {
+    display: none;
+  }
+
+  .related-news {
+    display: none;
+  }
+}
+
 /* Mobile-specific styles */
 @media (max-width: 768px) {
+  main {
+    padding: 0px;
+  }
+
   .full-news-article {
-    width: 80%;
-    margin-top: 40px;
+    /* width: 80%; */
+    margin-top: -30px;
+    margin-bottom: 20px;
   }
 
   .full-news-article h1 {
