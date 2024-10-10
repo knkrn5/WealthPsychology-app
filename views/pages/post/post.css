@@ -117,8 +117,8 @@ main {
 .recent-posts-wrapper {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; 
-  gap: 20px; 
+  flex-wrap: wrap;
+  gap: 20px;
   margin-top: 20px;
   max-height: 700px;
   overflow-y: auto;
@@ -185,7 +185,7 @@ main {
 .related-posts {
   flex: 1;
   background-color: #ccc;
-  border: 1px solid #ddd; 
+  border: 1px solid #ddd;
   border-radius: 5px;
   /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  */
   padding: 15px;
@@ -210,8 +210,8 @@ main {
 .related-posts-wrapper {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; 
-  gap: 20px; 
+  flex-wrap: wrap;
+  gap: 20px;
   margin-top: 20px;
   max-height: 700px;
   overflow-y: auto;
@@ -220,9 +220,9 @@ main {
 .side-content {
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 8px; 
+  border-radius: 8px;
   border: 1px solid black;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   padding: 0 15px;
   margin-right: 5px;
   /* width: 100%; */
@@ -232,14 +232,14 @@ main {
 }
 
 .side-content:hover {
-  transform: translateY(-5px); 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 .side-content img {
-  max-width: 100%; 
+  max-width: 100%;
   height: auto;
-  border-radius: 5px; 
+  border-radius: 5px;
   /* border-bottom: 1px solid black; */
   padding-top: 15px;
   /* margin-bottom: 10px; */
