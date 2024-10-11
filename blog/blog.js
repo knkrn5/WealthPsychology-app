@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createPostExcerpt(post) {
-        console.log('Creating excerpt for post:', post);
+        // console.log('Creating excerpt for post:', post);
 
         if (!post || !post.fields) {
             console.error('Invalid post structure:', post);

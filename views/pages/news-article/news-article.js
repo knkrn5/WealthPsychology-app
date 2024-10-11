@@ -20,7 +20,7 @@ fetch('/finnews')
         console.log(data);
 
         data.forEach((article) => {
-            console.log(article);
+            // console.log(article);
 
             const RecentNewsSideBar = createSideNewsDiv(article);
             recentNews.appendChild(RecentNewsSideBar);
@@ -33,7 +33,7 @@ fetch('/finnews')
 
         const filteredArticle = data.filter(article => {
             let articleCategories = Array.isArray(article.fields.category) ? article.fields.category : [article.fields.category];
-            console.log(articleCategories);
+            // console.log(articleCategories);
             return articleCategories.some(category => category.toLowerCase() === articleCategory.toLowerCase());
         });
 
@@ -77,3 +77,18 @@ function createSideNewsDiv(article) {
 
     return sideNewsDiv;
 }
+
+const shareButton = document.getElementById('share-button');
+
+shareButton.addEventListener('click', () => {
+    if (navigator.share) {
+        navigator.share({
+            title: document.title, 
+            url: location.href 
+        })
+        .then(() => console.log('Content shared successfully!'))
+        .catch((error) => console.error('Error sharing content:', error));
+    } else {
+        alert('This Share API is not supported in your browser.');
+    }
+});

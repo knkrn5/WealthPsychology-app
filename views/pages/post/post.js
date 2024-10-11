@@ -19,7 +19,7 @@ fetch('/blog/posts')
 
         // Loop through the first 5 posts
         data.slice(0, 5).forEach(post => {
-            console.log(post.fields.category);
+            // console.log(post.fields.category);
 
             const RecentPostSideBar = createSideNewsDiv(post);
             recentPost.appendChild(RecentPostSideBar);
@@ -34,7 +34,7 @@ fetch('/blog/posts')
         // Filter posts based on the category
         const filteredPosts = data.filter(post => {
             let postCategories = Array.isArray(post.fields.category) ? post.fields.category : [post.fields.category];
-            console.log(postCategories);
+            // console.log(postCategories);
             return postCategories.some(category => category.toLowerCase() === postCategory.toLowerCase());
         });
 
@@ -82,3 +82,19 @@ function createSideNewsDiv(post) {
 
     return sidePostDiv;
 }
+
+
+const shareButton = document.getElementById('share-button');
+
+shareButton.addEventListener('click', () => {
+    if (navigator.share) {
+        navigator.share({
+            title: document.title, 
+            url: location.href 
+        })
+        .then(() => console.log('Content shared successfully!'))
+        .catch((error) => console.error('Error sharing content:', error));
+    } else {
+        alert('This Share API is not supported in your browser.');
+    }
+});
