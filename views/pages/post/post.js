@@ -7,11 +7,11 @@ recentLoadingContainer.id = 'loading-container';
 recentLoadingContainer.className = 'loading-indicator';
 recentLoadingContainer.innerHTML = '<i class="fa-solid fa-spinner"></i><p>Loading...</p>';
 
-const relatedLoadingContainer = recentLoadingContainer.cloneNode(true); 
+const relatedLoadingContainer = recentLoadingContainer.cloneNode(true);
 
 // Display loading indicator at the top of both sections
 recentPost.appendChild(recentLoadingContainer);
-relatedPost.appendChild(relatedLoadingContainer); 
+relatedPost.appendChild(relatedLoadingContainer);
 
 fetch('/blog/posts')
     .then(res => res.json())
@@ -31,9 +31,12 @@ fetch('/blog/posts')
             });
         });
 
-        // Log and filter posts based on the category
-        console.log(postCategory.toUpperCase());
-        const filteredPosts = data.filter(post => post.fields.category.toLowerCase() === postCategory.toLowerCase());
+        // Filter posts based on the category
+        const filteredPosts = data.filter(post => {
+            let postCategories = Array.isArray(post.fields.category) ? post.fields.category : [post.fields.category];
+            console.log(postCategories);
+            return postCategories.some(category => category.toLowerCase() === postCategory.toLowerCase());
+        });
 
         // Check if there are any filtered posts
         if (filteredPosts.length === 0) {
@@ -56,8 +59,8 @@ fetch('/blog/posts')
     })
     .finally(() => {
         // Remove loading indicator after content is loaded
-        recentLoadingContainer.remove(); 
-        relatedLoadingContainer.remove(); 
+        recentLoadingContainer.remove();
+        relatedLoadingContainer.remove();
     });
 
 

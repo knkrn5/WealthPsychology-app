@@ -31,7 +31,11 @@ fetch('/finnews')
             })
         })
 
-        const filteredArticle = data.filter(article => article.fields.category.toLowerCase() === articleCategory.toLowerCase());
+        const filteredArticle = data.filter(article => {
+            let articleCategories = Array.isArray(article.fields.category) ? article.fields.category : [article.fields.category];
+            console.log(articleCategories);
+            return articleCategories.some(category => category.toLowerCase() === articleCategory.toLowerCase());
+        });
 
         filteredArticle.forEach(article => {
             const RelatedNewsSideBar = createSideNewsDiv(article);
