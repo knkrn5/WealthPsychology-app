@@ -1,12 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     const blogLeftContainer = document.getElementById('blog-left-container');
     const categoryList = document.getElementById('category-list');
+    const skeletonContainer = document.querySelector('.skeleton-container');
 
-    const loadingContainer = document.createElement('div');
-    loadingContainer.id = 'loading-container';
-    loadingContainer.className = 'loading-indicator';
-    loadingContainer.innerHTML = '<i class="fa-solid fa-spinner"></i><p>Loading...</p>';
-    blogLeftContainer.appendChild(loadingContainer);
+
 
     const categoryMapping = {
         'company-analysis': ['company analysis'],
@@ -47,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
             blogLeftContainer.innerHTML = `<p>Error: ${errorMessage}</p>`;
         })
         .finally(() => {
-            loadingContainer.remove();
+            skeletonContainer.remove();
         });
 
     function displayBlogPosts(posts) {
@@ -82,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createPostExcerpt(post) {
-        // console.log('Creating excerpt for post:', post);
+        console.log('Creating excerpt for post:', post);
 
         if (!post || !post.fields) {
             console.error('Invalid post structure:', post);
