@@ -1,0 +1,46 @@
+name: Generate artifacts and trigger cleanup
+on:
+  workflow_dispatch:
+    inputs:
+      size:
+        description: 'Target file size'
+        required: true
+        default: '1M'
+      name:
+        description: 'Artifact name'
+        required: true
+        default: 'artifact.bin'
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    continue-on-error: false
+    outputs:
+      target_run_id: ${{ github.run_id }}
+    steps:
+      - name: Generate a file
+        run: |
+          truncate -s ${{ github.event.inputs.size }} ${{ github.event.inputs.name }}
+          echo "Created file ${{ github.event.inputs.name }} (${{ github.event.inputs.size }})"
+      - name: Upload artifact as ${{ github.event.inputs.name }}
+        uses: actions/upload-artifact@v1
+        with:
+          name: ${{ github.event.inputs.name }}
+          path: ${{ github.event.inputs.name }}
+
+  trigger:
+    runs-on: ubuntu-latest
+    needs: generate
+    continue-on-error: false
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1.0.0
+        with:
+          token: ${{ secrets.MY_ACCESS_TOKEN }} 
+          repository: ${{ github.repository }}
+          event-type: triggered-event
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "size": "${{ github.event.inputs.size }}", "base_name": "${{ github.event.inputs.name }}", "run_id": "${{needs.generate.outputs.target_run_id}}"}'
