@@ -2,17 +2,21 @@
 const recentNews = document.querySelector('.recent-news-wrapper');
 const relatedNews = document.querySelector('.related-news-wrapper');
 
-// Create separate loading indicators for each section
-const recentLoadingContainer = document.createElement('div');
-recentLoadingContainer.id = 'loading-container';
-recentLoadingContainer.className = 'loading-indicator';
-recentLoadingContainer.innerHTML = '<i class="fa-solid fa-spinner"></i><p>Loading...</p>';
+const skeletonContainer = document.createElement('div');
+skeletonContainer.className = 'skeleton-container';
+skeletonContainer.innerHTML = `
+   <div class="skeleton">
+      <div class="skeleton-image"></div>
+      <div class="skeleton-text"></div>
+      <div class="skeleton-text short"></div>
+   </div>
+`;
 
-const relatedLoadingContainer = recentLoadingContainer.cloneNode(true);
+const relatedSkeletonContainer = skeletonContainer.cloneNode(true);
 
 // Display loading indicator at the top of both sections
-recentNews.appendChild(recentLoadingContainer);
-relatedNews.appendChild(relatedLoadingContainer);
+recentNews.appendChild(skeletonContainer);
+relatedNews.appendChild(relatedSkeletonContainer);
 
 fetch('/finnews')
     .then(response => response.json())
@@ -53,9 +57,8 @@ fetch('/finnews')
         console.error('Error:', error);
     })
     .finally(() => {
-        // Remove loading indicator after content is loaded
-        recentLoadingContainer.remove();
-        relatedLoadingContainer.remove();
+        skeletonContainer.remove();
+        relatedSkeletonContainer.remove();
     });
 
 

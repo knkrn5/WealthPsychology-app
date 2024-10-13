@@ -2,16 +2,21 @@ const recentPost = document.querySelector('.recent-posts-wrapper');
 const relatedPost = document.querySelector('.related-posts-wrapper');
 
 // Create separate loading indicators for each section
-const recentLoadingContainer = document.createElement('div');
-recentLoadingContainer.id = 'loading-container';
-recentLoadingContainer.className = 'loading-indicator';
-recentLoadingContainer.innerHTML = '<i class="fa-solid fa-spinner"></i><p>Loading...</p>';
+const skeletonContainer = document.createElement('div');
+skeletonContainer.className = 'skeleton-container';
+skeletonContainer.innerHTML = `
+   <div class="skeleton">
+      <div class="skeleton-image"></div>
+      <div class="skeleton-text"></div>
+      <div class="skeleton-text short"></div>
+   </div>
+`;
 
-const relatedLoadingContainer = recentLoadingContainer.cloneNode(true);
+const relatedSkeletonContainer = skeletonContainer.cloneNode(true);
 
 // Display loading indicator at the top of both sections
-recentPost.appendChild(recentLoadingContainer);
-relatedPost.appendChild(relatedLoadingContainer);
+recentPost.appendChild(skeletonContainer);
+relatedPost.appendChild(relatedSkeletonContainer);
 
 fetch('/blog/posts')
     .then(res => res.json())
@@ -58,9 +63,8 @@ fetch('/blog/posts')
         console.error(err);
     })
     .finally(() => {
-        // Remove loading indicator after content is loaded
-        recentLoadingContainer.remove();
-        relatedLoadingContainer.remove();
+        skeletonContainer.remove();
+        relatedSkeletonContainer.remove();
     });
 
 
@@ -89,11 +93,11 @@ const shareButton = document.getElementById('share-button');
 shareButton.addEventListener('click', () => {
     if (navigator.share) {
         navigator.share({
-            title: document.title, 
-            url: location.href 
+            title: document.title,
+            url: location.href
         })
-        .then(() => console.log('Content shared successfully!'))
-        .catch((error) => console.error('Error sharing content:', error));
+            .then(() => console.log('Content shared successfully!'))
+            .catch((error) => console.error('Error sharing content:', error));
     } else {
         alert('This Share API is not supported in your browser.');
     }

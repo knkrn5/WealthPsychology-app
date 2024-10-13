@@ -35,38 +35,75 @@ main {
   margin: 0 auto;
 }
 
-/* loading and spin animation styling */
-#loading-container {
-  position: relative;
-  margin-top: 20%;
-  /* left: 50%; 
-     transform: translate(-50%, -50%);  */
-  text-align: center;
-  font-size: 18px;
-  color: #555;
-  /* z-index: 1000;  */
+#post-container {
+  margin-top: 95px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  /* gap: 50px; */
 }
 
-@keyframes spin {
+/* skeleton loading and spin animation styling */
+.skeleton-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+}
+
+.skeleton {
+  width: 90%;
+  position: relative;
+  overflow: hidden;
+  background: #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  margin-right: 5px;
+  padding: 10px 10px 30px 10px;
+  border-radius: 10px;
+  transition: box-shadow 0.3s ease; 
+}
+
+.skeleton::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150px;
+  width: 100px;
+  height: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
   0% {
-    transform: rotate(0deg);
+      left: -150px;
   }
   100% {
-    transform: rotate(360deg);
+      left: 100%;
   }
 }
 
-.loading-indicator .fa-spinner {
-  font-size: 30px;
-  animation: spin 2s linear infinite;
-  color: #555;
+.skeleton-image {
+  width: 100% ;
+  height: 150px;
+  background-color: #ccc;
+  margin-bottom: 10px;
 }
 
-.loading-indicator p {
-  margin-top: 5px;
-  font-size: 14px;
-  color: #555;
+.skeleton-text {
+  height: 15px;
+  background-color: #ccc;
+  margin-bottom: 10px;
+  width: 100%;
 }
+
+.skeleton-text.short {
+  width: 60%;
+}
+
 
 @media (max-width: 786px) {
   /*  .loading-indicator .fa-spinner {
@@ -81,13 +118,6 @@ main {
   }
 }
 
-#post-container {
-  margin-top: 95px;
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-  /* gap: 50px; */
-}
 
 .recent-posts {
   flex: 1;
