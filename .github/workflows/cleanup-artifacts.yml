@@ -1,0 +1,14 @@
+name: Cleanup Artifacts
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # This runs the cleanup every week
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete artifacts older than 7 days
+        uses: actions/delete-artifact@v2
+        with:
+          retention-days: 7 # Specify how old the artifacts must be to delete
