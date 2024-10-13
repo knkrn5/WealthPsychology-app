@@ -15,4 +15,4 @@ jobs:
         with:
           age: 7 # Deletes artifacts older than 7 days
           per_page: 100 # Maximum number of artifacts to process per run
-          token: ${{MY_ACCESS_TOKEN}} # Access token
+          token: ${{secrets.MY_ACCESS_TOKEN}} # Access token
