@@ -20,6 +20,16 @@ const PORT = process.env.PORT || 55555;
 // Enable CORS for all routes
 app.use(cors());
 
+app.use((req, res, next) => {
+  res.removeHeader('X-XSS-Protection');
+  next();
+});
+
+app.use((req, res, next) => {
+  res.removeHeader('X-Powered-By');
+  next();
+});
+
 // Set EJS as the view engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
