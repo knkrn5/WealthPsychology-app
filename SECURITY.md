@@ -15,7 +15,7 @@ The following versions of the project are currently being supported with securit
 
 If you discover a vulnerability in our project, we encourage you to report it as soon as possible. Here’s how to do that:
 
-1. **Contact Information**: Send an email to [security@yourproject.com](mailto:wealthpsychology@outlook.com) with details of the vulnerability.
+1. **Contact Information**: Send an email to [wealthpsychology@outlook.com](mailto:wealthpsychology@outlook.com) with details of the vulnerability.
 2. **Expected Response Time**: We typically respond to vulnerability reports within **48 hours**. You can expect to receive updates every **5 business days** until the issue is resolved.
 3. **Handling Process**:
     - After the vulnerability is reported, we will review it and assess the potential impact.

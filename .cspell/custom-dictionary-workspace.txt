@@ -1,9 +1,0 @@
-# Custom Dictionary Words
-demat
-featuredmedia
-karan
-myname
-othercourses
-smcourse
-smcourses
-typesofcourses

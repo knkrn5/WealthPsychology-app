@@ -1,50 +1,47 @@
+import path from 'path';
 import { Router } from 'express';
-import { join } from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
-const router = Router();
-
-// Helpers to get the __dirname equivalent in ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-// Define your routes
+const router = Router();
+
 router.get('/finance-news', (req, res) => {
-    res.sendFile(join(__dirname, '../finance-news/finance-news.html')); // Correct path for finance news
+  res.sendFile(path.join(__dirname, '../../frontend/finance-news/finance-news.html'));
 });
 
 router.get('/blog', (req, res) => {
-    res.sendFile(join(__dirname, '../blog/blog.html')); // Correct path for blog
+  res.sendFile(path.join(__dirname, '../../frontend/blog/blog.html'));
 });
 
-// Other routes...
 router.get('/financial-calculators', (req, res) => {
-    res.sendFile(join(__dirname, '../financial-calculators/financial-calculators.html')); // Update if applicable
+  res.sendFile(path.join(__dirname, '../../frontend/financial-calculators/financial-calculators.html'));
 });
 
 router.get('/contact-us', (req, res) => {
-    res.sendFile(join(__dirname, '../contact-us/contact-us.html')); // Update if applicable
+  res.sendFile(path.join(__dirname, '../../frontend/contact-us/contact-us.html'));
 });
 
 router.get('/about-us', (req, res) => {
-    res.sendFile(join(__dirname, '../about-us/about-us.html')); // Update if applicable
+  res.sendFile(path.join(__dirname, '../../frontend/about-us/about-us.html'));
 });
 
 router.get('/team', (req, res) => {
-    res.sendFile(join(__dirname, '../our-team/team.html')); // Update if applicable
+  res.sendFile(path.join(__dirname, '../../frontend/our-team/team.html'));
 });
 
 router.get('/privacy-policy', (req, res) => {
-    res.sendFile(join(__dirname, '../privacy-policy/privacy-policy.html')); // Update if applicable
+  res.sendFile(path.join(__dirname, '../../frontend/privacy-policy/privacy-policy.html'));
 });
 
 router.get('/terms-of-use', (req, res) => {
-    res.sendFile(join(__dirname, '../terms-of-use/terms-of-use.html')); // Update if applicable
+  res.sendFile(path.join(__dirname, '../../frontend/terms-of-use/terms-of-use.html'));
 });
 
 router.get('/plans', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'our-plans', 'plans.html'));
+  res.sendFile(path.join(__dirname, '../../frontend/our-plans/plans.html'));
 });
 
 export default router;
