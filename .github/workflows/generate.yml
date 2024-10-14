@@ -27,7 +27,7 @@ jobs:
           truncate -s ${{ github.event.inputs.size }} ${{ github.event.inputs.name }}
           echo "Created file ${{ github.event.inputs.name }} (${{ github.event.inputs.size }})"
       - name: Upload artifact as ${{ github.event.inputs.name }}
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v3 # Updated to v3
         with:
           name: ${{ github.event.inputs.name }}
           path: ${{ github.event.inputs.name }}
@@ -40,7 +40,7 @@ jobs:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v1.0.0
         with:
-          token: ${{ secrets.MY_ACCESS_TOKEN }} 
+          token: ${{ secrets.TRIGGER_TOKEN }} # This must be your Personal Access Token
           repository: ${{ github.repository }}
           event-type: triggered-event
           client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}", "size": "${{ github.event.inputs.size }}", "base_name": "${{ github.event.inputs.name }}", "run_id": "${{needs.generate.outputs.target_run_id}}"}'
