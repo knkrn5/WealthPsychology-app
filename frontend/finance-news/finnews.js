@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let articlesByCategory = [];
 
     function loadNewsArticles() {
-        fetch('/finnews')
+        fetch('/finance-news/finnews')
             .then(response => response.json())
             .then(items => {
                 console.log('Fetched items:', items);
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
             article.addEventListener('click', (e) => {
                 e.preventDefault();
                 const articleSlug = article.dataset.slug;
-                window.location.href = `/news-article/${articleSlug}`;
+                window.location.href = `/finance-news/article/${articleSlug}`;
             });
         });
     }

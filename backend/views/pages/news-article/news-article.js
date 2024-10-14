@@ -18,7 +18,7 @@ const relatedSkeletonContainer = skeletonContainer.cloneNode(true);
 recentNews.appendChild(skeletonContainer);
 relatedNews.appendChild(relatedSkeletonContainer);
 
-fetch('/finnews')
+fetch('/finance-news/finnews')
     .then(response => response.json())
     .then((data) => {
         console.log(data);
@@ -31,7 +31,7 @@ fetch('/finnews')
 
             RecentNewsSideBar.addEventListener('click', () => {
                 // window.location.href = `/news-article/${article.fields.slug}`
-                window.location.href = `/news-article/` + article.fields.slug;
+                window.location.href = `/finance-news/article/` + article.fields.slug;
             })
         })
 
@@ -47,7 +47,7 @@ fetch('/finnews')
 
             RelatedNewsSideBar.addEventListener('click', () => {
                 // window.location.href = `/news-article/${article.fields.slug}`
-                window.location.href = `/news-article/` + article.fields.slug;
+                window.location.href = `/finance-news/article/` + article.fields.slug;
             })
         })
 
