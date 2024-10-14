@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import pagesRoutes from './backend/routes/pagesRoutes.js';
-import homeController from './backend/controllers/homeController.js'
+import modulesController from './backend/controllers/modulesController.js'
 import fincalculatorsRoutes from './backend/routes/fincalculatorsRoutes.js';
 import blogRoutes from './backend/routes/blogRoutes.js';
 import newsRoutes from './backend/routes/finnewsRoutes.js';
@@ -43,7 +43,7 @@ app.use(express.static(path.join(__dirname)));
 
 // Use the controller and routes for routing
 app.use('/', pagesRoutes);
-app.use('/', homeController);
+app.use('/', modulesController);
 app.use('/', fincalculatorsRoutes);
 
 // Use the route files
