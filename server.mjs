@@ -37,43 +37,45 @@ app.set('views', path.join(__dirname, 'views'));
 // Serve files from the root directory
 app.use(express.static(path.join(__dirname)));
 
+app.use('/frontend', express.static(path.join(__dirname, 'frontend')));
+
 // Serve static files
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/finance-news', (req, res) => {
-  res.sendFile(path.join(__dirname, 'finance-news/finance-news.html'));
+  res.sendFile(path.join(__dirname, 'frontend/finance-news/finance-news.html'));
 });
 
 app.get('/blog', (req, res) => {
-  res.sendFile(path.join(__dirname, 'blog/blog.html'));
+  res.sendFile(path.join(__dirname, 'frontend/blog/blog.html'));
 });
 
 app.get('/financial-calculators', (req, res) => {
-  res.sendFile(path.join(__dirname, 'financial-calculators/financial-calculators.html'));
+  res.sendFile(path.join(__dirname, 'frontend/financial-calculators/financial-calculators.html'));
 });
 
 app.get('/contact-us', (req, res) => {
-  res.sendFile(path.join(__dirname, 'contact-us/contact-us.html'));
+  res.sendFile(path.join(__dirname, 'frontend/contact-us/contact-us.html'));
 });
 
 app.get('/about-us', (req, res) => {
-  res.sendFile(path.join(__dirname, 'about-us/about-us.html'));
+  res.sendFile(path.join(__dirname, 'frontend/about-us/about-us.html'));
 });
 
 app.get('/team', (req, res) => {
-  res.sendFile(path.join(__dirname, 'our-team/team.html'));
+  res.sendFile(path.join(__dirname, 'frontend/our-team/team.html'));
 });
 
 app.get('/privacy-policy', (req, res) => {
-  res.sendFile(path.join(__dirname, 'privacy-policy/privacy-policy.html'));
+  res.sendFile(path.join(__dirname, 'frontend/privacy-policy/privacy-policy.html'));
 });
 
 app.get('/terms-of-use', (req, res) => {
-  res.sendFile(path.join(__dirname, 'terms-of-use/terms-of-use.html'));
+  res.sendFile(path.join(__dirname, 'frontend/terms-of-use/terms-of-use.html'));
 });
 
 app.get('/plans', (req, res) => {
-  res.sendFile(path.join(__dirname, 'our-plans/plans.html'));
+  res.sendFile(path.join(__dirname, 'frontend/our-plans/plans.html'));
 });
 
 
