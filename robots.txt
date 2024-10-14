@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
 Disallow: /private/
-Disallow: /testing/
 Disallow: /backups/
+Disallow: /admin/
+Disallow: /testing/
 Sitemap: https://wealthpsychology.in/sitemap.xml
