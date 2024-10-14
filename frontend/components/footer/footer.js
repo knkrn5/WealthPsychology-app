@@ -15,7 +15,7 @@ function loadHTML(url, selector, callback) {
 // after defining the loadHTML function now here we are calling the function with the argument for its parameter 
 document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
-        loadHTML('/components/footer/footer.html', '#footer');
+        loadHTML('/frontend/components/footer/footer.html', '#footer');
     }, 1500);  //will load footer after 1.5 second
 });
 
