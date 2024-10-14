@@ -5,6 +5,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import pagesRoutes from './backend/routes/pagesRoutes.js';
 import homeController from './backend/controllers/homeController.js'
+import fincalculatorsRoutes from './backend/routes/fincalculatorsRoutes.js';
 import blogRoutes from './backend/routes/blogRoutes.js';
 import newsRoutes from './backend/routes/finnewsRoutes.js';
 dotenv.config();  
@@ -40,9 +41,10 @@ app.use(express.static(path.join(__dirname)));
 // app.use(express.static(path.join(__dirname, 'public')));
 
 
-// Use the controller for routing
+// Use the controller and routes for routing
 app.use('/', pagesRoutes);
 app.use('/', homeController);
+app.use('/', fincalculatorsRoutes);
 
 // Use the route files
 app.use('/blog', blogRoutes);
