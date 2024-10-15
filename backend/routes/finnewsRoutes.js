@@ -15,7 +15,6 @@ router.get('/', (req, res) => {
 });
 
 router.get('/finnews', async (req, res) => {
-  // ... (keep the existing /finnews route implementation)
   console.log('Received request for /news');
   try {
     console.log('Attempting to fetch entries from Contentful');
@@ -38,7 +37,6 @@ router.get('/finnews', async (req, res) => {
 });
 
 router.get('/article/:slug', async (req, res) => {
-  // ... (keep the existing /news-article/:slug route implementation)
   try {
     const postSlug = req.params.slug;
     const post = await fetchContentBySlug('pageNewsArticles', postSlug);

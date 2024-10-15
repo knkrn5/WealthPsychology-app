@@ -16,10 +16,9 @@ router.get('/', (req, res) => {
 });
 
 router.get('/posts', async (req, res) => {
-  // ... (keep the existing /blog/posts route implementation)
   console.log('Received request for /blog');
   try {
-    console.log('Attempting to fetch entries from Contentful');
+    // console.log('Attempting to fetch entries from Contentful');
     const response = await client.getEntries({
       content_type: 'pageBlogPost',
       order: '-fields.publishedDate'
@@ -39,7 +38,6 @@ router.get('/posts', async (req, res) => {
 });
 
 router.get('/post/:slug', async (req, res) => {
-  // ... (keep the existing /blog/post/:slug route implementation)
   try {
     const postSlug = req.params.slug;
     const post = await fetchContentBySlug('pageBlogPost', postSlug);
