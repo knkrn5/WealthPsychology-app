@@ -60,7 +60,7 @@ router.get('/post/:slug', async (req, res) => {
     const fullUrl = `${protocol}://${req.get('host')}${req.originalUrl}`;
 
     // Render the post.ejs template with the full post content
-    res.render('pages/post/post', {
+    res.render('pages/blog-post/blog-post', {
       post: post.fields,
       postTitle: post.fields.title || 'Untitled Post',
       metaDescription: post.fields.excerpt || '',
