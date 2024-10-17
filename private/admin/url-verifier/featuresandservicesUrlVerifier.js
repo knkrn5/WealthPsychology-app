@@ -1,4 +1,7 @@
 const urls = [
+    "https://wealthpsychology.in/frontend/quizzes/quizzes.html?quiz=beginner-level",
+    "https://wealthpsychology.in/frontend/quizzes/quizzes.html?quiz=intermediate-level",
+    "https://wealthpsychology.in/frontend/quizzes/quizzes.html?quiz=advance-level",
     "https://wealthpsychology.in/financial-calculators/simple-interest-calculator/",
     "https://wealthpsychology.in/financial-calculators/reverse-simple-interest-calculator/",
     "https://wealthpsychology.in/financial-calculators/cagr-calculator/",
