@@ -44,4 +44,12 @@ router.get('/plans', (req, res) => {
   res.sendFile(path.join(__dirname, '../../frontend/our-plans/plans.html'));
 });
 
+router.get('/wise-investing', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../frontend/wealth-sense/wise-investing/wise-investing.html'));
+});
+
+router.get('/smart-trading', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../frontend/wealth-sense/smart-trading/smart-trading.html'));
+});
+
 export default router;
