@@ -8,6 +8,11 @@ import modulesController from './backend/controllers/modulesController.js'
 import fincalculatorsRoutes from './backend/routes/fincalculatorsRoutes.js';
 import blogRoutes from './backend/routes/blogRoutes.js';
 import newsRoutes from './backend/routes/finnewsRoutes.js';
+
+import wealthSensedbRoutes from './backend/routes/wealthSensedbRoutes.js';
+
+
+
 dotenv.config();  
 
 const __filename = fileURLToPath(import.meta.url);
@@ -51,7 +56,7 @@ app.use('/blog', blogRoutes);
 app.use('/finance-news', newsRoutes);
 
 
-
+app.use('/wealth-sense', wealthSensedbRoutes); 
 
 // Start the server
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
