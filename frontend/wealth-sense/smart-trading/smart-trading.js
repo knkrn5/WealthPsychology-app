@@ -60,6 +60,7 @@ fetch('/wealth-sense/smart-trading')
                 <h3>${field.id}. ${field.title}</h3>
                 <p class="category">${field.category}</p>
                 <p class="content">${field.content}</p>
+                <p class="tags">${field.tags}</p>
                 <p class="created-at">${field.created_at}</p>
             `;
             smartTradingContainer.appendChild(smartTradingDiv);
