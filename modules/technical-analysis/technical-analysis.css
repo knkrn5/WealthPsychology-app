@@ -45,7 +45,7 @@ details summary {
   padding: 10px;
   background-color: #f9f9f9;
   margin: 5px 0;
-  border-left: 5px solid #cc50d5;
+  border-left: 5px solid #ee00ff;
   border-radius: 5px;
   font-weight: bold;
   color: #555;
@@ -57,13 +57,13 @@ details summary {
 /* Style when the summary is hovered or focused */
 details summary:hover,
 details summary:focus {
-  background-color: #cc50d5;
+  background-color: #95009f;
   color: white;
 }
 
 /* Change background color when the details element is open */
 details[open] summary {
-  background-color: #cc50d5;
+  background-color: #95009f;
   color: white;
 }
 
@@ -79,7 +79,7 @@ details[open] summary {
   background-color: #f9f9f9;
   margin: 5px 0;
   padding: 5px 10px;
-  border-left: 5px solid #4734c5;
+  border-left: 5px solid #2200ff;
   color: #555;
   cursor: pointer;
   border-radius: 5px;
@@ -88,7 +88,7 @@ details[open] summary {
 }
 
 .ta-container ul li:hover {
-  background-color: slateblue;
+  background-color: #120087;
   color: white;
 }
 
