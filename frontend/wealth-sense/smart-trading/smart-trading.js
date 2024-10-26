@@ -48,6 +48,10 @@ smartTradingContainer.innerHTML = skeletonTemplate.repeat(5); // Adding skeleton
 fetch('/wealth-sense/smart-trading')
     .then(res => res.json())
     .then(data => {
+
+        // Sort the data in ascending order based on field.id
+        data.sort((a, b) => a.id - b.id);
+
         // Remove all skeleton elements once the data is fetched
         const skeletons = document.querySelectorAll('.skeleton');
         skeletons.forEach(skeleton => skeleton.remove());

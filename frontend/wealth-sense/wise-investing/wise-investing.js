@@ -51,6 +51,9 @@ fetch('/wealth-sense/wise-investing')
     .then(res => res.json())
     .then(data => {
 
+          // Sort the data in ascending order based on field.id
+          data.sort((a, b) => a.id - b.id);
+
         // Remove skeleton loader once data is successfully fetched
         const skeletons = document.querySelectorAll('.skeleton');
         skeletons.forEach(skeleton => skeleton.remove());
