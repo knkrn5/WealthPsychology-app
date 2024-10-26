@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'all': []
     };
 
-    const postsPerPage = 3;
+    const postsPerPage = 5;
 
     fetch('/blog/posts')
         .then(response => {
