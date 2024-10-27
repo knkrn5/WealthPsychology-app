@@ -1,78 +1,16 @@
-name: Cleanup
+name: Delete old workflow runs
 on:
-  repository_dispatch:
-    types:
-      - triggered-event
+  schedule:
+    - cron: '0 0 * * *'  # Runs at 00:00 UTC every day
 
 jobs:
-  delete-by-name:
-    runs-on: ubuntu-latest
-    continue-on-error: true
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Delete Artifact by Name
-        uses: jimschubert/delete-artifacts-action@v1 # Check for updates here
-        with:
-          log_level: 'debug'
-          artifact_name: '${{ github.event.client_payload.base_name }}'
-          min_bytes: '0'
-
-  delete-by-retention-duration:
-    needs: delete-by-name
-    continue-on-error: true
+  delete_runs:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Delete Artifact by active duration (expect no deletions)
-        uses: jimschubert/delete-artifacts-action@v1 # Check for updates here
+      - name: Delete workflow runs
+        uses: Mattraks/delete-workflow-runs@v2
         with:
-          log_level: 'debug'
-          min_bytes: '0'
-          active_duration: '30m'
-
-      - name: Sleep 2 minutes
-        run: |
-          echo "Sleeping for 2 minutes, then we'll use duration 1m30s"
-          sleep 120
-
-      - name: Delete Artifact by active duration (expect deletions)
-        uses: jimschubert/delete-artifacts-action@v1 # Check for updates here
-        with:
-          log_level: 'debug'
-          min_bytes: '0'
-          active_duration: '1m30s'
-
-  delete-by-pattern:
-    needs: delete-by-retention-duration
-    continue-on-error: true
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Delete by pattern
-        uses: jimschubert/delete-artifacts-action@v1 # Check for updates here
-        with:
-          log_level: 'debug'
-          min_bytes: '0'
-          pattern: '\.pat'
-
-  delete-by-runId:
-    needs: [delete-by-pattern]
-    continue-on-error: true
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Delete by run id
-        if: ${{ github.event.client_payload.run_id }}
-        uses: jimschubert/delete-artifacts-action@v1 # Check for updates here
-        with:
-          log_level: 'debug'
-          min_bytes: '0'
-          run_id: '${{ github.event.client_payload.run_id }}'
+          token: ${{ secrets.WORKFLOW_CLEANUP_TOKEN }}
+          repository: ${{ github.repository }}
+          retain_days: 7    # Keep runs for 7 days
+          keep_minimum_runs: 5    # Keep at least 5 runs
