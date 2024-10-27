@@ -15,4 +15,3 @@ jobs:
           repository: ${{ github.repository }}
           retain_days: 7             # Keep runs for 7 days
           keep_minimum_runs: 5       # Keep at least 5 runs
-          age: 30                     # Specify the maximum age of runs to delete (in days)
