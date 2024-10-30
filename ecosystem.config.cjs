@@ -21,7 +21,7 @@ module.exports = {
             max_memory_restart: '500M', 
             // out_file: './logs/out.log', 
             // error_file: './logs/error.log', 
-            merge_logs: true, 
+            // merge_logs: true, 
             // wait_ready: true,
         },
     ],
