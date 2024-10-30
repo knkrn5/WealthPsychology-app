@@ -4,7 +4,7 @@ module.exports = {
             name: 'wealthpsychology-app',
             script: 'server.js',
             watch: false,
-            instances: 'max',
+            instances: '4',
             exec_mode: 'cluster',
             env: {
                 NODE_ENV: 'development', // Default to development
