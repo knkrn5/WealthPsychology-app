@@ -10,7 +10,7 @@
     "test": "echo \"No test specified\" && exit 0",
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "pm2": "pm2 start server.js --name wealthpsychology-app"
+    "pm2": "pm2 start ecosystem.config.cjs --env production"
   },
   "author": {
     "name": "wealthpsychology",
