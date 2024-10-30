@@ -46,6 +46,10 @@ app.use(express.static(path.join(__dirname)));
 // Serve static files
 // app.use(express.static(path.join(__dirname, 'public')));
 
+// Health Check Endpoint
+app.get('/health', (req, res) => {
+  res.status(200).send('OK'); 
+});
 
 // Use the controller and routes for routing
 app.use('/', pagesRoutes);
