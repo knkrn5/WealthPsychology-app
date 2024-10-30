@@ -2,7 +2,7 @@ module.exports = {
     apps: [
         {
             name: 'wealthpsychology-app',
-            script: 'server.js',
+            script: './server.js',
             instances: 'max',
             exec_mode: 'cluster',
             env: {
