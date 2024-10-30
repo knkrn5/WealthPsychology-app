@@ -10,6 +10,7 @@ module.exports = {
             },
             env_production: {
                 NODE_ENV: 'production',
+                PORT: 55555, 
                 CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
                 CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
                 WS_DB_HOST: process.env.WS_DB_HOST,
