@@ -32,52 +32,71 @@ header h1 {
   }
 }
 
-/* loading and spin animation styling */
-#loading-container {
-  grid-column: 1 / -1; /* Span across all grid columns */
-  position: relative;
-  margin: 0 auto;
-  margin-top: 60px;
-  text-align: center;
-  font-size: 18px;
-  color: #555;
-  /* z-index: 1000;  */
+/* skeleton loading and spin animation styling */
+.skeleton-template {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  /* padding: 20px; */
 }
 
-@keyframes spin {
+.skeleton-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.skeleton-image {
+  width: 100%;
+  height: 180px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+.skeleton-content {
+  padding: 16px;
+}
+
+.skeleton-heading {
+  height: 50px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  margin-bottom: 12px;
+  border-radius: 4px;
+}
+
+.skeleton-text {
+  height: 16px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  width: 90%;
+}
+
+@keyframes loading {
   0% {
-    transform: rotate(0deg);
+    background-position: 200% 0;
   }
   100% {
-    transform: rotate(360deg);
+    background-position: -200% 0;
   }
 }
 
-.loading-indicator .fa-spinner {
-  font-size: 30px;
-  animation: spin 2s linear infinite;
-  color: #555;
+/* Responsive design */
+@media (max-width: 768px) {
+  .skeleton-template {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-.loading-indicator p {
-  margin-top: 3px;
-  font-size: 14px;
-  color: #555;
-}
-
-@media (max-width: 786px) {
-  #loading-container {
-    margin-top: 30%;
-  }
-  .loading-indicator .fa-spinner {
-    font-size: 30px;
-    animation: spin 2s linear infinite;
-    color: #555;
-  }
-  .loading-indicator p {
-    margin-top: 3px;
-    font-size: 14px;
-    color: #555;
+@media (max-width: 480px) {
+  .skeleton-template {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -107,7 +107,7 @@
     <link rel="stylesheet" href="/frontend/components/footer/footer.css" />
     <script src="/frontend/components/footer/footer.js" defer></script>
 
-    <base href="/frontend/finance-news/">
+    <base href="/frontend/finance-news/" />
     <link rel="stylesheet" href="finnews-nav.css" />
     <link rel="stylesheet" href="finnews.css" />
     <title>finance news - WealthPsychology</title>
@@ -162,10 +162,10 @@
 
     <main>
       <div id="news-container" class="news-grid">
-        <div id="loading-container" class="loading-indicator">
-          <i class="fa-solid fa-spinner"></i>
-          <p>Loading...</p>
-        </div>
+        <template class="skeleton-template">
+        <!-- Template for skeleton card goes here -->
+          
+        </template>
         <!-- news content will be loaded here -->
       </div>
     </main>

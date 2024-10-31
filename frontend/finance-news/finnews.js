@@ -1,6 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
     const newsContainer = document.getElementById('news-container');
-    const loadingContainer = document.getElementById('loading-container');
+
+    // const skeletonTemplateContainer
+    const container = document.querySelector('.skeleton-template');
+
+    for (let i = 0; i < 6; i++) {
+        const skeletonContainer = document.createElement('div');
+        skeletonContainer.className = 'skeleton-card';
+        skeletonContainer.innerHTML = `
+        <div class="skeleton-image"></div>
+        <div class="skeleton-content">
+            <div class="skeleton-heading"></div>
+            <div class="skeleton-text"></div>
+            <div class="skeleton-text"></div>
+        </div>
+    `;
+        // Append the skeleton card to the grid container
+        container.appendChild(skeletonContainer);
+    }
+
 
     const categoryMapping = {
         'market-updates': 'Market Updates',
@@ -43,8 +61,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 newsContainer.innerHTML = '<p>Failed to load news articles. Please try again later.</p>';
             })
             .finally(() => {
-                if (loadingContainer)
-                    loadingContainer.remove();
+                if (skeletonTemplateContainer)
+                    skeletonTemplateContainer.remove();
             });
     }
 
