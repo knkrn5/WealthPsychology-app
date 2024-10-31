@@ -264,7 +264,7 @@ main {
   border-radius: 8px;
   border: 1px solid black;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 0 15px;
+  padding: 0 5px;
   margin-right: 5px;
   /* width: 100%; */
   box-sizing: border-box;
@@ -282,15 +282,15 @@ main {
   height: auto;
   border-radius: 5px;
   /* border-bottom: 1px solid black; */
-  padding-top: 15px;
-  /* margin-bottom: 10px; */
+  padding-top: 5px;
+  margin-bottom: -10px;
 }
 
 .side-content h3 {
   font-size: 13px;
-  color: #333; /* Darker text color */
+  color: #333; 
   background-color: #eee;
-  padding: 7px;
+  padding: 5px;
   border-radius: 5px;
   text-align: left;
 }
