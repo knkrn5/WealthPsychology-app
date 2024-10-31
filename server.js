@@ -64,4 +64,6 @@ app.use('/finance-news', newsRoutes);
 app.use('/wealth-sense', wealthSensedbRoutes); 
 
 // Start the server
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Server is running on port ${PORT}`);
+});
