@@ -4,4 +4,8 @@ Disallow: /private/
 Disallow: /backups/
 Disallow: /admin/
 Disallow: /testing/
+Disallow: /docker/
 Sitemap: https://wealthpsychology.in/sitemap.xml
+Sitemap: https://wealthpsychology.in/site/blogpostssitemap.xml
+Sitemap: https://wealthpsychology.in/site/modulessitemap.xml
+Sitemap: https://wealthpsychology.in/site/newsarticlessitemap.xml
