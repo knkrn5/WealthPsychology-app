@@ -25,7 +25,3 @@ docker tag wealthpsychology-app-server:latest knkrn5/wealthpsychology-app-server
 # and then push the same again to docker hub
 docker push knkrn5/wealthpsychology-app-server:v1.0.1
 
-
-
-docker push knrkrn5/nginxadding:nginx
-docker push knrkrn5/nginxadding:server
