@@ -1,6 +1,6 @@
 // utils/contentfulUtils.js
 
-import contentful from 'contentful';
+import {createClient} from 'contentful';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import dotenv from 'dotenv';
@@ -8,7 +8,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Initialize Contentful client
-const client = contentful.createClient({
+const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
 });

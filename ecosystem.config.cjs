@@ -10,7 +10,7 @@ module.exports = {
             },
             env_production: {
                 NODE_ENV: 'production',
-                PORT: process.env.PORT, 
+                PORT: process.env.PORT || 55555, 
                 CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
                 CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
                 WS_DB_HOST: process.env.WS_DB_HOST,
@@ -20,8 +20,6 @@ module.exports = {
                 WS_DB_DATABASE: process.env.WS_DB_DATABASE,
             },
             max_memory_restart: '500M', 
-            out_file: './logs/out.log', 
-            error_file: './logs/error.log', 
             merge_logs: true, 
             // wait_ready: true,
         },
