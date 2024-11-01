@@ -1,12 +1,12 @@
 import express from "express";
-import dbClient from "../database/wealthSensedb.js";
+import pool from "../db/wealthSensedb.js";
 
 const router = express.Router();
 
 // setting API via Express route
 router.get("/wise-investing", async (req, res) => {
     try {
-        const result = await dbClient.query("SELECT * FROM wise_investing");
+        const result = await pool.query("SELECT * FROM wise_investing");
         res.json(result.rows); // Return the single article object
     } catch (error) {
         console.error("Failed to fetch article:", error);
@@ -16,7 +16,7 @@ router.get("/wise-investing", async (req, res) => {
 
 router.get("/smart-trading", async (req, res) => {
     try {
-        const result = await dbClient.query("SELECT * FROM smart_trading");
+        const result = await pool.query("SELECT * FROM smart_trading");
         res.json(result.rows); // Return the single article object
     } catch (error) {
         console.error("Failed to fetch article:", error);
