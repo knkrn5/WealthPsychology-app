@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'mutual-funds': ['mutual fund analysis'],
         'personal-finance': ['personal finance'],
         'technical-analysis': ['technical analysis'],
-        'union-budget': ['union budget']
+        'union-budget': ['union budget'],
+        'real-estate': ['real estate']
     };
 
     let postsByCategory = {
