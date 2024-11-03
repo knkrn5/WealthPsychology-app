@@ -7,6 +7,11 @@ body {
   background-color: #ccc;
 }
 
+body.dark-mode {
+  background-color: #222; 
+  /* color: #e0e0e0;  */
+}
+
 /* Header Styling */
 h1 {
   margin: 0 auto;
@@ -56,12 +61,20 @@ main {
   background-color: #f4f4f4;
 }
 
+body.dark-mode #reverse-si-calculator-container {
+  background-color: #444; 
+  box-shadow: 0 4px 8px #555;
+}
+
 /* Form Label Styling */
 form label {
   font-size: 1rem;
   color: #333;
   display: block;
   margin-bottom: 8px;
+}
+body.dark-mode form label {
+  color: #e0e0e0; 
 }
 
 /* Form Input Styling */
@@ -73,6 +86,12 @@ form input {
   border: 1px solid #ccc;
   font-size: 1rem;
 }
+body.dark-mode form input {
+  background-color: #333; 
+  color: #fff; 
+  border: 1px solid #555; 
+}
+
 
 /* Button Styling */
 form button {
@@ -87,9 +106,15 @@ form button {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+body.dark-mode form button {
+  background-color: #007bff; 
+}
 
 form button:hover {
   background-color: #2196f3;
+}
+body.dark-mode form button:hover {
+  background-color: #006bb3; 
 }
 
 /* Table Styles */
@@ -107,10 +132,17 @@ form button:hover {
   font-size: 18px;
   border-radius: 5px 5px 0 0;
 }
+body.dark-mode .result th {
+  background-color: #007bff; 
+}
 
 .result td {
   padding: 10px;
   border: 1px solid #ddd;
+}
+body.dark-mode .result td {
+  background-color: #444; 
+  color: #e0e0e0; 
 }
 
 .result td:first-child {
