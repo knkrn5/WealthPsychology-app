@@ -66,18 +66,17 @@ header h1 {
 }
 
 .financial-calculators-grid img {
-  /* height: 100px; */
-  width: 300px;
-  border-radius: 50%;
-}
-
-.financial-calculators-grid img {
   max-width: 100%;
+  width: 300px;
   height: auto;
   border-radius: 50%;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease-in-out;
   animation: shadowPulse 3s ease-in-out infinite;
+}
+
+body.dark-mode .financial-calculators-grid img {
+  filter: brightness(0.8);
 }
 
 .financial-calculators-grid img:hover {
