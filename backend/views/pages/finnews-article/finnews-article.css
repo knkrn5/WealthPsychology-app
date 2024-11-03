@@ -8,6 +8,11 @@ body {
   background-color: #eee;
 }
 
+body.dark-mode {
+  background-color: #333; 
+  color: #f0f0f0; 
+}
+
 /* Header styles */
 /* header {
   text-align: center;
@@ -64,6 +69,9 @@ main {
   border-radius: 10px;
   transition: box-shadow 0.3s ease; 
 }
+body.dark-mode .skeleton {
+  background: #444;
+}
 
 .skeleton::before {
   content: "";
@@ -100,6 +108,11 @@ main {
   width: 100%;
 }
 
+body.dark-mode .skeleton-image, 
+body.dark-mode .skeleton-text {
+  background-color: #666;
+}
+
 .skeleton-text.short {
   width: 60%;
 }
@@ -118,6 +131,10 @@ main {
   max-height: fit-content;
   /* align-self: flex-start; */
 }
+body.dark-mode .recent-news {
+  background-color: #222; 
+  border: 1px solid #444; 
+}
 
 .recent-news h2 {
   font-family: Georgia;
@@ -127,6 +144,11 @@ main {
   margin-top: 0;
   border-bottom: 1px solid #000;
   text-transform: uppercase;
+}
+
+body.dark-mode .recent-news h2 {
+  color: #fff; 
+  border-bottom: 1px solid #fff;
 }
 
 .recent-news-wrapper {
@@ -149,6 +171,11 @@ main {
   align-self: center;
 }
 
+body.dark-mode .full-news-article {
+  background-color: #444; 
+  color: #f0f0f0; 
+}
+
 .full-news-article h1 {
   color: #000;
   font-size: 2em;
@@ -166,6 +193,12 @@ main {
   font-size: 1.5em;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+body.dark-mode .full-news-article h1,
+body.dark-mode .full-news-article h2,
+body.dark-mode .full-news-article h3 {
+  color: #f0f0f0; 
 }
 
 .full-news-article p {
@@ -238,6 +271,11 @@ main {
   max-height: fit-content;
 }
 
+body.dark-mode .related-news {
+  background-color: #222; 
+  border: 1px solid #444; 
+}
+
 .related-news h2 {
   font-family: Georgia;
   font-size: 20px;
@@ -246,6 +284,11 @@ main {
   margin-top: 0;
   border-bottom: 1px solid #000;
   text-transform: uppercase;
+}
+
+body.dark-mode .related-news h2 {
+  color: #fff; 
+  border-bottom: 1px solid #fff;
 }
 
 .related-news-wrapper {
@@ -272,6 +315,11 @@ main {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+body.dark-mode .side-content {
+  background-color: #444; 
+  border: 1px solid #666; 
+}
+
 .side-content:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -293,6 +341,11 @@ main {
   padding: 5px;
   border-radius: 5px;
   text-align: left;
+}
+
+body.dark-mode .side-content h3 {
+  color: #fff;
+  background-color: #555; 
 }
 
 /* ------------------------------------------------------------------ */

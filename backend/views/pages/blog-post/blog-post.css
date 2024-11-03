@@ -8,6 +8,11 @@ body {
   background-color: #eee;
 }
 
+body.dark-mode {
+  background-color: #333; 
+  color: #f0f0f0; 
+}
+
 /* Header styles */
 /* header {
   text-align: center;
@@ -64,6 +69,9 @@ main {
   border-radius: 10px;
   transition: box-shadow 0.3s ease; 
 }
+body.dark-mode .skeleton {
+  background-color: #444; 
+}
 
 .skeleton::before {
   content: "";
@@ -100,24 +108,14 @@ main {
   width: 100%;
 }
 
+body.dark-mode .skeleton-image, 
+body.dark-mode .skeleton-text {
+  background-color: #666;
+}
+
 .skeleton-text.short {
   width: 60%;
 }
-
-
-@media (max-width: 786px) {
-  /*  .loading-indicator .fa-spinner {
-    font-size: 30px; 
-    animation: spin 2s linear infinite;
-    color: #555; 
-  } */
-  .loading-indicator p {
-    margin-top: 5px;
-    font-size: 14px;
-    color: #555;
-  }
-}
-
 
 .recent-posts {
   flex: 1;
@@ -134,6 +132,11 @@ main {
   /* align-self: flex-start; */
 }
 
+body.dark-mode .recent-posts {
+  background-color: #222; 
+  border: 1px solid #444; 
+}
+
 .recent-posts h2 {
   font-family: Georgia;
   font-size: 20px;
@@ -142,6 +145,11 @@ main {
   margin-top: 0;
   border-bottom: 1px solid #000;
   text-transform: uppercase;
+}
+
+body.dark-mode .recent-posts h2 {
+  color: #fff;
+  border-bottom: 1px solid #fff;
 }
 
 .recent-posts-wrapper {
@@ -164,6 +172,11 @@ main {
   align-self: center;
 }
 
+body.dark-mode .full-blog-post {
+  background-color: #444; 
+  color: #f0f0f0; 
+}
+
 .full-blog-post h1 {
   color: #000;
   font-size: 2em;
@@ -181,6 +194,12 @@ main {
   font-size: 1.5em;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+body.dark-mode .full-blog-post h1,
+body.dark-mode .full-blog-post h2,
+body.dark-mode .full-blog-post h3 {
+  color: #fff;
 }
 
 .full-blog-post p {
@@ -253,6 +272,11 @@ main {
   max-height: fit-content;
 }
 
+body.dark-mode .related-posts {
+  background-color: #222; 
+  border: 1px solid #444; 
+}
+
 .related-posts h2 {
   font-family: Georgia;
   font-size: 20px;
@@ -261,6 +285,11 @@ main {
   margin-top: 0;
   border-bottom: 1px solid #000;
   text-transform: uppercase;
+}
+
+body.dark-mode .related-posts h2 {
+  color: #fff;
+  border-bottom: 1px solid #fff;
 }
 
 .related-posts-wrapper {
@@ -287,6 +316,11 @@ main {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+body.dark-mode .side-content {
+  background-color: #444; 
+  border: 1px solid #666; 
+}
+
 .side-content:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
@@ -303,11 +337,16 @@ main {
 
 .side-content h3 {
   font-size: 13px;
-  color: #333; /* Darker text color */
+  color: #333; 
   background-color: #eee;
   padding: 5px;
   border-radius: 5px;
   text-align: left;
+}
+
+body.dark-mode .side-content h3 {
+  color: #fff; 
+  background-color: #555;
 }
 
 /* ------------------------------------------------------------------ */

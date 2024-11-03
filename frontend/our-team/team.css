@@ -6,6 +6,11 @@ body {
   background: #ddd;
 }
 
+body.dark-mode {
+  background: #333;
+  color: #e0e0e0;
+}
+
 /* Header styles */
 header {
   background-color: #000;
@@ -72,6 +77,11 @@ main {
   transition: transform 0.3s ease;
 }
 
+body.dark-mode .role {
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
 .role:hover {
   transform: translateY(-5px);
 }
@@ -83,9 +93,17 @@ h2 {
   padding-bottom: 10px;
 }
 
+body.dark-mode h2 {
+  color: #ffffff;
+}
+
 p {
   color: #666;
   margin-bottom: 0;
+}
+
+body.dark-mode p {
+  color: #cccccc;
 }
 
 @media (max-width: 700px) {
