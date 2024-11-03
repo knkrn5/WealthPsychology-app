@@ -2,7 +2,7 @@
 #bookmark-icon-container {
   position: absolute;
   top: 15px;
-  right: 15px;
+  right: 20px;
   height: 40px;
   width: 40px;
   z-index: 1000;
@@ -146,7 +146,7 @@
 /* Bookmark css for smaller screen */
 @media (max-width: 768px) {
   #bookmark-icon-container {
-    top: 2px;
+    top: 5px;
     right: 60px;
   }
   #bookmark-container {
