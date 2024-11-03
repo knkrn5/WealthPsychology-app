@@ -14,6 +14,10 @@ body {
   /* background: linear-gradient(135deg, #ddd8d0 0%, #b8b5ac 100% ); */
 }
 
+body.dark-mode {
+  background-color: #333;
+}
+
 /* Header styles */
 header {
   background-color: #000000;
@@ -341,6 +345,10 @@ header {
   border-radius: 0 0 20px 20px;
 }
 
+body.dark-mode .home-page {
+  background: #555
+}
+
 .central-line {
   width: 5px;
   height: 2061px;
@@ -411,9 +419,13 @@ header {
   width: 90%;
   position: relative;
   border-radius: 20px;
-  /* background-color: #ccc; */
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), 
+      -4px -4px 8px rgba(255, 255, 255, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .content {
+  box-shadow: 6px 6px 12px #000000, -6px -6px 12px rgba(10, 6, 6, 0.5);
 }
 
 .content1 {

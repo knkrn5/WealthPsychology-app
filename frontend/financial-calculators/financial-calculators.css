@@ -10,6 +10,10 @@ body {
   background-color: #aaa;
 }
 
+body.dark-mode {
+  background-color: #444;
+}
+
 /* Header styles */
 header {
   /* background-color: #000; */
