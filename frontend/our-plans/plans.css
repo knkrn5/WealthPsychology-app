@@ -204,6 +204,10 @@ body.dark-mode .cta-section {
   color: blue; /*#4693FF*/
 }
 
+body.dark-mode .fa-arrow-up-right-from-square {
+  color: #4693FF;
+}
+
 @media (max-width: 1200px) {
   .our-Plans-container {
     padding: 20px;
