@@ -6,6 +6,10 @@ body {
     background-color: #f4f4f4;
     color: #333;
 }
+body.dark-mode {
+    background-color: #222;
+    color: #e0e0e0;
+  }
 
 /* Header styles */
 header {
@@ -78,18 +82,6 @@ header h1 {
     }
   }
 
-/* General Styles for the Container */
-#wise-investing-container {
-    max-width: 750px; 
-    margin: 20px auto; 
-    margin-top: 80px;
-    padding: 20px;
-    background-color: #f9f9f9; 
-    border: 1px solid #ddd; 
-    border-radius: 8px; 
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
-}
-
 
 /* General Styles for the Container */
 #smart-trading-container {
@@ -101,6 +93,10 @@ header h1 {
     border: 1px solid #ddd; 
     border-radius: 8px; 
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+}
+body.dark-mode #smart-trading-container {
+    background-color: #444; 
+    border: 1px solid #666; 
 }
 
 /* Skeleton Container */
@@ -122,6 +118,9 @@ header h1 {
     position: relative;
     overflow: hidden;
 }
+body.dark-mode .skeleton {
+    background-color: #000000; 
+}
 
 /* Skeleton Image Placeholder */
 .skeleton-image {
@@ -141,6 +140,11 @@ header h1 {
     border-radius: 4px;
     position: relative;
     overflow: hidden;
+}
+
+body.dark-mode .skeleton-image, 
+body.dark-mode .skeleton-text {
+    background-color: #555;
 }
 
 /* Short Skeleton Text */
@@ -181,6 +185,10 @@ header h1 {
     border-radius: 5px; 
     transition: box-shadow 0.3s ease; 
 }
+body.dark-mode .smart-trading {
+    background-color: #1e1e1e; 
+    border: 1px solid #444; 
+}
 
 /* Hover Effect for Each Entry */
 .smart-trading:hover {
@@ -194,11 +202,17 @@ header h1 {
     font-size: 1.5rem; 
     color: #333; 
 }
+body.dark-mode .smart-trading h3 {
+    color: #e0e0e0; 
+}
 
 /* Styles for the Category */
 .smart-trading p {
     margin: 5px 0; 
     color: #555; 
+}
+body.dark-mode .smart-trading p {
+    color: #bbb; 
 }
 
 /* Styles for the Content */
@@ -213,6 +227,11 @@ header h1 {
     font-size: 0.9rem !important;
     color: #999 !important;
     margin-top: 20px;
+}
+body.dark-mode .tags,
+body.dark-mode .created-at, 
+body.dark-mode .category {
+    color: #777 !important; 
 }
 
 /* Center the button container */
