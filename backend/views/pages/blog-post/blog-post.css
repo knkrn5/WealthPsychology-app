@@ -349,6 +349,10 @@ body.dark-mode .side-content h3 {
   background-color: #555;
 }
 
+body.dark-mode img {
+  filter: brightness(0.9);
+}
+
 /* ------------------------------------------------------------------ */
 @media (max-width: 1000px) {
   #post-container {
