@@ -361,6 +361,10 @@ body.dark-mode .home-page {
   border-radius: 2px;
   /* z-index: 1; */
 }
+body.dark-mode .central-line {
+  background-color: #ddd;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), inset 0 0 5px rgba(0, 0, 0, 0.2);
+}
 
 .content::before {
   content: '';
@@ -371,6 +375,9 @@ body.dark-mode .home-page {
   top: 50%;
   transform: translateY(-50%);
   transition: width 0.3s ease;
+}
+body.dark-mode .content::before {
+  background-color: #ddd;
 }
 
 .content:hover {
