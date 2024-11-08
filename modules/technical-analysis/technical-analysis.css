@@ -5,10 +5,7 @@ body {
   padding: 0;
   background-color: #300033;
 }
-body.dark-mode {
-  background-color: #300033;
-  color: #e0e0e0;
-}
+
 
 /* Header styles via header components*/
 
@@ -31,18 +28,14 @@ body.dark-mode {
   border-radius: 10px;
   /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
 }
-body.dark-mode .ta-container section {
-  background-color: #67006e;
-}
+
 
 .ta-container h2 {
   color: #333;
   font-size: 1.3em;
   margin-bottom: 10px;
 }
-body.dark-mode .ta-container h2 {
-  color: #e0e0e0;
-}
+
 
 details {
   padding-left: 30px;
@@ -62,12 +55,7 @@ details summary {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }
-body.dark-mode details summary {
-  background-color: #333;
-  color: #e0e0e0;
-  border-left-color: #ee00ff; 
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-}
+
 
 /* Style when the summary is hovered or focused */
 details summary:hover,
@@ -75,21 +63,14 @@ details summary:focus {
   background-color: #95009f;
   color: white;
 }
-body.dark-mode details summary:hover,
-body.dark-mode details summary:focus {
-  background-color: #95009f;
-  color: #e0e0e0;
-}
+
 
 /* Change background color when the details element is open */
 details[open] summary {
   background-color: #95009f;
   color: white;
 }
-body.dark-mode details[open] summary {
-  background-color: #95009f;
-  color: #e0e0e0;
-}
+
 
 /* List styles inside .ta-container */
 .ta-container ul {
@@ -110,20 +91,12 @@ body.dark-mode details[open] summary {
   text-indent: -10px;
   padding-left: 20px; /* Add padding to the left for proper spacing */
 }
-body.dark-mode .ta-container ul li {
-  background-color: #333;
-  color: #e0e0e0;
-  border-left: 5px solid #2200ff;
-}
 
 .ta-container ul li:hover {
   background-color: #120087;
   color: white;
 }
-body.dark-mode .ta-container ul li:hover {
-  background-color: #120087;
-  color: #e0e0e0;
-}
+
 
 /* Style for the bullet point */
 .ta-container ul li::marker {
