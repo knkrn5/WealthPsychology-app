@@ -178,7 +178,15 @@ readLater.forEach(button => button.addEventListener('click', () => {
 // Function to display the bookmark items count
 function bookmarkItemCount(bookmarkItems) {
     const bookmarkCount = document.querySelector('#total-bookmark');
-    bookmarkCount.innerHTML = bookmarkItems.length;
+    const count = bookmarkItems.length; 
+    
+    if (count === 0) {
+        bookmarkCount.innerText = ' '; 
+    } else if (count < 10) {
+        bookmarkCount.innerText = `0${count}`;  
+    } else {
+        bookmarkCount.innerText = count; 
+    }
 }
 
 // Function to update bookmark display (show/hide delete all button)
