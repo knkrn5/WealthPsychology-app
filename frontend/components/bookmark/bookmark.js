@@ -4,15 +4,34 @@ let bookmarkItems = JSON.parse(localStorage.getItem('bookmarks')) || [];
 let buttonStates = JSON.parse(localStorage.getItem('readLaterStates')) || {};
 
 // Function to toggle bookmark cart visibility
-function toggleBookmark() {
-    console.log("clicked");
+// Toggle the visibility of #bookmark-container
+function toggleBookmark(event) {
+    event.stopPropagation(); 
     const bookmarkContainer = document.querySelector('#bookmark-container');
+    
+    // Toggle display between 'block' and 'none'
     if (bookmarkContainer.style.display === 'none' || bookmarkContainer.style.display === '') {
         bookmarkContainer.style.display = 'block';
     } else {
         bookmarkContainer.style.display = 'none';
     }
 }
+
+// Add the toggle function to your button or trigger element
+const bookmarkButton = document.querySelector('#bookmark-icon'); 
+bookmarkButton.addEventListener('click', toggleBookmark);
+
+// Add a document-wide click listener to hide #bookmark-container when clicking outside it
+document.addEventListener('click', (e) => {
+    const bookmarkContainer = document.querySelector('#bookmark-container');
+
+    // Check if the container is open and if the click was outside the container
+    if (bookmarkContainer.style.display === 'block' && !bookmarkContainer.contains(e.target)) {
+        bookmarkContainer.style.display = 'none';
+    }
+});
+
+
 
 // Function to save bookmark items to localStorage
 function saveBookmarks() {
