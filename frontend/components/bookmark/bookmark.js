@@ -18,7 +18,7 @@ function toggleBookmark(event) {
 }
 
 // Add the toggle function to your button or trigger element
-const bookmarkButton = document.querySelector('#bookmark-icon'); 
+const bookmarkButton = document.querySelector('#bookmark-icon-container'); 
 bookmarkButton.addEventListener('click', toggleBookmark);
 
 // Add a document-wide click listener to hide #bookmark-container when clicking outside it
