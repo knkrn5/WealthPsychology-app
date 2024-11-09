@@ -30,10 +30,11 @@
 #bookmark-icon-container #total-bookmark {
   cursor: pointer;
   font-weight: bold;
+  font-size: smaller;
   color: #000000;
   position: absolute;
-  top: 6px;
-  right: 10px;
+  top: 7px;
+  right: 11px;
   z-index: 1000;
   transition: transform 0.3s, background-color 0.3s;
   /* background-color: #fff; */
