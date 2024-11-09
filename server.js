@@ -5,8 +5,7 @@ import { fileURLToPath } from 'url';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import pagesRoutes from './backend/routes/pagesRoutes.js';
-import modulesController from './backend/controllers/modulesController.js'
-import fincalculatorsRoutes from './backend/routes/fincalculatorsRoutes.js';
+import servicesRoutes from './backend/routes/servicesRoutes.js'
 import blogRoutes from './backend/routes/blogRoutes.js';
 import newsRoutes from './backend/routes/finnewsRoutes.js';
 
@@ -53,8 +52,7 @@ app.get('/health', (req, res) => {
 
 // Use the controller and routes for routing
 app.use('/', pagesRoutes);
-app.use('/', modulesController);
-app.use('/', fincalculatorsRoutes);
+app.use('/', servicesRoutes);
 
 // Use the route files
 app.use('/blog', blogRoutes);

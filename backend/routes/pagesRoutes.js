@@ -8,6 +8,7 @@ const __dirname = dirname(__filename);
 
 const router = Router();
 
+
 router.get('/finance-news', (req, res) => {
   res.sendFile(path.join(__dirname, '../../frontend/finance-news/finance-news.html'));
 });
@@ -51,5 +52,7 @@ router.get('/wise-investing', (req, res) => {
 router.get('/smart-trading', (req, res) => {
   res.sendFile(path.join(__dirname, '../../frontend/wealth-sense/smart-trading/smart-trading.html'));
 });
+
+
 
 export default router;
