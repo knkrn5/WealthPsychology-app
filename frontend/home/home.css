@@ -582,7 +582,7 @@ body.dark-mode .content {
 }
 
 /* quizzes selection last part styling--------------- */
-.tips-selection{
+.wealth-sense {
   margin: 10px 0px;
   border-radius: 20px;
   background-color: #c5c588;
@@ -703,7 +703,7 @@ body.dark-mode .content {
 }
 
 @media (max-width: 768px) {
-  .tips-selection {
+  .wealth-sense {
     /* margin: 15px; */
     padding: 1px 20px;
     border-radius: 20px;
