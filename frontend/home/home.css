@@ -582,14 +582,14 @@ body.dark-mode .content {
 }
 
 /* quizzes selection last part styling--------------- */
-.quiz-selection {
+.tips-selection{
   margin: 10px 0px;
   border-radius: 20px;
   background-color: #c5c588;
   padding: 1px 10px;
 }
 
-.take-quiz {
+.imp-tips {
   background-color: #000;
   color: #fff;
   width: 400px;
@@ -601,7 +601,7 @@ body.dark-mode .content {
   border-radius: 20px;
 }
 
-.quizzes {
+.tips {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 50px;
@@ -611,7 +611,7 @@ body.dark-mode .content {
   width: 100%;
 }
 
-.quizzes p a {
+.tips p a {
   padding: 20px 40px;
   border: 2px solid black;
   color: #000;
@@ -620,7 +620,7 @@ body.dark-mode .content {
   background-color: #ddd;
 }
 
-.quizzes :hover {
+.tips :hover {
   background-color: #000;
   color: #fff;
 }
@@ -697,21 +697,21 @@ body.dark-mode .content {
     display: none;
   }
 
-  .quizzes {
+  .tips {
     gap: 20px;
   }
 }
 
 @media (max-width: 768px) {
-  .quiz-selection {
+  .tips-selection {
     /* margin: 15px; */
     padding: 1px 20px;
     border-radius: 20px;
   }
-  .take-quiz {
+  .imp-tips {
     width: 90%;
   }
-  .quizzes {
+  .tips {
     gap: 20px;
   }
 }
