@@ -1,11 +1,14 @@
 /* Overall body styling */
 body {
   font-family: Arial, sans-serif;
-  /* background: linear-gradient(135deg, #e6f7ff, #fff7e6, #e6ffe6, #ffe6f7, #f7e6ff); */
-  background: linear-gradient(135deg, #002333, #342400, #003800, #380027, #260037);
+  background: linear-gradient(135deg, #e6f7ff, #fff7e6, #e6ffe6, #ffe6f7, #f7e6ff);
   color: #333;
   margin: 0;
   padding: 0;
+}
+
+body.dark-mode {
+  background: linear-gradient(135deg, #002333, #342400, #003800, #380027, #260037);
 }
 
 /* Header styling */
@@ -91,7 +94,7 @@ header h1 {
 
 /* Container styling with bubbles */
 #quiz-container {
-  position: relative; /* Ensure the container can position pseudo-elements correctly */
+  position: relative;
   width: 800px;
   margin: 30px auto;
   margin-top: 50px;
@@ -100,6 +103,12 @@ header h1 {
   border-radius: 10px;
   /* background-color: #fff; */
   overflow: hidden; /* Hide overflowing bubbles */
+}
+@media (max-width: 1024px) {
+  #quiz-container {
+  margin-top: 60px;
+
+  }
 }
 
 /* styling select the quiz */
@@ -140,7 +149,7 @@ p.select-quiz-level {
 
 /* Question heading */
 .question h2 {
-  font-size: 1.5em;
+  font-size: 1.3em;
   color: #333;
   margin-bottom: 10px;
 }
@@ -193,7 +202,7 @@ p.select-quiz-level {
 @media (max-width: 768px) {
   #quiz-container {
     width: 95%;
-    margin-top: 15px;
+    margin-top: 10px;
     margin-bottom: 0px;
   }
 

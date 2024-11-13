@@ -117,8 +117,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 quizContainer.innerHTML = data;
                 // Update the browser's session history 
                 history.pushState({ quizUrl: url, title: title, heading: quizHeading }, title, `?quiz=${encodeURIComponent(title)}`);
-                document.title = `Quiz - ${quizHeading || title || 'Stock Market'}`;
-                heading.textContent = `${quizHeading || title || 'Stock Market'}`;
+                document.title = `Quiz - ${quizHeading || title || 'Finance'}`;
+                heading.textContent = `${quizHeading || title || 'Finance'}`;
                 setActiveNavLink();
                 initQuizJS();
             })
@@ -160,8 +160,8 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.text())
             .then(data => {
                 quizContainer.innerHTML = data;
-                document.title = `Quiz - ${quizHeading || title || 'Stock Market'}`;
-                heading.textContent = `${quizHeading || title || 'Stock Market'}`;
+                document.title = `Quiz - ${quizHeading || title || 'Finance'}`;
+                heading.textContent = `${quizHeading || title || 'Finance'}`;
                 setActiveNavLink();
                 initQuizJS();
             })
