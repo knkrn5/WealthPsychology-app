@@ -24,6 +24,9 @@ router.get('/financial-calculators', (req, res) => {
 router.get('/finance-quizzes', (req, res) => {
   res.sendFile(path.join(__dirname, '../../frontend/quizzes/quizzes.html'));
 });
+router.get('/frontend/quizzes/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../frontend/quizzes/quizzes.html'));
+});
 
 router.get('/contact-us', (req, res) => {
   res.sendFile(path.join(__dirname, '../../frontend/contact-us/contact-us.html'));

@@ -1,14 +1,11 @@
 /* Overall body styling */
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #e6f7ff, #fff7e6, #e6ffe6, #ffe6f7, #f7e6ff);
+  /* background: linear-gradient(135deg, #e6f7ff, #fff7e6, #e6ffe6, #ffe6f7, #f7e6ff); */
+  background: linear-gradient(135deg, #002333, #342400, #003800, #380027, #260037);
   color: #333;
   margin: 0;
   padding: 0;
-}
-
-body.dark-mode {
-  background: linear-gradient(135deg, #002333, #342400, #003800, #380027, #260037);
 }
 
 /* Header styling */

@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", function () {
             this.classList.add('active');
 
 
-            //getting the value/textcontent from the url
+            //getting the value/textContent from the url
             const quizUrl = this.getAttribute('data-quiz');
             const quizHeading = this.textContent.trim();
             const quizTitle = quizHeading.replace(' ', '-').toLowerCase();
