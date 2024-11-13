@@ -84,10 +84,9 @@ body.dark-mode .main-content {
 .header {
   background: linear-gradient(45deg, #4a90e2, #2a5298);
   color: #fff;
-  padding: 30px 40px;
+  padding: 2px;
   border-radius: 15px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  text-align: center;
 }
 
 .header h1 {
@@ -99,15 +98,14 @@ body.dark-mode .main-content {
   font-size: 1.2em;
 }
 
-/* .header .brand-logo {
-  width: 200px;
+.header .brand-banner {
+  width: 100%;
   height: auto;
-  border-radius: 50%;
-  align-self: center;
+  border-radius: 10px;
   display: block;
   margin: 0 auto;
   max-width: 100%;
-} */
+}
 
 .section {
   background: #fff;
