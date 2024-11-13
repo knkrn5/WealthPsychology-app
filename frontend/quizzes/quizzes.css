@@ -112,7 +112,7 @@ header h1 {
 }
 
 /* styling select the quiz */
-p.select-quiz-level {
+p.select-quiz {
   font-size: 2.5rem; /* Large font size for prominence */
   color: #ffffff; /* White color for contrast */
   text-align: center; /* Center text horizontally */
@@ -130,7 +130,7 @@ p.select-quiz-level {
   animation: pulse 2s infinite; /* Add a subtle pulsing animation */
 }
 @media (max-width: 786px) {
-  p.select-quiz-level {
+  p.select-quiz {
     margin-right: 10%;
   }
 }
