@@ -11,8 +11,6 @@ import newsRoutes from './backend/routes/finnewsRoutes.js';
 
 import wealthSensedbRoutes from './backend/routes/wealthSensedbRoutes.js';
 
-
-
 dotenv.config();  
 
 const __filename = fileURLToPath(import.meta.url);

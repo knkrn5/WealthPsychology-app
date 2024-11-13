@@ -1,5 +1,3 @@
-// utils/contentfulUtils.js
-
 import {createClient} from 'contentful';
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import { BLOCKS, INLINES } from '@contentful/rich-text-types';
@@ -20,7 +18,7 @@ export async function fetchContentBySlug(contentType, slug) {
       content_type: contentType,
       'fields.slug': slug,
       limit: 1,
-      include: 2, // Include linked assets
+      include: 2, 
     });
 
     if (entries.items.length > 0) {
