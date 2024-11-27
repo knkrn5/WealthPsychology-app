@@ -36,8 +36,8 @@ router.get('/about-us', (req, res) => {
   res.sendFile(path.join(__dirname, '../../frontend/about-us/about-us.html'));
 });
 
-router.get('/team', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../frontend/our-team/team.html'));
+router.get('/our-team', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../frontend/our-team/our-team.html'));
 });
 
 router.get('/privacy-policy', (req, res) => {
