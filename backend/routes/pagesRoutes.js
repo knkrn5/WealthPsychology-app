@@ -49,7 +49,7 @@ router.get('/terms-of-use', (req, res) => {
 });
 
 router.get('/our-plans', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../frontend/our-plans/plans.html'));
+  res.sendFile(path.join(__dirname, '../../frontend/our-plans/our-plans.html'));
 });
 
 router.get('/wise-investing', (req, res) => {
