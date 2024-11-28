@@ -48,7 +48,7 @@ router.get('/terms-of-use', (req, res) => {
   res.sendFile(path.join(__dirname, '../../frontend/terms-of-use/terms-of-use.html'));
 });
 
-router.get('/plans', (req, res) => {
+router.get('/our-plans', (req, res) => {
   res.sendFile(path.join(__dirname, '../../frontend/our-plans/plans.html'));
 });
 
