@@ -94,14 +94,9 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    <!-- ChatBase chatbot -->
-    <script>
-      window.embeddedChatbotConfig = {
-        chatbotId: 'Bc610_SZ0U30m1hncgLJo',
-        domain: 'www.chatbase.co',
-      };
-    </script>
-    <script src="https://www.chatbase.co/embed.min.js" chatbotId="Bc610_SZ0U30m1hncgLJo" domain="www.chatbase.co" defer></script>
+    <!-- Custom url chatbot -->
+    <link rel="stylesheet" href="/frontend/wp-chatbots/wp-url-cb/wp-url-iframe-cb.css" />
+    <script src="/frontend/wp-chatbots/wp-url-cb/wp-url-iframe-cb.js" defer></script>
 
     <!-- linking css files -->
     <link rel="icon" href="/assets/branding/favicon.ico" type="image/x-icon" />
@@ -330,6 +325,11 @@
         </div>
       </div>
     </main>
+
+    <div id="wp-chatbot-container">
+      <img src="/assets/branding/wp-w-cir-logo.webp" alt="chatbot logo" id="wp-url-cb-logo" />
+      <iframe id="wp-url-iframe-cb" src="/frontend/wp-chatbots/wp-url-cb/wp-url-cb.html" title="Chatbot iframe"></iframe>
+    </div>
 
     <!-- footer html via global footer html---------------------------------->
     <div id="footer"></div>

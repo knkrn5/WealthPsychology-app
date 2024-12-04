@@ -60,6 +60,10 @@ router.get('/smart-trading', (req, res) => {
   res.sendFile(path.join(__dirname, '../../frontend/wealth-sense/smart-trading/smart-trading.html'));
 });
 
+router.get('/wp-url-cb', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../frontend/wp-chatbots/wp-url-cb/wp-url-cb.html'));
+});
+
 
 
 export default router;
