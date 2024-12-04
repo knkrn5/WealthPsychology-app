@@ -28,7 +28,6 @@ document.querySelectorAll('.suggested-question').forEach((suggestedQuestion) => 
     suggestedQuestion.addEventListener('click', () => {
         userInput.value = suggestedQuestion.textContent;
         userInput.focus();
-        askBtn.click();
 
         const inputEvent = new Event("input", { bubbles: true });
         userInput.dispatchEvent(inputEvent);
