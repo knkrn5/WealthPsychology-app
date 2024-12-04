@@ -27,10 +27,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 document.querySelectorAll('.suggested-question').forEach((suggestedQuestion) => {
     suggestedQuestion.addEventListener('click', () => {
         userInput.value = suggestedQuestion.textContent;
-        userInput.focus();
 
         const inputEvent = new Event("input", { bubbles: true });
         userInput.dispatchEvent(inputEvent);
+        askBtn.click();
     });
 });
 
@@ -61,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     userInput.addEventListener('input', () => {
         askBtn.disabled = userInput.value.trim() === "";
     });
-
     askBtn.disabled = true;
 })
 
@@ -78,6 +77,11 @@ askBtn.addEventListener('click', async () => {
     if (!question) {
         console.log("No question provided");
         return;
+    }
+
+    // Blur the input field to hide the keyboard
+    if (window.innerWidth <= 430) {
+        userInput.blur();
     }
 
     // Disable user input and ask button during processing
@@ -135,11 +139,14 @@ askBtn.addEventListener('click', async () => {
         // Add error message
         const errorElement = createMessageElement('ai', 'Error processing request');
         responseArea.appendChild(errorElement);
-    }finally {
+    } finally {
         // Re-enable user input and ask button
         userInput.disabled = false;
         askBtn.disabled = userInput.value.trim() === "";
         userInput.focus();
+        if (window.innerWidth <= 430) {
+            userInput.blur();
+        }
     }
 });
 
