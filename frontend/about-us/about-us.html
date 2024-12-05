@@ -59,14 +59,9 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    <!-- Chatbase chatbot -->
-    <script>
-      window.embeddedChatbotConfig = {
-        chatbotId: 'Bc610_SZ0U30m1hncgLJo',
-        domain: 'www.chatbase.co',
-      };
-    </script>
-    <script src="https://www.chatbase.co/embed.min.js" chatbotId="Bc610_SZ0U30m1hncgLJo" domain="www.chatbase.co" defer></script>
+    <!-- Custom url chatbot -->
+    <link rel="stylesheet" href="/frontend/wp-chatbots/wp-url-cb/wp-url-iframe-cb.css" />
+    <script src="/frontend/wp-chatbots/wp-url-cb/wp-url-iframe-cb.js" defer></script>
 
     <link rel="icon" href="/assets/branding/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
@@ -89,55 +84,64 @@
       <h1>About Us</h1>
     </header>
 
-    <div class="about-us-container">
-      <!-- Main Content Section -->
-      <div class="main-content">
-        <div class="header">
-          <!-- <img src="/assets/about-us/imgs/wp-banner-white.webp" alt="Brand banner1" class="brand-banner1" /> -->
-          <img src="/assets/about-us/imgs/wp-banner-black.webp" alt="Brand banner2" class="brand-banner2" />
+    <main>
+      <div class="about-us-container">
+        <!-- Main Content Section -->
+        <div class="main-content">
+          <div class="header">
+            <!-- <img src="/assets/about-us/imgs/wp-banner-white.webp" alt="Brand banner1" class="brand-banner1" /> -->
+            <img src="/assets/about-us/imgs/wp-banner-black.webp" alt="Brand banner2" class="brand-banner2" />
+          </div>
+          <div class="section">
+            <h2>Who We Are</h2>
+            <p>At Wealth Psychology, we’re dedicated to helping you understand the psychology behind wealth creation. Our mission is to empower you with the knowledge and tools to make smart financial decisions, aligning wealth with well-being.</p>
+          </div>
+          <div class="section">
+            <h2>Our Mission</h2>
+            <p>We believe in holistic financial wellness. Our approach combines financial expertise with psychological insights to help you cultivate a positive relationship with money.</p>
+          </div>
+          <div class="section">
+            <h2>Our Values</h2>
+            <ul>
+              <li><strong>Integrity:</strong> Trust and transparency are at the heart of everything we do.</li>
+              <li><strong>Empowerment:</strong> We believe in providing the tools and insights to foster independence.</li>
+              <li><strong>Growth:</strong> Personal and financial growth is a journey we’re here to support.</li>
+            </ul>
+          </div>
         </div>
-        <div class="section">
-          <h2>Who We Are</h2>
-          <p>At Wealth Psychology, we’re dedicated to helping you understand the psychology behind wealth creation. Our mission is to empower you with the knowledge and tools to make smart financial decisions, aligning wealth with well-being.</p>
-        </div>
-        <div class="section">
-          <h2>Our Mission</h2>
-          <p>We believe in holistic financial wellness. Our approach combines financial expertise with psychological insights to help you cultivate a positive relationship with money.</p>
-        </div>
-        <div class="section">
-          <h2>Our Values</h2>
-          <ul>
-            <li><strong>Integrity:</strong> Trust and transparency are at the heart of everything we do.</li>
-            <li><strong>Empowerment:</strong> We believe in providing the tools and insights to foster independence.</li>
-            <li><strong>Growth:</strong> Personal and financial growth is a journey we’re here to support.</li>
-          </ul>
-        </div>
+
+        <!-- Sidebar Section -->
+        <aside class="sidebar">
+          <h3>Contact Us</h3>
+          <p class="contact-details"><a href="mailto:support@wealthpsychology.in"> support@wealthpsychology.in</a></p>
+          <p class="contact-details"><a href="mailto:contact@wealthpsychology.in"> contact@wealthpsychology.in</a></p>
+          <!-- <p>Phone: +91 12345 67890</p> -->
+          <button type="button" id="contact-us-button">Get in Touch</button>
+
+          <div class="additional-info">
+            <h3>Core Principles</h3>
+            <p>Our approach is built on these guiding principles:</p>
+            <ul>
+              <li>Balance between wealth and well-being</li>
+              <li>Continuous learning and growth</li>
+              <li>Encouraging financial independence</li>
+            </ul>
+            <h3>Disclaimer :-</h3>
+            <p>We are not SEBI-registered stock advisors. The content on our website is purely for educational purposes and should not be considered financial advice.</p>
+          </div>
+        </aside>
       </div>
+    </main>
 
-      <!-- Sidebar Section -->
-      <aside class="sidebar">
-        <h3>Contact Us</h3>
-        <p class="contact-details"><a href="mailto:support@wealthpsychology.in"> support@wealthpsychology.in</a></p>
-        <p class="contact-details"><a href="mailto:contact@wealthpsychology.in"> contact@wealthpsychology.in</a></p>
-        <!-- <p>Phone: +91 12345 67890</p> -->
-        <button type="button" id="contact-us-button">Get in Touch</button>
-
-        <div class="additional-info">
-          <h3>Core Principles</h3>
-          <p>Our approach is built on these guiding principles:</p>
-          <ul>
-            <li>Balance between wealth and well-being</li>
-            <li>Continuous learning and growth</li>
-            <li>Encouraging financial independence</li>
-          </ul>
-          <h3>Disclaimer :-</h3>
-          <p>We are not SEBI-registered stock advisors. The content on our website is purely for educational purposes and should not be considered financial advice.</p>
-        </div>
-      </aside>
+    <!-- Custom url chatbot -->
+    <div id="wp-chatbot-container">
+      <img src="/assets/branding/wp-w-cir-logo.webp" alt="chatbot logo" id="wp-url-cb-logo" />
+      <iframe id="wp-url-iframe-cb" src="/frontend/wp-chatbots/wp-url-cb/wp-url-cb.html" title="Chatbot iframe"></iframe>
     </div>
 
     <!-- footer html via global footer html--------------------------------------------- --->
     <div id="footer"></div>
+
     <script src="about-us.js"></script>
     <script src="/frontend/partials/headerscroll.js"></script>
     <script src="/frontend/components/themes/dark-mode-toggle.js"></script>
