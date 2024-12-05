@@ -5,7 +5,9 @@ const responseArea = document.getElementById('responseArea');
 const suggestedQuestionBox = document.querySelector('.suggested-question-box');
 const scrapResponseArea = document.getElementById('scrapResponseArea');
 
+// Consolidated DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', async () => {
+    // Scraping data initialization
     scrapResponseArea.innerHTML = '<b>Scraping data...</b>';
     try {
         const response = await fetch('/wp-url-cb/scraped-data');
@@ -22,8 +24,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error fetching scraped data:', error);
         scrapResponseArea.textContent = 'Error fetching scraped data.';
     }
+
+    // Enable/Disable the ask button based on user input (moved from separate DOMContentLoaded)
+    function updateAskButtonState() {
+        askBtn.disabled = userInput.value.trim() === "";
+    }
+    userInput.addEventListener('input', updateAskButtonState);
+    updateAskButtonState(); // Initial state
 });
 
+// Suggested questions event listener
 document.querySelectorAll('.suggested-question').forEach((suggestedQuestion) => {
     suggestedQuestion.addEventListener('click', () => {
         userInput.value = suggestedQuestion.textContent;
@@ -31,9 +41,13 @@ document.querySelectorAll('.suggested-question').forEach((suggestedQuestion) => 
         const inputEvent = new Event("input", { bubbles: true });
         userInput.dispatchEvent(inputEvent);
         askBtn.click();
+        if (window.innerWidth <= 430) {
+            userInput.blur();
+        }
     });
 });
 
+// Consolidated keyboard event handling
 userInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         event.preventDefault();
@@ -41,29 +55,22 @@ userInput.addEventListener('keydown', (event) => {
     }
 });
 
-
-
 // Function to create a conversation message element
 function createMessageElement(role, text) {
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('message', `message-${role}`);
+
+    // Use marked to parse Markdown to HTML
+    const parsedText = marked.parse(text);
+
     messageDiv.innerHTML = `
         <div class="message-content">
             <span class="message-role">${role === 'user' ? 'You' : 'AI'}:</span>
-            ${text}
+            ${parsedText}
         </div>
     `;
     return messageDiv;
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    // Enable/Disable the ask button based on user input
-    userInput.addEventListener('input', () => {
-        askBtn.disabled = userInput.value.trim() === "";
-    });
-    askBtn.disabled = true;
-})
-
 
 // Function to clear suggested questions after first interaction
 function hideSuggestedQuestions() {
@@ -72,6 +79,7 @@ function hideSuggestedQuestions() {
     }
 }
 
+// Ask button event listener
 askBtn.addEventListener('click', async () => {
     const question = userInput.value.trim();
     if (!question) {
@@ -150,6 +158,7 @@ askBtn.addEventListener('click', async () => {
     }
 });
 
+// Scrape button event listener
 scrapeBtn.addEventListener('click', async () => {
     scrapResponseArea.innerHTML = 'Scraping website...';
     window.location.reload();

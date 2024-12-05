@@ -1,16 +1,16 @@
-* {
-  margin: 0;
-  padding: 0;
-  /* box-sizing: border-box; */
-}
+
 
 body {
   background-color: #111;
+  margin: 0;
+  padding: 0;
 }
 
 /* ChatBot Container */
 #wp-chatbot {
   max-width: 500px;
+  /* max-height: 900px; */
+  /* height: 100vh; */
   margin: 40px auto;
   background-color: #222;
   border: 1px solid #fff;
@@ -60,6 +60,7 @@ body {
   color: #eee;
   background-color: #242430;
   padding: 10px;
+  margin: 0;
   border: 1px solid #fff;
   border-radius: 20px;
   transition: all 0.3s ease-in-out;
@@ -119,6 +120,7 @@ body {
   width: fit-content;
   color: white;
   font-size: 16px;
+  font-weight: bold;
   padding: 10px 20px;
   border: none;
   border-radius: 20px;
@@ -151,6 +153,31 @@ button:disabled:hover {
   width: 100%; 
 }
 
+.message-content {
+  padding: 20px 15px;
+  border-radius: 18px;
+  max-width: 85%; 
+  word-wrap: break-word;
+  font-size: 0.9rem;
+  position: relative;
+  background-color: #111;
+  color: #ccc;
+  /* line-height: 1.4; */
+  display: inline-grid;
+}
+
+.message-user .message-content {
+  background-color: #3498db;
+  /* display: inline-block; */
+  color: white;
+  border-bottom-left-radius: 5px;
+}
+
+.message-role{
+  /* padding-top: 10px; */
+  font-weight: bold;
+}
+
 .message-user {
   justify-content: flex-end; 
   align-self: flex-end;
@@ -161,22 +188,64 @@ button:disabled:hover {
   align-self: flex-start;
 }
 
-.message-content {
-  padding: 10px 15px;
-  border-radius: 18px;
-  max-width: 85%; 
-  word-wrap: break-word;
-  font-size: 0.9rem;
-  position: relative;
-  background-color: #111;
-  color: #ccc;
+
+.message-content pre {
+  background-color: #333;
+  padding: 10px;
+  border-radius: 5px;
+  overflow-x: auto;
 }
 
-.message-user .message-content {
-  background-color: #3498db;
-  color: white;
-  border-bottom-left-radius: 5px;
+.message-content code {
+  background-color: #333;
+  padding: 2px 4px;
+  border-radius: 3px;
 }
+
+/* adjusting headings */
+.message-content h1 { font-size: 1.5em; }
+.message-content h2 { font-size: 1.3em; }
+
+.message-content h3 {
+  font-size: 16px;
+  margin-top: 12px;
+  margin-bottom: 4px;
+}
+
+.message-content h4 {
+  font-size: 14px;
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+
+.message-content h5,
+.message-content h6 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em; 
+}
+
+.message-content p {
+  border: 0px #000;
+  /* margin-top: 0px; */
+  /* margin-bottom: 0px; */
+}
+
+.message-content ul {
+  margin-top: -10px;
+  margin-bottom: -25px;
+  padding-left: 20px;
+}
+.message-content ol {
+  margin-top: -10px;
+  margin-bottom: -10px;
+  padding-left: 25px;
+}
+
+.message-content li {
+  margin-top: -5px;
+  margin-bottom: -2px;
+}
+
 
 .chatbot-down-space{
   display: grid;

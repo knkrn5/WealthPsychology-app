@@ -60,8 +60,8 @@ const extractAllText = async (urls) => {
 // Route to scrape text
 router.get('/scraped-data', async (req, res) => {
   console.log('Scraping website...');
-  websiteText = await extractAllText(urls); 
-  
+  websiteText = await extractAllText(urls);
+
   if (websiteText) {
     res.json({
       success: true,
@@ -89,30 +89,32 @@ router.post('/wp-ask', async (req, res) => {
     if (!websiteText) {
       // If scraping fails, return an error
       return res.status(400).json({ error: 'Failed to scrape website' });
+    } else {
+      console.log('Scraped website successfully');
     }
   }
 
   try {
-      const shortenedText = websiteText.slice(0, 5000); // Limit to 5000 characters
-      const completion = await client.chat.completions.create({
-          model: "nvidia/llama-3.1-nemotron-70b-instruct",
-          messages: [
-              { role: "system", content: "You are a helpful assistant. Use the provided data to answer questions. Do not answer any questions that are not based on the data." },
-              { role: "assistant", content: "I will only answer based on the provided data." },
-              { role: "system", content: `URL Data:\n${shortenedText}` },
-              { role: "user", content: question },
-          ],
-          temperature: 0.5,
-          top_p: 0.7,
-          max_tokens: 1024,
-      });
+    const shortenedText = websiteText.slice(0, 5000); // Limit to 5000 characters
+    const completion = await client.chat.completions.create({
+      model: "nvidia/llama-3.1-nemotron-70b-instruct",
+      messages: [
+        { role: "system", content: "You are a helpful assistant. Use the provided website data to answer questions. Do not answer any questions that are not based on the data." },
+        { role: "assistant", content: "I will only answer based on this website data only." },
+        { role: "system", content: `URL Data:\n${shortenedText}` },
+        { role: "user", content: question },
+      ],
+      temperature: 0.5,
+      top_p: 0.7,
+      max_tokens: 1024,
+    });
 
-      const response = completion.choices[0]?.message?.content || "No response generated.";
-      // console.log('Generated response:', response);
-      res.json({ response });
+    const response = completion.choices[0]?.message?.content || "No response generated.";
+    // console.log('Generated response:', response);
+    res.json({ response });
   } catch (error) {
-      console.error('Error during AI API call:', error);
-      res.status(500).json({ error: 'An error occurred processing your request' });
+    console.error('Error during AI API call:', error);
+    res.status(500).json({ error: 'An error occurred processing your request' });
   }
 });
 
