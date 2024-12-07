@@ -229,7 +229,7 @@ button:disabled:hover {
 .message-content p {
   border: 0px #000;
   /* margin-top: 0px; */
-  margin-bottom: 0px;
+  /* margin-bottom: 0px; */
 }
 
 .message-content ul {

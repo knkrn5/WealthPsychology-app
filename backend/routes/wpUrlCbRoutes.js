@@ -1,4 +1,4 @@
-// aiRoutes.js
+// wpUrlCbRoutes.js
 import express from 'express';
 import OpenAI from 'openai';
 import axios from 'axios';
@@ -77,10 +77,16 @@ router.get('/scraped-data', async (req, res) => {
   }
 });
 
-// Route to handle AI questions
+// Change to GET route for streaming
 router.post('/wp-ask', async (req, res) => {
   const { question } = req.body;
   console.log('Received question:', question);
+
+  // Check if question is provided
+  if (!question) {
+    res.status(400).end();
+    return;
+  }
 
   // Check if websiteText is empty and call the scraping function if needed
   if (!websiteText) {
@@ -88,15 +94,23 @@ router.post('/wp-ask', async (req, res) => {
     websiteText = await extractAllText(urls);
     if (!websiteText) {
       // If scraping fails, return an error
-      return res.status(400).json({ error: 'Failed to scrape website' });
+      res.status(400).write(`data: ${JSON.stringify({ error: 'Failed to scrape website' })}\n\n`);
+      res.end();
+      return;
     } else {
       console.log('Scraped website successfully');
+      console.log(websiteText.length);
     }
   }
 
+  // Set headers for streaming
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-open');
+
   try {
     const shortenedText = websiteText.slice(0, 5000); // Limit to 5000 characters
-    const completion = await client.chat.completions.create({
+    const stream = await client.chat.completions.create({
       model: "nvidia/llama-3.1-nemotron-70b-instruct",
       messages: [
         { role: "system", content: "You are a helpful assistant. Use the provided website data to answer questions. Do not answer any questions that are not based on the data." },
@@ -107,14 +121,22 @@ router.post('/wp-ask', async (req, res) => {
       temperature: 0.5,
       top_p: 0.7,
       max_tokens: 1024,
+      stream: true,
     });
 
-    const response = completion.choices[0]?.message?.content || "No response generated.";
-    // console.log('Generated response:', response);
-    res.json({ response });
+    for await (const chunk of stream) {
+      const content = chunk.choices[0]?.delta?.content || '';
+      if (content) {
+        res.write(`data: ${JSON.stringify({ content })}\n\n`);
+      }
+    }
+    res.write('data: [DONE]\n\n');
+    res.end();
+
   } catch (error) {
     console.error('Error during AI API call:', error);
-    res.status(500).json({ error: 'An error occurred processing your request' });
+    res.status(500).write(`data: ${JSON.stringify({ error: 'An error occurred processing your request' })}\n\n`);
+    res.end();
   }
 });
 

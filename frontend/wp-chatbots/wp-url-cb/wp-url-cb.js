@@ -72,14 +72,7 @@ function createMessageElement(role, text) {
     return messageDiv;
 }
 
-// Function to clear suggested questions after first interaction
-function hideSuggestedQuestions() {
-    if (suggestedQuestionBox) {
-        suggestedQuestionBox.style.display = 'none';
-    }
-}
-
-// Ask button event listener
+// Replace the existing askBtn event listener
 askBtn.addEventListener('click', async () => {
     const question = userInput.value.trim();
     if (!question) {
@@ -96,55 +89,80 @@ askBtn.addEventListener('click', async () => {
     userInput.disabled = true;
     askBtn.disabled = true;
 
-    // Hide suggested questions on first interaction
-    hideSuggestedQuestions();
+    // remove suggested questions 
+    suggestedQuestionBox.remove();
 
     // Add user message to response area
-    const userMessageElement = createMessageElement('user', question);
-    responseArea.appendChild(userMessageElement);
+    const questionElement = createMessageElement('user', question);
+    responseArea.appendChild(questionElement);
 
     // Clear input and scroll to bottom
     userInput.value = '';
     responseArea.scrollTop = responseArea.scrollHeight;
 
-    // Show loading indicator
-    const loadingElement = createMessageElement('ai', 'Generating response...');
-    responseArea.appendChild(loadingElement);
+    // Create AI response element for streaming
+    const responseElement = createMessageElement('ai', 'Generating...');
+    responseArea.appendChild(responseElement);
+    const contentDiv = responseElement.querySelector('.message-content');
+
+    // Scroll to bottom
+    responseArea.scrollTop = responseArea.scrollHeight;
 
     try {
         const response = await fetch('/wp-url-cb/wp-ask', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {
+                'content-type': 'application/json',
+            },
             body: JSON.stringify({ question }),
         });
 
-        // Remove loading indicator
-        responseArea.removeChild(loadingElement);
-
-        // Parse the response text as JSON directly
-        const data = await response.json();
-
-        if (data.error) {
-            // Add error message
-            const errorElement = createMessageElement('ai', `Error: ${data.error}`);
-            responseArea.appendChild(errorElement);
-        } else {
-            // Add AI response message
-            const responseElement = createMessageElement('ai', data.response);
-            responseArea.appendChild(responseElement);
+        if (!response.body) {
+            contentDiv.innerHTML = 'Error: No response stream.';
+            return;
         }
 
-        // Scroll to bottom
-        responseArea.scrollTop = responseArea.scrollHeight;
+        // Stream response using ReadableStream
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let fullResponse = '';
+
+        while (true) {
+            const { value, done } = await reader.read();
+            if (done) break;
+
+            // Decode the chunk
+            const chunk = decoder.decode(value, { stream: true });
+
+            // Try to parse JSON chunks
+            const lines = chunk.split('\n');
+            lines.forEach(line => {
+                if (line.startsWith('data: ')) {
+                    try {
+                        const jsonData = JSON.parse(line.slice(6));
+                        if (jsonData.content) {
+                            fullResponse += jsonData.content;
+                            // Parse and update the content dynamically
+                            contentDiv.innerHTML = marked.parse(fullResponse);
+
+                            // Scroll to bottom
+                            responseArea.scrollTop = responseArea.scrollHeight;
+                        }
+                    } catch (parseError) {
+                        console.error('JSON parse error:', parseError);
+                    }
+                }
+            });
+        }
+
+        // Handle the final [DONE] message if needed
+        if (fullResponse.includes('[DONE]')) {
+            fullResponse = fullResponse.replace('[DONE]', '').trim();
+            contentDiv.innerHTML = marked.parse(fullResponse);
+        }
 
     } catch (error) {
         console.error('Ask error:', error);
-        // Remove loading indicator
-        if (loadingElement.parentNode === responseArea) {
-            responseArea.removeChild(loadingElement);
-        }
-
-        // Add error message
         const errorElement = createMessageElement('ai', 'Error processing request');
         responseArea.appendChild(errorElement);
     } finally {
