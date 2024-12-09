@@ -72,6 +72,22 @@ function createMessageElement(role, text) {
     return messageDiv;
 }
 
+let userScrolling = false;
+// Function to check user scroll
+responseArea.addEventListener('scroll', () => {
+    if (responseArea.scrollTop < responseArea.scrollHeight - responseArea.clientHeight - 50) {
+        userScrolling = true;
+    } else {
+        userScrolling = false;
+    }
+});
+// Auto-scroll function
+function autoScroll() {
+    if (!userScrolling) {
+        responseArea.scrollTop = responseArea.scrollHeight;
+    }
+}
+
 // Replace the existing askBtn event listener
 askBtn.addEventListener('click', async () => {
     const question = userInput.value.trim();
@@ -85,7 +101,8 @@ askBtn.addEventListener('click', async () => {
         userInput.blur();
     }
 
-    // Disable user input and ask button during processing
+    // Disable and clear user input and ask button disable
+    userInput.value = '';
     userInput.disabled = true;
     askBtn.disabled = true;
 
@@ -95,18 +112,14 @@ askBtn.addEventListener('click', async () => {
     // Add user message to response area
     const questionElement = createMessageElement('user', question);
     responseArea.appendChild(questionElement);
-
-    // Clear input and scroll to bottom
-    userInput.value = '';
     responseArea.scrollTop = responseArea.scrollHeight;
+
 
     // Create AI response element for streaming
     const responseElement = createMessageElement('ai', 'Generating...');
     responseArea.appendChild(responseElement);
-    const contentDiv = responseElement.querySelector('.message-content');
-
-    // Scroll to bottom
     responseArea.scrollTop = responseArea.scrollHeight;
+    const contentDiv = responseElement.querySelector('.message-content');
 
     try {
         const response = await fetch('/wp-url-cb/wp-ask', {
@@ -145,8 +158,8 @@ askBtn.addEventListener('click', async () => {
                             // Parse and update the content dynamically
                             contentDiv.innerHTML = marked.parse(fullResponse);
 
-                            // Scroll to bottom
-                            responseArea.scrollTop = responseArea.scrollHeight;
+                            // calling Scroll function
+                            autoScroll();
                         }
                     } catch (parseError) {
                         console.error('JSON parse error:', parseError);
