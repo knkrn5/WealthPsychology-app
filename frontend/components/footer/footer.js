@@ -1,26 +1,39 @@
-// global footer javascript------------------------
 
-
-// this is first we have to define the loadHTML function here with the parameters
-function loadHTML(url, selector, callback) {
-    fetch(url)
-        .then(response => response.text())
-        .then(data => {
-            document.querySelector(selector).innerHTML = data;
-            if (callback) callback(); // Call the callback function if it exists
-        })
-        .catch(error => console.error('Error loading HTML:', error));
+function loadFooterHTML() {
+    fetch('/frontend/components/footer/footer.html')
+    .then(response => response.text())
+    .then(footerHTML => {
+        const footer = document.getElementById('footer');
+        if(footer){
+            footer.innerHTML = footerHTML;
+        }else{
+            console.error('Footer element not found.');
+        }
+    })
+    .catch(error => {
+        console.error('Error loading footer HTML:', error);
+    });
 }
 
-// after defining the loadHTML function now here we are calling the function with the argument for its parameter 
+function loadFooterCSS(){
+    fetch('/frontend/components/footer/footer.css')
+    .then(response => response.text())
+    .then(footerCSS => {
+        const style = document.createElement('style');
+        style.innerHTML = footerCSS;
+        document.head.appendChild(style);
+    })
+    .catch(error => {
+        console.error('Error loading footer CSS:', error);
+    });
+}
+
+// calling the function 
 document.addEventListener("DOMContentLoaded", () => {
-    // setTimeout(() => {
-        loadHTML('/frontend/components/footer/footer.html', '#footer');
-    // }, 1500);  
+    loadFooterHTML();
+    loadFooterCSS();
+
 });
-
-
-
 
 
 

@@ -1,5 +1,5 @@
 // Define the loadHTML function
-function loadHTML(url, selector, callback) {
+function loadModuleHeaderHTML(url, selector, callback) {
     fetch(url)
         .then(response => response.text())
         .then(data => {
@@ -12,7 +12,7 @@ function loadHTML(url, selector, callback) {
 // Combine the functions into a single DOMContentLoaded event listener
 document.addEventListener("DOMContentLoaded", () => {
     // Load the header HTML and initialize the menu after it's loaded
-    loadHTML('/frontend/components/modules-header/modules-header.html', '#modules-header', () => {
+    loadModuleHeaderHTML('/frontend/components/modules-header/modules-header.html', '#modules-header', () => {
         const menuBars = document.getElementById('menu-bars');
         const navMenu = document.querySelector('.nav-menu');
 
