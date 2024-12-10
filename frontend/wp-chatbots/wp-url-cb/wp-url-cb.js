@@ -171,9 +171,11 @@ askBtn.addEventListener('click', async () => {
             });
         }
 
-        // Remove [DONE] from the final response if it exists
-        fullResponse = fullResponse.replace('[DONE]', '').trim();
-        contentDiv.innerHTML = marked.parse(fullResponse);
+        // Handle the final [DONE] message if needed
+        if (fullResponse.includes('[DONE]')) {
+            fullResponse = fullResponse.replace('[DONE]', '').trim();
+            contentDiv.innerHTML = marked.parse(fullResponse);
+        }
 
     } catch (error) {
         console.error('Ask error:', error);
