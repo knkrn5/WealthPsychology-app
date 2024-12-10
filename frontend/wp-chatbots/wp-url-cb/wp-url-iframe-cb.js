@@ -32,8 +32,19 @@ function setupCloseOnOutsideClick() {
   });
 }
 
+function loadURLcbIframeCSS() {
+  fetch('/frontend/wp-chatbots/wp-url-cb/wp-url-iframe-cb.css')
+  .then(response => response.text())
+  .then(iframeCSS => {
+    const style = document.createElement('style');
+    style.innerHTML = iframeCSS;
+    document.head.appendChild(style); 
+  });
+}
+
 // Initialize when the page loads
 window.addEventListener('load', () => {
   createChatlogo();
   setupCloseOnOutsideClick();
+  loadURLcbIframeCSS();
 });

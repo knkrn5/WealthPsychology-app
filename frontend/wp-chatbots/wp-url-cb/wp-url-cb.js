@@ -151,6 +151,9 @@ askBtn.addEventListener('click', async () => {
             const lines = chunk.split('\n');
             lines.forEach(line => {
                 if (line.startsWith('data: ')) {
+                    // Skip the [DONE] marker instead of trying to parse it
+                    if (line.includes('[DONE]')) return;
+
                     try {
                         const jsonData = JSON.parse(line.slice(6));
                         if (jsonData.content) {
@@ -168,11 +171,9 @@ askBtn.addEventListener('click', async () => {
             });
         }
 
-        // Handle the final [DONE] message if needed
-        if (fullResponse.includes('[DONE]')) {
-            fullResponse = fullResponse.replace('[DONE]', '').trim();
-            contentDiv.innerHTML = marked.parse(fullResponse);
-        }
+        // Remove [DONE] from the final response if it exists
+        fullResponse = fullResponse.replace('[DONE]', '').trim();
+        contentDiv.innerHTML = marked.parse(fullResponse);
 
     } catch (error) {
         console.error('Ask error:', error);
