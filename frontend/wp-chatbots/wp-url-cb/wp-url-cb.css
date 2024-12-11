@@ -191,14 +191,21 @@ button:disabled:hover {
 .message-content pre {
   background-color: #333;
   padding: 10px;
+  margin-top: -15px; 
   border-radius: 5px;
   overflow-x: auto;
+  max-width: 300px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .message-content code {
+  display: block;
   background-color: #333;
-  padding: 2px 4px;
+  padding: 1px 4px;
   border-radius: 3px;
+  overflow-x: auto;
+  width: fit-content;
 }
 
 /* adjusting headings */
@@ -246,6 +253,16 @@ button:disabled:hover {
 .message-content li {
   margin-top: -5px;
   margin-bottom: -2px;
+}
+
+.chat-message a {
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 14px;
+  background-color: #333;
+  padding: 0px 4px;
+  border-radius: 3px;
 }
 
 
