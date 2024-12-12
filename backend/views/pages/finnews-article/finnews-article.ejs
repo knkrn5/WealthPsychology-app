@@ -63,10 +63,6 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    <!-- Custom chatbot -->
-    <script src="/frontend/wp-chatbots/wp-url-cb/wp-url-iframe-cb.js" defer></script>
-
-
     <link rel="icon" href="/assets/branding/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="/frontend/components/footer/footer.css" />
@@ -160,14 +156,14 @@
     </main>
 
     <!-- Custom url chatbot -->
-    <div id="wp-chatbot-container">
-      <img src="/assets/branding/wp-w-cir-logo.webp" alt="chatbot logo" id="wp-url-cb-logo" />
-      <iframe id="wp-url-iframe-cb" src="/frontend/wp-chatbots/wp-url-cb/wp-url-cb.html" title="Chatbot iframe"></iframe>
+    <div id="wp-cb-container">
+      <!-- chatbot fetches here dynamically -->
     </div>
 
     <!-- Include Footer Partial -->
     <%- include('../../components/footer') %>
 
+    <script src="/frontend/wp-chatbots/wp-url-cb/wp-url-iframe-cb.js" defer></script>
     <!-- <script src="/views/pages/finance-news/news-article.js"></script> -->
     <script src="/frontend/finance-news/finnews-nav.js"></script>
     <script src="/backend/views/pages/finnews-article/finnews-article.js"></script>
