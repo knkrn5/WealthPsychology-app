@@ -93,9 +93,6 @@
     </script>
     <!-- End Google Tag Manager -->
 
-    <!-- Custom url chatbot -->
-    <script src="/frontend/wp-chatbots/wp-url-cb/wp-url-iframe-cb.js" defer></script>
-
     <!-- currently we don't need this as now we are not rendering the rich text in this blog page -->
     <!--    <script src="https://unpkg.com/@contentful/rich-text-types@16.2.0/dist/rich-text-types.min.js"></script>
       <script src="https://unpkg.com/@contentful/rich-text-html-renderer@16.1.0/dist/rich-text-html-renderer.min.js"></script>
@@ -195,14 +192,14 @@
     </main>
 
     <!-- Custom url chatbot -->
-    <div id="wp-chatbot-container">
-      <img src="/assets/branding/wp-w-cir-logo.webp" alt="chatbot logo" id="wp-url-cb-logo" />
-      <iframe id="wp-url-iframe-cb" src="/frontend/wp-chatbots/wp-url-cb/wp-url-cb.html" title="Chatbot iframe"></iframe>
+    <div id="wp-cb-container">
+      <!-- chatbot fetches here dynamically -->
     </div>
 
     <!-- footer html via global footer html -->
     <div id="footer"></div>
 
+    <script src="/frontend/wp-chatbots/wp-url-cb/wp-url-iframe-cb.js" defer></script>
     <script src="/frontend/components/footer/footer.js" ></script>
     <script src="blog.js"></script>
     <script src="/frontend/components/navbar/nav.js"></script>
