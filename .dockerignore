@@ -66,3 +66,6 @@ README.md
 **/dist
 LICENSE
 README.md
+
+#Ignore db files
+backend/db/wealthpsychologyData.db
