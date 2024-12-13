@@ -204,8 +204,8 @@ button:disabled:hover {
   background-color: #333;
   padding: 1px 4px;
   border-radius: 3px;
+  width: 200px;
   overflow-x: auto;
-  width: fit-content;
 }
 
 /* adjusting headings */
@@ -331,6 +331,12 @@ button:disabled:hover {
   #questionInput,
   #askBtn {
     width: 100%;
+  }
+}
+
+@media (max-width: 375px) {
+  .message-content code {
+    width: 150px;
   }
 }
 

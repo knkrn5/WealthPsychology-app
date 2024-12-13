@@ -7,25 +7,37 @@ const scrapResponseArea = document.getElementById('scrapResponseArea');
 
 // Consolidated DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', async () => {
-    // Scraping data initialization
-    scrapResponseArea.innerHTML = '<b>Scraping data...</b>';
-    try {
-        const response = await fetch('/wp-url-cb/scraped-data');
-        const data = await response.json();
-        if (data.success) {
-            scrapResponseArea.innerHTML = `
-                <strong>Scraped Text:</strong>
-                <pre style="white-space: pre-wrap;">${data.scrapedText}</pre>
-            `;
-        } else {
-            scrapResponseArea.textContent = 'Failed to fetch scraped data.';
-        }
-    } catch (error) {
-        console.error('Error fetching scraped data:', error);
-        scrapResponseArea.textContent = 'Error fetching scraped data.';
-    }
+    scrapeBtn.addEventListener('click', async () => {
+        try {
+            scrapResponseArea.innerHTML = '<b>Scraping website...</b>';
 
-    // Enable/Disable the ask button based on user input (moved from separate DOMContentLoaded)
+            const response = await fetch('/wp-url-cb/scraped-data', {
+                method: 'GET' // optional, The default HTTP method for fetch() is GET
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error: ${response.status} ${response.statusText}`);
+            }
+
+            const data = await response.json();
+
+            if (data.success) {
+                scrapResponseArea.innerHTML = `
+                    <strong>Scraped Text:</strong>
+                    <pre style="white-space: pre-wrap;">${data.scrapedText}</pre>
+                `;
+                console.log(`Scraped ${data.textLength} characters`);
+            } else {
+                scrapResponseArea.innerHTML = '<b>Failed to scrape website</b>';
+            }
+        } catch (error) {
+            console.error('Scraping error:', error);
+            scrapResponseArea.innerHTML = `<b>Error: ${error.message}</b>`;
+        }
+    });
+    scrapeBtn.click();
+
+    // Enable/Disable the ask button based on user input
     function updateAskButtonState() {
         askBtn.disabled = userInput.value.trim() === "";
     }
@@ -37,7 +49,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 document.querySelectorAll('.suggested-question').forEach((suggestedQuestion) => {
     suggestedQuestion.addEventListener('click', () => {
         userInput.value = suggestedQuestion.textContent;
-
         const inputEvent = new Event("input", { bubbles: true });
         userInput.dispatchEvent(inputEvent);
         askBtn.click();
@@ -59,10 +70,7 @@ userInput.addEventListener('keydown', (event) => {
 function createMessageElement(role, text) {
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('message', `message-${role}`);
-
-    // Use marked to parse Markdown to HTML
     const parsedText = marked.parse(text);
-
     messageDiv.innerHTML = `
         <div class="message-content">
             <span class="message-role">${role === 'user' ? 'You' : 'AI'}:</span>
@@ -81,6 +89,7 @@ responseArea.addEventListener('scroll', () => {
         userScrolling = false;
     }
 });
+
 // Auto-scroll function
 function autoScroll() {
     if (!userScrolling) {
@@ -106,14 +115,13 @@ askBtn.addEventListener('click', async () => {
     userInput.disabled = true;
     askBtn.disabled = true;
 
-    // remove suggested questions 
-    suggestedQuestionBox.remove();
+    // Remove suggested questions
+    if (suggestedQuestionBox) suggestedQuestionBox.remove();
 
     // Add user message to response area
     const questionElement = createMessageElement('user', question);
     responseArea.appendChild(questionElement);
     responseArea.scrollTop = responseArea.scrollHeight;
-
 
     // Create AI response element for streaming
     const responseElement = createMessageElement('ai', 'Generating...');
@@ -146,22 +154,16 @@ askBtn.addEventListener('click', async () => {
 
             // Decode the chunk
             const chunk = decoder.decode(value, { stream: true });
-
-            // Try to parse JSON chunks
             const lines = chunk.split('\n');
             lines.forEach(line => {
                 if (line.startsWith('data: ')) {
-                    // Skip the [DONE] marker instead of trying to parse it
                     if (line.includes('[DONE]')) return;
 
                     try {
                         const jsonData = JSON.parse(line.slice(6));
                         if (jsonData.content) {
                             fullResponse += jsonData.content;
-                            // Parse and update the content dynamically
                             contentDiv.innerHTML = marked.parse(fullResponse);
-
-                            // calling Scroll function
                             autoScroll();
                         }
                     } catch (parseError) {
@@ -190,10 +192,4 @@ askBtn.addEventListener('click', async () => {
             userInput.blur();
         }
     }
-});
-
-// Scrape button event listener
-scrapeBtn.addEventListener('click', async () => {
-    scrapResponseArea.innerHTML = 'Scraping website...';
-    window.location.reload();
 });

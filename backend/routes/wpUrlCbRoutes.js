@@ -4,6 +4,8 @@ import OpenAI from 'openai';
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 import dotenv from 'dotenv';
+import sqlite3 from 'sqlite3';
+import { open } from 'sqlite';
 
 dotenv.config();
 
@@ -25,7 +27,36 @@ const urls = [
   "https://wealthpsychology.in/our-plans/",
 ];
 
-let websiteText = ''; // Store scraped text globally
+let websiteTextData = "";
+
+// Initialize SQLite database
+const initDb = async () => {
+  const wpDataDB = await open({
+    filename: './backend/db/wealthpsychologyData.db',
+    driver: sqlite3.Database,
+  });
+
+  await wpDataDB.exec(`CREATE TABLE IF NOT EXISTS wealthpsychologyData (
+    id INTEGER PRIMARY KEY,
+    website_data TEXT
+  )`);
+
+  return wpDataDB;
+};
+
+const saveToDb = async (db, data) => {
+  const existingData = await db.get('SELECT id FROM wealthpsychologyData');
+  if (existingData) {
+    await db.run('UPDATE wealthpsychologyData SET website_data = ? WHERE id = ?', data, existingData.id);
+  } else {
+    await db.run('INSERT INTO wealthpsychologyData (website_data) VALUES (?)', data);
+  }
+};
+
+const getFromDb = async (db) => {
+  const row = await db.get('SELECT website_data FROM wealthpsychologyData');
+  return row?.website_data || null;
+};
 
 // Function to scrape website text
 const extractAllText = async (urls) => {
@@ -47,7 +78,7 @@ const extractAllText = async (urls) => {
         allData.push(text);
       } catch (urlError) {
         console.error(`Error scraping ${url}:`, urlError.message);
-        allData.push(`Error scraping ${url}: ${urlError.message}`);
+        // allData.push(`Error scraping ${url}: ${urlError.message}`);
       }
     }
     return allData.join('\n\n');
@@ -57,17 +88,40 @@ const extractAllText = async (urls) => {
   }
 };
 
+// Scrape data and handle saving to the database
+const scrapeAndSaveData = async (dbPipeline, urls, maxRetries = 5) => {
+  let websiteTextData = await extractAllText(urls);
+  let retries = 0;
+
+  while ((!websiteTextData || websiteTextData.trim().length === 0) && retries < maxRetries) {
+    console.log('No data scraped, retrying...');
+    retries++;
+    websiteTextData = await extractAllText(urls);
+  }
+
+  if (websiteTextData && websiteTextData.trim().length > 0) {
+    await saveToDb(dbPipeline, websiteTextData);
+    return websiteTextData;
+  } else {
+    console.log('No data scraped after maximum retries, skipping database update.');
+  }
+
+  return null;
+};
+
 // Route to scrape text
 router.get('/scraped-data', async (req, res) => {
   console.log('Scraping website...');
-  websiteText = await extractAllText(urls);
 
-  if (websiteText) {
+  const dbPipeline = await initDb();
+  websiteTextData = await scrapeAndSaveData(dbPipeline, urls);
+
+  if (websiteTextData && websiteTextData.trim().length > 0) {
     res.json({
       success: true,
       message: 'Website scraped successfully',
-      textLength: websiteText.length,
-      scrapedText: websiteText,
+      textLength: websiteTextData.length,
+      scrapedText: websiteTextData,
     });
   } else {
     res.status(500).json({
@@ -77,39 +131,39 @@ router.get('/scraped-data', async (req, res) => {
   }
 });
 
-// Change to GET route for streaming
+// Route for streaming AI response
 router.post('/wp-ask', async (req, res) => {
   const { question } = req.body;
   console.log('Received question:', question);
 
-  // Check if question is provided
   if (!question) {
-    res.status(400).end();
+    res.status(400).json({ error: "No question provided" });
     return;
   }
 
-  // Check if websiteText is empty and call the scraping function if needed
-  if (!websiteText) {
-    console.log('websiteText is empty, scraping website...');
-    websiteText = await extractAllText(urls);
-    if (!websiteText) {
-      // If scraping fails, return an error
-      res.status(400).write(`data: ${JSON.stringify({ error: 'Failed to scrape website' })}\n\n`);
-      res.end();
-      return;
-    } else {
-      console.log('Scraped website successfully');
-      console.log(websiteText.length);
+  const dbPipeline = await initDb();
+
+  if (!websiteTextData) {
+    console.log('websiteTextData is empty, retrieving from database...');
+    websiteTextData = await getFromDb(dbPipeline);
+
+    if (!websiteTextData) {
+      console.log('No data found in the database. Scraping website...');
+      websiteTextData = await scrapeAndSaveData(dbPipeline, urls);
+
+      if (!websiteTextData) {
+        res.status(400).json({ error: 'Failed to scrape website' });
+        return;
+      }
     }
   }
 
-  // Set headers for streaming
   res.setHeader('Content-Type', 'text/event-stream');
   res.setHeader('Cache-Control', 'no-cache');
-  res.setHeader('Connection', 'keep-open');
+  res.setHeader('Connection', 'keep-alive');
 
   try {
-    const shortenedText = websiteText.slice(0, 5000); // Limit to 5000 characters
+    const shortenedText = websiteTextData.slice(0, 5000);
     const stream = await client.chat.completions.create({
       model: "nvidia/llama-3.1-nemotron-70b-instruct",
       messages: [
@@ -132,11 +186,9 @@ router.post('/wp-ask', async (req, res) => {
     }
     res.write('data: [DONE]\n\n');
     res.end();
-
   } catch (error) {
     console.error('Error during AI API call:', error);
-    res.status(500).write(`data: ${JSON.stringify({ error: 'An error occurred processing your request' })}\n\n`);
-    res.end();
+    res.status(500).json({ error: 'An error occurred while processing your request' });
   }
 });
 

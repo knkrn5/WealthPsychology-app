@@ -4,3 +4,5 @@ node_modules/
 # Ignore the .env file
 .env
 
+#Ignore db files
+backend/db/wealthpsychologyData.db
