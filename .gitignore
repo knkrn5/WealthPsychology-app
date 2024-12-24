@@ -6,3 +6,5 @@ node_modules/
 
 #Ignore db files
 backend/db/wealthpsychologyData.db
+
+#Ignore docs
