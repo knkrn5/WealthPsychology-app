@@ -19,11 +19,7 @@ docker-compose logs nginx
 
 docker rmi wealthpsychology-app-server:latest
 
-### how to make tag Deploying your application to the docker hub cloud
-
-docker tag <local_image_name> <docker_hub_username>/<repository_name>:<tag>
-
-### How to overwrite the tag
+### How to overwrite or deploy the tag in docker hub
 
 # first update docker desktop tag
 
