@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const blogLeftContainer = document.getElementById('blog-left-container');
     const categoryList = document.getElementById('category-list');
     const skeletonContainer = document.querySelector('.skeleton-container');
-    const seachContainer = document.querySelector('.search_container');
+    const seachContainer = document.querySelector('.search-container');
 
     const categoryMapping = {
         'company-analysis': ['company analysis'],
@@ -34,6 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(blogPosts => {
             console.log(`Found ${blogPosts.length} post(s)`);
             displayBlogPosts(blogPosts);
+            searchPosts(blogPosts)
+
         })
         .catch(error => {
             console.error('Error fetching or processing entries:', error);
@@ -191,24 +193,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-   /*  categoryList.querySelectorAll('li').forEach(li => {
-        li.addEventListener('click', (e) => {
-            e.preventDefault();
-            const blogCategories = li.getAttribute('blog-category');
-            console.log(blogCategories);
-            displayPostsByCategory(blogCategories);
+
+    function searchPosts(blogPosts) {
+        const searchInput = document.querySelector('.search-container .inputBox');
+        searchInput.addEventListener('input', (e) => {
+            const searchValue = e.target.value.toLowerCase();
+            const filteredPosts = blogPosts.filter(post => {
+                const blogCategories = Array.isArray(post.fields.category) ? post.fields.category : [post.fields.category];
+                return (post.fields.title.toLowerCase().includes(searchValue) || blogCategories.some(category => category.toLowerCase().includes(searchValue)));
+            });
+            displayBlogPosts(filteredPosts);
+
         });
-    }); */
+    }
+
+
+    /*  categoryList.querySelectorAll('li').forEach(li => {
+         li.addEventListener('click', (e) => {
+             e.preventDefault();
+             const blogCategories = li.getAttribute('blog-category');
+             console.log(blogCategories);
+             displayPostsByCategory(blogCategories);
+         });
+     }); */
 
     categoryList.addEventListener('click', (e) => {
-        if (e.target.tagName === 'LI') { 
+        if (e.target.tagName === 'LI') {
             e.stopPropagation();
             e.preventDefault();
             const blogCategories = e.target.getAttribute('blog-category');
             displayPostsByCategory(blogCategories);
         }
     });
-    
+
 
     window.addEventListener('popstate', () => {
         const urlParams = new URLSearchParams(window.location.search);
