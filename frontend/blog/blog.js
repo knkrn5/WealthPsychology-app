@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const blogLeftContainer = document.getElementById('blog-left-container');
     const categoryList = document.getElementById('category-list');
     const skeletonContainer = document.querySelector('.skeleton-container');
+    
 
 
 
