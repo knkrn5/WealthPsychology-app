@@ -203,7 +203,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 return (post.fields.title.toLowerCase().includes(searchValue) || blogCategories.some(category => category.toLowerCase().includes(searchValue)));
             });
             displayBlogPosts(filteredPosts);
-
+            const searchPostCount = document.querySelector('.searchPostCount');
+            searchPostCount.textContent = `(${filteredPosts.length})`;
         });
     }
 
