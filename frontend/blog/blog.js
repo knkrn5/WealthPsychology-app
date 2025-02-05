@@ -2,9 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const blogLeftContainer = document.getElementById('blog-left-container');
     const categoryList = document.getElementById('category-list');
     const skeletonContainer = document.querySelector('.skeleton-container');
-    
-
-
+    const seachContainer = document.querySelector('.search_container');
 
     const categoryMapping = {
         'company-analysis': ['company analysis'],
@@ -81,7 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function createPostExcerpt(post) {
-        console.log('Creating excerpt for post:', post);
 
         if (!post || !post.fields) {
             console.error('Invalid post structure:', post);
@@ -194,13 +191,24 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    categoryList.querySelectorAll('li').forEach(li => {
+   /*  categoryList.querySelectorAll('li').forEach(li => {
         li.addEventListener('click', (e) => {
             e.preventDefault();
             const blogCategories = li.getAttribute('blog-category');
+            console.log(blogCategories);
             displayPostsByCategory(blogCategories);
         });
+    }); */
+
+    categoryList.addEventListener('click', (e) => {
+        if (e.target.tagName === 'LI') { 
+            e.stopPropagation();
+            e.preventDefault();
+            const blogCategories = e.target.getAttribute('blog-category');
+            displayPostsByCategory(blogCategories);
+        }
     });
+    
 
     window.addEventListener('popstate', () => {
         const urlParams = new URLSearchParams(window.location.search);
