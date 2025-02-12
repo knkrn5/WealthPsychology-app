@@ -2,7 +2,7 @@ import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import CircularJSON from 'circular-json';
-import { fetchContentBySlug, client } from '../utils/contentfulUtils.js';
+import { fetchContentBySlug, client } from '../utils/contentful.utils.js';
 
 
 const __filename = fileURLToPath(import.meta.url);

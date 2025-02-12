@@ -3,12 +3,12 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import pagesRoutes from './backend/routes/pagesRoutes.js';
-import servicesRoutes from './backend/routes/servicesRoutes.js';
-import blogRoutes from './backend/routes/blogRoutes.js';
-import newsRoutes from './backend/routes/finnewsRoutes.js';
-import wealthSensedbRoutes from './backend/routes/wealthSensedbRoutes.js';
-import wpUrlCbRoutes from './backend/routes/wpUrlCbRoutes.js'
+import pagesRoutes from './backend/routes/pages.routes.js';
+import servicesRoutes from './backend/routes/services.routes.js';
+import blogRoutes from './backend/routes/blog.routes.js';
+import newsRoutes from './backend/routes/finnews.routes.js';
+import wealthSensedbRoutes from './backend/routes/wealthSensedb.routes.js';
+import wpUrlCbRoutes from './backend/routes/wpUrlCb.routes.js'
 
 
 dotenv.config();
