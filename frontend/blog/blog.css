@@ -51,9 +51,13 @@ header h1 {
   padding: 10px;
   margin-bottom: 10px;
   height: fit-content;
-  background-color: #5c6370;
+  background-color: #ddd;
   border-radius: 0.8em;
   overflow: hidden;
+}
+
+body.dark-mode .search-container {
+  background-color: #5c6370;
 }
 
 .search_icon {
@@ -72,8 +76,16 @@ header h1 {
   font-size: 1em;
 }
 
-::placeholder {
+.search-container::placeholder {
   color: #abb2bf;
+}
+
+::placeholder {
+  color: #000;
+}
+
+body.dark-mode ::placeholder {
+  color: #fff;
 }
 
 .blog-container {
