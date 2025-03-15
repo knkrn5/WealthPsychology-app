@@ -39,6 +39,9 @@ if (!recentPost || !relatedPost) {
             const currentPostCategories = Array.isArray(currentPost.fields.category)
                 ? currentPost.fields.category.map(cat => cat.toLowerCase())
                 : [currentPost.fields.category.toLowerCase()];
+            //formatting via ''
+            const formattedcurrentPostCategories = currentPostCategories[0].split(',').map(cat => cat.trim());
+
 
 
             const relatedPosts = data.filter(post => {
@@ -48,14 +51,16 @@ if (!recentPost || !relatedPost) {
                 }
 
                 // Get post categories 
-                let postCategories = Array.isArray(post.fields.category)
+                const postCategories = Array.isArray(post.fields.category)
                     ? post.fields.category.map(cat => cat.toLowerCase())
                     : [post.fields.category.toLowerCase()];
 
+                const formattedPostCategories = postCategories[0].split(',').map(cat => cat.trim());
+
 
                 // Check if at least one category matches
-                return currentPostCategories.some(currentCat =>
-                    postCategories.some(postCat => postCat.includes(currentCat))
+                return formattedcurrentPostCategories.some(currentCat =>
+                    formattedPostCategories.some(postCat => postCat.includes(currentCat))
                 );
             });
 
