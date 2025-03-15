@@ -1,6 +1,7 @@
 const recentPost = document.querySelector('.recent-posts-wrapper');
 const relatedPost = document.querySelector('.related-posts-wrapper');
 
+
 // Ensure containers exist before appending
 if (!recentPost || !relatedPost) {
     console.error("Post containers not found!");
@@ -25,19 +26,48 @@ if (!recentPost || !relatedPost) {
             });
 
 
-            const filteredPosts = data.filter(post => {
-                console.log(post)
-                let postCategories = Array.isArray(post.fields.category) ? post.fields.category : [post.fields.category];
-                // return postCategories.some(category => category.toLowerCase() === postCategory.toLowerCase());
-                return postCategories.some(category => category.toLowerCase() === 'technical analysis');
+            // Gettng current URL slug
+            const urlSlug = window.location.href.toString().split('/').pop();
+            const currentPost = data.find(post => post.fields.slug === urlSlug);
+
+            if (!currentPost) {
+                console.error("No post found for the current URL slug.");
+                return;
+            }
+
+            // current post categories 
+            const currentPostCategories = Array.isArray(currentPost.fields.category)
+                ? currentPost.fields.category.map(cat => cat.toLowerCase())
+                : [currentPost.fields.category.toLowerCase()];
+
+
+            const relatedPosts = data.filter(post => {
+                // Skip the current post
+                if (post.fields.slug === urlSlug) {
+                    return false;
+                }
+
+                // Get post categories 
+                let postCategories = Array.isArray(post.fields.category)
+                    ? post.fields.category.map(cat => cat.toLowerCase())
+                    : [post.fields.category.toLowerCase()];
+
+
+                // Check if at least one category matches
+                return currentPostCategories.some(currentCat =>
+                    postCategories.some(postCat => postCat.includes(currentCat))
+                );
             });
 
-            relatedSkeletonContainer.remove();
 
-            if (filteredPosts.length === 0) {
-                relatedPost.innerHTML = "<p>No post Found</p>";
+            // Clear the related posts container before adding content
+            relatedPost.innerHTML = '';
+
+            if (relatedPosts.length === 0) {
+                relatedPost.innerHTML = "<p>No related posts found</p>";
             } else {
-                filteredPosts.slice(0, 5).forEach(post => {
+                // Limit to 5 related posts
+                relatedPosts.slice(0, 5).forEach(post => {
                     const RelatedPostSideBar = createSideNewsDiv(post);
                     relatedPost.appendChild(RelatedPostSideBar);
 

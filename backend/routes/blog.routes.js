@@ -55,6 +55,9 @@ router.get('/post/:slug', async (req, res) => {
       });
     }
 
+
+    // console.log('xyxcategory',post.fields.category);  
+
     // Safely get the image URL with a fallback to a default image
     const imageUrl = post.fields && post.fields.featuredImage && post.fields.featuredImage.fields && post.fields.featuredImage.fields.file
       ? post.fields.featuredImage.fields.file.url
