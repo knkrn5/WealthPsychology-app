@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import CircularJSON from 'circular-json';
 import { fetchContentBySlug, client } from '../utils/contentful.utils.js';
+import { error } from 'console';
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -46,7 +47,11 @@ router.get('/post/:slug', async (req, res) => {
     if (!post) {
       return res.status(404).render('error', {
         message: 'Post not found',
-        error: { status: 404, stack: '' }
+        error: {
+          status: 404,
+          message: error.message,
+          stack: error.stack
+        }
       });
     }
 
@@ -57,7 +62,8 @@ router.get('/post/:slug', async (req, res) => {
 
     // Determine the protocol and construct the full URL for the blog post
     const protocol = req.headers['x-forwarded-proto'] || req.protocol;
-    const fullUrl = `${protocol}://${req.get('host')}${req.originalUrl}`;
+    const safeProtocol = protocol === 'http' ? 'https' : protocol;
+    const fullUrl = `${safeProtocol}://${req.get('host')}${req.originalUrl}`;
 
     // Render the post.ejs template with the full post content
     res.render('pages/blog-post/blog-post', {
@@ -66,7 +72,7 @@ router.get('/post/:slug', async (req, res) => {
       metaDescription: post.fields.excerpt || '',
       metaKeywords: post.fields.tags || ['finance', 'trading', 'investing', 'wealthpsychology', 'blog'],
       imageUrl: imageUrl,
-      blogUrl: fullUrl.replace(/^http:/, 'https:'), // Replace http with https
+      blogUrl: fullUrl,
       renderPostRichTextHtml: post.fields.renderPostRichTextHtml || '' // Ensure rendered HTML is available
     });
   } catch (error) {
