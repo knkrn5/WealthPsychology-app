@@ -133,9 +133,8 @@
           <li><a href="/finance-quizzes/">Finance Quizzes</a></li>
         </ul>
 
-        <div id="bookmark-icon-container" onclick="toggleBookmark()">
-          <div id="bookmark-icon"><i class="fa-regular fa-bookmark"></i></div>
-          <span id="total-bookmark">0</span>
+        <div id="auth-content">
+          <!-- dynamic auth content -->
         </div>
 
         <!-- dark mode container -->
@@ -143,6 +142,11 @@
           <button type="button" id="dark-mode-button" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
             <i class="fa-solid fa-sun"></i>
           </button>
+        </div>
+
+        <div id="bookmark-icon-container" onclick="toggleBookmark()">
+          <div id="bookmark-icon"><i class="fa-regular fa-bookmark"></i></div>
+          <span id="total-bookmark">0</span>
         </div>
       </nav>
 
@@ -329,7 +333,7 @@
     <div id="footer"></div>
 
     <script src="/frontend/wp-chatbots/wp-url-cb/wp-url-iframe-cb.js" defer></script>
-    <script src="/frontend/components/footer/footer.js" ></script>
+    <script src="/frontend/components/footer/footer.js"></script>
     <script src="/frontend/home/home.js"></script>
     <script src="/frontend/components/bookmark/bookmark.js"></script>
     <script src="/frontend/components/navbar/nav.js"></script>

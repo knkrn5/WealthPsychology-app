@@ -16,3 +16,38 @@ document.addEventListener('click', dismissPrompt);
 document.getElementById('newFeature')?.addEventListener('click', (event) => {
   event.stopPropagation(); // Prevents click events from bubbling up to the document
 });
+
+
+fetch('../../auth/auth.html')
+  .then(res => res.text())
+  .then(data => {
+
+    const DomParser = new DOMParser();
+    const parsedHtml = DomParser.parseFromString(data, 'text/html');
+
+    //dynamic css
+      const dynamicAuthLink = document.createElement('link');
+      dynamicAuthLink.rel = 'stylesheet';
+      dynamicAuthLink.href = '../../auth/auth.css';
+      dynamicAuthLink.type = 'text/css';
+      dynamicAuthLink.className = 'dynamic-css';
+      document.head.appendChild(dynamicAuthLink);
+
+      //dynamic js
+      const dynamicAuthScript = document.createElement('script');
+      dynamicAuthScript.src = '../../auth/auth.js';
+      dynamicAuthScript.type = 'module';
+      dynamicAuthScript.className = 'dynamic-js';
+        document.head.appendChild(dynamicAuthScript);
+    
+
+    const authContent = parsedHtml.getElementById('auth');
+    console.log(authContent);
+
+    if (authContent) {
+      document.getElementById('auth-content').innerHTML = authContent.innerHTML;
+    } else {
+      console.log('authContent not found');
+
+    }
+  });
