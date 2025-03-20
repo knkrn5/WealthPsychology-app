@@ -1,34 +1,67 @@
-.auth-button {
-  background: linear-gradient(135deg, #007bff, #0056b3);
+#auth-buttons {
   top: 15px;
   right: 120px;
   border: none;
   cursor: pointer;
+  position: absolute;
+  z-index: 1000;
+}
+
+.login-button {
   color: #fff;
   font-size: 16px;
   font-weight: bold;
   border-radius: 25px;
   padding: 10px 18px;
-  position: absolute;
-  transition: all 0.3s ease-in-out;
-  z-index: 1000;
+  background: linear-gradient(135deg, #007bff, #0056b3);
   box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
   outline: none;
+  /* display: none; */
 }
 
-.auth-button:hover {
+.login-button:hover {
   background: linear-gradient(135deg, #0056b3, #003d80);
   box-shadow: 0 6px 15px rgba(0, 123, 250, 0.3);
 }
 
-.auth-button:active {
-  transform: scale(0.95);
-  box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
-}
 
 @media screen and (max-width: 768px) {
-  .auth-button {
+  #auth-buttons {
     top: 6px;
     right: 160px;
   }
+}
+
+.account-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
+    display: none;
+  }
+
+.user-account {
+  position: absolute;
+  width: 150px;
+  top: 60px;
+  right: 20px;
+  background-color: red;
+  padding: 10px;
+  border-radius: 10px;
+  display: none;
+}
+
+
+.active {
+  display: block;
+}
+.hide{
+    display: none;
 }

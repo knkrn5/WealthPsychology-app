@@ -41,7 +41,7 @@ fetch('../../auth/auth.html')
         document.head.appendChild(dynamicAuthScript);
     
 
-    const authContent = parsedHtml.getElementById('auth');
+    const authContent = parsedHtml.getElementById('auth-main-content');
     console.log(authContent);
 
     if (authContent) {

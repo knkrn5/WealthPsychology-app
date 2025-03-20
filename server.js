@@ -10,6 +10,9 @@ import newsRoutes from './backend/routes/finnews.routes.js';
 import wealthSensedbRoutes from './backend/routes/wealthSensedb.routes.js';
 import wpUrlCbRoutes from './backend/routes/wpUrlCb.routes.js'
 
+import pkg from 'express-openid-connect';
+const { auth, requiresAuth } = pkg;
+
 
 dotenv.config();
 
@@ -29,13 +32,62 @@ app.use((req, res, next) => {
   next();
 });
 
-/* app.use(express.json({ limit: "16kb" }));
-app.use(express.urlencoded({ limit: "16kb", extended: true }));
-app.use(express.static("public"));
-app.use(cookieParser()); */
-
 // Middleware to parse JSON request bodies
 app.use(express.json());
+
+
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: process.env.AUTH0_SECRET,
+  baseURL: 'http://localhost:55555',
+  clientID: process.env.AUTH0_CLIENT_ID,
+  issuerBaseURL: 'https://dev-ze43n30i2zjn5fuz.us.auth0.com',
+
+  routes: {
+    login: false, 
+    logout: false  
+  },
+
+  afterCallback: (req, res, session, state) => {
+    session.returnTo = state.returnTo || '/user-profile'; // Redirect user after login
+    return session;
+  }
+};
+
+
+// auth router attaches /login, /logout, and /callback routes to the baseURL
+app.use(auth(config));
+
+// Custom login route
+app.get('/login', (req, res) => {
+  res.oidc.login({
+    returnTo: '/'
+  });
+});
+
+// Custom logout route
+app.get('/logout', (req, res) => {
+  res.oidc.logout({
+    returnTo: '/' 
+  });
+});
+
+// Auth status endpoint - separate from the login redirect
+app.get('/auth-status', (req, res) => {
+  res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+});
+
+
+// Protected profile route
+app.get('/profile', requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
+});
+
+// A route to get profile data for the frontend
+app.get('/user-data', requiresAuth(), (req, res) => {
+  res.json(req.oidc.user);
+});
 
 // Set EJS as the view engine
 app.set('view engine', 'ejs');

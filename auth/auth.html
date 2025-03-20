@@ -10,8 +10,20 @@
     <title>Document</title>
   </head>
   <body>
-    <main id="auth">
-      <button class="auth-button">Login</button>
+    <main id="auth-main-content">
+      <div id="auth-buttons">
+        <button class="login-button">Login</button>
+
+        <div class="account-icon">
+          <p class="account-icon-letter">k</p>
+        </div>
+      </div>
+
+      <div class="user-account">
+        <p>Account</p>
+        <p>Settings</p>
+        <button class="logout-button" onclick="window.location.href='/logout'">Logout</button>
+      </div>
     </main>
 
     <script src="auth.js" type="module"></script>
