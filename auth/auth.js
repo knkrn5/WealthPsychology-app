@@ -1,6 +1,14 @@
 const loginButton = document.querySelector('.login-button');
-const userAccount = document.querySelector('.user-account');
+
 const accountIcon = document.querySelector('.account-icon');
+const accountIconImg = document.querySelector('.account-icon .account-icon-image');
+
+const profileCard = document.querySelector('.profile-card');
+const profileImg = document.querySelector('.profile-img');
+const profileName = document.querySelector('.profile-name');
+const profileEmail = document.querySelector('.profile-email');
+
+const logoutButton = document.querySelector('.logout-button');
 
 loginButton.addEventListener('click', () => {
   console.log("clicked login");
@@ -18,14 +26,17 @@ function authStatusCheck() {
         accountIcon.classList.add('active');
         loginButton.classList.add('hide');
         accountIcon.addEventListener('click', () => {
-          userAccount.classList.toggle('active');
+          profileCard.classList.toggle('active');
         });
-        fetch('/profile')
-          .then(res => res.text())
+        fetch('/user-data')
+          .then(res => res.json())
           .then(data => {
             console.log(data);
-          })
-        return true;
+            profileName.textContent = data.name;
+            accountIconImg.src = `https://ui-avatars.com/api/?name=${data.name}`;
+            profileImg.src = `https://ui-avatars.com/api/?name=${data.name}`;
+            profileEmail.textContent = data.email;
+          });
       } else {
         accountIcon.classList.remove('active');
         loginButton.classList.remove('hide');
@@ -33,9 +44,15 @@ function authStatusCheck() {
 
     }).catch((err) => {
       console.log(err);
-      return false;
     })
 }
+
+logoutButton.addEventListener('click', () => {
+  const logout = confirm('Are you sure you want to logout?');
+  if (logout) {
+    window.location.href = '/logout';
+  }
+});
 
 
 
