@@ -25,19 +25,20 @@ function authStatusCheck() {
           .then(data => {
             console.log(data);
           })
+        return true;
       } else {
         accountIcon.classList.remove('active');
         loginButton.classList.remove('hide');
       }
+
     }).catch((err) => {
       console.log(err);
+      return false;
     })
-  return true;
 }
 
 
 
 const fnTest = authStatusCheck();
 console.log("fnTest: ", fnTest);
-
 
