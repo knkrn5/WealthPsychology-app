@@ -8,3 +8,4 @@ node_modules/
 backend/db/wealthpsychologyData.db
 
 #Ignore docs
+tests/
