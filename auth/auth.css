@@ -1,10 +1,10 @@
 /* #auth-buttons { */
-  /* position: absolute; */
-  /* top: 15px;
+/* position: absolute; */
+/* top: 15px;
   right: 25px; */
-  /* border: none; */
-  /* cursor: pointer; */
-  /* z-index: 1000; */
+/* border: none; */
+/* cursor: pointer; */
+/* z-index: 1000; */
 /* } */
 
 #auth-buttons {
@@ -29,7 +29,6 @@
   background: linear-gradient(135deg, #0056b3, #003d80);
   box-shadow: 0 6px 15px rgba(0, 123, 250, 0.3);
 }
-
 
 .account-icon {
   width: 35px;
@@ -70,7 +69,7 @@
 /* Profile Card Styling */
 .profile-card {
   position: absolute;
-  top: 100%; 
+  top: 100%;
   right: 0;
   width: 200px;
   margin-top: 7px;
@@ -88,10 +87,9 @@
   display: none;
 }
 
-
-
 .profile-card:hover {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+  transform: scale(1.02);
 }
 
 .profile-card::before {
@@ -167,7 +165,7 @@
 /* Responsive adjustments */
 @media (max-width: 480px) {
   .profile-card {
-   margin-top: 7px; 
+    margin-top: 7px;
   }
 }
 
