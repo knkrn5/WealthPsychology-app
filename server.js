@@ -40,8 +40,9 @@ const config = {
   authRequired: false,
   auth0Logout: true,
   secret: process.env.AUTH0_SECRET,
-  // baseURL: 'http://localhost:55555',
-  baseURL: 'https://wealthpsychology.in',
+  baseURL: process.env.NODE_ENV === 'PRODUCTION'
+  ? 'https://wealthpsychology.in' 
+  : 'http://localhost:55555',
   clientID: process.env.AUTH0_CLIENT_ID,
   issuerBaseURL: 'https://dev-ze43n30i2zjn5fuz.us.auth0.com',
 
