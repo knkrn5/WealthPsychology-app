@@ -50,7 +50,7 @@ const config = {
   },
 
   afterCallback: (req, res, session, state) => {
-    session.returnTo = state.returnTo || '/user-profile'; // Redirect user after login
+    session.returnTo = state.returnTo || '/'; 
     return session;
   }
 };
