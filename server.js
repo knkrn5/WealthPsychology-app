@@ -64,7 +64,8 @@ app.use(auth(config));
 // Custom login route
 app.get('/login', (req, res) => {
   res.oidc.login({
-    returnTo: '/'
+    returnTo: '/',
+    state: crypto.randomBytes(16).toString('hex')
   });
 });
 
