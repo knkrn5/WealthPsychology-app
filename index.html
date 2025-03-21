@@ -133,20 +133,22 @@
           <li><a href="/finance-quizzes/">Finance Quizzes</a></li>
         </ul>
 
-        <div id="auth-content">
-          <!-- dynamic auth content -->
-        </div>
+        <div class="dark-bookmark-auth-container">
+          <!-- dark mode container -->
+          <div id="dark-mode-toggle-container">
+            <button type="button" id="dark-mode-button" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
+              <i class="fa-solid fa-sun"></i>
+            </button>
+          </div>
 
-        <!-- dark mode container -->
-        <div id="dark-mode-toggle-container">
-          <button type="button" id="dark-mode-button" onclick="toggleDarkMode()" aria-label="Toggle dark mode">
-            <i class="fa-solid fa-sun"></i>
-          </button>
-        </div>
+          <div id="bookmark-icon-container" onclick="toggleBookmark()">
+            <div id="bookmark-icon"><i class="fa-regular fa-bookmark"></i></div>
+            <span id="total-bookmark">0</span>
+          </div>
 
-        <div id="bookmark-icon-container" onclick="toggleBookmark()">
-          <div id="bookmark-icon"><i class="fa-regular fa-bookmark"></i></div>
-          <span id="total-bookmark">0</span>
+          <div id="auth-content">
+            <!-- dynamic auth content -->
+          </div>
         </div>
       </nav>
 

@@ -1,10 +1,16 @@
+/* #auth-buttons { */
+  /* position: absolute; */
+  /* top: 15px;
+  right: 25px; */
+  /* border: none; */
+  /* cursor: pointer; */
+  /* z-index: 1000; */
+/* } */
+
 #auth-buttons {
-  top: 15px;
-  right: 120px;
+  position: relative;
   border: none;
   cursor: pointer;
-  position: absolute;
-  z-index: 1000;
 }
 
 .login-button {
@@ -24,12 +30,6 @@
   box-shadow: 0 6px 15px rgba(0, 123, 250, 0.3);
 }
 
-@media screen and (max-width: 768px) {
-  #auth-buttons {
-    top: 6px;
-    right: 160px;
-  }
-}
 
 .account-icon {
   width: 35px;
@@ -70,9 +70,10 @@
 /* Profile Card Styling */
 .profile-card {
   position: absolute;
-  top: 60px;
-  right: 20px;
+  top: 100%; 
+  right: 0;
   width: 200px;
+  margin-top: 7px;
   background: #222;
   border-radius: 12px;
   padding: 30px 20px;
@@ -86,6 +87,8 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   display: none;
 }
+
+
 
 .profile-card:hover {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
@@ -164,8 +167,7 @@
 /* Responsive adjustments */
 @media (max-width: 480px) {
   .profile-card {
-    width: 90%;
-    max-width: 280px;
+   margin-top: 7px; 
   }
 }
 

@@ -41,6 +41,33 @@ header {
 
 /*css moving animations and styling */
 
+/* dark-bookmark-auth-container css */
+/* .dark-bookmark-auth-container {
+  position: absolute;
+  display: flex;
+  gap: 10px;
+  top: 15px;
+  right: 25px;
+} */
+
+.dark-bookmark-auth-container {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px; 
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .dark-bookmark-auth-container {
+    top: 7px;
+    right: 60px;
+  }
+}
+
 .wrapper {
   /* z-index: 1000; */
   background-color: #ccc;
@@ -346,7 +373,7 @@ header {
 }
 
 body.dark-mode .home-page {
-  background: #444
+  background: #444;
 }
 
 .central-line {
@@ -426,13 +453,12 @@ body.dark-mode .content::before {
   width: 90%;
   position: relative;
   border-radius: 20px;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), 
-      -4px -4px 8px rgba(255, 255, 255, 0.5);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 body.dark-mode .content {
-  box-shadow: 6px 6px 12px #111111, -6px -6px 120px #777;  /* offset-x offset-y blur-radius color */
+  box-shadow: 6px 6px 12px #111111, -6px -6px 120px #777; /* offset-x offset-y blur-radius color */
 }
 
 .content1 {

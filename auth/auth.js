@@ -11,10 +11,17 @@ const profileEmail = document.querySelector('.profile-email');
 const logoutButton = document.querySelector('.logout-button');
 
 loginButton.addEventListener('click', () => {
-  console.log("clicked login");
-  // userAccount.classList.toggle('active');
+  loginButton.innerHTML = '<span class="spinner"></span> Logging in...';
+  loginButton.disabled = true;
   window.location.href = '/login';
+});
 
+
+logoutButton.addEventListener('click', () => {
+  const logout = confirm('Are you sure you want to logout?');
+  if (logout) {
+    window.location.href = '/logout';
+  }
 });
 
 function authStatusCheck() {
@@ -33,7 +40,7 @@ function authStatusCheck() {
           .then(data => {
             console.log(data);
             profileName.textContent = data.name;
-            accountIconImg.src = `https://ui-avatars.com/api/?name=${data.name}`;
+            accountIconImg.src = data.picture;
             profileImg.src = `https://ui-avatars.com/api/?name=${data.name}`;
             profileEmail.textContent = data.email;
           });
@@ -44,18 +51,12 @@ function authStatusCheck() {
 
     }).catch((err) => {
       console.log(err);
-    })
+    }).finally(() => {
+     console.log("change loading state"); 
+    });
 }
 
-logoutButton.addEventListener('click', () => {
-  const logout = confirm('Are you sure you want to logout?');
-  if (logout) {
-    window.location.href = '/logout';
-  }
-});
 
 
-
-const fnTest = authStatusCheck();
-console.log("fnTest: ", fnTest);
+authStatusCheck();
 
