@@ -24,6 +24,30 @@ logoutButton.addEventListener('click', () => {
   }
 });
 
+function outsideClick(e) {
+  if (profileCard.classList.contains('active')) {
+    if (!accountIcon.contains(e.target) && !profileCard.contains(e.target)) {
+      profileCard.classList.remove('active');
+    }
+  }
+}
+document.addEventListener('click', outsideClick);
+
+// other way to close when clicked outside using closest
+/* function outsideClick(e) {
+  if (
+    profileCard.classList.contains('active') &&
+    !e.target.closest('.account-icon') &&  
+    !e.target.closest('.profile-card')     
+  ) {
+    profileCard.classList.remove('active');
+  }
+} */
+
+document.addEventListener('click', outsideClick);
+
+
+
 function authStatusCheck() {
   fetch('/auth-status')
     .then(res => res.text())
@@ -52,11 +76,9 @@ function authStatusCheck() {
     }).catch((err) => {
       console.log(err);
     }).finally(() => {
-     console.log("change loading state"); 
+      console.log("change loading state");
     });
 }
-
-
 
 authStatusCheck();
 
