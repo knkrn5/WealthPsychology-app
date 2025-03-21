@@ -132,3 +132,7 @@
   color: #1a202c;
 }
 
+/* //====================================== */
+baseURL: process.env.NODE_ENV === 'PRODUCTION'
+? 'https://wealthpsychology.in'
+: 'http://localhost:55555',
