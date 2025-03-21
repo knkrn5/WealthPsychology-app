@@ -41,38 +41,41 @@ const config = {
   auth0Logout: true,
   secret: process.env.AUTH0_SECRET,
   baseURL: process.env.NODE_ENV === 'PRODUCTION'
-  ? 'https://wealthpsychology.in' 
-  : 'http://localhost:55555',
+    ? 'https://wealthpsychology.in'
+    : 'http://localhost:55555',
   clientID: process.env.AUTH0_CLIENT_ID,
   issuerBaseURL: 'https://dev-ze43n30i2zjn5fuz.us.auth0.com',
 
   routes: {
-    login: false, 
-    logout: false  
+    login: false,
+    logout: false
   },
 
   afterCallback: (req, res, session, state) => {
-    session.returnTo = state.returnTo || '/'; 
+    session.returnTo = state.returnTo || '/';
     return session;
   }
 };
 
-
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
+
+const array = new Uint8Array(16);
+globalThis.crypto.getRandomValues(array);
+const uniqueState = Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
 
 // Custom login route
 app.get('/login', (req, res) => {
   res.oidc.login({
     returnTo: '/',
-    state: crypto.randomBytes(16).toString('hex')
+    state: uniqueState
   });
 });
 
 // Custom logout route
 app.get('/logout', (req, res) => {
   res.oidc.logout({
-    returnTo: '/' 
+    returnTo: '/'
   });
 });
 
