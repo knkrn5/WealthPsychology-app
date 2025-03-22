@@ -1,14 +1,14 @@
 
 // Array to store cart Contents
 let bookmarkItems = JSON.parse(localStorage.getItem('bookmarks')) || [];
-let buttonStates = JSON.parse(localStorage.getItem('readLaterStates')) || {};
+// let buttonStates = JSON.parse(localStorage.getItem('readLaterStates')) || {};
 
 // Function to toggle bookmark cart visibility
 // Toggle the visibility of #bookmark-container
 function toggleBookmark(event) {
-    event.stopPropagation(); 
+    event.stopPropagation();
     const bookmarkContainer = document.querySelector('#bookmark-container');
-    
+
     // Toggle display between 'block' and 'none'
     if (bookmarkContainer.style.display === 'none' || bookmarkContainer.style.display === '') {
         bookmarkContainer.style.display = 'block';
@@ -18,7 +18,7 @@ function toggleBookmark(event) {
 }
 
 // Add the toggle function to your button or trigger element
-const bookmarkButton = document.querySelector('#bookmark-icon-container'); 
+const bookmarkButton = document.querySelector('#bookmark-icon-container');
 bookmarkButton.addEventListener('click', toggleBookmark);
 
 // Add a document-wide click listener to hide #bookmark-container when clicking outside it
@@ -39,9 +39,9 @@ function saveBookmarks() {
 }
 
 // Function to save "Read Later" button states to localStorage
-function saveButtonStates() {
+/* function saveButtonStates() {
     localStorage.setItem('readLaterStates', JSON.stringify(buttonStates));
-}
+} */
 
 // Function to handle appending a bookmark to the list
 function appendBookmark(bookmarkItem) {
@@ -63,12 +63,10 @@ function appendBookmark(bookmarkItem) {
     // Add event listener to the bookmarkDiv itself
     bookmarkDiv.addEventListener('click', (e) => {
         e.preventDefault();
-        // console.log(bookmarkDiv);
-        console.log(bookmarkItem.url);
+        // console.log(bookmarkItem.url);
 
         // Redirect to the stored URL in the bookmarkItem object
         if (bookmarkItem.url) {
-            // Use fetch() to check the URL response
             fetch(bookmarkItem.url)
                 .then(response => {
                     if (response.status === 200) {
@@ -101,7 +99,6 @@ function appendBookmark(bookmarkItem) {
 
 // Function to delete a bookmark
 function deleteBookmark(bookmarkDiv, moduleId) {
-    // console.log("clicked delete button");
 
     // Remove the entire bookmarkDiv
     bookmarkDiv.remove();
@@ -112,10 +109,10 @@ function deleteBookmark(bookmarkDiv, moduleId) {
     // Reset the button text for the removed item
     const button = document.querySelector(`.rlbtn[module-id="${moduleId}"]`);
     if (button) {
-        button.innerText = "Read Later";
+        button.textContent = "Read Later";
         const moduleId = button.getAttribute('module-id');
-        buttonStates[moduleId] = "Read Later";
-        saveButtonStates(); // Save updated states to localStorage
+        // buttonStates[moduleId] = "Read Later";
+        // saveButtonStates();
     }
 
     // Update the bookmark item count and display
@@ -129,24 +126,22 @@ function deleteBookmark(bookmarkDiv, moduleId) {
 // Function to handle the "Read Later" button click
 const readLater = document.querySelectorAll('.rlbtn');
 readLater.forEach(button => button.addEventListener('click', () => {
-    const contentSection = button.closest('.content');
+    const currentContent = button.closest('.content');
 
-    // console.log("clicked readmore");
-    button.innerText = "Bookmarked";
-    const moduleId = contentSection.getAttribute('module-id');
-    buttonStates[moduleId] = "Bookmarked";
-    saveButtonStates(); // Save updated states to localStorage
+    button.textContent = "Bookmarked";
+    const moduleId = currentContent.getAttribute('module-id');
+    // buttonStates[moduleId] = "Bookmarked";
+    // saveButtonStates(); 
 
-    const contentTitle = contentSection.querySelector('h2 strong').innerText;
-    const contentImage = contentSection.querySelector('img').src;
+    const contentTitle = currentContent.querySelector('h2 strong').innerText;
+    const contentImage = currentContent.querySelector('img').src;
 
-    const contentUrl = contentSection.querySelector('.lmbtn')
+    const contentUrl = currentContent.querySelector('.lmbtn')
     const onclickLink = contentUrl.getAttribute('onclick');
 
     // Use a regex to extract the URL part from the onclick attribute
     const moduleUrl = onclickLink.match(/'([^']+)'/)[1]; // This will capture the URL inside the single quotes
-    console.log(moduleUrl);
-
+    // console.log(moduleUrl);
 
     const bookmarkItem = {
         image: contentImage,
@@ -178,14 +173,14 @@ readLater.forEach(button => button.addEventListener('click', () => {
 // Function to display the bookmark items count
 function bookmarkItemCount(bookmarkItems) {
     const bookmarkCount = document.querySelector('#total-bookmark');
-    const count = bookmarkItems.length; 
-    
+    const count = bookmarkItems.length;
+
     if (count === 0) {
-        bookmarkCount.innerText = ' '; 
+        bookmarkCount.innerText = ' ';
     } else if (count < 10) {
-        bookmarkCount.innerText = `0${count}`;  
+        bookmarkCount.innerText = `0${count}`;
     } else {
-        bookmarkCount.innerText = count; 
+        bookmarkCount.innerText = count;
     }
 }
 
@@ -210,7 +205,6 @@ deleteAllButton.addEventListener('click', () => {
     const confirmDelete = confirm("Are you sure you want to delete all bookmarks?");
 
     if (confirmDelete) {
-        console.log("delete all clicked");
 
         // Clear the bookmarkItems array
         bookmarkItems = [];
@@ -224,7 +218,7 @@ deleteAllButton.addEventListener('click', () => {
         readLaterButtons.forEach(button => {
             const moduleId = button.getAttribute('module-id');
             button.innerText = "Read Later";
-            buttonStates[moduleId] = "Read Later"; // Update button state
+            // buttonStates[moduleId] = "Read Later"; 
         });
 
         // Update bookmark display and count
@@ -233,11 +227,9 @@ deleteAllButton.addEventListener('click', () => {
 
         // Clear localStorage
         saveBookmarks();
-        saveButtonStates();
+        // saveButtonStates();
     }
-    // No "else" block needed, nothing happens if the user clicks "Cancel"
 });
-
 
 
 
@@ -251,9 +243,20 @@ function loadBookmarks() {
     const readLaterButtons = document.querySelectorAll('.rlbtn');
     readLaterButtons.forEach(button => {
         const moduleId = button.getAttribute('module-id');
-        if (buttonStates[moduleId]) {
-            button.innerText = buttonStates[moduleId];
+        console.log(bookmarkItems);
+        console.log(moduleId);
+        const itemExists = bookmarkItems.some(item => item.id === moduleId);
+        console.log(itemExists);
+        if (itemExists) {
+            button.textContent = "Bookmarked";
+            console.log("Bookmarked");
+        } else {
+            button.textContent = "Read Later";
+            console.log("Read Later");
         }
+        /* if (buttonStates[moduleId]) {
+            // button.innerText = buttonStates[moduleId];
+        } */
     });
 }
 loadBookmarks();
