@@ -51,7 +51,6 @@ function authStatusCheck() {
   fetch('/auth-status')
     .then(res => res.text())
     .then(data => {
-      console.log(data);
       if (data === 'Logged in') {
         accountIcon.classList.add('active');
         loginButton.classList.add('hide');
@@ -60,7 +59,6 @@ function authStatusCheck() {
         fetch('/user-data')
           .then(res => res.json())
           .then(data => {
-            console.log(data);
             profileName.textContent = data.name;
             accountIconImg.src = data.picture;
             profileImg.src = `https://ui-avatars.com/api/?name=${data.name}`;

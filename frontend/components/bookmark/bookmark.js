@@ -228,7 +228,6 @@ function loadBookmarks() {
     readLaterButtons.forEach(rlButton => {
         const moduleId = rlButton.getAttribute('module-id');
         const itemExists = bookmarkItems.some(item => item.id === moduleId);
-        console.log(itemExists);
         if (itemExists) {
             rlButton.textContent = "Bookmarked";
         } else {

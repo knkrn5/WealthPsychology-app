@@ -42,7 +42,6 @@ fetch('../../auth/auth.html')
     
 
     const authContent = parsedHtml.getElementById('auth-main-content');
-    console.log(authContent);
 
     if (authContent) {
       document.getElementById('auth-content').innerHTML = authContent.innerHTML;
