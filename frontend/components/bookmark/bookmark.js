@@ -1,10 +1,8 @@
 
 // Array to store cart Contents
 let bookmarkItems = JSON.parse(localStorage.getItem('bookmarks')) || [];
-// let buttonStates = JSON.parse(localStorage.getItem('readLaterStates')) || {};
 
-// Function to toggle bookmark cart visibility
-// Toggle the visibility of #bookmark-container
+// fn to Toggle the visibility of #bookmark-container
 function toggleBookmark(event) {
     event.stopPropagation();
     const bookmarkContainer = document.querySelector('#bookmark-container');
@@ -38,10 +36,6 @@ function saveBookmarks() {
     localStorage.setItem('bookmarks', JSON.stringify(bookmarkItems));
 }
 
-// Function to save "Read Later" button states to localStorage
-/* function saveButtonStates() {
-    localStorage.setItem('readLaterStates', JSON.stringify(buttonStates));
-} */
 
 // Function to handle appending a bookmark to the list
 function appendBookmark(bookmarkItem) {
@@ -110,9 +104,6 @@ function deleteBookmark(bookmarkDiv, moduleId) {
     const button = document.querySelector(`.rlbtn[module-id="${moduleId}"]`);
     if (button) {
         button.textContent = "Read Later";
-        const moduleId = button.getAttribute('module-id');
-        // buttonStates[moduleId] = "Read Later";
-        // saveButtonStates();
     }
 
     // Update the bookmark item count and display
@@ -130,8 +121,6 @@ readLater.forEach(button => button.addEventListener('click', () => {
 
     button.textContent = "Bookmarked";
     const moduleId = currentContent.getAttribute('module-id');
-    // buttonStates[moduleId] = "Bookmarked";
-    // saveButtonStates(); 
 
     const contentTitle = currentContent.querySelector('h2 strong').innerText;
     const contentImage = currentContent.querySelector('img').src;
@@ -140,8 +129,7 @@ readLater.forEach(button => button.addEventListener('click', () => {
     const onclickLink = contentUrl.getAttribute('onclick');
 
     // Use a regex to extract the URL part from the onclick attribute
-    const moduleUrl = onclickLink.match(/'([^']+)'/)[1]; // This will capture the URL inside the single quotes
-    // console.log(moduleUrl);
+    const moduleUrl = onclickLink.match(/'([^']+)'/)[1];
 
     const bookmarkItem = {
         image: contentImage,
@@ -214,12 +202,9 @@ deleteAllButton.addEventListener('click', () => {
         bookmark.innerHTML = ''; // This will remove all child elements (bookmark divs)
 
         // Reset all "Bookmarked" buttons back to "Read Later"
-        const readLaterButtons = document.querySelectorAll('.rlbtn');
-        readLaterButtons.forEach(button => {
-            const moduleId = button.getAttribute('module-id');
-            button.innerText = "Read Later";
-            // buttonStates[moduleId] = "Read Later"; 
-        });
+        if (bookmarkItems.length === 0) {
+            document.querySelectorAll('.rlbtn').forEach(button => button.textContent = "Read Later");
+        }
 
         // Update bookmark display and count
         updateBookmarkDisplay(bookmarkItems);
@@ -227,7 +212,6 @@ deleteAllButton.addEventListener('click', () => {
 
         // Clear localStorage
         saveBookmarks();
-        // saveButtonStates();
     }
 });
 
@@ -241,22 +225,15 @@ function loadBookmarks() {
 
     // Restore "Read Later" button states
     const readLaterButtons = document.querySelectorAll('.rlbtn');
-    readLaterButtons.forEach(button => {
-        const moduleId = button.getAttribute('module-id');
-        console.log(bookmarkItems);
-        console.log(moduleId);
+    readLaterButtons.forEach(rlButton => {
+        const moduleId = rlButton.getAttribute('module-id');
         const itemExists = bookmarkItems.some(item => item.id === moduleId);
         console.log(itemExists);
         if (itemExists) {
-            button.textContent = "Bookmarked";
-            console.log("Bookmarked");
+            rlButton.textContent = "Bookmarked";
         } else {
-            button.textContent = "Read Later";
-            console.log("Read Later");
+            rlButton.textContent = "Read Later";
         }
-        /* if (buttonStates[moduleId]) {
-            // button.innerText = buttonStates[moduleId];
-        } */
     });
 }
 loadBookmarks();
