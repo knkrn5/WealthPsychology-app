@@ -230,8 +230,6 @@ function loadBookmarks() {
         const itemExists = bookmarkItems.some(item => item.id === moduleId);
         if (itemExists) {
             rlButton.textContent = "Bookmarked";
-        } else {
-            rlButton.textContent = "Read Later";
         }
     });
 }
