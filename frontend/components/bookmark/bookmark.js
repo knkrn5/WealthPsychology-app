@@ -57,7 +57,8 @@ function appendBookmark(bookmarkItem) {
     // Add event listener to the bookmarkDiv itself
     bookmarkDiv.addEventListener('click', (e) => {
         e.preventDefault();
-        // console.log(bookmarkItem.url);
+
+        if (!bookmarkItem.url) return;
 
         // Redirect to the stored URL in the bookmarkItem object
         if (bookmarkItem.url) {
@@ -129,7 +130,8 @@ readLater.forEach(button => button.addEventListener('click', () => {
     const onclickLink = contentUrl.getAttribute('onclick');
 
     // Use a regex to extract the URL part from the onclick attribute
-    const moduleUrl = onclickLink.match(/'([^']+)'/)[1];
+    const moduleUrl = onclickLink?.match(/'([^']+)'/)?.[1] || '';
+
 
     const bookmarkItem = {
         image: contentImage,
@@ -164,7 +166,7 @@ function bookmarkItemCount(bookmarkItems) {
     const count = bookmarkItems.length;
 
     if (count === 0) {
-        bookmarkCount.innerText = ' ';
+        bookmarkCount.innerText = "0";
     } else if (count < 10) {
         bookmarkCount.innerText = `0${count}`;
     } else {
@@ -202,9 +204,7 @@ deleteAllButton.addEventListener('click', () => {
         bookmark.innerHTML = ''; // This will remove all child elements (bookmark divs)
 
         // Reset all "Bookmarked" buttons back to "Read Later"
-        if (bookmarkItems.length === 0) {
-            document.querySelectorAll('.rlbtn').forEach(button => button.textContent = "Read Later");
-        }
+        document.querySelectorAll('.rlbtn').forEach(button => button.textContent = "Read Later");
 
         // Update bookmark display and count
         updateBookmarkDisplay(bookmarkItems);
