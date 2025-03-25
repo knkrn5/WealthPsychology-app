@@ -77,10 +77,16 @@ app.get('/logout', (req, res) => {
   });
 });
 
-// Auth status endpoint - separate from the login redirect
-app.get('/auth-status', (req, res) => {
+// Auth status endpoint - as the string
+/* app.get('/auth-status', (req, res) => {
   res.send(req.oidc.isAuthenticated() ? 'Logged in' : 'Logged out');
+}); */
+
+// Auth status endpoint - as JSON- boolean
+app.get('/auth-status', (req, res) => {
+  res.json({ isAuthenticated: req.oidc.isAuthenticated() });
 });
+
 
 
 // Protected profile route

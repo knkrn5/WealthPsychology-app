@@ -49,9 +49,10 @@ accountIcon.addEventListener('click', () => {
 
 function authStatusCheck() {
   fetch('/auth-status')
-    .then(res => res.text())
+    .then(res => res.json())
     .then(data => {
-      if (data === 'Logged in') {
+      // console.log(data);
+      if (data.isAuthenticated === true) {
         accountIcon.classList.add('active');
         loginButton.classList.add('hide');
         
@@ -60,8 +61,8 @@ function authStatusCheck() {
           .then(res => res.json())
           .then(data => {
             profileName.textContent = data.name;
-            accountIconImg.src = data.picture;
-            profileImg.src = `https://ui-avatars.com/api/?name=${data.name}`;
+            accountIconImg.src = `${data.picture}`;
+            profileImg.src =  `https://ui-avatars.com/api/?name=${data.name}`;
             profileEmail.textContent = data.email;
           })
           .catch(err => {
