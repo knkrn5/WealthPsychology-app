@@ -58,15 +58,11 @@ const config = {
 // auth router attaches /login, /logout, and /callback routes to the baseURL
 app.use(auth(config));
 
-/* const array = new Uint8Array(16);
-globalThis.crypto.getRandomValues(array);
-const uniqueState = Array.from(array, byte => byte.toString(16).padStart(2, '0')).join(''); */
 
 // Custom login route
 app.get('/login', (req, res) => {
   res.oidc.login({
     returnTo: '/'
-    // state: uniqueState
   });
 });
 

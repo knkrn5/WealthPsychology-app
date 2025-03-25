@@ -5,6 +5,7 @@ const responseArea = document.getElementById('responseArea');
 const suggestedQuestionBox = document.querySelector('.suggested-question-box');
 const scrapResponseArea = document.getElementById('scrapResponseArea');
 
+
 // Consolidated DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', async () => {
     scrapeBtn.addEventListener('click', async () => {
@@ -97,39 +98,46 @@ function autoScroll() {
     }
 }
 
-// Replace the existing askBtn event listener
 askBtn.addEventListener('click', async () => {
-    const question = userInput.value.trim();
-    if (!question) {
-        console.log("No question provided");
-        return;
-    }
-
-    // Blur the input field to hide the keyboard
-    if (window.innerWidth <= 430) {
-        userInput.blur();
-    }
-
-    // Disable and clear user input and ask button disable
-    userInput.value = '';
-    userInput.disabled = true;
-    askBtn.disabled = true;
-
-    // Remove suggested questions
-    if (suggestedQuestionBox) suggestedQuestionBox.remove();
-
-    // Add user message to response area
-    const questionElement = createMessageElement('user', question);
-    responseArea.appendChild(questionElement);
-    responseArea.scrollTop = responseArea.scrollHeight;
-
-    // Create AI response element for streaming
-    const responseElement = createMessageElement('ai', 'Generating...');
-    responseArea.appendChild(responseElement);
-    responseArea.scrollTop = responseArea.scrollHeight;
-    const contentDiv = responseElement.querySelector('.message-content');
-
     try {
+        const authResponse = await fetch('/auth-status');
+        const authData = await authResponse.json();
+
+        if (authData.isAuthenticated !== true) {
+            alert('Please log in to ask questions');
+            return; // Exit the function immediately if not authenticated
+        }
+
+        const question = userInput.value.trim();
+        if (!question) {
+            console.log("No question provided");
+            return;
+        }
+
+        // Blur the input field to hide the keyboard
+        if (window.innerWidth <= 430) {
+            userInput.blur();
+        }
+
+        // Disable and clear user input and ask button
+        userInput.value = '';
+        userInput.disabled = true;
+        askBtn.disabled = true;
+
+        // Remove suggested questions
+        if (suggestedQuestionBox) suggestedQuestionBox.remove();
+
+        // Add user message to response area
+        const questionElement = createMessageElement('user', question);
+        responseArea.appendChild(questionElement);
+        responseArea.scrollTop = responseArea.scrollHeight;
+
+        // Create AI response element for streaming
+        const responseElement = createMessageElement('ai', 'Generating...');
+        responseArea.appendChild(responseElement);
+        responseArea.scrollTop = responseArea.scrollHeight;
+        const contentDiv = responseElement.querySelector('.message-content');
+
         const response = await fetch('/wp-url-cb/wp-ask', {
             method: 'POST',
             headers: {
@@ -143,7 +151,7 @@ askBtn.addEventListener('click', async () => {
             return;
         }
 
-        // Stream response using ReadableStream
+        // Stream response
         const reader = response.body.getReader();
         const decoder = new TextDecoder();
         let fullResponse = '';
@@ -152,9 +160,9 @@ askBtn.addEventListener('click', async () => {
             const { value, done } = await reader.read();
             if (done) break;
 
-            // Decode the chunk
             const chunk = decoder.decode(value, { stream: true });
             const lines = chunk.split('\n');
+
             lines.forEach(line => {
                 if (line.startsWith('data: ')) {
                     if (line.includes('[DONE]')) return;
@@ -173,18 +181,15 @@ askBtn.addEventListener('click', async () => {
             });
         }
 
-        // Handle the final [DONE] message if needed
         if (fullResponse.includes('[DONE]')) {
             fullResponse = fullResponse.replace('[DONE]', '').trim();
             contentDiv.innerHTML = marked.parse(fullResponse);
         }
 
     } catch (error) {
-        console.error('Ask error:', error);
-        const errorElement = createMessageElement('ai', 'Error processing request');
-        responseArea.appendChild(errorElement);
+        console.error('Authentication or request error:', error);
+        alert('An error occurred. Please try again.');
     } finally {
-        // Re-enable user input and ask button
         userInput.disabled = false;
         askBtn.disabled = userInput.value.trim() === "";
         userInput.focus();
@@ -193,3 +198,4 @@ askBtn.addEventListener('click', async () => {
         }
     }
 });
+
