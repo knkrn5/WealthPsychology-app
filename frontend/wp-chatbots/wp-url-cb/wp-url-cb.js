@@ -147,7 +147,7 @@ askBtn.addEventListener('click', async () => {
         });
 
         if (!response.body) {
-            contentDiv.innerHTML = 'Error: No response stream.';
+            contentDiv.innerHTML = 'Error: No response.';
             return;
         }
 

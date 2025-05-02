@@ -111,7 +111,6 @@ const scrapeAndSaveData = async (dbPipeline, urls, maxRetries = 5) => {
 
 // Route to scrape text
 router.get('/scraped-data', async (req, res) => {
-  console.log('Scraping website...');
 
   const dbPipeline = await initDb();
   websiteTextData = await scrapeAndSaveData(dbPipeline, urls);
@@ -134,7 +133,6 @@ router.get('/scraped-data', async (req, res) => {
 // Route for streaming AI response
 router.post('/wp-ask', async (req, res) => {
   const { question } = req.body;
-  console.log('Received question:', question);
 
   if (!question) {
     res.status(400).json({ error: "No question provided" });
@@ -144,11 +142,9 @@ router.post('/wp-ask', async (req, res) => {
   const dbPipeline = await initDb();
 
   if (!websiteTextData) {
-    console.log('websiteTextData is empty, retrieving from database...');
     websiteTextData = await getFromDb(dbPipeline);
 
     if (!websiteTextData) {
-      console.log('No data found in the database. Scraping website...');
       websiteTextData = await scrapeAndSaveData(dbPipeline, urls);
 
       if (!websiteTextData) {
@@ -167,8 +163,8 @@ router.post('/wp-ask', async (req, res) => {
     const stream = await client.chat.completions.create({
       model: "nvidia/llama-3.1-nemotron-70b-instruct",
       messages: [
-        { role: "system", content: "You are a helpful assistant. Use the provided website data to answer questions. Do not answer any questions that are not based on the data." },
-        { role: "assistant", content: "I will only answer based on this website data only." },
+        { role: "system", content: "Use the provided website data to answer questions. Do not answer any questions that are not based on the data." },
+        { role: "assistant", content: "You are a helpful  assistant." },
         { role: "system", content: `URL Data:\n${shortenedText}` },
         { role: "user", content: question },
       ],
