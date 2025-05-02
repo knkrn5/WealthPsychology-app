@@ -61,7 +61,7 @@ router.get('/post/:slug', async (req, res) => {
     // Safely get the image URL with a fallback to a default image
     const imageUrl = post.fields && post.fields.featuredImage && post.fields.featuredImage.fields && post.fields.featuredImage.fields.file
       ? post.fields.featuredImage.fields.file.url
-      : 'https://wealthpsychology.in/global/imgs/logo.webp';
+      : 'https://wealthpsychology.karan.email/global/imgs/logo.webp';
 
     // Determine the protocol and construct the full URL for the blog post
     const protocol = req.headers['x-forwarded-proto'] || req.protocol;

@@ -17,14 +17,14 @@ const client = new OpenAI({
 });
 
 const urls = [
-  "https://wealthpsychology.in/index.html",
-  "https://wealthpsychology.in/blog/",
-  "https://wealthpsychology.in/financial-calculators/",
-  "https://wealthpsychology.in/finance-quizzes/",
-  "https://wealthpsychology.in/contact-us/",
-  "https://wealthpsychology.in/about-us/",
-  "https://wealthpsychology.in/our-team/",
-  "https://wealthpsychology.in/our-plans/",
+  "https://wealthpsychology.karan.email/index.html",
+  "https://wealthpsychology.karan.email/blog/",
+  "https://wealthpsychology.karan.email/financial-calculators/",
+  "https://wealthpsychology.karan.email/finance-quizzes/",
+  "https://wealthpsychology.karan.email/contact-us/",
+  "https://wealthpsychology.karan.email/about-us/",
+  "https://wealthpsychology.karan.email/our-team/",
+  "https://wealthpsychology.karan.email/our-plans/",
 ];
 
 let websiteTextData = "";
