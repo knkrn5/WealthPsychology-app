@@ -1,18 +1,20 @@
-
 services:
   server:
     build:
-      context: .
+      context: . # This uses the Dockerfile in the current directory (if context is not specified, it defaults to the current directory)
     volumes:
-      - .:/usr/src/app 
-    environment:
-      NODE_ENV: production
-      CONTENTFUL_SPACE_ID: ${CONTENTFUL_SPACE_ID}
-      CONTENTFUL_ACCESS_TOKEN: ${CONTENTFUL_ACCESS_TOKEN}
-      WS_DB_HOST: ${WS_DB_HOST}
-      WS_DB_PORT: ${WS_DB_PORT}
-      WS_DB_USER: ${WS_DB_USER}
-      WS_DB_PASSWORD: ${WS_DB_PASSWORD}
-      WS_DB_DATABASE: ${WS_DB_DATABASE}
+      - .:/usr/src/app
+    # environment:
+    #   NODE_ENV: production
+    #   CONTENTFUL_SPACE_ID: ${CONTENTFUL_SPACE_ID}
+    #   CONTENTFUL_ACCESS_TOKEN: ${CONTENTFUL_ACCESS_TOKEN}
+    #   WS_DB_HOST: ${WS_DB_HOST}
+    #   WS_DB_PORT: ${WS_DB_PORT}
+    #   WS_DB_USER: ${WS_DB_USER}
+    #   WS_DB_PASSWORD: ${WS_DB_PASSWORD}
+    #   WS_DB_DATABASE: ${WS_DB_DATABASE}
+
+    env_file:
+      - .env
     ports:
       - 55555:55555
