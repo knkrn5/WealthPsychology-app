@@ -83,8 +83,6 @@ app.get('/auth-status', (req, res) => {
   res.json({ isAuthenticated: req.oidc.isAuthenticated() });
 });
 
-
-
 // Protected profile route
 app.get('/profile', requiresAuth(), (req, res) => {
   res.send(JSON.stringify(req.oidc.user));
