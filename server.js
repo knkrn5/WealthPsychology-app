@@ -22,6 +22,8 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 55555;
 
+const isProduction = process.env.NODE_ENV === 'PRODUCTION';
+
 // Enable CORS for all routes
 app.use(cors());
 
@@ -40,7 +42,7 @@ const config = {
   authRequired: false,
   auth0Logout: true,
   secret: process.env.AUTH0_SECRET,
-  baseURL: process.env.BASE_URL || 'http://localhost:55555',
+  baseURL: isProduction ? process.env.BASE_URL : 'http://localhost:55555',
   clientID: process.env.AUTH0_CLIENT_ID,
   issuerBaseURL: 'https://dev-ze43n30i2zjn5fuz.us.auth0.com',
 
