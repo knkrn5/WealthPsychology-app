@@ -163,9 +163,8 @@ router.post('/wp-ask', async (req, res) => {
     const stream = await client.chat.completions.create({
       model: "nvidia/llama-3.1-nemotron-70b-instruct",
       messages: [
-        { role: "system", content: "Use the provided website data to answer questions. Do not answer any questions that are not based on the data." },
+        { role: "system", content: `Use the provided website data to answer questions. Do not answer any questions that are not based on the data. \n${shortenedText}` },
         { role: "assistant", content: "You are a helpful  assistant." },
-        { role: "system", content: `URL Data:\n${shortenedText}` },
         { role: "user", content: question },
       ],
       temperature: 0.5,
@@ -174,8 +173,22 @@ router.post('/wp-ask', async (req, res) => {
       stream: true,
     });
 
+    let fullResponse = '';
+
     for await (const chunk of stream) {
       const content = chunk.choices[0]?.delta?.content || '';
+
+      if(res.destroyed) {
+        console.log("Client disconnected, stopping the response stream.");
+        break;
+      }
+
+      fullResponse += content;
+
+      console.log(fullResponse)
+      console.log("==================================================================")
+
+
       if (content) {
         res.write(`data: ${JSON.stringify({ content })}\n\n`);
       }

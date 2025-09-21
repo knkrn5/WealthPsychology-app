@@ -5,6 +5,8 @@ const responseArea = document.getElementById('responseArea');
 const suggestedQuestionBox = document.querySelector('.suggested-question-box');
 const scrapResponseArea = document.getElementById('scrapResponseArea');
 
+let isFetching = false;
+
 
 // Consolidated DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', async () => {
@@ -40,7 +42,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Enable/Disable the ask button based on user input
     function updateAskButtonState() {
-        askBtn.disabled = userInput.value.trim() === "";
+        askBtn.disabled = userInput.value.trim() === "" && !isFetching;
     }
     userInput.addEventListener('input', updateAskButtonState);
     updateAskButtonState(); // Initial state
@@ -98,15 +100,25 @@ function autoScroll() {
     }
 }
 
+
+
 askBtn.addEventListener('click', async () => {
+
+    const controller = new AbortController();
+
     try {
         const authResponse = await fetch('/auth-status');
         const authData = await authResponse.json();
 
-        if (authData.isAuthenticated !== true) {
-            alert('Please log in to ask questions');
-            return; // Exit the function immediately if not authenticated
-        }
+        // if (authData.isAuthenticated !== true) {
+        //     alert('Please log in to ask questions');
+        //     return; 
+        // }
+
+        // setTimeout(() => {
+        //     console.log("Abort Called");
+        //     controller.abort(), 3000
+        // });
 
         const question = userInput.value.trim();
         if (!question) {
@@ -144,12 +156,29 @@ askBtn.addEventListener('click', async () => {
                 'content-type': 'application/json',
             },
             body: JSON.stringify({ question }),
+            signal: controller.signal,
         });
 
         if (!response.body) {
             contentDiv.innerHTML = 'Error: No response.';
             return;
         }
+
+        isFetching = true;
+        askBtn.disabled = false;
+
+        if (isFetching) {
+            askBtn.style.backgroundColor = "red";
+            askBtn.style.color = "white";
+            askBtn.textContent = "Stop";
+        }
+
+        askBtn.onclick = () => {
+            if (isFetching) {
+                controller.abort();
+            }
+        };
+
 
         // Stream response
         const reader = response.body.getReader();
@@ -188,7 +217,10 @@ askBtn.addEventListener('click', async () => {
 
     } catch (error) {
         console.error('Authentication or request error:', error);
-        alert('An error occurred. Please try again.');
+        if (error.name === 'AbortError') {
+            console.log('Fetch aborted by user');
+        }
+        isFetching = false;
     } finally {
         userInput.disabled = false;
         askBtn.disabled = userInput.value.trim() === "";
@@ -196,6 +228,13 @@ askBtn.addEventListener('click', async () => {
         if (window.innerWidth <= 430) {
             userInput.blur();
         }
+        isFetching = false;
+        if (!isFetching) {
+            askBtn.style.backgroundColor = "";
+            askBtn.style.color = "";
+            askBtn.textContent = "Ask";
+        }
+
     }
 });
 
