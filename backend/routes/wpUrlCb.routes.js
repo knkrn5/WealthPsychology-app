@@ -175,19 +175,33 @@ router.post('/wp-ask', async (req, res) => {
 
     let fullResponse = '';
 
+    // These Codes can also be used to detect client disconnection
+    /* let isCancelled = false;
+
+    res.on('close', () => {
+      console.log('Client disconnected, stopping the response stream.');
+      isCancelled = true;
+    });
+
+    req.socket.on('close', () => {
+      console.log('Socket closed');
+      isCancelled = true;
+    });
+ */
     for await (const chunk of stream) {
       const content = chunk.choices[0]?.delta?.content || '';
 
-      if(res.destroyed) {
+      if (res.destroyed) {
         console.log("Client disconnected, stopping the response stream.");
         break;
       }
 
+      // if (isCancelled) {
+      //   console.log("Request was cancelled by the client.");
+      //   break;
+      // }
+
       fullResponse += content;
-
-      console.log(fullResponse)
-      console.log("==================================================================")
-
 
       if (content) {
         res.write(`data: ${JSON.stringify({ content })}\n\n`);
