@@ -117,6 +117,6 @@ app.use('/wp-url-cb', wpUrlCbRoutes);
 
 
 // Start the server
-app.listen(PORT, '0.0.0.0', () => {
+app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

@@ -11,8 +11,15 @@ dotenv.config();
 
 const router = express.Router();
 
+const NVIDIA_BASE_URL = process.env.NVIDIA_BASE_URL || 'https://integrate.api.nvidia.com/v1';
+const NVIDIA_MODEL = process.env.NVIDIA_MODEL || 'meta/llama-3.1-70b-instruct';
+
+if (!process.env.NVIDIA_API) {
+  console.warn('NVIDIA_API key is not set. AI responses will fail until the key is configured.');
+}
+
 const client = new OpenAI({
-  baseURL: "https://integrate.api.nvidia.com/v1",
+  baseURL: NVIDIA_BASE_URL,
   apiKey: process.env.NVIDIA_API,
 });
 
@@ -161,7 +168,7 @@ router.post('/wp-ask', async (req, res) => {
   try {
     const shortenedText = websiteTextData.slice(0, 5000);
     const stream = await client.chat.completions.create({
-      model: "nvidia/llama-3.1-nemotron-70b-instruct",
+      model: NVIDIA_MODEL,
       messages: [
         { role: "system", content: `Use the provided website data to answer questions. Do not answer any questions that are not based on the data. \n${shortenedText}` },
         { role: "assistant", content: "You are a helpful  assistant." },
@@ -211,7 +218,18 @@ router.post('/wp-ask', async (req, res) => {
     res.end();
   } catch (error) {
     console.error('Error during AI API call:', error);
-    res.status(500).json({ error: 'An error occurred while processing your request' });
+    const status = error?.status ?? error?.response?.status;
+    const notFoundMessage = 'The configured NVIDIA model is unavailable. Verify the NVIDIA_MODEL env variable and account access.';
+    const genericMessage = 'An error occurred while processing your request';
+    const message = status === 404 ? notFoundMessage : genericMessage;
+
+    if (!res.headersSent) {
+      res.status(status === 404 ? 502 : 500);
+    }
+
+    res.write(`data: ${JSON.stringify({ error: message })}\n\n`);
+    res.write('data: [DONE]\n\n');
+    res.end();
   }
 });
 
