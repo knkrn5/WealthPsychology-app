@@ -1,4 +1,4 @@
-# [🔗WealthPsychology-app](https://wealthpsychology.karan.email/)
+# [🔗WealthPsychology-app](https://wealthpsychology.aigalaxy.tech/)
 
 Welcome to WealthPsychology-app! This project aims to provide a platform for exploring the psychological aspects of wealth and personal finance.
 
